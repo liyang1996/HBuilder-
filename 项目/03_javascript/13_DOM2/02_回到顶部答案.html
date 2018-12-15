@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_回到顶部</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				margin-bottom: 10px;
+			}
+			button{
+				width: 120px;
+				height: 60px;
+				background-color: black;
+				color: white;
+				font-size: 20px;
+				position: fixed;
+				bottom: 50px;
+				right: 0;
+				margin-top: -50px;
+				opacity: 1;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<button id="btn">回到顶部</button>
+		
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			var winHeight = document.documentElement.clientHeight;
+			var pageHeight = document.documentElement.scrollHeight;
+			
+			
+			window.onscroll = function(){
+				var scrollT = document.documentElement.scrollTop;
+				console.log((pageHeight-winHeight)/2 <= scrollT);
+				if ((pageHeight-winHeight)/2 <= scrollT) {
+					btn.style.opacity = 1;
+				} else{
+					btn.style.opacity = 0;
+				}
+			}
+			
+			
+			btn.onclick=function(){
+				var speed = 50;
+				var timer = setInterval(function () {
+					var top = document.documentElement.scrollTop;
+					if (top <= 0) {
+						clearInterval(timer);
+					} else {
+						document.documentElement.scrollTop = top - speed;   
+					}
+				},30);
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+

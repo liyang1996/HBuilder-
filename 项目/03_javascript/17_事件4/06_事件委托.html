@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		 <style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#list,li{
+					list-style: none;
+					font-size: 25px;			
+			}
+			#list{
+				width: 300px;
+				height: 300px;
+				border: 10px solid black;
+			}
+			li{
+				background-color: wheat;
+				margin-bottom: 10px;
+			}
+		 </style>
+	</head>
+	<body>
+		 <ul id="list">
+		 	<li>地三鲜</li>
+		 	<li>锅包肉</li>
+		 	<li>溜肉段</li>
+		 	<li>鱼香肉丝</li>
+		 	<li>葱烧肉条</li>
+		 </ul>
+		 <script type="text/javascript">
+		 	var oList = document.getElementById("list");
+		 	var oLi = oList.getElementsByTagName("li");
+		 	
+		 	oList.onclick = function(){
+		 		var ev = ev || window.event;
+		 		console.log(ev.target);
+		 		
+		 		if(ev.target.id != "list"){
+		 			//或ev.target != this ；
+		 			ev.target.style.color = "red"
+		 		}
+		 	}
+		 	
+//		 	for(var i=0;i<oLi.length;i++){
+//		 	oLi[i].onclick = function(){
+//		 		this.style.color = "red";
+//		 		}
+//		 	}
+		 </script>
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#min,#max{
+				width: 350px;
+				height: 350px;
+				border: 5px solid black;
+				position: relative;
+				float: left;
+				margin-right: 20px;
+			}
+			#box{
+				width: 50px;
+				height: 50px;
+				background-color: black;
+				position: absolute;
+				opacity: .5;
+				left: 0;
+				top: 0;
+				z-index: 100;
+			}
+			#IMG{
+				position: absolute;
+			}
+			
+			#all{
+				overflow: hidden;
+			}
+			
+			#max{
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div id="min">
+				<img src="img/min.jpg"/>
+				<div id="box"></div>
+			</div>
+			<div id="max">
+				<img id="IMG" src="img/max.jpg"/>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oMin = document.getElementById("min");
+			var oBox = document.getElementById("box");
+			var oMax = document.getElementById("max");
+			var oImg = document.getElementById("IMG");
+			
+			
+			oMin.onmouseout= function(){
+				oMax.style.display = "none";
+				oBox.style.display = "none";
+			}
+			oMin.onmouseover= function(){
+				oMax.style.display = "block";
+				oBox.style.display = "block";
+			}
+				
+				oMin.onmousemove =function(ev){
+				var ev = ev || window.event;
+				var maxL = oMin.clientWidth - oBox.offsetWidth;
+				var maxT = oMin.clientHeight - oBox.offsetHeight;
+				
+				var posL = ev.pageX - oMin.offsetLeft - oBox.offsetWidth/2;
+				var posT = ev.pageY - oMin.offsetTop - oBox.offsetHeight/2;
+				
+				var perL = posL/maxL;
+				var perT = posT/maxT;
+				
+				if(posL<0){
+					posL = 0; 
+				}
+				if(posT<0){
+					posT = 0;
+				}
+				if(posL>=maxL){
+					posL = maxL;
+				}
+				if(posT>=maxT){
+					posT = maxT;
+				}
+				
+				oBox.style.left = posL + "px";
+				oBox.style.top  = posT + "px";
+				
+				var maxImgL = oMax.clientWidth - oImg.offsetWidth;
+				var maxImgT = oMax.clientHeight - oImg.offsetHeight;
+				
+				oImg.style.left = maxImgL * perL + "px";
+				oImg.style.top  = maxImgT * perT + "px";
+			}
+			
+		</script>
+	</body>
+</html>

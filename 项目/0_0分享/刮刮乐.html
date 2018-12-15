@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 250px;
+				height: 100px;
+				background-color: red;
+				font-size: 40px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				color: white;
+			}	
+			#myCanvas{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">谢谢惠顾</div>
+		<canvas id="myCanvas" width="250px" height="100px"></canvas>
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas")
+			//绘图环境，只支持2D
+			var ctx = myCanvas.getContext("2d");
+			ctx.beginPath();
+			ctx.fillStyle = "gray";
+			//矩形的x，y坐标 宽高
+			ctx.fillRect(0,0,myCanvas.width,myCanvas.height);
+			//重合位置变透明
+			ctx.globalCompositeOperation = "destination-out";
+			myCanvas.onmouseover = function(ev){
+				var ev = ev || window.event;
+				 ctx.beginPath();
+				ctx.fillStyle="";
+				//圆中心的X,Y坐标，圆的半径，起始角，结束角
+				//如果需要arc来创建圆，起始角设置为0，结束角设置为Math.PI*2
+				ctx.arc(ev.pageX,ev.pageY,10,0,Math.PI*2);
+				ctx.fill();
+				
+				//鼠标移动
+				myCanvas.onmouseover = function(ev){
+					var ev= ev|| window.event;
+					ctx.beginPath();
+					ctx.arc(ev.pageX,ev.pageY,10,0,Math.PI*2);
+					ctx.fill();
+				}
+			}
+			
+			//鼠标抬起
+			myCanvas.onmouseup=function(){
+				myCanvas.onmousemove= null;
+			}
+			
+		</script>
+		
+		
+	</body>
+</html>

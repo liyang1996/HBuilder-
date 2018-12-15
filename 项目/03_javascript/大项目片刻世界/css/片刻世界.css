@@ -1,0 +1,228 @@
+*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				width: 100%;
+			}
+			.nav{
+				width: 100%;
+			}
+			.nav_all{
+				width: 1200px;
+				background-color: white;
+				height: 90px;
+				margin: 0 auto;
+				position: fixed;
+				left: 50%;
+				margin-left: -600px;
+				z-index: 5000;
+			}
+			.nav img:nth-of-type(1){
+				float: left;
+				margin-left: 10%;
+				margin-right: 20px;				
+			}
+			
+			.nav_logo1{
+				width: 38px;
+				height: 38px;
+				background-color: #57ad68;
+				border-radius: 50%;
+				float: right;
+				margin-top: 22px;
+				margin-right: 20px;
+				border:5px double white;
+				
+			}
+			.nav_logo1 img{
+				width: 20px;
+				height:20px;
+				margin:9px;
+				padding-left: 7px;
+			}
+			
+			.nav_list{
+				margin-left: 15%;
+			}
+			.nav_list a{
+				width: 84px;
+				height: 90px;
+				float: left;
+				line-height: 90px;
+				color: #333;
+				text-decoration: none;
+				font-weight: bold;
+				margin-left: 10px;
+			}
+			.nav_btn{
+				width: 126px;
+				height: 46px;
+				border:1px solid #57ad68;
+				text-align: center;
+				color: #57ad68;
+				line-height: 46px;
+				float: right;
+				margin-top: 21px;
+				margin-right: 10%;
+				border-radius: 50px 50px 50px 50px;
+			}
+			.all{
+				width: 1200px;
+				margin: 0 auto;
+			}
+			.aaa{
+				margin-top: 100px;
+			}
+			.head_top{
+				width: 960px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			.head_scale{
+				transform: scale(1.2);  
+                transition: all 1s ease 0s;
+			}
+			.abc{
+				width: 240px;
+				height: 240px;
+				overflow: hidden;
+				box-sizing: border-box;
+				float: left;
+			}
+			
+			/*articl阅读*/
+			.articl_wrap1{
+				min-width:960px;
+				margin: 0 auto;
+			}
+			.maxbox{
+				width: 960px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			.articl_wrap1_top{
+				padding-top: 70px;
+				padding-bottom: 50px;
+				width: 960px;
+				margin: 0 auto;
+			}
+			.articl_wrap1_top_black{
+				width: 21px;
+				height: 21px;
+				background-color: black;
+				float: left;
+			}
+			.articl_wrap1_top p{
+				float: left;
+			}
+			.articl_wrap1_box{
+				width: 600px;
+				height: 173px;
+				border: 1px solid #e8e8e8;
+				padding: 20px;
+				float: left;
+				margin-bottom: 10px;
+			}
+			.articl_wrap1_box a{
+				color: #333;
+				font-size: 24px;
+				padding: 10px;
+			}
+			.articl_wrap1_box p{
+				color: #333;
+				padding: 10px;
+				font-size: 13.3px;
+			}
+			.articl_wrap1_box_content{
+				width: 595px;
+				height: 68px;
+			}
+			.articl_wrap1_box span{
+				color: #333;
+				font-size: 13.3px;
+				padding: 10px;
+			}
+			.articl_wrap1_box_img1{
+				width: 300px;
+				height: 215px;
+				float: left;
+			}
+			/*TING*/
+			.articl_wrap2{
+				width: 960px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			.Ting_box img{
+				width: 298px;
+				height: 300px;
+			}
+			.Ting_box_bottom{
+				width: 270px;
+				height: 94px;
+				padding: 25px 13px;
+				border:1px solid #e8e8e8;
+				margin-top: -4px;
+			}
+			.Ting_box_bottom a{
+				font-size: 24px;
+				color: #333;
+				text-decoration: none;
+			}
+			.Ting_box_bottom p{
+				color: #333;
+				font-size: 13px;
+				margin-top: 20px;
+			}
+			.Ting_box{
+				float: left;
+			}
+			.articl_wrap3{
+				width: 960px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			.Hot_box{
+				width: 230px;
+				height: 235px;
+				border:1px solid #e8e8e8;
+				position: relative;
+				float: left;
+				margin-right: 5px;
+			}
+			.Hot_box_min{
+				width: 180px;
+				height: 143px;
+				position: absolute;
+				left: 25px;
+				top:45px ;
+			}
+			.Hot_box_min span:nth-of-type(1){
+				color: #333;
+				font-size: 16px;
+				margin-left: 20px;
+			}
+			.Hot_box_min span:nth-of-type(2){
+				color: #333;
+				font-size: 10px;
+				margin-left: 20px;
+			}
+			.head_top_box{
+				position: relative;
+				overflow: hidden;
+				float: left;
+			}
+			.htead_title{
+				position: absolute;
+				bottom: 0;
+				width: 240px;
+				height: 50px;
+				background-color: rgba(0,0,0,.5);
+				display: none;
+			}
+			.htead_title span{
+				color: white;
+				line-height: 50px;
+				margin-left:20px;
+			}

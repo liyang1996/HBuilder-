@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all{
+				width: 1000px;
+				height: 1000px;
+				border: 2px solid black;
+				margin: 100px auto;
+			}
+			
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: palevioletred;
+				
+				-webkit-animation: move 4s ease-in-out infinite 1s normal forwards;
+				-o-animation: move 4s ease-in-out infinite 1s normal forwards;
+				animation: move 4s ease-in-out infinite 1s normal forwards;
+			}
+			
+				@-webkit-keyframes move{
+					form{
+					-webkit-transform: translate(0,0);
+					-moz-transform: translate(0,0);
+					-ms-transform: translate(0,0);
+					-o-transform: translate(0,0);
+					transform: translate(0,0);
+					}
+					
+					25%{
+					-webkit-transform: translate(900px,0);
+					-moz-transform: translate(900px,0);
+					-ms-transform: translate(900px,0);
+					-o-transform: translate(900px,0);	
+					transform: translate(900px,0);
+					
+					}
+					
+					50%{
+					-webkit-transform: translate(900px,900px);
+					-moz-transform: translate(900px,900px);
+					-ms-transform: translate(900px,900px);
+					-o-transform: translate(900px,900px);
+					transform: translate(900px,900px);
+					 
+					}
+						
+					75%{
+						
+					-webkit-transform: translate(0,900px);
+					-moz-transform: translate(0,900px);
+					-ms-transform: translate(0,900px);
+					-o-transform: translate(0,900px);
+					transform: translate(0,900px);
+					opacity:0;
+					}
+					
+					to{
+					-webkit-transform: translate(0,0);
+					-moz-transform: translate(0,0);
+					-ms-transform: translate(0,0);
+					-o-transform: translate(0,0);
+					transform: translate(0,0);						
+					}
+					
+					
+					
+				}
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<div class="all">
+			<div class="div1"></div>
+		</div>
+		
+		
+	</body>
+</html>

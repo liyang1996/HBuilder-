@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/city.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div>
+			<fieldset>
+				<legend>下拉选择框实现省市区（县）三级联动</legend>
+				<form action="#">
+					<label for="addr-show">您选择的是：
+                <input type="text" value="" id="addr-show">
+            </label>
+					<br/>
+
+					<!--省份选择-->
+					<select id="prov" >
+						<option value="00">=请选择省份=</option>
+					</select>
+
+					<!--城市选择-->
+					<select id="city">
+						<option value="00" >=请选择城市=</option>
+					</select>
+
+					<!--县区选择-->
+					<select id="country">
+						<option value="00">=请选择县区=</option>
+					</select>
+					<button type="button" id="sureBtn">确定</button>
+				</form>
+			</fieldset>
+		</div>
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//省
+			for(var i in provice){
+				$provoption = $("<option>"+provice[i]["name"]+"</option>");
+				$("#prov").append($provoption);			
+			}
+				
+			//市
+			var oCity = provice[promptIndex];
+			for(var j in oCity){
+				$provoption = $("<option>"+provice[j]["name"]+"</option>");
+			}
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all{
+				width: 600px;
+				border: 1px solid black;
+			}
+			.kuang{
+				width: 150px;
+				height: 60px;
+				border: 1px solid black;
+				margin: 20px;
+				display: inline-block;
+				box-sizing: border-box;
+			}
+			.kuangimg{
+				margin-right: 10%;
+				width:40px ;
+				height: 40px;
+				margin-top: 10px;
+				margin-left:10px;
+			}
+			.chima div{
+				display: inline-block;
+				border: 1px solid black;
+				padding: 3px;
+				margin: 3px;
+			}
+			.goumai{
+				color: white;
+				background-color: darkred;
+				width: 150px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				display: inline-block;
+				margin-right:30px ;
+				margin-top:20px;
+			}
+			.car{
+				color: white;
+				background-color: darkred;
+				width: 150px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				display: inline-block;
+			}
+			.bycar{
+				width: 498PX;
+				height: 170PX;
+			}
+			.bycar_top{
+				width: 498PX;
+				height: 42PX;
+				background-color: #b81b22;
+			}
+			.bycar_top a{
+				text-decoration: none;
+				float: right;
+				margin-right:40px;
+				color: white;
+				margin-top: 10px;
+			}
+			.bycar_top p{
+				text-decoration: none;
+				float: left;
+				margin-left:40px;
+				color: white;
+				margin-top: 10px;
+			}
+			.bycar{
+				display: none;
+				border: 2px solid #b81b22 ;
+			}
+			.bycar span{
+				background-color:#b81b22;
+				width: 50px;
+				height: 20px;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+	<!--衣服选项-->	
+		<div class="all">
+			<!--<div class="kuang">
+				<img src="http://p3.vanclimg.com/product/6/3/7/6378336/mid/6378336-1j201801111409218163.jpg"/>
+				<span class="otext">S1浅花灰</span>
+			</div>-->
+		</div>
+		
+		<br />
+	<!--数量-->	
+		<div class="chima">
+			尺码：
+		</div>
+	
+	<!--已选-->
+	<div class="yixuan">
+		已选：
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</div>
+	 
+	<!--立即选择-->
+	<div class="zhifu">
+		<!--立即购买-->
+		<div class="goumai">立即购买</div>
+		<!--加入购物车-->
+		<div class="car">加入购物车</div>
+	</div>
+	
+	<!--添加购物车成功-->
+		<div class="bycar">
+			<div class="bycar_top">
+				<p>商品成功放入购物车</p>
+				<a href="">X</a>
+			</div>
+			<div class="bycar_bottom">
+				<img style="float: left;margin: 0 40px 0 20px;" src="img/购物车logo.jpg"/>
+				<p>共有  件商品</p>
+				<p>总计￥：<span class="getSum">0</span></p>
+			</div>
+			<span ><<去购物</span>
+			<span >继续购物>></span>
+		</div>
+	
+	<script src="js/buyshopping.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		//Json动态创建衣服分类
+		var shopArr = [];
+		var sum = 0;
+		for(var i in selectJson){
+			var $kuangDiv = $("<div class='kuang'> </div>");		
+			$(".all").append($kuangDiv);
+			var cloImg = $("<img class='kuangimg' src=''/>");
+			($kuangDiv).append(cloImg);
+			cloImg.attr('src',selectJson[i]["oImg"]);
+			var $oSpan = $("<span> </span>")
+			
+			$(".kuang").append($oSpan);
+			$oSpan.html(selectJson[i]["cloclor"]);
+		//创建尺码div
+			var $oSizeDiv = $("<div> </div>");
+			$oSizeDiv.html(selectJson[i]["oSize"]);
+			$(".chima").append($oSizeDiv);
+			$oSizeDiv.attr("index",i);
+		//已选
+		var $oDiv1 = $("<div class='div1'> </div>")
+			$(".yixuan").append($oDiv1);
+		//点击选择衣服
+		$(".kuang").click(function(){
+			$(".kuang").eq(i).css("border","2px solid darkred");
+			$(".div1").eq(i).html($(this).prop("outerHTML"));
+			console.log(this)
+			$(".getSum").html(sum);
+			sum ++;
+
+		});
+		
+		//点击选择尺码
+		$oSizeDiv.click(function(){
+			$oSizeDiv.eq(i).css("border","2px solid darkred");
+			$(".div2").html($(this).prop("outerHTML"));
+			})
+		}
+		
+		// $(".all").eq(i).attr("index",i);
+		//购买
+		$(".goumai").click(function(){
+			alert("购买成功");
+			window.location.reload();//刷新页面
+			
+		})
+		
+		$(".car").click(function(){
+			$(".bycar").show()
+		})
+	</script>
+	</body>
+</html>

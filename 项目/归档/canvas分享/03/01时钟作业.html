@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+
+
+<script>
+
+    var oCanvas = document.getElementById("canvas");
+
+    var ctx = oCanvas.getContext("2d");
+
+
+    function drawWatch() {
+        var centerX = 250;
+        var centerY = 250;
+        var r = 150;
+        ctx.clearRect(0,0,oCanvas.width,oCanvas.height);
+        ctx.beginPath();
+        //分钟刻度
+        for(var i = 0; i < 60; i++){
+            ctx.moveTo(centerX,centerY);
+            ctx.lineWidth = 1;
+            ctx.arc(centerX,centerY,r,i * Math.PI/180 * 6,(i+1) * Math.PI/180 * 6,false);
+
+        }
+        ctx.stroke();
+
+        ctx.beginPath();
+        //覆盖
+        ctx.arc(centerX,centerY,r - 5,0,Math.PI * 2,false)
+        ctx.fillStyle = "white";
+        ctx.fill();
+
+        //时钟刻度
+
+        ctx.beginPath();
+        for(var i = 0;i < 12;i++){
+
+            ctx.moveTo(centerX,centerY);
+            ctx.lineWidth = 3;
+            ctx.arc(centerX,centerY,r,i * Math.PI/180 * 30,(i + 1)* Math.PI/180 * 30,false);
+
+         }
+        ctx.stroke();
+
+        //覆盖
+        ctx.beginPath();
+        ctx.arc(centerX,centerY,r - 8,0,Math.PI * 2,false);
+        ctx.fillStyle = "white";
+        ctx.fill();
+
+        var nowDate = new Date();
+
+        var hour = nowDate.getHours();
+        var min  = nowDate.getMinutes();
+        var sec  = nowDate.getSeconds();
+
+        var secValue = (-90 + sec * 6) * Math.PI/180;
+
+        var minValue = (-90 + min * 6) * Math.PI/180;
+
+
+
+        var hourValue = (-90 + hour * 30 ) * Math.PI/180 + min / 12 * 6 * Math.PI/180;
+
+
+        //秒针
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        ctx.moveTo(centerX,centerY);
+        ctx.arc(centerX,centerY,r - 10,secValue,secValue,false);
+        ctx.stroke();
+
+        //分钟
+        ctx.beginPath();
+        ctx.lineWidth = 3;
+        ctx.moveTo(centerX,centerY);
+        ctx.arc(centerX,centerY,r - 15,minValue,minValue,false);
+        ctx.stroke();
+
+        //小时
+
+        ctx.beginPath();
+        ctx.lineWidth = 5;
+        ctx.moveTo(centerX,centerY);
+        ctx.arc(centerX,centerY,r - 60,hourValue,hourValue,false);
+        ctx.stroke();
+
+    }
+
+    drawWatch();
+
+    setInterval(drawWatch,1000);
+
+
+</script>
+
+</html>

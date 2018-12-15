@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all div{
+				width: 50px;
+				height: 50px;				
+				border-bottom: 1px solid black;
+				text-align: center;
+				line-height: 50px;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){      };
+		</script>
+		
+	</head>
+	<body>
+		<div class="all" id="all">
+			<div>1F</div>
+			<div>2F</div>
+			<div>3F</div>
+			<div>4F</div>
+			<div>5F</div>
+			<div>6F</div>
+			<div>7F</div>
+			<div>8F</div>
+			<div>9F</div>
+			<div>10F</div>
+		</div>
+		<script type="text/javascript">
+			/* 3. 如视频
+			 * var defaultArr = ["1F", "2F", "3F", "4F", "5F", "6F", "7F", "8F", "9F", "10F"];
+			   var currentArr = ["服饰", "美妆", "手机", "家电", "数码", "运动", "居家", "母婴", "食品", "图书"];
+			 */
+			var alls = document.getElementsByClassName("all");	
+			var oDiv=alls[0].getElementsByTagName("div");
+			var defaultArr = ["1F", "2F", "3F", "4F", "5F", "6F", "7F", "8F", "9F", "10F"];
+			var currentArr = ["服饰", "美妆", "手机", "家电", "数码", "运动", "居家", "母婴", "食品", "图书"];
+					for(var i =0; i<=currentArr.length-1; i++){
+					oDiv[i].index=i;
+					oDiv[i].onmouseover=function(){
+						this.innerHTML = currentArr[this.index];
+						this.style.backgroundColor="red";
+						}
+					oDiv[i].onmouseout=function(){
+						this.innerHTML = defaultArr[this.index];
+						this.style.backgroundColor="white";
+						}
+					}
+		</script>
+	</body>
+</html>

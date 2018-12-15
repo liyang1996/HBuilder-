@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_媒体查询</title>
+		<style type="text/css">
+			.div1{
+				width: 200px;
+				height: 200px;
+				background-color: rosybrown;
+			}
+			
+			/*建议对于媒体查询,相同标签进行操作时,建议选择器一致*/
+			@media only screen and (max-width:500px) {
+					/*屏幕screen
+					 *max-width屏幕最大宽500px, 屏幕宽小于500px才会走这里面 
+					 * */
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+				}			
+			
+			/*大于等于600,小于等于800;;600~800*/
+			@media only screen and (min-width: 600px) and (max-width: 800px) {
+				
+				.div1{
+					background-color: black;
+					width: 100px;
+					height: 100px;
+				}
+			}
+			
+			/*大于980*/
+			@media only screen and (min-width: 900px){
+				.div1{
+					width: 400px;
+					background-color: salmon;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div class="div1" ></div>
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//匀速左右运动
+			function startMove(obj,targetPosition,speed,time){
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function(){
+					if(Math.abs(targetPosition-obj.offsetLeft)<=Math.abs(speed)){
+						obj.style.left=targetPosition+"px";
+						clearInterval(obj.timer);
+					}else{
+						obj.style.left=obj.offsetLeft+speed+"px";
+					}
+				console.log("offset: "+ obj.offsetLeft);
+				},time);
+			}
+		</script>
+	</body>
+</html>

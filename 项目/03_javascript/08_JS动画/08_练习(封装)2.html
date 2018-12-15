@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#all{
+				width: 200px;
+				height: 200px;
+				margin-top: 20px;
+				background-color: lightblue;
+				position: relative;
+				left: -200px;
+				top: 0;
+			}				
+			#btn{
+				width: 20px;
+				background: rgb(255, 119, 157);
+				position: absolute;
+				left: 200px;
+				top: 75px;
+				color: #fff;
+				font-size: 16px;
+				cursor: pointer;
+				padding: 5px 1px 5px 0;
+				border-radius: 0 5px 5px 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div>你是不是傻</div>
+			<span id="btn">分享</span>
+		</div>
+		<script type="text/javascript">
+			var oAll=document.getElementById("all");
+			
+			oAll.onmouseover=function(){
+				startMove(oAll,0,7,20);
+			}
+			
+			oAll.onmouseout=function(){
+				startMove(oAll,-200,-7,20);
+			}
+			
+			function startMove(obj,targetPosition,speed,time){
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function(){
+					if(Math.abs(targetPosition-obj.offsetLeft)<=Math.abs(speed)){
+						obj.style.left=targetPosition+"px";
+					}else{
+						obj.style.left=obj.offsetLeft+speed+"px";
+					}
+				console.log("offset: "+ obj.offsetLeft);
+				},time);
+			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

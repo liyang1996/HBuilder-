@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 400px;
+				height: 400px;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+			}
+			.box img{
+				width: 100%;
+				height: 100%;
+				transform: scale(1.4);
+				transition: all 0.5s ease 0s;
+			}
+						
+			.box:hover img{
+				/*过滤器 灰度级 100%*/
+				filter: grayscale(100%);
+				transition: scale(1.2);
+			}			
+			
+			.box_content{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 50;
+				transition: all 0.2s ease 0s;
+			}
+			
+		/*	.box:before*/
+			/*是在classname为box的元素前添加内容*/
+				
+			/*	.box:after*/
+			/*是在classname为box的元素前添加内容*/
+				
+				.box:before,
+				.box:after,
+				.box_content:before,
+				.box_content:after{
+					
+					content: "";
+					width: 100%;
+					height: 25%;
+					background:rgba(0,0,0,.5);
+					z-index: 2;
+					position: absolute;
+					top:0;
+					left: 0;
+					transition: all 0.3s ease 0s;
+				}
+				
+				.box:before{
+					transform: translateX(100%);
+				}
+				.box:after{
+					top:25%;
+					transform: translateX(-100%);
+					transition-delay: 0.05s;
+				}		
+						
+			.box_content:before{
+				top: 50%;
+				transform: translateX(100%);
+				transition-delay: 0.1s;
+				
+			}
+			.box_content:after{
+				top: 75%;
+				transform: translateX(-100%);
+				transition-delay: 0.15s;
+			}
+			.box:hover:before, 
+			.box:hover:after,
+			.box_content:hover:before, 
+			.box_content:hover:after{
+				
+				transform: translateX(0);
+			}
+			
+			
+			
+		</style>
+		
+		
+		
+	</head>
+	<body>
+		
+		<div class="box">
+			<img src="../01_html&css/07_定位/img/i1.jpeg"/>
+			<div class="box_content">
+				
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

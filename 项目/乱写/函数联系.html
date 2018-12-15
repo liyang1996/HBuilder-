@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color:rosybrown;
+				position: absolute;
+				top:0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+<script type="text/javascript">
+	
+
+    var i = 100;
+    var all = document.getElementById("all");
+    function test() {                 
+    
+        var all = all.parentNode;  //取得id=objID对象的父节点        
+        var width = div.offsetWidth; //取得元素宽度        
+         
+        if (i < 1001) {//如果小于1000的话就把div宽度+1
+            i++;
+            all.style.width = i + "px";  
+        };                
+    };
+    //test("text");
+    text.onclick = function(){//点击执行
+        //不断执行div宽度+1
+        setInterval('all()',5);
+    } 
+    </script>
+	</body>
+</html>

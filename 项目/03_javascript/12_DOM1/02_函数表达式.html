@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			function fnName1(a,b){
+//				xxxxx;
+//			}
+			//fnName1();
+			//------函数声明--------
+			
+			//函数表达式
+			var fnN = function(){
+				xxx;
+			}
+			//函数表达式：使用function 声明了一个函数
+			//但是没有给函数命名，叫匿名函数，最后将匿名函数赋给一个变量
+			
+			//例1：报错fnName3 is not functon
+			//fnName3没有保存对函数的引用，调用必须在函数表达式之后
+//			fnName3();
+//			var fnName3 = function(){
+//				console.log("你好");
+//			}
+			
+			//例2：正确
+			//函数表达式后面加括号，当引擎解析到这里时就会立即执行函数；
+//			var fnName4 = function(){
+//				console.log("10点");
+//			}();
+			
+			//-----------------------------------------
+			//1.将函数赋值给一个变量
+			function say(value){
+				return"haha"+value+"haha";
+			}
+			var iFn = say;
+			console.log("iFn:"+iFn);
+			
+			//2.函数可以作为函数的参数
+			function execute(sommeFn,value){
+				var result= sommeFn(value);
+				//sommeFn(value)相当于say
+				console.log("execut调用："+ result)
+			}
+			execute(say,"你")
+			//直接将匿名函数作为参数传递给execute方法
+			//execute(function(){return"haha"+value+"haha";},"是")
+			//和上面效果一样，写法不同
+			
+			//***say函数或匿名函数 都被称为回调函数
+			//回调函数就是将这个函数作为参数，传入到另一个函数里
+			
+			//3.函数自身作为自己函数的参数
+			function logName(name,fn){
+				console.log("进入logName函数："+name);
+				console.log("判断有没有fn");
+				if(fn){
+					fn();
+				}
+				console.log("logName函数结束："+name)
+			}
+			
+			logName("老姨",function(){
+				logName("大哥");
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		
+		<script type="text/javascript">
+			var oCanvas = document.getElementById("canvas");
+			var ctx = oCanvas.getContext("2d");
+			//对象可见宽度随窗口可见大小改变
+			oCanvas.width = document.documentElement.clientWidth;		
+			oCanvas.height= document.documentElement.clientHeight;
+			
+			function getRandom(n,m){
+				return Math.floor(Math.random()*(m-n+1)+n);
+			}
+			
+			function Letter(){
+				this.color = "orange";
+				this.speed = getRandom(1,10);
+				this.fontsize = getRandom(40,80);
+				//接受一个指定值，返回字符串，65A 90Z
+				this.text = String.fromCharCode(getRandom(65,90));
+				//x 可选区间
+				this.x = getRandom(0,oCanvas.width-this.fontsize);	
+				this.y = this.fontsize;
+			}
+			
+			//prototype扩展了原来的函数对象 var a =new letter;
+			Letter.prototype.draw = function(){
+				ctx.beginPath();
+				ctx.font = this.fontsize + "px Arial";//画布的文本字体ctx.font= "40px Arial"
+				ctx.fillStyle = this.color;
+				ctx.fillText(this.text,this.x,this.y);//写入文本
+				//fillText("要实现的文字"，x,y)
+			}
+			
+			Letter.prototype.move=function(){
+				this.y+=this.speed;
+			}
+			
+			Letter.prototype.isClear=function(){
+				return this.y>oCanvas.height;
+			}
+			
+			var arr = [];
+			var count = 0;
+			
+			setInterval(function(){
+				ctx.clearRect(0,0,oCanvas.width,oCanvas.height);//清空给定矩形内的制定像素
+				if(count%20 ==0){
+					var newLetter = new Letter();
+					arr.push(newLetter);
+				}
+				for(var i=0;i<arr.length;i++){
+					arr[i].move();
+					if(arr[i].isClear()){
+						arr.splice(i,1);
+						i--;
+					}else{
+						arr[i].draw();
+					}
+					count++;
+				}
+			},20);
+			
+			//onkeydown事件会在用户按下一个键盘按键是发生
+			document.onkeydown=function(ev){
+				var ev=ev||window.event;
+				var str=String.fromCharCode(ev.keyCode);
+				
+				for(var i=0;i<arr.length;i++){
+					if(str==arr[i].text){
+						arr.splice(i,1);
+						i--;
+					}
+				}
+			}
+			
+		</script>
+	</body>
+</html>

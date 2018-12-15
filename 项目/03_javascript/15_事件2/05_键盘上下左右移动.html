@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02边框区域内拖拽</title>
+		<style type="text/css">
+			#div1{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				background-color: rosybrown;
+				position: absolute;
+				left: 50px;
+				top: 50px;
+			}
+			#wrape{
+				width: 300px;
+				height: 300px;
+				border: 4px solid aqua;
+				position: relative;
+				margin: 0 auto ;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrape">
+			<div id="div1"></div>
+		</div>
+		<script type="text/javascript">
+			var oall = document.getElementById("wrape");
+			var odiv1 = document.getElementById("div1");
+			var maxl = oall.clientWidth - odiv1.offsetWidth;
+			var maxT = oall.clientHeight - odiv1.offsetHeight;
+
+			document.onkeydown = function() {
+				var ev = ev || window.event;
+				switch(ev.keyCode) {
+					case 37: //左
+						uniformMove(odiv1, "left", -3, 0);
+						break;
+					case 38: //上
+						uniformMove(odiv1, "top", -3, 0);
+						break;	
+					case 39: //右
+						uniformMove(odiv1, "left", 3, 250);
+						break;	
+					case 40: //下
+						uniformMove(odiv1, "top", 3, 250);
+						break;		
+				}
+			}
+
+			function uniformMove(obj, attr ,speed, itarget) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var attrvalue = parseInt(getstyle(obj,attr));
+					if(Math.abs(itarget - attrvalue) <= Math.abs(speed)) {
+						obj.style[attr] = itarget + "px";
+						clearInterval(obj.timer);
+						setTimeout(function(){
+							alert("撞墙了");
+						},10)
+					}else {
+						obj.style[attr] = attrvalue + speed + "px";
+					}
+				}, 20)
+			}
+
+			function getstyle(obj, attr) {
+				if(obj.currentStyle) {
+					return obj.currentStyle[attr];
+				} else {
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+
+</html>

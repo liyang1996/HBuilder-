@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_从右往左</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color:rosybrown;
+				position: absolute;
+				top:0;
+				left: 800px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll= document.getElementById("all");
+			//800->10px 7
+			var speed=7;
+			var timer = setInterval(function(){
+				if((oAll.offsetLeft-10)<=7){
+					oAll.style.left="10px"
+					clearInterval(timer);
+				}else{
+					
+					oAll.style.left=oAll.offsetLeft-speed+"px";
+				}
+				
+					console.log("off:"+oAll.offsetLeft);
+			},20)
+			
+			
+		</script>
+	</body>
+</html>

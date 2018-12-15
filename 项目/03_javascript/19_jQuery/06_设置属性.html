@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 100px;
+				height: 100px;
+				border: 2px solid saddlebrown;
+			}
+			.bg{
+				color: salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="bg" src=""/>
+		<div>ssss</div>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript">
+			$("#bg").attr("src","https://www.baidu.com/img/bd_logo1.png");
+			$("div").attr("class","bg");
+			
+			//自定义属性
+			$("bg").attr("index","1");
+			
+			//获取值 
+			console.log($("#bg").attr("src"));
+			
+			//移除属性
+			$("div").removeAttr("class");
+			
+		</script>
+	</body>
+</html>

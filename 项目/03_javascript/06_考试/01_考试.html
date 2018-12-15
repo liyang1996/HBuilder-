@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* 1. 
+			 *  对数组  testArray = [10, 22, 8, 33, 61, 90, 62] 做如下操作
+			 *  1. 从大到小进行排序输出
+			 *  2. 在数组首尾分别添加数字 11,90
+			 *  3. 在数组元素33后插入 44, 8 元素
+			 *  4. 反序输出数组
+			 *  5. 数组去重(去掉重复的元素)
+			 */
+			//1. 从大到小进行排序输出
+			var testArray = [10, 22, 8, 33, 61, 90, 62];
+			for(var i = 0; i < testArray.length - 1; i++) {
+				for(var j = 0; j < testArray.length - 1 - i; j++) {
+					if(testArray[j] < testArray[j + 1]) {
+						var temp = testArray[j];
+						testArray[j] = testArray[j + 1];
+						testArray[j + 1] = temp;
+					}
+				}
+			}
+			console.log(testArray);
+
+			
+			// 2. 在数组首尾分别添加数字 11,90
+			var testArray = [10, 22, 8, 33, 61, 90, 62]
+			testArray.unshift(11);
+			testArray.push(90);
+			console.log(testArray);//11,10, 22, 8, 33, 61, 90, 62,90
+				
+			//3. 在数组元素33后插入 44, 8 元素
+			var testArray = [10, 22, 8, 33, 61, 90, 62]
+			testArray.splice(3,1,44,8);
+			console.log(testArray);//10, 22, 8, 44,8, 61, 90, 62
+			
+			//4. 反序输出数组
+			var testArray = [10, 22, 8, 44,8, 61, 90, 62]
+			for(var i=testArray.length-1;i>=0;i--){
+				console.log(testArray[i]);//62,90,51,8,44,8,22,10
+			}
+			//console.log(testArray.reverse());
+
+			//5. 数组去重(去掉重复的元素)
+			var testArray = [10, 22, 8, 44,8, 61, 90, 62]
+			for(var i = 0; i < testArray.length; i++) {
+				for(var j = i + 1; j < testArray.length; j++) {
+					if(testArray[i] == testArray[j]) {
+						testArray.splice(j, 1);
+						j--;
+					}
+				}
+			}
+			console.log(testArray);
+
+			
+			
+			
+			
+			
+			
+			
+
+		</script>
+		
+	</body>
+</html>

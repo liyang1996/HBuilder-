@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+	    <style type="text/css">
+	    	body{
+	    		display: flex;
+	    	}
+	    	.title{
+	    		width: 100px;
+	    		height: 40px;
+	    		background-color:lightblue;
+	    		text-align: center;
+	    		line-height: 40px;
+	    		font-size: 20px;
+	    		color: palevioletred;
+	    	}
+	    	.box{
+	    		width: 100px;
+	    		height: 0;
+	    		overflow: hidden;
+	    		position: absolute;
+	    	}
+	    	.box div:nth-child(even){
+	    		width: 100%;
+	    		height: 60px;
+	    		background-color: plum;
+	    		text-align: center;
+	    		line-height: 60px;
+	    		font-size:20px ;
+	    		color: red;
+	    		
+	    	}
+	    	.box div:nth-child(odd){
+	    		width: 100%;
+	    		height: 30px;
+	    		background-color: lawngreen;
+	    		line-height: 30px;
+	    		font-size: 20px;
+	    		color: palevioletred;
+	    		text-align: center;
+	    		
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="title">哎呦</div>
+			<div class="box">
+				<div>一</div>
+				<div>见</div>
+				<div>钟</div>
+				<div>情</div>
+			</div>
+		</div>
+		<div class="all">
+			<div class="title">可以</div>
+			<div class="box">
+				<div>钟</div>
+				<div>的</div>
+				<div>不</div>
+				<div>是</div>
+				<div>情</div>
+			</div>
+		</div>
+		<div class="all">
+			<div class="title">还不错呦</div>
+			<div class="box">
+				<div>而</div>
+				<div>是</div>
+				<div>脸</div>
+				<div>!</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var alls = document.getElementsByClassName("all");
+			var boxs = document.getElementsByClassName("box");
+			var divs = boxs[0].getElementsByTagName("div");
+			for (var i = 0; i < alls.length; i++) {
+				alls[i].index = i;
+				alls[i].onmouseover = function(){
+					var num = 0;
+					for(var j = 0; j < divs.length; j++) {
+						num = num + parseInt(getStyle(divs[j], "height"));
+					}
+					easeMove(boxs[this.index],"height",num,10,30)
+				}
+				alls[i].onmouseout = function(){
+					easeMove(boxs[this.index],"height",0,-10,30)
+				}
+			}
+			
+//function easeMove(obj,targetPos,speedEnd,attr,time){
+//				clearInterval(obj.timer)
+//				obj.timer = setInterval(function(){
+//					var attrValue = parseInt(getStyle(obj,attr));
+//					var speed = Math.abs(targetPos - attrValue)/speedEnd
+//					speed = speed>0?Math.ceil(speed):Math.floor(speed);
+//					if(attrValue == targetPos){
+//						clearInterval(obj.timer);
+//					}else{
+//						obj.style[attr] = attrValue + speed + "px";
+//					}
+//					console.log(getStyle(obj,attr));
+//				},time)
+//			}
+		</script>
+	</body>
+</html>

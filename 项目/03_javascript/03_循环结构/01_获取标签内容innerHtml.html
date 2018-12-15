@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">你</div>
+		
+		<div id= "demo2">
+			<span>好</span>
+			<span>啊</span>
+			<span>是</span>
+		</div>
+		
+		<script type="text/javascript">
+			var oDiv = document.getElementById("demo");
+			var oDiv2 = document.getElementById("demo2");
+			//获取标签里面的内容
+			console.log(oDiv2.innerHTML);
+			//修改内容
+			oDiv.innerHTML ="李尚书";
+			//oDiv.innerHTML +="李尚书";  "+="原div里的内容也在
+			
+		</script>
+	</body>
+</html>

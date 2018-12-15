@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				width: 400px;
+				margin: 0 auto;
+			}
+			#all tr td{
+				width: 100px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="" cellspacing="0" cellpadding="5" id="all">
+			<tr>
+				<th>班级</th>
+				<th>姓名</th>
+				<th colspan="2">科目成绩</th>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			var aJson = {
+				"班级1": [{
+					"刘金花": [{
+							"数学": 93
+						},
+						{
+							"英语": 90
+						},
+						{
+							"语文": 89
+						}
+					]
+				}, {
+					"王大顶": [{
+							"数学": 67
+						},
+						{
+							"英语": 60
+						},
+						{
+							"语文": 99
+						}
+					]
+				}, {
+					"陈佳影": [{
+							"数学": 100
+						},
+						{
+							"英语": 100
+						},
+						{
+							"语文": 100
+						}
+					]
+				}],
+				"班级2": [{
+					"唐仁": [{
+							"数学": 79
+						},
+						{
+							"英语": 44
+						},
+						{
+							"语文": 66
+						}
+					]
+				}, {
+					"秦风": [{
+							"数学": 100
+						},
+						{
+							"英语": 100
+						},
+						{
+							"语文": 100
+						}
+					]
+				}, {
+					"宋义": [{
+							"数学": 79
+						},
+
+						{
+							"语文": 70
+						}
+					]
+				}],
+				"班级3": [{
+					"李白": [{
+							"生存": 40
+						},
+						{
+							"攻击": 60
+						},
+						{
+							"技能": 50
+						},
+						{
+							"难度": 90
+						}
+					]
+				}, {
+					"娜可露露": [{
+							"生存": 40
+						},
+						{
+							"攻击": 85
+						},
+						{
+							"技能": 65
+						},
+						{
+							"难度": 55
+						}
+					]
+				}, {
+					"兰陵王": [{
+							"生存": 20
+						},
+						{
+							"技能": 40
+						},
+						{
+							"难度": 50
+						}
+					]
+				}]
+			}
+		//求出每班平均成绩
+			var oAll=document.getElementById("all");
+		
+			for(var className in aJson){
+				console.log(className);
+				
+				var classNameTD=document.createElement("td");
+				classNameTD.innerHTML=className;
+				
+				//总成绩
+				var sum=0;
+				//总个数	
+				var len=0;
+				//console.log(aJson[className])
+				for(var stuName in aJson[className]){
+					//console.log(aJson[className][stuName]);
+					var obj = aJson[className][stuName];
+					for(var key in obj){
+						//每人成绩的数组
+						console.log("学生姓名："+key)
+						var stuNameTD=document.createElement("td");
+						stuNameTD.innerHTML=key;
+						var aaa=0;
+						for(var i in obj[key]){
+							//数组里全部单科成绩分组
+							//console.log(obj[key][i])
+							var arr=obj[key][i];
+						//	var sun=0;
+							for(var j in arr){
+								//数组里全部成绩列表
+								//console.log(j+arr[j])
+								var trr=document.createElement("tr")
+								
+								var objectTD=document.createElement("td")
+								objectTD.innerHTML=j;
+								
+								var marksTD=document.createElement("td")
+								marksTD.innerHTML=arr[j];
+								
+								if(len==0){
+									trr.appendChild(classNameTD);
+								}
+								
+								if(aaa==0){
+									trr.appendChild(stuNameTD);
+								}
+								
+								oAll.appendChild(trr);
+								trr.appendChild(objectTD);
+								trr.appendChild(marksTD);
+								
+								sum+=arr[j];
+								len++;
+								aaa++;
+							}
+						}
+						stuNameTD.rowSpan=aaa;
+						//console.log("学生数："+aaa)
+					}
+				}
+				classNameTD.rowSpan = len;
+				console.log("len:"+len);
+				console.log("sum:"+sum);
+				console.log("----------"+(sum/len).toFixed(2)+"-------")
+			}
+		</script>
+	</body>
+</html>

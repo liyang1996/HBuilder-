@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<!-- saved from url=(0146)http://127.0.0.1:8020/%E9%A1%B9%E7%9B%AE/03_javascript/09_%E5%8A%A8%E7%94%BB2/zuoye1/%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95.html?__hbt=1538276642077 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title></title>
+		
+		<style type="text/css">
+			
+			.box{
+				position: relative;
+				display: inline-block;
+				width: 800px;
+				
+			}
+			.blue{
+			width: 200px;
+				background-color: skyblue;
+				text-align: center;
+				font-size: 20px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1000;
+				}
+			.all{
+				position: absolute;
+				top:0;
+				left:0;
+				z-index: 10;
+				margin-left: -40px;
+				
+			}
+			
+			
+			.green{
+				width: 200px;
+				height: 100px;
+				background-color: greenyellow;
+				
+			}
+			.red{
+				width: 200px;
+				height: 50px;
+				background-color: red;
+				
+			}
+		</style>
+		
+		
+	</head>
+	<body>
+<div class="z">
+	
+	<!--1-->
+	<div class="box">
+		<div class="blue">产品</div>
+		<div class="all">
+			<div class="green"></div>
+			<div class="red"></div>
+			<div class="green"></div>
+			<div class="red"></div>
+		</div>
+	</div>	
+		<!--2-->
+	<div class="box">
+		<div class="blue">菜单</div>
+		<div class="all">
+			<div class="green"></div>
+			<div class="red"></div>
+			<div class="green"></div>	
+		</div>
+	</div>	
+	
+	
+		<!--3-->
+	<div class="box">
+		<div class="blue">是你</div>
+		<div class="all">
+			<div class="green"></div>
+			<div class="red"></div>
+			<div class="green"></div>
+			<div class="red"></div>
+		</div>
+	</div>	
+	
+</div>	
+		
+		
+		<script type="text/javascript">
+				var box =document.getElementsByClassName("box")[0];
+				
+				var all=document.getElementsByClassName("all")[0];
+			box.onmouseover=function(){
+				
+				easeMove(all,"top",50,50,10);
+			}
+			box.onmouseout=function(){
+				easeMove(all,"top",-250,-50,10);
+			}
+			
+			
+			//缓速运动函数封装
+			function easeMove (obj,attr, mubiao, speedScale, time) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function(){
+					
+				// 1. 获取当前属性值  attrValue=offsetattr
+				var attrValue = parseInt(getStyle(obj, attr));//将xxpx转换成xx，当前的长度
+				// 2. 计算速度  (目标值 - 当前值) / 系数
+				var speedEnd = Math.abs(mubiao - attrValue) / speedScale; 
+				// >0向上取整, speedEnd最终才能达到1, <0向下取整,达到-1
+				speedEnd = speedEnd > 0 ? Math.ceil(speedEnd) : Math.floor(speedEnd);
+				console.log("计算速度值: " + speedEnd);
+				
+				
+				if (mubiao == attrValue) {//达到目标值清除浮动
+					clearInterval(obj.timer);
+				}
+				else {//未达到目标值继续执行 每15ms加10px的速度
+					obj.style[attr] = attrValue+ speedEnd + "px";  
+				}
+				console.log("attrValue: " + obj.style[attr]);
+			
+				
+				}, time);
+				
+			}
+			
+			
+			
+			
+			
+			
+			
+			//不同浏览器，调用样式发方法
+					function getStyle(obj,attr){
+
+				if(obj.currentStyle){
+					//支持IE
+					return obj.currentStyle[attr];
+				}else{
+					return getComputedStyle(obj)[attr];
+				}
+				}
+			
+		</script>
+		
+	
+	
+	
+	
+	
+
+</body></html>

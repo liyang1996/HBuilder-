@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = false;
+			var b = true;
+			var c = true;
+			var d = false;
+			
+			//[1] 与 &&
+			//全真才为真,有一假则假
+			var x = a && b ;
+			console.log("x:" + x );  //x:false
+			var x2 = b && c;
+			
+			//[2]或
+			//有一真则为真,全假才假
+			var m = a || b;
+			console.log("m:" + m ); 
+			
+			//[3]非! 取反
+			var cc = !a ;
+			console.log("cc:" + cc ); //cc:true
+			
+			
+			
+		</script>
+	</body>
+</html>

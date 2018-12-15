@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">f </div>
+		<div>div1</div>
+		<div>div2</div>
+		<div>div3
+		<span>JS项目</span>
+		</div>
+		<div class="box">我会怎么折磨你们</div>
+		<p class="box">~~~~~</p>
+		<div>
+			<p>
+				<span>ni</span>
+			</p>
+		</div>
+		<span>span</span>
+		<script src="JQ/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//选中div中类名为box的元素
+			$("div").filter(".box").css("background-color","red");
+			//选中div中类名不是box的元素
+			$("div").not(".box").css("background-color","saddlebrown");
+			//选中div中包含span标签的元素==$("div span");
+			$("div").has("span").css("color","seagreen")
+			
+			//
+			
+			
+		</script>
+	</body>
+</html>

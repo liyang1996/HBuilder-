@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas" width="500" height="500"></canvas>
+
+</body>
+<script>
+
+    var oCanvas = document.getElementById("canvas");
+
+    var ctx = oCanvas.getContext("2d");
+
+    var img = new Image();
+    img.src = "迪玛希.jpg";
+
+    img.onload = function () {
+        ctx.drawImage(img,0,0,oCanvas.width,oCanvas.height);
+
+        //获取像素点
+        //获取位置X 获取位置Y 获取宽度 获取高度
+        //返回像素数组 一维数组 每四个元素为一个像素点的rgba值
+        /*第一个像素点的rgba值获取
+        * r： imageData.data[0]
+        * g:  imageData.data[1]
+        * b:  imageData.data[2]
+        * a:  imageData.data[3] (0 - 255) 0 完全透明 255全部可见
+        * */
+        var imageData = ctx.getImageData(0,0,img.width,img.height);
+        console.log(imageData);
+
+        ctx.clearRect(0,0,oCanvas.width,oCanvas.height);
+        //反转
+        //反转，图像像素点本来的rgb值，与反转的值相加等于255
+        //i+=4 每次循环处理一个像素点 保证透明度为255
+        for(var i = 0; i < imageData.data.length;i+=4){
+            imageData.data[i] = 255 - imageData.data[i];
+            imageData.data[i+1] = 255 - imageData.data[i+1];
+            imageData.data[i+2] = 255 - imageData.data[i+2];
+            imageData.data[i+3] = 255;
+
+        }
+        //将改好的像素点的值放置在画布上
+//        putImageData(像素点对象，画布位置X，画布位置Y)
+       ctx.putImageData(imageData,0,0);
+        //取灰
+//        for(var i = 0; i < imageData.data.length;i+=4){
+//            var r = imageData.data[i];
+//            var g = imageData.data[i+1];
+//            var b = imageData.data[i+2];
+//
+//            var gray = parseInt((r+g+b)/3);
+//            imageData.data[i] = gray;
+//            imageData.data[i+1] = gray;
+//            imageData.data[i+2] = gray;
+//        }
+//        ctx.putImageData(imageData,0,0);
+
+    }
+
+
+
+</script>
+
+</html>

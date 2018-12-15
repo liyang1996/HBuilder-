@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/tools.js"></script>
+		<style type="text/css">
+			ul{
+				 list-style:none;
+			}
+			
+			.all{
+				position: relative;
+				float:left;
+				width: 150px;
+			}
+			
+			.nav{
+				width: 200px;
+				background-color: skyblue;
+				text-align: center;
+				font-size: 20px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1000;
+			}
+			
+			.nav_list{
+				position: absolute;
+				top:-250px;
+				left:0;
+				z-index: 10;
+				margin-left: -40px;
+			}
+			
+			.nav_list li:nth-child(odd){
+				background-color: greenyellow;
+				height: 60px;
+				line-height: 60px;
+				width: 200px;
+				text-align:center;
+			}
+			
+			.nav_list li:nth-child(even){
+				background-color: red;
+				text-align:center;
+				height: 50px;
+				width: 200px;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="all">
+			<li class="nav">首页</li>
+			<ul class="nav_list">
+					<li>一</li>
+					<li>见</li>
+					<li>钟</li>
+					<li>情</li>
+			</ul>
+		</ul>	
+			
+		<ul class="all">	
+			<li class="nav">产品</li>
+			<ul class="nav_list">
+					<li>再</li>
+					<li>而</li>
+					<li>衰</li>
+				</ul>
+			
+		</ul>
+		
+		<ul class="all">	
+			<li class="nav">关于</li>
+			<ul class="nav_list">
+					<li class="oli">三</li>
+					<li class="oli">而</li>
+					<li class="oli">结</li>
+				</ul>
+		</ul>
+
+		<script type="text/javascript">
+			var oAll=document.getElementsByClassName("all");
+			var list=document.getElementsByClassName("nav_list");
+			
+			for( var i=0;i<oAll.length;i++){
+				oAll[i].index=i;
+				oAll[i].onmouseover=function(){
+					uniformMove(list[this.index],"top",20,10,10);
+				}
+				oAll[i].onmouseout=function(){
+					uniformMove(list[this.index],"top",-270,-10,10);
+				}
+			}
+			
+//			function easeMove(obj,attr,iTarget,speedScale,time){
+//				clearInterval(obj.timer)
+//				obj.timer=setInterval(function(){
+//					var attrValue=getStyle(oAll,attr)*100;
+//					var speedEnd = (iTarget - attrValue) / speedScale;
+//					speedEnd=speedEnd>0?Math.ceil(speedEnd):Math.floor(speedEnd);
+//					var isStop = true;
+//					if(iTarget!=attrValue){
+//						isStop=false;
+//						obj.style[attr]=(attrValue+speedEnd)/100;
+//					}if(isStop){
+//							clearInterval(obj.timer);		
+//						}
+//					console.log("attrValue:"+ obj.style[attr]);
+//				},time);
+//			}
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>放大镜</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#small{
+				width: 170px;
+				height: 170px;
+				background-image:url(1.jpg) ;
+				border: 1px solid black;
+				margin: 50px;
+				float: left;
+				position: relative;
+				background-size: 100%;
+				background-repeat: no-repeat;
+			}
+			#big{
+				width: 170px;
+				height: 170px;
+				background-image: url(1.jpg);
+				border: 1px solid black;
+				float: left;
+				margin-top: 50px;
+				display: none;
+			}
+			#search{
+				width: 72px;
+				height: 72px;
+				background: pink;
+				opacity: 0.5;
+				display: none;
+			    position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+        	作者：1013939333@qq.com
+        	时间：2018-09-28
+        	描述：显示衣服的div
+        -->
+		<div id="small">
+			<!--
+            	作者：1013939333@qq.com
+            	时间：2018-09-28
+            	描述：需要查看放大的区域
+            -->
+			<div id="search"></div>
+		</div>
+		<!--
+        	作者：1013939333@qq.com
+        	时间：2018-09-28
+        	描述：显示放大的区域
+        -->
+		<div id="big">
+			
+		</div>
+		<script type="text/javascript">
+			var small=document.getElementById("small");
+			var search=document.getElementById("search");
+			var big=document.getElementById("big");
+			//鼠标移入small时显示search和big
+			small.onmouseover=function(){
+				search.style.display="block";
+				big.style.display="block";
+				
+			}
+			small.onmouseout=function(){
+				search.style.display="none";
+				big.style.display="none";
+			}
+			small.onmousemove=function(){
+				var evt=event||arguments[0];
+				//获取鼠标当前位置
+				var x=evt.clientX-small.offsetLeft-search.offsetWidth/2;
+				var y =evt.clientY-small.offsetTop-search.offsetHeight/2;
+				//判断当前位置search显示框不能移出small框
+				if(x<0){
+					search.style.left=0+"px";
+				}else if(x>=small.offsetWidth-search.offsetWidth){
+					//如果大于small的宽度-search的宽度卡在右边
+					search.style.left=small.offsetWidth-search.offsetWidth+"px";
+				}else{
+					search.style.left=x+"px";
+				}
+				if(y<0){
+				search.style.top=0+"px";
+			}else if(y>=small.offsetHeight-search.offsetHeight){
+				search.style.top=small.offsetHeight-search.offsetHeight+"px"
+			}else{
+				search.style.top=y+"px";
+			}
+			
+			//计算放大比例
+			var w=400/170;
+			//显示放大区域
+			/*backgroundposition第一个值水平位置，第二个值垂直位置，
+			 坐标search在small上移动，相当于右边的big移动方向相反，坐标取
+			* 
+			* */
+			big.style.backgroundPosition=(-seearch.offsetLeft)*w+"px"+" "+(-search.offsetTop)*w+"px";
+			
+			}
+			
+		</script>
+	</body>
+</html>

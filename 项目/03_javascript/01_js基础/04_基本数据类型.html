@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_基本数据类型</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//数据类型 变量的数据类型根据数据赋值的类型进行判断
+			//	JS 弱类型语言
+				/*5中基本数据类型 和 一种复杂数据类型(object)
+				 */
+			
+			//[1]  数字 Number
+			//整数
+			var num1 =10 ;
+			console.log("num1:" + typeof(num1) ); //number
+			//浮点数 数值必须包含一个小数点,且小数点后面至少有一位数字
+			var num2 = 11.11;
+			console.log("num2:" + typeof(num2)); //number
+			
+			//NAN:非数字类型
+			/*isNAN(参数)函数用于检查其参数是否是非数字值 */
+			console.log("123是非数字:" + isNaN(123));//123是非数字:false(否)
+			console.log("123是非数字:" + isNaN("str"));
+			
+			//[2] 字符串 String  单引号或双引号
+			var str = "字符串";
+			console.log("str:" + typeof(str));  //string
+			
+			var num3 = "11.1";  //有双引号就是字符串,字符串的值为11.1
+			console.log("num3:" + typeof(num3));  //string
+			
+			//字符串的长度:length
+			console.log("字符长度: " + num3.length);//3
+			
+			//字符串拼接
+			var str2 = "啊";
+			var str3 = "是"
+			var str4 = str2 + str3;
+			console.log("拼接:" + str4);
+			
+			//转义字符
+			var string1 = 'You\'re Right!';
+			document.write("<br> " + string1);//"<br> " + string1放字符串
+			document.write("<br> you are what?");
+			
+			// [3] 布尔型 Boolean
+			//一般用于if 语句等判断条件或条件表达式的返回值
+			var bol = true; //值只能是true/false,才是布尔类型
+			console.log("bol:" + typeof bol);//bol:boolean
+			
+			var tf = 3 > 5;
+			console.log("tf: " + tf);//tf: false
+			
+			//[4]未定义 Undefind
+			//使用var 声明了变量,
+			//但是没有给变量赋值,这时候变量的值就是 undefind;
+			
+			var un;//只声明
+			console.log("un : " + typeof un);//undefined
+			un = 1;
+			console.log("un2 : " + typeof un);
+
+            //console.log( height);	
+			//height is not defined
+			//报错,变量height没声明
+			
+			//[5]空值 Null
+			//通过赋值为null 来清除变量
+			var n = null;
+			console.log("n: " + typeof n); //object
+			//null 类型被当做一个空对象引用
+			
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0
+			}
+			/*
+			块标签 
+			不设置宽度时，默认和父级同宽
+			不设置高度时，由内容撑开内部高度
+		*/
+			
+			.wrapper {
+				width: 300px;
+				border: 1px solid black;
+				padding: 20px 15px 15px;
+				margin: 10px auto;
+			}
+			
+			.img img {
+				width: 300px;
+			}
+			
+			.wrapper .main{
+				background-color: #00FFFF;
+				margin-top: 5px;
+			}
+			
+			.wrapper .price {
+				font-size: 20px;
+				color: red;
+			}
+			
+			.wrapper .title {
+				margin-top: 10px;
+			}
+			
+			.title span {
+				color: brown;
+			}
+			
+			.shop {
+				margin-top: 10px;
+			}
+			
+			.shop a {
+				color: gray;
+			}
+			
+			.footer {
+				border-top: 1px solid gray;
+				margin-top: 5px;
+				padding-top: 10px;
+				background-color: yellow;
+			}
+			
+			.footer span {
+				color: gray;
+			}
+			
+			.footer .left {
+				border-right: 1px solid gray;
+				padding-right: 10px;
+				margin-right: 10px;
+			}
+			
+			.footer .right {
+				border-right: 1px solid gray;
+				padding-right: 20px;
+			}
+			
+			.footer .left span {
+				color: brown;
+			}
+			
+			.footer .right span {
+				color: blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="img">
+				<img src="img/j4.jpg" alt="">
+			</div>
+			<div class="main">
+				<p class="price">
+					￥338.00
+				</p>
+				<p class="title">
+					<span>展示</span>柜货柜展柜超市货<span>架</span>隔断<span>陈列</span>柜
+				</p>
+				<div class="shop">
+					<a href="">创意家居旗舰店</a>
+				</div>
+				<div class="footer">
+					<span class="left">月成交<span>451笔</span></span><span class="right">评价<span>780</span></span>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

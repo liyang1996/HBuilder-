@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>多轴线对齐</title>
+		<style type="text/css">
+			.box{
+				border: 5px solid black;           
+				height: 800px;
+				display: flex;
+				flex-wrap: wrap;
+				
+				align-content: flex-end;
+				 /*flex-start：与交叉轴的起点对齐。
+       			  flex-end：与交叉轴的终点对齐。
+      			  center：与交叉轴的中点对齐。
+      			  space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+      			  space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+      			  stretch（默认值）：轴线占满整个交叉轴。
+				*/
+				
+				
+				
+			}
+			
+			.box div{
+				margin: 5px;
+				color: white;
+				font-size: 100px;
+				text-align: center;
+				background-color: brown;
+				line-height: 100px;
+				height: 100px;
+				
+				
+				
+				
+			}
+			.div1, .div4, .div8{
+				width: 200px;
+				
+			}
+			.div2, .div6{
+				width: 400px;
+			}
+			.div3, .div7, .div9{
+				width: 300px;
+			}
+			.div5,.div10{
+				width: 100px;
+			}
+			
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+		<div class="div5">5</div>
+		<div class="div6">6</div>
+		<div class="div7">7</div>
+		<div class="div8">8</div>
+		<div class="div9">9</div>
+		<div class="div10">10</div>
+		</div>
+		
+		
+		
+	</body>
+</html>

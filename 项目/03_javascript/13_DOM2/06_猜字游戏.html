@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 500px;
+				height: 500px;
+				border: 2px solid black;
+				margin: 0 auto;
+			}
+			#time{
+				margin-top: 20px;
+				margin-left: 10px;
+				overflow: hidden;
+				display: inline-block;
+			}
+			#score{
+				margin-top: 20px;
+				margin-right: 50px;
+				float: right;
+				display: inline-block;		
+				}
+			#content{
+				width: 150px;
+				height: 150px;
+				margin: 0 auto;
+				margin-top: 50px;
+				font-size: 50px;
+				text-align: center;
+				line-height: 150px;
+				
+			}
+			#writ{
+				color: black;
+				font-size: 20px;
+				text-indent:2em;
+				display: inline-block;
+				margin: 45px;
+			}
+			#bottom{
+				width: 440px;
+				height: 100px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			#bottom div{
+				width:70px;
+				height:70px;
+				margin-right: 10px;
+				border: 2px solid wheat;
+				display: inline-block;
+				line-height: 70px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div id="time">剩余时间：</div>
+			<div id="score">分数：</div>
+			<div id="content">蓝</div>
+			<span id="writ">根据上面的字的颜色从下面选择正确的字，选择正确自动开始</span>
+		<div id="bottom" cl="bottom">
+			<div id="div1"></div>
+			<div id="div2"></div>
+			<div id="div3"></div>
+			<div id="div4"></div>
+			<div id="div5"></div>
+		</div>
+		</div>
+		
+		<script type="text/javascript">
+			var oBottom = document.getElementById("bottom");
+			var oDiv = oBottom.getElementsByTagName("div")
+			var oCenter = document.getElementById("content")
+			//oDiv.style.backgroundColor="red";
+			var colorArr = ["blue","yellow","black","red","green"];
+			var writeArr = ["蓝","黄","黑","红","绿"]
+		//oDiv.innerHTML=writeArr[i]
+		
+			function getsum(){
+			var arr=[];
+			while(arr.length != 5) {
+			var writervalue= Math.floor(Math.random()*(writeArr.length));
+			var flag = true;
+			for(var i = 0; i < arr.length; i++) {
+				if(writeArr[writervalue] == arr[i]) {
+					flag = false; 
+					break;
+					}
+				}
+				if(flag) {
+				arr.push(writeArr[writervalue]);
+				}
+			}
+				for(var a=0;a<oDiv.length;a++){
+					return oDiv[a].innerHTML=arr;
+				}
+			}	
+			
+			oDiv[0].onclick=function(){
+					getsum();
+				}
+				
+//			for(var j=0;j<=colorArr.length-1;j++){
+//				var colorvalue= Math.floor(Math.random()*(colorArr.length));
+//				this.style.color=colorArr[colorvalue];
+//			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				margin: 50px;
+				font-size: 35px;
+				color: white;
+				text-align: center;
+				line-height: 200px;
+			}
+			button{
+				margin-left:50px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<button id="btn">停止</button>
+		<button id="start">开始</button>
+			<script type="text/javascript">
+			
+				var start= document.getElementById("start");
+				var btn = document.getElementById("btn");
+				var  timer = null;
+				var i = 0;
+					start.onclick = function() {
+						clearInterval(timer);//清除定时器
+				timer = setInterval(function(){
+						i++;
+					div1.innerHTML =i ;
+					
+				},1000);
+				
+				}
+					btn.onclick = function(){
+					clearInterval(timer);
+					}
+			</script>
+		
+	</body>
+</html>

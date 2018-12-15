@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+			div{
+				border: 2px solid rosybrown;
+				opacity: .5;
+				display: inline-block;
+				margin-right: 10px;
+			}
+			
+			div img{
+				width: 200px;
+				height: 200px;
+			}
+			
+			div:hover{
+			  opacity: 1;
+			}
+			
+			#div1{
+				z-index: 20;
+			}
+			
+					
+		</style>
+	</head>
+	<body>
+		<div ><img id="div2" src="../img/1.jpg"/></div>
+		<div><img id="div3" src="../img/3.jpg"/></div>
+		<div><img id="div4" src="../img/5.jpg"/></div>
+		
+		<script type="text/javascript">
+			var oDiv2 = document.getElementById("div2")
+				console.log(oDiv2);
+			
+			oDiv2.onclick = function(){
+						 oDiv2.src = "../img/2.jpg";
+				}
+			
+			var oDiv3 = document.getElementById("div3")
+				console.log(oDiv3);
+			oDiv3.onclick = function(){
+						 oDiv3.src = "../img/4.jpg";
+				}
+			
+			var oDiv4 = document.getElementById("div4")
+				console.log(oDiv4);
+			oDiv4.onclick = function(){
+						 oDiv4.src = "../img/6.jpg";
+				}
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

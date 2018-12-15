@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				border-radius: 15px;
+				cursor:pointer;
+			}
+			
+			div:hover{
+				
+				-webkit-animation: play  10s;
+				-o-animation: play  10s;
+				animation: play  10s;
+				
+				/*-webkit-animation-timing-function: ease;
+				-moz-animation-timing-function: ease;
+				-o-animation-timing-function: ease;
+				animation-timing-function: ease;*/
+				
+				
+				}
+				
+				@-webkit-keyframes play {
+					
+					from{
+						background-color: palegoldenrod;
+					}
+					5%{
+						background-color: palegreen;
+					}
+					10%{
+						background-color: aqua;
+					}
+					
+					20%{
+						background-color: darkcyan;
+					}
+					
+					30%{
+						background-color: firebrick;
+					}
+					40%{
+						background-color: antiquewhite;
+					}
+					50%{
+						background-color: teal;
+					}
+					60%{
+						background-color: maroon;
+					}
+					70%{
+						background-color: blueviolet;
+					}
+					80%{
+						background-color: aquamarine;
+					}
+					90%{
+						background-color: indianred;
+					}
+					to{
+						background-color: brown;
+					}
+				}
+					
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		
+		<script type="text/javascript">
+			
+			var div1 = document.getElementById("div1")
+				
+				div1.onclick=function(){
+					var sum = 0;
+					for(
+						var i = 1;
+						i <= 20;
+						i++
+					)
+							{
+								sum += i;
+							}
+					
+						};
+			
+		</script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_浮动元素覆盖</title>
+		<style type="text/css">
+			
+			.in{
+				width: 150px;
+				height: 150px;
+				color: white;
+				font-size: 30px;
+				line-height: 150px;
+				text-align: center;
+				color: black;
+			}
+			.fl{
+				float: left;
+				
+			}
+			
+			
+			</style>
+		
+	</head>
+	<body>
+		<!--1.确定元素在正常文档流中位置
+			2.根据元素原来的位置进行左右浮动(不能浮到中间)
+			3.浮动起来的元素会脱离原来的文档流,浮动元素的原位置会顺次被下一个元素占据(所以块三在块二下边)
+		-->
+			<div class="in " style="background-color: red;">1</div>
+			<div class="in fl" style="background-color: rosybrown;">2</div>
+			<div class="in " style="background-color: aquamarine;">3</div>
+			<p>框3看不到,因为框3在块2下面</p>
+		
+		
+	</body>
+</html>

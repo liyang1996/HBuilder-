@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color:rosybrown;
+				position: absolute;
+				top:0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll= document.getElementById("all");
+			//目标对象，目标距离，速度，时间
+			function starMove(obj,ditance,speed,time){
+				obj.timer = setInterval(function(){
+					if(ditance-obj.offsetLeft<=speed){
+					obj.style.left=ditance+"px"
+					clearInterval(obj.timer);
+				}else{
+					obj.style.left=obj.offsetLeft+speed+"px";
+				}
+					console.log("off:"+obj.offsetLeft);
+				},time)
+			}
+				starMove(oAll,800,20,20);
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

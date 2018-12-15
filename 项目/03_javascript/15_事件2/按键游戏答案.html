@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,html{
+				overflow: hidden;
+			}
+			#all{
+				position: relative;
+			}
+			.letter{
+				position: absolute;
+				top:-100px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			
+		</div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.style.width = document.documentElement.clientWidth+"px";
+			oAll.style.height = document.documentElement.clientHeight+"px";
+			
+		setInterval(function(){
+			//一个字母随机各种属性下落
+			var theLetter = document.createElement("div");
+			oAll.appendChild(theLetter);
+			theLetter.className = "letter";
+			//随机left，speed，color，大小等
+			theLetter.style.fontSize = getRandom(30,100)+ "px";
+			theLetter.style.color = getRandomColor();
+			theLetter.speed = getRandom(5,30);
+			theLetter.innerHTML = String.fromCharCode(getRandom(65,90));
+			theLetter.style.left = getRandom(0,oAll.clientWidth-theLetter.offsetWidth) + "px";
+			
+			//字母下落定时器
+			theLetter.timer = setInterval(function(){
+				//判断是否应该删除
+				if(theLetter.offsetTop>oAll.offsetHeight){
+					clearInterval(theLetter.timer);
+					theLetter.remove();
+				}else{
+					theLetter.style.top = theLetter.offsetTop+theLetter.speed + "px";
+				}
+			},100);
+			},300);	
+			
+			document.onkeydown = function(ev){
+				var ev = ev || window.event;
+				//獲取全部ASIC碼
+				var keyStr = String.fromCharCode(ev.keyCode);
+				for(var i = 0; i<oAll.children.length;i++){
+					if(oAll.children[i].innerHTML == keyStr){
+						oAll.children[i].remove();
+						i--;
+					}
+				}
+			}
+			
+			function getRandom(min,max){
+				 return Math.floor(Math.random()*(max-min+1)+min);
+			}
+			
+			function getRandomColor(){
+				var r = getRandom(0,255);
+				var g = getRandom(0,255);
+				var b = getRandom(0,255);
+				return "rgb("+r + "," + g + "," + b + ")";
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

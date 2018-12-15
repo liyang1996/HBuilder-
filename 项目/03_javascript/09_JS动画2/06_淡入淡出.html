@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				margin: 10px;
+				position: absolute;
+				left:100px;
+				top: 10px;				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			//缓冲运动，淡入淡出 透明度变化		
+			var oAll =document.getElementById("all");
+			oAll.onmouseover=function(){
+				//0~1*100
+				//0~100
+				easeMove(oAll,"opacity",30,15,20);
+			}
+			oAll.onmouseout=function(){
+				easeMove(oAll,"opacity",100,15,20);
+			}
+			function easeMove(obj,attr,iTarget,speedScale,time){
+				clearInterval(obj.timer)
+				obj.timer=setInterval(function(){
+					var attrValue=getStyle(oAll,attr)*100;
+					var speedEnd = (iTarget - attrValue) / speedScale;
+					speedEnd=speedEnd>0?Math.ceil(speedEnd):Math.floor(speedEnd);
+					//console.log("计算速度值:"+speedEnd);
+					var isStop = true;
+					if(iTarget!=attrValue){
+						isStop=false;
+						obj.style[attr]=(attrValue+speedEnd)/100;
+					}if(isStop){
+							clearInterval(obj.timer);		
+						}
+					console.log("attrValue:"+ obj.style[attr]);
+				},time);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_伪类选择器empty</title>
+	</head>
+	<style type="text/css">
+		/*选择没有子元素或内容的标签   :冒号都是伪类选择器*/
+		p:empty{
+			width: 100px;
+			height: 200px;
+			background-color: red;
+		}
+		.p1:empty{
+		/*	background-color: saddlebrown;*/
+		}
+	</style>
+	
+	<body>
+		<p></p>
+	<p>爱好是什么</p>
+	<p>学习</p>
+	
+	
+	<p class="p1"></p>
+	<p class="p1">爱好学习</p>
+	<p class="p1">爱好学习</p>
+		
+		
+		
+	</body>
+</html>

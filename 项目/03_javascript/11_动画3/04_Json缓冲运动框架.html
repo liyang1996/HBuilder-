@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_Json缓冲运动框架</title>
+		<style type="text/css">
+			#all{
+				width: 150px;
+				height: 100px;
+				background-color: wheat;
+				margin: 10px;
+				position: absolute;
+				left:100px;
+				top: 10px;	
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll =document.getElementById("all")
+			
+			oAll.onmouseover=function(){
+//				var sccJson={
+//					"opacity":50,
+//					"width":500
+//				}
+//				easeMove(oAll,sccJson,10,10);
+				var _this = this;
+				easeMove(_this,{"width":300,"height":300},50,function(obj){
+					easeMove(_this,{"height":600,"width":600},50);
+				});
+			}
+			
+			oAll.onmouseout=function(){
+//				var sccJson={
+//					"opacity":100,
+//					"width":200
+//				}
+//				easeMove(oAll,sccJson,15,20);
+				var _this = this;
+				easeMove(_this,{"width":300,"height":300},10,function(obj){
+					easeMove(_this,{"width":500,"height":500},10);
+				});
+			}
+			
+			function easeMove(obj, attrJson,speed,time) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var isStop = true; //记录是否清除定时器 true 清除 
+					for(var attr in attrJson ){
+						var iTarget=attrJson[attr];
+					var attrValue = getStyle(obj,attr);
+					attrValue = attr == "opacity" ? attrValue * 100 : parseInt(attrValue);
+					var speedEnd = (iTarget - attrValue) / speed;
+					speedEnd = speedEnd > 0 ? Math.ceil(speedEnd) : Math.floor(speedEnd);
+					console.log("target"+iTarget, " attr" + attrValue, " speedEnd" + speedEnd);
+					if (attrValue != iTarget) {
+						//如果当前属性的值与目标值不相同，定时器不能清除
+						isStop = false;
+						obj.style[attr] = attr == "opacity" ? (attrValue + speedEnd) / 100 : attrValue + speedEnd + "px";
+						}
+						console.log("attr:"+attr+"isStop:"+isStop);
+					}
+					console.log("--------");
+					// 如果是 true, 说明完成运动, 所以可以清除
+					if (isStop) {
+						clearInterval(obj.timer);
+						console.log("attr1:"+attr+"isStop:"+isStop);
+						if(fn){
+							fn(obj);
+						}
+					}
+				}, time)
+			}
+
+			function getStyle(obj,attr){
+			if(obj.currentStyle){
+					//支持IE
+					return obj.currentStyle[attr];
+				}else{
+					return getComputedStyle(obj)[attr];
+				}
+			}
+
+			
+		</script>
+	</body>
+	
+</html>

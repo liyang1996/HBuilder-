@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+			.div1{
+				width: 200px;
+				height: 300px;		
+				margin: 200PX auto;		
+				background-image: url(img/oldman.jpg);
+				background-size: 200px 300px;
+			}
+			
+				@-webkit-keyframes bcc {
+			
+				from{
+					box-shadow: 0 0  1px #0CC ;
+				}
+				
+				25%{
+					box-shadow: 0 0  10px #0CC;
+				}
+				
+				50%{
+					box-shadow: 0 0  25px #0CC;
+				}
+				
+				to{
+					box-shadow: 0 0  35px #0CC;
+					/*
+					 * box-shadow:0 0 1px #000 inset;
+					 *第一个0 代表距离对象左间距为0开始显示阴影 
+					 * 第二个0 代表距离对象上间距为0开始显示阴影
+					 * 1px 阴影范围大小
+					 * #000 阴影颜色
+					 * inset 带inset代表对象内阴影,不设置代表对象外阴影
+					 * */
+				}
+			}
+			.div1:hover{
+				-webkit-animation: bcc 4s ease-in-out infinite 1s normal forwards;
+				-o-animation: bcc 4s ease-in-out infinite 1s normal forwards;
+				animation: bcc 4s ease-in-out infinite 1s normal forwards;
+				}
+			
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+	</body>
+</html>

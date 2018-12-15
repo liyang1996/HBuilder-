@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				-webkit-transition: all .5s;
+				-moz-transition: all .5s;
+				-ms-transition: all .5s;
+				-o-transition: all .5s;
+				transition: all .5s;
+			}
+			
+			.all{
+				width: 1500px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			.btn{
+				width: 100px;
+				height: 50px;
+				margin-bottom: 20px;
+				background-color: #4169E1;
+				outline: none;
+				border: 0;
+				font-size: 20px;
+				color: white;
+			}
+			
+			.btn2{
+				background-color: lightcoral;
+			}
+			
+			.box {
+				width: 1300px;
+				overflow: hidden;
+				border: 1px solid deeppink;
+				margin: 0 auto;
+				padding: 10px;
+			}
+			
+			.box div {
+				width: 50px;
+				height: 50px;
+				background-color: plum;
+				float: left;
+				margin: 10px;
+				box-sizing: border-box;
+			}
+						
+			.box .change{
+				background-color: rebeccapurple;
+				border-radius: 50%;
+			}
+			
+			.box .clicked{
+				border: 3px dotted deeppink;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<button class="btn" id="btn">变色</button>
+			<div id="box" class="box">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var boxDiv = document.getElementById("box");
+			var oDivs = boxDiv.getElementsByTagName("div");
+			var btn = document.getElementById("btn");
+			var arr = [];
+			
+			for (var i = 0; i < oDivs.length; i++) {
+				oDivs[i].index = i;
+				oDivs[i].onclick = function(){
+						// 得到 元素 在 arr 中的下标.
+						// 如果indexOf(下标) ==-1 , 说明不存在
+					if(arr.indexOf(this.index) == -1){
+						// 不存在把下标放到数组中, 并添加边框样式
+						arr.push(this.index);
+						this.classList.add("clicked");
+					}else{
+						// 存在把下标移除, 无论是什么样式都清除
+						arr.splice(arr.indexOf(this.index), 1);
+						this.classList.remove("change");
+						this.classList.remove("clicked");
+					}
+				}
+			}
+			
+			var flag = true;
+			btn.onclick = function(){
+				// 本身操作
+				if (flag) {
+					btn.innerHTML = "不变色";
+				} else{
+					btn.innerHTML = "变色";
+				}
+				btn.classList.toggle("btn2");
+				flag = !flag;
+				// for 循环遍历装有 被点击 div 下标的数组
+				// 通过下标取出每个被点击的 div, 然后变色
+				 for (var i = 0; i < arr.length; i++) {
+				 	 oDivs[arr[i]].classList.toggle("change");
+				 }
+			}
+			
+			
+		</script>
+
+	</body>
+
+</html>

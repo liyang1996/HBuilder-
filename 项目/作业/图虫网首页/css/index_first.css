@@ -1,0 +1,1202 @@
+			* {
+				margin: 0;
+				padding: 0;
+				font-weight: 400;
+			}
+			
+			body {
+				width: 100%;
+				font-size: 14px;
+			}
+			
+			html {
+				line-height: 1.5;
+			}
+			
+			
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			a {
+				text-decoration: none;
+				cursor: pointer;
+				color: inherit
+			}
+			
+			#header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				min-width: 100%;
+				height: 60px;
+				margin: 0 auto;
+				z-index: 100;
+				-webkit-transition: background-color .8s ease;
+				-moz-transition: background-color .8s ease;
+				transition: background-color .8s ease;
+			}
+			
+			#header #nav {
+				width: 100%;
+				height: 60px;
+				min-width: 780px;
+				max-width: 1880px;
+				font-size: 16px;
+				padding: 0 40px;
+				margin: 0 auto;
+				clear: both;
+				color: white;
+			}
+			/* 导航条动画 */
+			
+			#header:hover {
+				background-color: #000;
+			}
+			
+			#header #nav #nav_left {
+				float: left;
+				height: 60px;
+			}
+			
+			@media only screen and (max-width: 1250px) {
+				#nav_left ul>li:first-child~.nav_list_item {
+					display: none;
+				}
+			}
+			/* 图虫图标图片 */
+			
+			#header .nav-logo {
+				display: inline-block;
+				height: 20px;
+				width: 80px;
+				margin: 20px 0;
+				float: left;
+				background-image: url(../img/mainIndex/nav-logo.png);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%
+			}
+			/* 导航条中的 li */
+			
+			.nav_list,
+			.nav_list_item {
+				display: inline-block;
+				cursor: pointer;
+			}
+			/* 导航条 ul 设置 */
+			
+			#nav_left>.nav_list {
+				margin-left: 50px;
+				margin-top: 20px;
+				/*background-color: royalblue;*/
+				float: left;
+			}
+			/* 导航条间距设置 */
+			
+			#nav_left .nav_list_item {
+				padding: 0 22px;
+				letter-spacing: 2px;
+				position: relative;
+			}
+			
+			#nav_left ul>.nav_list_item:hover {
+				color: yellow;
+			}
+			/* 下拉条样式 */
+			
+			#nav_left .nav_list_item .nav_list {
+				position: absolute;
+				top: 50px;
+				left: -25px;
+				width: 120px;
+				text-align: center;
+				background-color: black;
+				padding-bottom: 20px;
+				visibility: hidden;
+				color: white;
+			}
+			/* 显示下拉条 */
+			
+			#nav_left .nav_list_item:hover>.nav_list {
+				visibility: visible;
+				/*background-color: darkcyan;*/
+			}
+			/* 设置下拉条间距 */
+			
+			#nav_left .nav_list_item>.nav_list li {
+				padding-top: 20px;
+			}
+			/* 搜索登录注册 */
+			
+			#header #nav #nav_right {
+				float: right;
+				height: 60px;
+				/*background-color: red;*/
+				margin-right: 120px;
+				display: inline-block;
+			}
+			
+			.nav_search {
+				float: right;
+				height: 60px;
+				/*width: 15%;*/
+				box-sizing: border-box;
+				padding: 17.5px 0;
+				margin-right: 15px;
+				/*background-color: blueviolet;*/
+				display: inline-block;
+				position: relative;
+			}
+			/* !! 必须添加, 否则图片和 input 不在同一行! */
+			
+			.nav_form {
+				display: inline-block;
+			}
+			/* 搜索图片 */
+			
+			.nav_search .nav_search_img {
+				width: 25px;
+				/*height: 25px;*/
+				cursor: pointer;
+				display: inline-block;
+				float: left;
+			}
+			/* 搜索框 */
+			
+			.nav_search .nav_search_input {
+				float: left;
+				width: 0px;
+				height: 20px;
+				margin-left: 5px;
+				transition: width .5s ease-in-out;
+				webkit-transition: width .5s ease-in-out;
+				-moz-transition: width .5s ease-in-out;
+				display: inline-block;
+				background-color: #000;
+				opacity: 0.5;
+				border: 0;
+				color: white;
+			}
+			/* 登录按钮 */
+			
+			.nav_login {
+				float: right;
+				width: 110px;
+				height: 40px;
+				margin-left: 30px;
+				margin-top: 10px;
+				display: inline-block;
+				text-align: center;
+				line-height: 40px;
+			}
+			/* 注册按钮 */
+			
+			.nav_register {
+				float: right;
+				width: 110px;
+				height: 40px;
+				background-color: goldenrod;
+				margin-left: 30px;
+				margin-top: 10px;
+				text-align: center;
+				line-height: 40px;
+				display: inline-block;
+			}
+			/* --------------------swiper------------------- */
+			
+			.swiper {
+				position: relative;
+				width: 100%;
+				height: 700px;
+				min-height: 500px;
+				margin: 0 auto;
+				/*background-color: red*/
+			}
+			
+			.swiper-container {
+				width: 100%;
+				height: 100%;
+			}
+			/* 背景图片设置 */
+			
+			.swiper-slide {
+				background-position: center;
+				background-size: cover;
+				position: relative;
+			}
+			/* 右下角 By 某某 */
+			
+			.swiper-slide .swiper_first_moumou {
+				color: white;
+				position: absolute;
+				right: 20px;
+				bottom: 90px;
+			}
+			/* 二维码整个 */
+			
+			.swiper_first_page {
+				/*width: 400px;*/
+				/*background-color: red;*/
+				margin-top: 200px;
+				text-align: center;
+				position: relative;
+			}
+			/* 最好的摄影师都在这 h1 */
+			
+			.swiper_first_page .cover_good {
+				/*position: absolute;*/
+				margin-bottom: 30px;
+				color: white;
+				font-size: xx-large;
+			}
+			/* 马上加入 */
+			
+			.swiper_first_page .cover_enter {
+				margin-bottom: 30px;
+				background-color: cornflowerblue;
+				color: white;
+				width: 160px;
+				height: 40px;
+				font-size: 18px;
+				line-height: 40px;
+				border-radius: 5px;
+				display: inline-block;
+			}
+			/* 二维码+下载ios 安卓 a 标签 */
+			
+			.swiper_first_page .download_code {
+				/*padding: 0 10px 10px 10px;*/
+				text-align: center;
+			}
+			
+			.download_code .download_code_img img {
+				padding: 5px;
+				border: 1px solid white;
+				width: 100px;
+				height: 100px;
+			}
+			
+			.download_code .link {
+				margin-top: 10px;
+				width: 110px;
+				height: 33px;
+				display: block;
+				margin: 5px auto;
+			}
+			
+			.download_code .link_ios {
+				background-image: url(../img/mainIndex/ios.png);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+			
+			.download_code .link_android {
+				background-image: url(../img/mainIndex/android.png);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+			/* 前后按钮 */
+			
+			.swiper .swiper-container .swiper-button-next,
+			.swiper .swiper-container .swiper-button-prev {
+				background-size: 27px 27px;
+				opacity: 0.3;
+			}
+			
+			.swiper .swiper-container .swiper-button-next:hover,
+			.swiper .swiper-container .swiper-button-prev:hover {
+				opacity: 1;
+			}
+			/* 轮播图下框框 */
+			
+			.guide_bar {
+				width: 100%;
+				height: 80px;
+				background: rgba(1, 1, 1, .5);
+				position: absolute;
+				bottom: 0;
+				z-index: 3;
+			}
+			
+			.guide_bar .wrap {
+				position: relative;
+				width: 570px;
+				height: 100%;
+				/*background-color: red;*/
+				margin: 0 auto;
+			}
+			/* 左边整个图虫创意+span */
+			
+			.guide_bar .wrap .icon_wrap {
+				float: left;
+				width: 160px;
+				height: 60px;
+				/*background-color: royalblue;*/
+				margin-top: 10px;
+				margin-right: 10px;
+			}
+			/* 左边内容 */
+			/* 图片 */
+			
+			.wrap .icon_wrap .icon_wrap_img {
+				float: left;
+				margin-top: 10px;
+				width: 150px;
+				height: 20px;
+			}
+			/* span */
+			
+			.wrap .icon_wrap .icon_wrap_span {
+				float: left;
+				width: 150px;
+				height: 30px;
+				margin-top: 5px;
+				color: white;
+				font-size: 15px;
+				text-align: center;
+				display: block;
+			}
+			/* 右边整个 input+ 按钮 */
+			
+			.guide_bar .wrap .wrap_search {
+				float: left;
+				width: 388px;
+				height: 60px;
+				/*background-color: green;*/
+				margin-top: 10px;
+				opacity: 0.7;
+				transition: ease .5s;
+			}
+			/* 右边内容*/
+			/* 搜索框*/
+			
+			.wrap .wrap_search .wrap_search_input {
+				float: left;
+				display: inline-block;
+				width: 260px;
+				height: 20px;
+				margin-top: 10px;
+				padding: 10px;
+				text-align: left;
+				border: 0;
+			}
+			/* 搜索按钮 */
+			
+			.wrap .wrap_search .wrap_search_btn {
+				float: left;
+				display: inline-block;
+				background-color: goldenrod;
+				color: white;
+				width: 100px;
+				height: 40px;
+				margin-top: 10px;
+				text-align: center;
+				line-height: 40px;
+			}
+			/* 中间内容 */
+			
+			.container .content {
+				margin: 0 auto;
+				width: 1200px;
+			}
+			
+			.content .hot_events p,
+			.hot_posts p {
+				margin: 40px 0 70px;
+				text-align: center;
+				line-height: 1;
+			}
+			
+			.content .hot_posts h2,
+			.hot_events h2 {
+				margin-top: 70px;
+				text-align: center;
+				font-size: 24px;
+				line-height: 1;
+				font-weight: 400;
+			}
+			/* ---------------------- 摄影爱好者~~ ------------------- */
+			
+			.content .hot_posts {
+				overflow: hidden;
+			}
+			/* li */
+			
+			.posts_list .post_item {
+				margin-top: 10px;
+				float: left;
+			}
+			/* a */
+			
+			.post_cover {
+				float: left;
+				display: inline-block;
+				background-size: cover;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.post_cover .post_mask {
+				position: absolute;
+				left: 0;
+				top: 0;
+				/*z-index: -1;*/
+				display: none;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, .4);
+			}
+			/* 动画~~~ */
+			
+			.post_cover:hover .post_mask {
+				/*z-index: 0;*/
+				display: inline-block;
+			}
+			
+			.post_mask .post_title {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 100%;
+				max-height: 50px;
+				padding: 0 10px;
+				margin: 0;
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				text-align: center;
+				font-size: 18px;
+				color: #fff;
+				overflow: hidden;
+			}
+			
+			.post_mask .post_author_icon {
+				position: absolute;
+				left: 50%;
+				bottom: 50px;
+				width: 30px;
+				height: 30px;
+				margin-left: -15px;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				border-radius: 50%;
+			}
+			
+			.post_mask .post_author_name {
+				position: absolute;
+				left: 50%;
+				bottom: 20px;
+				-webkit-transform: translateX(-50%);
+				-moz-transform: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				transform: translateX(-50%);
+				color: #fff;
+			}
+			
+			.post_cover .enter-left {
+				-webkit-animation: enter-left .3s ease-in;
+				-moz-animation: enter-left .3s ease-in;
+				animation: enter-left .3s ease-in;
+			}
+			
+			.post_cover .enter-right {
+				-webkit-animation: enter-right .3s ease-in;
+				-moz-animation: enter-right .3s ease-in;
+				animation: enter-right .3s ease-in;
+			}
+			
+			.post_cover .enter-top {
+				-webkit-animation: enter-top .3s ease-in;
+				-moz-animation: enter-top .3s ease-in;
+				animation: enter-top .3s ease-in;
+			}
+			
+			.post_cover .enter-bottom {
+				-webkit-animation: enter-bottom .3s ease-in;
+				-moz-animation: enter-bottom .3s ease-in;
+				animation: enter-bottom .3s ease-in;
+			}
+			
+			.post_cover .leave-top {
+				-webkit-animation: leave-top .3s ease-out;
+				-moz-animation: leave-top .3s ease-out;
+				animation: leave-top .3s ease-out;
+			}
+			
+			.post_cover .leave-left {
+				-webkit-animation: leave-left .3s ease-out;
+				-moz-animation: leave-left .3s ease-out;
+				animation: leave-left .3s ease-out;
+			}
+			
+			.post_cover .leave-right {
+				-webkit-animation: leave-right .3s ease-out;
+				-moz-animation: leave-right .3s ease-out;
+				animation: leave-right .3s ease-out;
+			}
+			
+			.post_cover .leave-bottom {
+				-webkit-animation: leave-bottom .3s ease-out;
+				-moz-animation: leave-bottom .3s ease-out;
+				animation: leave-bottom .3s ease-out;
+			}
+			
+			@-webkit-keyframes enter-top {
+				from {
+					-webkit-transform: translate3d(0, -100%, 0);
+					transform: translate3d(0, -100%, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@-moz-keyframes enter-top {
+				from {
+					-moz-transform: translate3d(0, -100%, 0);
+					transform: translate3d(0, -100%, 0);
+					z-index: 0
+				}
+				to {
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@keyframes enter-top {
+				from {
+					-webkit-transform: translate3d(0, -100%, 0);
+					-moz-transform: translate3d(0, -100%, 0);
+					transform: translate3d(0, -100%, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@-webkit-keyframes enter-right {
+				from {
+					-webkit-transform: translate3d(100%, 0, 0);
+					transform: translate3d(100%, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@-moz-keyframes enter-right {
+				from {
+					-moz-transform: translate3d(100%, 0, 0);
+					transform: translate3d(100%, 0, 0);
+					z-index: 0
+				}
+				to {
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@keyframes enter-right {
+				from {
+					-webkit-transform: translate3d(100%, 0, 0);
+					-moz-transform: translate3d(100%, 0, 0);
+					transform: translate3d(100%, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@-webkit-keyframes enter-bottom {
+				from {
+					-webkit-transform: translate3d(0, 100%, 0);
+					transform: translate3d(0, 100%, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@-moz-keyframes enter-bottom {
+				from {
+					-moz-transform: translate3d(0, 100%, 0);
+					transform: translate3d(0, 100%, 0);
+					z-index: 0
+				}
+				to {
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@keyframes enter-bottom {
+				from {
+					-webkit-transform: translate3d(0, 100%, 0);
+					-moz-transform: translate3d(0, 100%, 0);
+					transform: translate3d(0, 100%, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@-webkit-keyframes enter-left {
+				from {
+					-webkit-transform: translate3d(-100%, 0, 0);
+					transform: translate3d(-100%, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@-moz-keyframes enter-left {
+				from {
+					-moz-transform: translate3d(-100%, 0, 0);
+					transform: translate3d(-100%, 0, 0);
+					z-index: 0
+				}
+				to {
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@keyframes enter-left {
+				from {
+					-webkit-transform: translate3d(-100%, 0, 0);
+					-moz-transform: translate3d(-100%, 0, 0);
+					transform: translate3d(-100%, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+			}
+			
+			@-webkit-keyframes leave-top {
+				from {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, -100%);
+					transform: translate3d(0, -100%);
+					z-index: -1
+				}
+			}
+			
+			@-moz-keyframes leave-top {
+				from {
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-moz-transform: translate3d(0, -100%);
+					transform: translate3d(0, -100%);
+					z-index: -1
+				}
+			}
+			
+			@keyframes leave-top {
+				from {
+					-webkit-transform: translate3d(0, 0, 0);
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, -100%);
+					-moz-transform: translate3d(0, -100%);
+					transform: translate3d(0, -100%);
+					z-index: -1
+				}
+			}
+			
+			@-webkit-keyframes leave-right {
+				from {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(100%, 0, 0);
+					transform: translate3d(100%, 0, 0);
+					z-index: -1
+				}
+			}
+			
+			@-moz-keyframes leave-right {
+				from {
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-moz-transform: translate3d(100%, 0, 0);
+					transform: translate3d(100%, 0, 0);
+					z-index: -1
+				}
+			}
+			
+			@keyframes leave-right {
+				from {
+					-webkit-transform: translate3d(0, 0, 0);
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(100%, 0, 0);
+					-moz-transform: translate3d(100%, 0, 0);
+					transform: translate3d(100%, 0, 0);
+					z-index: -1
+				}
+			}
+			
+			@-webkit-keyframes leave-bottom {
+				from {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 100%, 0);
+					transform: translate3d(0, 100%, 0);
+					z-index: -1
+				}
+			}
+			
+			@-moz-keyframes leave-bottom {
+				from {
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-moz-transform: translate3d(0, 100%, 0);
+					transform: translate3d(0, 100%, 0);
+					z-index: -1
+				}
+			}
+			
+			@keyframes leave-bottom {
+				from {
+					-webkit-transform: translate3d(0, 0, 0);
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(0, 100%, 0);
+					-moz-transform: translate3d(0, 100%, 0);
+					transform: translate3d(0, 100%, 0);
+					z-index: -1
+				}
+			}
+			
+			@-webkit-keyframes leave-left {
+				from {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(-100%, 0, 0);
+					transform: translate3d(-100%, 0, 0);
+					z-index: -1
+				}
+			}
+			
+			@-moz-keyframes leave-left {
+				from {
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-moz-transform: translate3d(-100%, 0, 0);
+					transform: translate3d(-100%, 0, 0);
+					z-index: -1
+				}
+			}
+			
+			@keyframes leave-left {
+				from {
+					-webkit-transform: translate3d(0, 0, 0);
+					-moz-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+					z-index: 0
+				}
+				to {
+					-webkit-transform: translate3d(-100%, 0, 0);
+					-moz-transform: translate3d(-100%, 0, 0);
+					transform: translate3d(-100%, 0, 0);
+					z-index: -1
+				}
+			}
+			/* ----------------------- 百万活动大赛 -------------------*/
+			
+			.hot_events .events_list li {
+				float: left;
+				width: 380px;
+				height: 280px;
+				margin-left: 20px;
+				margin-top: 30px;
+				position: relative;
+			}
+			
+			.events_list li .event_img {
+				-moz-background-size: cover;
+				background-size: cover;
+				background-position: center;
+				height: 200px;
+				/*position: relative;*/
+				margin-bottom: 10px;
+			}
+			/* 黄色距截稿 */
+			
+			.events_list li p {
+				margin: 0;
+			}
+			
+			.events_list li .item_active {
+				position: absolute;
+				left: 0;
+				/* 因为整个 p 有个 margin:40px */
+				top: -40px;
+				background: -webkit-linear-gradient(left, #e79836, rgba(231, 152, 54, 0));
+				background: -moz-linear-gradient(left, #e79836, rgba(231, 152, 54, 0));
+				background: linear-gradient(to right, #e79836, rgba(231, 152, 54, 0));
+				padding: 5px 10px 2px 6px;
+				line-height: 17px;
+				width: 30%;
+				color: white;
+				font-size: 12px;
+			}
+			/* 图片底下标题 */
+			
+			.events_list .item_desc {
+				position: relative;
+			}
+			
+			.events_list .item_desc .item_title {
+				font-size: 18px;
+				color: #222;
+				margin: 6px 0;
+				width: 60%;
+				line-height: 28px;
+			}
+			
+			.events_list .item_desc .item_posts {
+				position: absolute;
+				top: 6px;
+				right: 8px;
+				font-size: 13px;
+				color: #808387;
+			}
+			
+			.events_list li .item_award {
+				margin: 5px 0;
+				padding: 5px 5px 5px 0;
+				text-align: left;
+				font-size: 13px;
+				overflow: hidden;
+			}
+			
+			.events_list li .item_award i {
+				display: inline-block;
+				width: 12px;
+				height: 13px;
+				margin-right: 3px;
+				margin-bottom: 4px;
+				vertical-align: -6px;
+				background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAaCAYAAACtv5zzAAAAAXNSR0IArs4c6QAAAnBJREFUSA3FVj1oVEEQntl3784TAqlSiY02IgZi7i6VYCVaWFspCPeu9QcENWgR8Q8LExCVXEDQykIbQUQQBKucOVKJhVgYUllIKi/3Xt6NM8/bd+u+n4vEw4XHzs58883O7OzyEKyxvOiSpfqr5UwjQNNBmYtRyHG0dnPXkRB6l4jo5E4CIeIrB9S9aW/zg/BEAZabxVkEukH0e72TAH3SHge6VvX8WxjtnML3TL1FhNcB6E5mAMTPkY3oQCYG8DIizQFBwUHnqIrKAqCEfKbh38125HQRXsiXhxEO4eJOibgVR6qIg1MuPM1zFBuX8aV8w3AxF3MX8sAOQptAPe9jgmq9uyryx2bpAk+uyAi9UyHBtMhpQzFiRQxhZ+uMDRDHHtGhMTX2uOp157VdZNGJLY085mLubR0yAn513d2VqbMbGxJk9cn4eBD8XCGgfTroYP7zkAdtSjQnBzMAGhLieq3e3WtooLVUWgOiPaZOy0w6aFOt1BeNnY5zoKi+2sYOC2Us3u6A/0x0ZSie7pB/hXHnNEZmxgXcam8SF80EtZrufb5w502dQrzJ9fZYN9HXf2eiJd7MVRPHLTxf8wJpgHgkS0LsiBDGCBaYfJYnTS6miQQ5w0B8rZEIUGv4n/huPLJwQ5dcroeRr4VMBBC7c3jyIqf7zsJmLgUrPmmA1ACVSjtQU5Mn2OGBXS6TRLpFMIIVH9OmZcbkj9Zi8SAg1fl9OcYPYb9VcY0ftLdS87Sy5DPmWL+83l+SLweSMOW+RTb6x/q3zb5uaObaN/UMtPFfzCMPsO1U7b8N++8hK9v/l4G946wdan1WRiPP4Be9Cu1v/a/vqgAAAABJRU5ErkJggg==);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+			/* ------------ 合作品牌 ------------ */
+			
+			.container .brands {
+				margin: 0 auto;
+				overflow: hidden;
+				width: 1100px;
+				margin-bottom: 100px;
+			}
+			/* 合作品牌 */
+			
+			.container .brands .brand_title {
+				color: #85888a;
+				font-size: 16px;
+				margin: 100px auto 60px;
+				text-align: center;
+				letter-spacing: 2px;
+			}
+			
+			.container .brands .brand_list li {
+				float: left;
+				width: 163px;
+				height: 88px;
+				background-color: red;
+				display: inline-block;
+				margin: 9px;
+				border: 1px solid #e0e0e0;
+			}
+			
+			.container .brands .brand_list a {
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+				background-color: black;
+				background-position: center center;
+				-moz-background-size: cover;
+				background-size: cover;
+			}
+			/* ----------------  最底部 footer  ----------------- */
+			
+			#footer {
+				width: 100%;
+				background: rgba(0, 0, 0, 0.9);
+				position: relative;
+				bottom: 0;
+				font-size: 12px;
+				color: gainsboro;
+			}
+			
+			#footer a {
+				text-decoration: none;
+			}
+			
+			#footer .footer_top {
+				overflow: hidden;
+				padding-top: 20px;
+				padding-left: 50px;
+				padding-right: 50px;
+			}
+			
+			#footer .footer_botm {
+				/*background-color: red;*/
+				overflow: hidden;
+			}
+			
+			.fl {
+				float: left;
+			}
+			
+			.fr {
+				float: right;
+			}
+			
+			.ftc_fluid {
+				margin-bottom: 20px;
+			}
+			/* 每个标题 */
+			
+			.ftc_fluid .fluid_title {
+				color: goldenrod;
+				letter-spacing: 10px;
+				font-size: 14px;
+				margin-bottom: 10px;
+			}
+			/* 每个内容 */
+			
+			.ftc_fluid .fluid-content {
+				max-width: 340px;
+				background-color: gold;
+				overflow: hidden;
+			}
+			/* 关于我们下面的文字 */
+			
+			.ftc_fluid .flu_desc {
+				margin-right: 70px;
+				line-height: 1.8;
+			}
+			
+			.ftc_fluid .fluid_content .qrcode {
+				width: 80px;
+				height: 80px;
+				margin-right: 5px;
+				float: left;
+			}
+			/* 两个下载的外框 */
+			
+			.fluid_content .qrcode_app {
+				display: inline-block;
+				float: left;
+				margin-top: 3px;
+				vertical-align: middle;
+			}
+			
+			.qrcode_app .app_link {
+				border: 1px solid white;
+				padding: 6px 25px;
+				display: block;
+				margin-bottom: 10px;
+			}
+			
+			#footer .qrcode_app .app_link:hover {
+				text-decoration: underline;
+			}
+			/* 关注图虫内容区*/
+			
+			.fr .fluid_content {
+				float: left;
+				position: relative;
+			}
+			
+			.link_logo {
+				float: left;
+				text-align: center;
+				height: 30px;
+				width: 30px;
+				display: inline-block;
+			}
+			
+			.weixin {
+				/*margin-left: 5px;*/
+				margin-right: 20px;
+				float: left;
+			}
+			
+			.weixin .link_weixin {
+				display: inline-block;
+				width: 23px;
+				height: 23px;
+				background-image: url(../img/mainIndex/weixin.png);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+			
+			.weibo {
+				/*margin-right: 5px;*/
+				float: right;
+			}
+			
+			.weibo .link_weibo {
+				display: inline-block;
+				width: 23px;
+				height: 23px;
+				background-image: url(../img/mainIndex/weibo.png);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+			
+			#footer .link_logo:hover a {
+				text-decoration: none;
+			}
+			
+			.link_logo:hover {
+				border-bottom: 1.5px solid white;
+			}
+			/* 微信图片 */
+			
+			.wechat {
+				background-image: url(../img/mainIndex/index.jpg);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+				position: absolute;
+				left: -90px;
+				top: -5px;
+				visibility: hidden;
+			}
+			/* 鼠标悬停显示图片 */
+			
+			#footer .weixin:hover .wechat {
+				visibility: visible;
+			}
+			/*	footer _ bottom*/
+			
+			#footer .footer_botm {
+				overflow: hidden;
+				padding-bottom: 20px;
+				padding-left: 50px;
+				padding-right: 50px;
+			}
+			
+			#footer .footer_botm_left {
+				float: left;
+			}
+			
+			#footer .footer_botm_right {
+				float: right;
+			}
+			
+			.footer_botm .slash_list {
+				display: inline-block;
+				margin-left: 10px;
+			}
+			/* 每个元素前面都有斜杠 */
+			
+			#footer a:hover i {
+				text-decoration: underline;
+			}
+			
+			#footer .footer_botm .slash_list .slash_item::before {
+				content: "/";
+				text-decoration: none;
+				color: gainsboro;
+				margin: 0 10px;
+			}
+			/*#footer .slash_list .slash_item:hover::before{
+				给伪类元素添加伪类选择器
+			}*/
+			/* list 的第一个item的前面伪元素内容为空 */
+			
+			#footer .slash_list .slash_item:first-child::before {
+				text-decoration: none;
+				content: "";
+				margin: 0
+			}
+			/* 滚动到顶部 */
+			
+			#icon_gotop {
+				position: fixed;
+				bottom: 50px;
+				right: 50px;
+				background-color: rgba(0, 0, 0, .6);
+				color: #fff;
+				z-index: 9;
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				background-image: url(../img/mainIndex/gotop.png);
+				background-size: 50% 50%;
+				background-position: center center;
+				background-repeat: no-repeat;
+				visibility: hidden;
+			}

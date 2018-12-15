@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+		<script src="JQ/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+   			//cookie转Json
+			document.cookie = "age=18";
+			document.cookie = "name=nihao";	
+			document.cookie = "sex=boy";
+			
+			//console.log(document.cookie)
+			var cookieArr = document.cookie.split(";");//切割字符串
+			var obj = {} ;
+			for(var i= 0;i<cookieArr.length;i++){
+				var arr = cookieArr[i].split("=");
+				var theKey = arr[0].trim();//trim去空格
+				var theValue = arr[1].trim();
+				obj[theKey]=theValue;
+			}
+			console.log(obj)
+			
+		</script>
+	</body>
+</html>

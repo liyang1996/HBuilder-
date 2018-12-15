@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_switch_case</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//有一个电话号码,如果是110就打印报警电话
+			//119打印火警电话
+			//120打印急救电话
+			//12308打印大使馆电话
+			
+			var phoneNum = 120;
+			switch (phoneNum){
+				case 110:
+					console.log("报警电话");
+				break;
+					//break:跳出switch,不在进行switch的其它代码执行
+				case 119:
+					console.log("火警电话");
+					break;
+				case 120:
+					console.log("急救电话");
+					break;
+				case 12307:
+					console.log("外交电话");
+					break;
+				default:
+				//default:以上条件都不满足,输出默认值
+					console.log("瞎打什么");
+			}
+			
+		</script>
+		
+		
+	</body>
+</html>

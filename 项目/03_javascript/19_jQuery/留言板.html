@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.all{
+				width: 100%;
+				height:100%;
+			}
+			.wrap{
+				width: 85%;
+				height: 320px;
+				border: 1px solid black;
+				border-radius: 5px;
+				margin: 0 auto;
+				position: relative;
+				margin-top: 10px;
+			}
+			.wrap span{
+				margin-top: 10px;
+				font-size: 25px;
+				color: orange;
+			}
+			.wrap span:nth-child(1){
+				position: absolute;
+				left: 0;
+				margin-left: 20px;
+			}
+			.wrap span:nth-child(2){
+				position: absolute;
+				right: 0;
+				margin-right: 20px;
+			}
+			#comment{
+				width: 80%;
+				height: 200px;
+				position: absolute;
+				border: 1px solid silver;
+				left: 50%;
+				margin-left: -40%;
+				top: 60px;
+			}
+			
+			.wrap p{
+				position: absolute;
+				top: 280px;
+				margin-left: 20px;
+			}
+			#btn{
+				position: absolute;
+				top: 280px;
+				right: 0;
+				margin-right: 20px;
+				width: 80px;
+				height: 30px;
+				background-color: sandybrown;
+				color: white;
+				outline:none;
+			}
+			.bottom{
+				width: 85%;
+				height: 100%;
+				border: 1px solid black;
+				border-radius: 5px;
+				margin: 0 auto;
+				position: relative;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				min-height: 300px;
+			}
+			.newD{
+				width: 85%;
+				height: 100px;
+				border: 1px solid silver;
+				margin: 0 auto;
+				margin-top: 10px;
+				line-height: 35px;
+			}
+			.newT{
+				left: 10px;
+			}
+			.oDel{
+				margin-left:95%;
+				margin-top: -40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="wrap">
+				<span>LOGO</span>
+				<span>点击领取红包</span>
+				<input type="text" name="comment" id="comment" value="" />
+				<p>表情 图片 视频 话题 文章</p>
+				<input type="button" name="" id="btn" value="发布" />
+			</div>
+			<div class="bottom" id="bottom"></div>
+		</div>
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			function addComment(){
+				var theComment = $("#comment").val();
+				//清空value
+				$("#comment").val("");
+				
+				//创建评论内容div
+				var $newDiv = $("<div> </div>");
+				var nowDate = new Date;
+				$newDiv.attr("class","newD");
+				$newDiv.html("大可爱："+"<br>"+theComment);
+				$("#bottom").prepend($newDiv);
+				$(".comment").empty();
+				
+				//创建删除div
+				var $del = $("<div>删除</div>");
+				$del.attr("class","oDel")
+				$newDiv.append($del);
+				
+				//创建时间div
+				var $newTime = $("<div>	</div>");
+				$newTime.attr("class","newT")
+				$newDiv.append($newTime);
+				$newTime.html(nowDate+"&nbsp&nbsp&nbsp发布");
+				
+				//删除留言
+				$(".oDel").click(function(){
+					$newDiv.remove()
+				})
+			};
+				
+				$("#btn").click(function(){
+					addComment();
+				});
+		</script>
+	</body>
+</html>

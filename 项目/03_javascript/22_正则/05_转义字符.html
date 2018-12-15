@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * /d 代表数字[0-9];
+			 * /D 代表非数字的所有（包括汉字，空格，标点符号等）,[^0-9];
+			 *  . 匹配所有字符;
+			 * /w 匹配数字字母下划线[0-9a-zA-Z_];
+			 * /W 匹配非数字字母下划线[^0-9a-zA-Z_];  (汉字)
+			 * /s 匹配空白（空格和换行）
+			 * /S 匹配非空白
+			 * 
+			 */
+			var str = "jnmgiodrg,3564df1gdf51g5dr3g65rd4h654dfg4fg5f4"
+			
+			var re = /\D.3/g;
+			console.log(str.match(re))
+			
+			
+			
+		</script>
+	</body>
+</html>

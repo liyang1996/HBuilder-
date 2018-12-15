@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#home{
+				background-image: url(img/bg.jpg);
+				width: 320px;
+				height: 480px;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+			.home_title{
+				position: absolute;
+				top: 25%;
+				width: 100%;
+				height:77px ;
+				left: 12%;
+				
+				-webkit-animation: move 2s linear infinite alternate ;
+				-o-animation: move 2s linear infinite alternate ;
+				animation: move 2s linear infinite alternate ;
+			}
+			.home_title img:nth-child(2){
+				margin-left: -50px;
+			}
+			
+			@-webkit-keyframes move{
+				from{
+					margin-top: 0px;
+				}
+				33%{
+					margin-top: -10px;
+				}
+				66%{
+					margin-top: 0px;
+				}
+				to{
+					margin-top: 10px;
+				}
+			}
+			
+			.home_btn{
+				position: absolute;
+				top:60%;
+				left: 50%;
+				margin-left:-42px ;
+			}
+			.timeimg{
+				position: absolute;
+				top:10%;
+				left: 50%;
+				margin-left:-14px ;
+			}
+			
+			/*中间柱子*/
+			#wrap{
+				background-image: url(img/bg.jpg);
+				width: 320px;
+				height: 480px;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+				display: none;
+				z-index: 100;
+			}
+			
+			.wrap_small{
+				position: absolute;
+				top: 0;
+				left: 320px;
+				width: 62px;
+				height: 100%;
+			}
+			
+			.wrap_up{
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 30%;
+				width: 100%;
+				background: url(img/up_mod.png) repeat-y;
+			}
+			
+			.wrap_down{
+				width: 100%;
+				height: 40%;
+				background: url(img/down_mod.png) repeat-y;
+				position: absolute;
+				bottom: 0;
+				margin-bottom:56px;
+				left: 0;
+			}
+			
+			.wrap_down img{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			.wrap_up img{
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+			
+			.grass{
+				width:1400px;;
+				-webkit-animation:move_banner 3s linear infinite normal ;
+				-o-animation:move_banner 3s linear infinite normal ;
+				animation:move_banner 3s linear infinite normal ;
+				position: absolute;
+				top: 87.5%;
+			}
+			
+			@-webkit-keyframes move_banner {
+				from{
+					margin-left: 0;
+				}
+				to{
+					margin-left: -300px;
+				}
+			
+		</style>
+	</head>
+	<body>
+		<div class="home" id="home">
+			<img class="timeimg" src="img/0.jpg"/>
+			<div class="home_title">
+				<img src="img/head.jpg"/>
+				<img src="img/bird1.png"/>
+			</div>
+			<div class="home_btn" id="home_btn">
+				<img  src="img/start.jpg"/>
+			</div>
+			<div class="grass">
+				<img src="img/banner.jpg"/>
+				<img src="img/banner.jpg"/>
+			</div>
+		</div>
+		<!--柱子-->
+		<div id="wrap">
+			<img id="bird" style="position: absolute;top:50%;" src="img/down_bird0.png"/>
+			<div class="grass">
+				<img src="img/banner.jpg"/>
+				<img src="img/banner.jpg"/>
+			</div>
+			<div id="oclok" style="margin-left: 140px;margin-top: 30px;position: absolute;z-index: 100;">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oBtn = document.getElementById("home_btn");
+		var oHome = document.getElementById("home");
+		var oWrap = document.getElementById("wrap");
+		var oBird = document.getElementById("bird");
+		
+		oBtn.onclick = function(){
+			oHome.style.display = "none";
+			oWrap.style.display = "block";
+			}
+		
+		var timer2 = null;
+			var Topdist =200;
+			var speed = 0;
+			clearInterval(timer2);
+			timer2 = setInterval(function(){
+				speed+=1;
+				 // 获取小鸟当前位置
+				var oBirdT = oBird.offsetTop+speed;
+				if(Topdist>oBirdT){
+					oBird.src = "img/down_bird0.png"
+				}else{
+					oBird.src = "img/up_bird0.png"
+				}
+				
+				if(oBirdT>400){
+					alert("撞墙了");
+					clearInterval(timer2)
+				}
+				if(oBirdT<0){
+					alert("撞墙了");
+					clearInterval(timer2);
+				}
+				oBird.style.top = oBirdT+"px";
+				oWrap.onclick = function(){
+				speed=speed-15;
+					}
+				},100);
+		
+		//柱子运动
+		var timer;
+		clearInterval(timer)
+		timer =setInterval(function(){
+			var oWrap_small = document.createElement("div");
+			oWrap_small.className = "wrap_small";
+			oWrap.appendChild(oWrap_small);
+		//上管道
+			var oWrap_up = document.createElement("div")
+			oWrap_up.className = "wrap_up";
+			oWrap_small.appendChild(oWrap_up);
+			oWrap_up.style.height = getNum(20,40)+"%";
+			console.log(oWrap_up.style.height)
+			var imgUp = new Image();      
+			imgUp.src = "img/up_pipe.png"; 
+			oWrap_up.appendChild(imgUp);
+		
+		//下管道
+			var wrap_down = document.createElement("div")
+			wrap_down.className = "wrap_down";
+			oWrap_small.appendChild(wrap_down);
+			wrap_down.style.height = getNum(20,40)+"%";
+			var imgDown = new Image();      
+			imgDown.src = "img/down_pipe.png"; 
+			wrap_down.appendChild(imgDown);
+			
+		//管子碰壁检测
+			
+		//管子移动
+			var pipespeed=320;
+		var timerpipe = setInterval(function(){
+			pipespeed--;
+			oWrap_small.style.left = pipespeed +"px";
+		},2)
+		
+	},1000);	
+	
+		//记录分数
+		var oImgdiv = document.getElementById("oclok") ;
+		var num=0;
+		var timerolick = setInterval(function(){
+			oImgdiv.innerHTML="";
+			num++;
+			//oImg.src = "img/" + count + ".jpg";
+		if (num < 10) {
+        var oImg = new Image();   
+			oImgdiv.appendChild(oImg);
+			oImg.src = "img/" + num + ".jpg";
+       	 oImgdiv.appendChild(oImg);
+    	} else {
+        //十位上的图片
+        var img1 = new Image(); 
+      	  img1.src = "img/" + Math.floor(num / 10) + ".jpg";
+       	  oImgdiv.appendChild(img1);
+        //个位上的图片
+        var img2 = new Image(); 
+        	img2.src = "img/" + num % 10 + ".jpg";
+      		oImgdiv.appendChild(img2);
+   		 }
+			},1000)
+		
+		//随机高度
+		function getNum(min,max){
+			var num = Math.floor(Math.random() * (max - min + 1) + min);
+			return num;
+		}
+	</script>
+	</body>
+</html>

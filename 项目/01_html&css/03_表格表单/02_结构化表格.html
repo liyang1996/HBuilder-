@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_结构化表格</title>
+		<style type="text/css">
+			table{border-collapse: collapse;}
+		</style>
+	</head>
+	<body>
+ 		<table border="1" width="200">
+ 			<!--thead:用来装载表头信息-->
+ 			<thead>
+ 				<tr>
+ 					<th>日期</th>
+ 					<th>消费</th>
+ 				</tr>
+ 			</thead>
+		<!--tbody: 用来装载表格要显示的数据-->
+		<tbody>
+		<!--	(tr>td{周$}+td{100})*2-->
+			<tr>
+				<td>周1</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>周2</td>
+				<td>100</td>
+			</tr>
+		</tbody>
+		
+		<!--tfoot:用来装在页脚,脚注等信息-->
+ 			<tfoot>
+ 				<tr>
+ 					<td>总计</td>
+ 					<td>300</td>
+ 					
+ 				</tr>
+ 				
+ 				
+ 			</tfoot>
+ 			
+ 		</table>		
+		
+		
+		
+	</body>
+</html>

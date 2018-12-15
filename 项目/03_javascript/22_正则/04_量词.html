@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 量词
+			 * +至少一个，没有上限
+			 * {n} 正好n个
+			 * {m,n} 最少2个，最多5个
+			 * {m,} 最少m个，最多不限 
+			 * {,m} 最少不限，最多m个
+			 * 
+			 *  星号 * 相当于{0,}//没有或不限
+			 *  问号 ？相当于{0,1}//没有或1个
+			 */
+			var str = "vha777ha88b88bb888hha888b8888jabjjajaja8888bjajjjjvja";
+			
+			var re1 = /a8+/g;
+			var re2 = /(ja){2}/g;//正好2个连着的ja
+			var re3 = /8{2,5}/g;
+			var re4 = /8{4,}/g;
+			var re5 = /a8{,2}/g;
+			var re6 = /a8*b/g;
+			var re7 = /a8?/g;
+			console.log(str.match(re7));
+			
+			//写一个符合QQ号判断的正则
+			//最少6位，最多10位，首位不能是0；
+			//     \d代表0-9；
+			var str1 = "252024308"; 
+			//var re8 = /[1-9]\d{5,9}/g;
+			
+			
+			//  ^单独使用 代表是 从头开始判断
+			//  $代表判断到结束
+			var re8 = /^[1-9][0-9]{5,9}$/g;
+			console.log(re8.test(str1));
+			
+			
+			
+		</script>
+	</body>
+</html>

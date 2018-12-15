@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#list{
+				border: 2px solid rosybrown;
+				margin: 0 auto;
+				position: relative;
+			}
+			li{
+				list-style: none;
+				position: absolute;	
+				width: 200px;
+				background-color: black;
+				color: white;
+				font-size: 50px;
+				text-align: center;	
+				box-sizing: border-box;		
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+		</ul>
+		<script type="text/javascript">
+			var oList = document.getElementById("list");
+			//每个小块之间的距离
+			var space = 20;
+			//获取浏览器的宽
+			var winW = document.documentElement.clientWidth;
+			//计算列数
+			var cols = parseInt((winW-space)/(200+space));
+			//设置ul的宽度
+			oList.style.width = (200+space)*cols+space+"px";
+			//初始化数组，放置每列高度的数组
+			var arr = [];
+			for(var i = 0;i<cols;i++){
+				arr[i] = 0;
+			}
+			//for循环创建li
+			for(var j=0;j<50;j++){
+				var newLi = document.createElement("li") ;
+				newLi.innerHTML=j;
+				oList.appendChild(newLi);
+			//设置不同的高
+				var h=Math.floor(Math.random()*(500-50+1)+50);
+				newLi.style.height=h+"px";
+				newLi.style.lineHeight=h+"px";
+			//设置位置
+			//1.寻找最短的一列
+			//默认第一列是最短	
+			var minH = arr[0];
+			var minIndex = 0;
+			for(var k=0;k<arr.length;k++){
+				if(minH>arr[k]){
+						minH=arr[k];
+						minIndex=k;
+					}
+				}
+			//设置top ，left
+			 newLi.style.left =(space+200)*minIndex+space+"px" ;
+			 newLi.style.top = minH+space+"px";
+			 
+			 //更新最短列的高
+			 arr[minIndex]+=space+newLi.offsetHeight;
+			}
+			
+			//更新UL高度
+			var maxH = arr[0];
+			for(var k=0;k<arr.length;k++){
+				if(maxH<arr[k]){
+						maxH=arr[k];
+					}
+				}
+			oList.style.height=maxH+space+"px";
+			
+		</script>
+	</body>
+</html>

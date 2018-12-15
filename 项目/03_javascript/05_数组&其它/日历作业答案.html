@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			body {
+				background: #f6f9fc;
+				font-family: arial;
+			}
+			
+			.calendar {
+				width: 230px;
+				margin: 50px auto 0;
+				padding: 10px 10px 20px 20px;
+				background: #eae9e9;
+			}
+			
+			.calendar ul {
+				width: 100%;
+				overflow: hidden;
+				padding-bottom: 10px;
+				padding-left: 0px;
+				margin: 0 auto;
+			}
+			
+			.calendar li:nth-child(3n){
+				margin-right:0px;
+			}
+			
+			.calendar li {
+				float: left;
+				width: 65px;
+				height: 70px;
+				margin: 10px 10px 0 0;
+				border: 1px solid #fff;
+				background: #424242;
+				color: #fff;
+				text-align: center;
+				cursor: pointer;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+			
+			.calendar li h2 {
+				font-size: 20px;
+				padding-top: 5px;
+				margin: 5px 0;
+				
+			}
+			
+			.calendar li p {
+				font-size: 14px;
+			}
+			
+			.calendar .active {
+				border: 1px solid #424242;
+				background:#FFFFFF;
+				color: #e84a7e;
+			}
+			
+			.calendar .active p {
+				font-weight: bold;
+			}
+			
+			.calendar .text {
+				width: 210px;
+				padding: 0 10px 10px;
+				border: 1px solid #fff;
+				padding-top: 10px;
+				background: #f1f1f1;
+				color: #555;
+			}
+			
+			.calendar .text h2 {
+				font-size: 14px;
+				margin-bottom: 10px;
+			}
+			
+			.calendar .text p {
+				font-size: 12px;
+				line-height: 18px;
+			}
+		</style>
+	
+	</head>
+
+	<body>
+		<div id="tab" class="calendar">
+			<ul>
+				<li class="active">
+					<h2>1</h2>
+					<p>JAN</p>
+				</li>
+				<li>
+					<h2>2</h2>
+					<p>FER</p>
+				</li>
+				<li>
+					<h2>3</h2>
+					<p>MAR</p>
+				</li>
+				<li>
+					<h2>4</h2>
+					<p>APR</p>
+				</li>
+				<li>
+					<h2>5</h2>
+					<p>MAY</p>
+				</li>
+				<li>
+					<h2>6</h2>
+					<p>JUN</p>
+				</li>
+				<li>
+					<h2>7</h2>
+					<p>JUL</p>
+				</li>
+				<li>
+					<h2>8</h2>
+					<p>AUG</p>
+				</li>
+				<li>
+					<h2>9</h2>
+					<p>SEP</p>
+				</li>
+				<li>
+					<h2>10</h2>
+					<p>OCT</p>
+				</li>
+				<li>
+					<h2>11</h2>
+					<p>NOV</p>
+				</li>
+				<li>
+					<h2>12</h2>
+					<p>DEC</p>
+				</li>
+			</ul>
+
+			<div class="text">
+				<h2>1月活动</h2>
+				<p>这是1月活动内容</p>
+			</div>
+
+		</div>
+
+		<script>
+				var oTab = document.getElementById('tab');
+				var aTxt = oTab.getElementsByTagName('div')[0];//给第一个div、进行定义
+				var aLi = oTab.getElementsByTagName('li');
+
+				var aArr = [
+					'这是一月活动内容',
+					'这是二月活动内容',
+					'这是三月活动内容',
+					'这是四月活动内容',
+					'这是五月活动内容',
+					'这是六月活动内容',
+					'这是七月活动内容',
+					'这是八月活动内容',
+					'这是九月活动内容',
+					'这是十月活动内容',
+					'这是十一月活动内容',
+					'这是十二月活动内容'
+				];
+				var count = 0;
+				for(var i = 0; i < aLi.length; i++) {
+					aLi[i].index = i;
+					aLi[i].onmouseover = function() {
+						aLi[count].className = '';
+						this.className = 'active';
+						aTxt.innerHTML = '<h2>' + (this.index + 1) + '月活动</h2><p>' + aArr[this.index] + '</p>';
+						count = this.index;0
+					}
+				}
+		</script>
+	</body>
+
+</html>

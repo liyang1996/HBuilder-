@@ -1,0 +1,17 @@
+<html>
+<head>
+<script language="javascript">
+function scrollit(x,y)
+{
+mydiv.scrollTop=y;
+mydiv.scrollLeft=x;
+}
+</script>
+</head>
+<body>
+<div id="mydiv" style="overflow:auto;width:300px;height:100px;border:1px solid #ACACAC">
+<img src="images/card.jpg" width="500" height="1000">
+</div>
+<input type="button" onclick="scrollit(20,100);" value="滚动">
+</body>
+</html>

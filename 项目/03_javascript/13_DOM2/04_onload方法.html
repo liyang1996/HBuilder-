@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			//当页面上所有的DOM元素及所有的资源（img,音频，视频，src,href,css,js等文件资源）加载完成时响应
+			window.onload = function(){
+				console.log("哈哈")
+				
+			var oDiv1 = document.getElementById("theDiv");
+			console.log(oDiv1)
+			oDiv1.onclick=function(){
+				this.style.backgroundColor="yellow";
+			}
+			
+			
+			}
+		</script>
+	</head>
+	<body>
+		<div id="theDiv">第一天进0803</div>
+	</body>
+</html>

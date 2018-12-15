@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_表单</title>
+	</head>
+	<body>
+		<!--form表单   用来提交数据,网页之间的数据交换
+			action    提交的网址
+			method    提交的方式
+		http 协议	
+		提交的网址?请求参数1=value&请求参数2=value2.....
+			get:表单里写的参数会直接在网址显示在拼接的请求参数里
+			优点:速度快,给服务器造成的压力小
+			缺点:保密性差,提交的信息一目了然
+			
+			post:不会将请求参数放在网址上显示
+			优点:保密性好,可以上传大文件
+			缺点:速度慢,给服务器造成的压力大
+			
+		method 不写,默认是get
+		
+		
+		-->
+		<form action="index.html" method="get">
+			<!--input表单元素-->
+			<!--for和id值一致-->
+			<!--label  :点击文字触发对于框-->
+			<label for="search">搜索框</label>
+			<!--name属性值不需要写 他的属性值和用户填写的value组成一个键值对[wd=猛男],后台才能获取猛男-->
+			<!--name属性的值 一般由后台规定-->
+			<input type="text" id="search" name="wd"/>
+			<!--index.html?wd=猛男-->
+			
+			<br />
+			<!--index.html?wd=eeer&pwd=123  网址参数
+				
+			-->
+			密码框:<input type="password" name="pwd" />
+			<br />
+			
+			<!--单选框
+				name值一致才能实现多个单选
+				checked 可以让某个单选框默认选中状态
+			-->
+			单选框
+			<input type="radio" name="gender" id="men" value="men" /><label for="men">男</label>
+			<input type="radio" name="gender" id="woman" value="woman" /><label for="men">女</label>
+			<input type="radio" checked="checked" name="gender" id="what" value="what" /><label for="men">不详</label>
+			<br />
+			
+			<!--提交表单按钮-->
+			<input type="submit"  value="百度一下" />
+			<br />
+			
+			多选框
+			<!--disabled 禁用,不能选择-->
+			<input type="checkbox" name="hobby" id="hobby" value="study" />学习
+			<input type="checkbox" name="hobby" id="hobby" value="eat" />吃饭
+			<input type="checkbox" disabled="disabled" id="hobby" value="beat" />打豆豆
+			<br />
+			<input type="submit"  value="百度一下" />
+			<br />
+			上传文件:
+			<input type="file"  />
+			<br />
+			
+			<!--下拉列表-->
+			下拉列表:
+			<select  name="addr">
+			<option value="fs">法师</option>
+			<option value="fz">辅助</option>
+			<option value="ss">射手</option>
+			<!--选项组-->							
+			<optgroup label="区域">
+				
+			</optgroup>
+			
+			<br />
+			
+			<input type="button" value="按钮" />
+			<br />
+			
+			<input type="reset" value="重置" />
+			<br />
+			
+			<!--提交表单按钮-->
+			<input type="submit"  value="百度一下" />
+				
+		</form>
+		
+		<form action="" method="post">
+			<!--将表单内的相关元素分组-->
+			<fieldset style="width:300px;">
+				<legend>用户登录</legend>
+				<label for="uname">用户名</label>
+				<input type="text " name="uname" id="uname" />
+				<br />
+				<label for="pwd">密&nbsp;码:</label>
+				<input type="password" name="pwd" id="pwd"  />
+				
+			</fieldset>
+			
+		</form>
+		
+		
+	</body>
+</html>

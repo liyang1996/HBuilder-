@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #myCanvas{
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="myCanvas"></canvas>
+
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+    var ctx = oCanvas.getContext("2d");
+    function Snake(w,h) {
+       this.w = w;
+       this.h = h;
+       this.x = -w;
+       this.y = h;
+       this.headColor = "red";
+       this.bodyColor = "black";
+       //保存蛇头走过的位置
+       this.bodyPos = [];
+
+       //蛇头方向
+       this.right = true;
+       this.left = false;
+       this.up   = false;
+       this.down = false;
+        //当记录位置大于3的时候 是否删除位置
+        //true 删除位置 false 不删
+       this.isDelete = true;
+
+    }
+    //绘制身体
+    Snake.prototype.drawBody = function () {
+        for(var i = 0; i < this.bodyPos.length; i++){
+            ctx.beginPath();
+            ctx.fillStyle = this.bodyColor;
+            var posObj = this.bodyPos[i];
+            ctx.fillRect(posObj["x"],posObj["y"],this.w,this.h);
+        }
+    }
+
+    //绘制蛇头
+    Snake.prototype.drawHead = function () {
+       ctx.beginPath();
+       ctx.fillStyle = this.headColor;
+       ctx.fillRect(this.x,this.y,this.w,this.h);
+    }
+
+
+
+    //蛇移动 改变 x y
+    Snake.prototype.move = function () {
+        if (this.right){
+            this.x += this.w;
+        }
+        if (this.left){
+            this.x -= this.w;
+        }
+        if (this.up){
+            this.y -= this.h;
+        }
+        if (this.down){
+            this.y += this.h;
+        }
+        this.drawHead();
+        this.drawBody();
+        this.savPos();
+    }
+
+    //保存走过的位置 保证数组中元素是小于等于3
+    Snake.prototype.savPos = function () {
+        var posJson = {
+            "x":this.x,
+            "y":this.y
+        }
+        this.bodyPos.push(posJson);
+        //如果数组长度大于三 删除第一个位置
+        //最后一个为最新的位置
+        if(this.bodyPos.length > 3 && this.isDelete){
+            this.bodyPos.shift();
+        } else {
+
+            this.isDelete = true;
+        }
+
+    }
+    
+    
+    function Food(snake,color) {
+        this.x = snake.w * 5;
+        this.y = snake.h * 5;
+        this.w = snake.w;
+        this.h = snake.h;
+        this.color = color;
+        this.snake = snake;
+    }
+    //当蛇碰到食物时，需要改变食物x,y的值，重新绘制
+    Food.prototype.getPos = function () {
+        //标记随机的位置是否在蛇的身体上
+        var flag = true;//true 在身体上 false 不在身体上
+        while (flag){
+            var x = Math.floor(Math.random()*(oCanvas.width - this.w - 0 + 1) + 0);
+            var y = Math.floor(Math.random()*(oCanvas.height - this.h - 0 + 1) + 0);
+
+            x = parseInt(x / this.w) * this.w;
+            y = parseInt(y / this.h) * this.h;
+
+            for (var i = 0; i < this.snake.bodyPos.length; i++){
+                var theBodyX = this.snake.bodyPos[i]["x"];
+                var theBodyY = this.snake.bodyPos[i]["y"];
+                if (x == theBodyX && y == theBodyY){
+                    flag = true;
+                    break;
+                } else {
+                    flag = false;
+                }
+
+            }
+            //for循环结束，随机出现的位置和蛇身体的上的位置全部判断完
+            //如果不在蛇的的身体上 即flag = false; 此位置可用
+            if (flag == false){
+                this.x = x;
+                this.y = y;
+            }
+        }
+        
+    }
+    
+    
+    
+    //食物绘制的方法
+    Food.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x,this.y,this.w,this.h);
+    }
+
+    
+
+    var theSnake = new Snake(20,20);
+    var theFood  = new Food(theSnake,"orange");
+    console.log(theFood);
+    setInterval(function () {
+        ctx.clearRect(0,0,oCanvas.width,oCanvas.height);
+        theSnake.move();
+        theFood.draw();
+        //碰撞检测
+        if (theSnake.x == theFood.x && theSnake.y == theFood.y){
+            //食物重新绘制 更换食物的x y 的值
+            theFood.getPos();
+            //碰到了 蛇身体变长
+            theSnake.isDelete = false;
+        }
+
+    },500);
+    
+    
+    
+
+    //键盘按下 改变方向
+    document.onkeydown = function (ev) {
+        var ev = ev || window.event;
+        switch (ev.keyCode){
+            case 37://左
+                if(!theSnake.right){
+                    theSnake.left  = true;
+                    theSnake.right = false;
+                    theSnake.up   = false;
+                    theSnake.down = false;
+                }
+                break;
+            case 38://上
+                if(!theSnake.down){
+                    theSnake.left  = false;
+                    theSnake.right = false;
+                    theSnake.up   = true;
+                    theSnake.down = false;
+                }
+                break;
+            case 39://右
+                if(!theSnake.left){
+                    theSnake.left  = false;
+                    theSnake.right = true;
+                    theSnake.up   = false;
+                    theSnake.down = false;
+                }
+                break;
+            case 40://下
+                if(!theSnake.up){
+                    theSnake.left  = false;
+                    theSnake.right = false;
+                    theSnake.up   = false;
+                    theSnake.down = true;
+                }
+                break;
+
+        }
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

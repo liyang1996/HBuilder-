@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_transform2D_移动</title>
+		<style type="text/css">
+			div{
+				/*all指的是所有属性都赋予过渡效果,过渡时间为2s*/
+				width: 150px;
+				height: 150px;
+				background-color: aquamarine;
+				margin-bottom: 20px;
+				
+				-webkit-transition: 2s all 1s;
+				-moz-transition:2s all 1s;
+				-ms-transition:2s all 1s;
+				-o-transition:2s all 1s;
+				transform:2s all 1s;
+			}		
+			/*垂直方向bottom重叠*/
+			/*基点默认为元素的中心点*/
+			.div1:hover{
+				/*trft*/
+				/*translate(x,y)*/
+				-webkit-transform: translate(200px,200px);
+				-moz-transform: translate(100px,100px);
+				-ms-transform: translate(100px,100px);
+				-o-transform: translate(100px,100px);
+				transform: translate(100px,100px);
+			}
+			
+			.div2:hover{
+				/*trfx
+				 水平方向*/
+				-webkit-transform: translateX(200px);
+				-moz-transform: translateX(200px);
+				-ms-transform: translateX(200px);
+				-o-transform: translateX(200px);
+				transform: translateX(200px);
+			}
+			.div3:hover{
+				/*trfy
+				 垂直方向*/
+				-webkit-transform: translateY(100px);
+				-moz-transform: translateY(100px);
+				-ms-transform: translateY(100px);
+				-o-transform: translateY(100px);
+				transform: translateY(100px);
+				
+				
+			}
+
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		
+	</body>
+</html>

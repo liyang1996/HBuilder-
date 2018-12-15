@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			.all{
+				width: 800px;
+				height: 150px;
+				border: 1px solid black;
+			}
+			.kuang{
+				width: 150px;
+				height: 60px;
+				border: 1px solid black;
+				margin: 20px;
+				display: inline-block;
+			}
+			
+			.kuang img{
+				margin-right: 10%;
+				width:40px ;
+				height: 40px;
+				margin-top: 10px;
+				margin-left:10px;
+			}
+			.chima div{
+				display: inline-block;
+				border: 1px solid black;
+				padding: 3px;
+				margin: 3px;
+			}
+			.goumai{
+				color: white;
+				background-color: darkred;
+				width: 150px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				display: inline-block;
+				margin-right:30px ;
+				margin-top:20px;
+			}
+			.car{
+				color: white;
+				background-color: darkred;
+				width: 150px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				display: inline-block;
+			}
+			.div1 {
+					display: inline-block;
+			}
+			.div2 {
+					display: inline-block;
+			}
+			
+			.xinxi{
+				width: 500px;
+				height: 150px;
+				background-color: white;
+				display: none;
+				margin: 50px;
+				border: 1px solid black; 
+				
+			}
+			.red{
+				width: 500px;
+				height: 50px;
+				background-color: darkred;
+				text-align: center;
+				line-height: 50px;
+			
+			}
+			.btn1{
+				background-color: white;
+				margin-left: 50px;
+			}
+			.jijian{
+				color: red;
+			}
+			.qian{
+				color: red;
+			}
+			
+			.bycar{
+				width: 498PX;
+				height: 170PX;
+			}
+			.bycar_top{
+				width: 498PX;
+				height: 42PX;
+				background-color: #b81b22;
+			}
+			.bycar_top a{
+				text-decoration: none;
+				float: right;
+				margin-right:40px;
+				color: white;
+				margin-top: 10px;
+			}
+			.bycar_top p{
+				text-decoration: none;
+				float: left;
+				margin-left:40px;
+				color: white;
+				margin-top: 10px;
+			}
+			.bycar{
+				display: none;
+				border: 2px solid #b81b22 ;
+			}
+			.bycar span{
+				background-color:#b81b22;
+				width: 50px;
+				height: 20px;
+				color: white;
+			}
+			.price{
+				margin: 10px 10px 10px 0;
+			}
+			.price_div{
+				display: inline;
+			}
+			.addcss{
+				border: 2px solid darkred
+			}
+		</style>
+		
+	</head>
+	<body>
+	
+	<!--衣服选项-->	
+		<div class="all">
+		
+			
+			<div class="kuang">
+				<!--<img src="http://p3.vanclimg.com/product/6/3/7/6378336/mid/6378336-1j201801111409218163.jpg"/>
+				<span class="text">S1浅花灰</span>-->
+			</div>
+			
+				<div class="kuang">
+				<!--<img src="http://p3.vanclimg.com/product/6/3/7/6378336/mid/6378336-1j201801111409218163.jpg"/>
+				<span class="text">S1浅花灰</span>-->
+			</div>
+			
+				<div class="kuang">
+				<!--<img src="http://p3.vanclimg.com/product/6/3/7/6378336/mid/6378336-1j201801111409218163.jpg"/>
+				<span class="text">S1浅花灰</span>-->
+				</div>
+			
+			<div class="kuang">
+				<!--<img src="http://p3.vanclimg.com/product/6/3/7/6378336/mid/6378336-1j201801111409218163.jpg"/>
+				<span class="text">S1浅花灰</span>-->
+			</div>
+		</div>
+		<br />
+	<!--数量-->	
+		<div class="chima">
+			尺码：
+			<div class="chima1">S</div>
+			<div class="chima1">M</div>
+			<div class="chima1">XL</div>
+			<div class="chima1">XXL</div>
+		</div>
+	<!--价格-->
+		<div class="price">
+			价格：<div class="price_div"></div>元
+		</div>
+	
+	<!--已选-->
+	<div class="yixuan">
+		已选：
+		<div class="div1">	</div>
+		<div class="div2">	</div>
+	</div>
+	
+	<!--立即选择-->
+	<div class="zhifu">
+		<!--立即购买-->
+		<div class="goumai">
+			立即购买
+		</div>
+		
+		<!--加入购物车-->
+		<div class="car">
+			加入购物车
+		</div>
+		<!--点击出现购物车信息-->
+		<div class="bycar">
+			<div class="bycar_top">
+				<p>商品成功放入购物车</p>
+				<a href="">X</a>
+			</div>
+			<div class="bycar_bottom">
+				<img style="float: left;margin: 0 40px 0 20px;" src="img/购物车logo.jpg"/>
+				<p>共有<span class="getSum">0</span>件商品</p>
+				<p>总计￥：<span class="getPrice">0</span>元</p>
+			</div>
+			<span ><<去购物</span>
+			<span >继续购物>></span>
+		</div>
+	</div>
+	<script src="js/buyshopping.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//把图片和文字放到里面
+		var shopArr = [];
+		var sum = 0;
+		for(var i in selectJson){
+			var cloImg = $("<img class='kuangimg' src=''/>");
+			$(".kuang").eq(i).append(cloImg);
+			cloImg.attr('src',selectJson[i]["oImg"]);
+			var $oSpan = $("<span> </span>")
+			$(".kuang").eq(i).append($oSpan);
+			$oSpan.html(selectJson[i]["cloclor"]);
+			$(".price_div").html(selectJson[i]["oPrice"]);
+		}
+		//点击选择衣服
+		$(".kuang").click(function(){
+			$(this).addClass("addcss");
+			sum++;
+			$(this).siblings().removeClass("addcss");// 修改当前元素的所有兄弟节点样式
+			$(".div1").html($(this).prop("outerHTML"));//将this全部的标签都拿过去
+			shopArr.push(selectJson[i]["cloclor"])
+			console.log(shopArr)
+		})
+		
+		//点击选择尺码
+		$(".chima1").click(function(){
+			$(this).css("border","2px solid darkred");
+			var kelong2=$(this).clone()
+			$(".div2").html(kelong2)
+			kelong2.css("border","1px solid white")
+		})
+		
+		//点击加入购物车
+		$(".car").click(function(){
+			$(".bycar").show();
+			$(".getSum").html(sum);
+			$(".getPrice").html(selectJson[i]["oPrice"])
+			shopArr.push(selectJson[i]["oPrice"])
+			console.log(shopArr)
+		})
+		
+		//点击按钮关闭购物车信息
+		$(".btn1").click(function(){
+			$(".bycar").hide();
+		})
+	</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var arr = [4,1,8,2,9,4,3]
+		function inserSort(a){
+			for(var i=0;i<arr.length;i++){
+				var temper =arr[i];
+				while(arr[i-1]>temper){
+					arr[i] = arr[i-1];
+					i--;
+				}
+				arr[i] = temper;
+			}
+			return arr;
+		}
+		
+		inserSort(arr);
+		console.log(arr)
+		
+	</script>
+</html>

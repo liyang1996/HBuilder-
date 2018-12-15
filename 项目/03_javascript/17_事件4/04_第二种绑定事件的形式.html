@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 200px;
+				height: 200px;
+				background-color: rosybrown;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll =document.getElementById("all");
+			//第一种绑定方式，只能绑定一个响应事件
+//			oAll.onclick = function(){
+//				console.log("1111");
+//			}
+//			oAll.onclick = function(){
+//				console.log("222");
+//			}
+			
+			//第二种绑定方式
+			//可以绑定多个
+			//第一个参数：事件名，注意没有on
+			//第二个参数：事件的响应函数
+			//第三个参数： bool值，false代表事件冒泡 true代表事件捕获
+			oAll.addEventListener("click",function(){
+				console.log("HAHA")
+			,false});
+			
+			oAll.addEventListener("click",function(){
+				console.log("HEHE")
+			,false});
+			
+			
+			oAll.addEventListener("click",theClick,false);
+			
+			
+			function theClick(){
+				console.log("heihei")
+			}
+			
+			//移除点击事件，注意：匿名函数无法移除
+			oAll.removeEventListener("click",theClick,false);
+			
+			
+			
+			
+			
+			//IE 6、7、8 绑定事件
+			
+			oAll.attachEvent("onclick",function(){
+				
+			},false);
+			//移除事件
+			oAll.detachEvent("onclick",匿名函数,false)
+			
+			
+		</script>
+	</body>
+</html>

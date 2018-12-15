@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		var month = Number(prompt("请输入月份"));
+			var day = Number(prompt("请输入日期"));
+			var monthSum = 0; //月份之和
+			switch(month - 1) {
+				case 11:
+					monthSum += 30;
+				case 10:
+					monthSum += 31;
+				case 9:
+					monthSum += 30;
+				case 8:
+				case 7:
+					monthSum += 31;
+				case 6:
+					monthSum += 30;
+				case 5:
+					monthSum += 31;
+				case 4:
+					monthSum += 30;
+				case 3:
+					monthSum += 31;
+				case 2:
+					monthSum += 28;
+				case 1:
+					monthSum += 31;
+			}
+			var result = monthSum + day;
+			alert(result);
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

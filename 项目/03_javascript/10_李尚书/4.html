@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+		.all{
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			
+			/*-webkit-perspective: 2000px;
+			-moz-perspective: 2000px;
+			-ms-perspective: 2000px;
+			perspective: 2000px;
+		*/
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-top: -100px;
+			margin-left: -100px;
+			
+			-webkit-transition: all 2s;
+			-moz-transition: all 2s;
+			-ms-transition: all 2s;
+			-o-transition: all 2s;
+			transition: all 2s;
+		}
+		.all:hover{
+			-webkit-transform:rotateY(360deg);
+			-moz-transform:rotateY(360deg);
+			-ms-transform:rotateY(360deg);
+			-o-transform:rotateY(360deg);
+			transform:rotateY(360deg);
+		}
+		.square{
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			
+			/*-webkit-transform: rotateZ(45deg) rotateX(30deg) rotateY(30deg);
+			-ms-transform: rotateZ(45deg) rotateX(30deg) rotateY(30deg);
+			-o-transform: rotateZ(45deg) rotateX(30deg) rotateY(30deg);
+			transform: rotateZ(45deg) rotateX(30deg) rotateY(30deg);*/
+			
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			}
+		.square div{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 0;
+			top: 0;			
+		}	
+		.square div:nth-of-type(1){
+			background-color: rgba(50,40,250,.5);
+			-webkit-transform: translateZ(100PX);
+			-moz-transform: translateZ(100PX);
+			-ms-transform: translateZ(100PX);
+			-o-transform: translateZ(100PX);
+			transform: translateZ(100PX);
+		}
+		.square div:nth-of-type(2){
+			background-color: rgba(40,45,45,.5);
+			-webkit-transform: translateZ(-100PX);
+			-moz-transform: translateZ(-100PX);
+			-ms-transform: translateZ(-100PX);
+			-o-transform: translateZ(-100PX);
+			transform: translateZ(-100PX);
+		}
+		.square div:nth-of-type(3){
+			background-color: rgba(160,45,200,.5);
+			-webkit-transform: rotateX(90deg)translateZ(100px);
+			-moz-transform: rotateX(90deg)translateZ(100px);
+			-ms-transform: rotateX(90deg)translateZ(100px);
+			-o-transform: rotateX(90deg)translateZ(100px);
+		}
+		.square div:nth-of-type(4){
+			background-color: rgba(110,15,20,.5);
+			-webkit-transform: rotateY(90deg)translateZ(-100px);
+			-moz-transform: rotateY(90deg)translateZ(-100px);
+			-ms-transform: rotateY(90deg)translateZ(-100px);
+			-o-transform: rotateY(90deg)translateZ(-100px);
+		}
+		.square div:nth-of-type(5){
+			background-color: rgba(85,5,20,.5);
+			-webkit-transform: rotateX(90deg)translateZ(-100px);
+			-moz-transform: rotateX(90deg)translateZ(-100px);
+			-ms-transform: rotateX(90deg)translateZ(-100px);
+			-o-transform: rotateX(90deg)translateZ(-100px);
+		}
+		.square div:nth-of-type(6){
+			background-color: rgba(10,115,120,.5);
+			-webkit-transform: rotateY(90deg)translateZ(100px);
+			-moz-transform: rotateY(90deg)translateZ(100px);
+			-ms-transform: rotateY(90deg)translateZ(100px);
+			-o-transform: rotateY(90deg)translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="square">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

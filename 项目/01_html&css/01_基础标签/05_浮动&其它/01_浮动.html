@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_浮动</title>
+		<style type="text/css">
+			
+			.in{
+				width: 150px;
+				height: 150px;
+				color: white;
+				font-size: 30px;
+				line-height: 150px;
+				text-align: center;
+			}
+			/*浮动float
+			 有三个值
+			 * none:不浮动,所有元素的默认值
+			 * left:向左浮动
+			 * right:向右浮动
+			 * */
+			.fl{
+				float: right;
+			}
+			/*当标签设置了float,一般称为浮动元素
+			 
+			 * !!元素默认转换成行内块元素*/
+			
+		</style>
+		
+	</head>
+	<body>
+		<!--正常的html标签,在页面中显示都是从上往下,块占一行-->
+		<!--行标签从左往右排列-->
+		<!--什么是浮动:
+			就是让标签从正常的文档流浮起来
+			脱离原来的文档流
+			这里有一层叫浮动层
+		-->
+			
+			<div class="in fl" style="background-color: red;">1</div>
+			<div class="in " style="background-color: rosybrown;">2</div>
+			<div class="in fl" style="background-color: aquamarine;">3</div>
+			
+			
+		
+	</body>
+</html>

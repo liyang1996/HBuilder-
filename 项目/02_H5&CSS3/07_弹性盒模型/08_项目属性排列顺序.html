@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08_项目属性排列顺序</title>
+		<style type="text/css">
+				.box{
+					border: 10px solid black;
+					/*弹性布局 */
+					display: flex;
+					
+				
+					}
+			
+			
+				.box div{
+					width: 150px;
+					height: 150px;
+					background-color: rosybrown;
+					text-align: center;
+					font-size: 30px;
+					line-height: 150px;
+					margin: 10px;
+					/*项目排列顺序,数值越小,越靠前*/
+					order: 3;
+					
+				}
+			
+				.box div:nth-child(2){
+					order: 2;
+				}
+			
+			
+			
+		</style>
+		
+		
+		
+	</head>
+	<body>
+		<div class="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+		</div>
+		
+		
+	</body>
+</html>

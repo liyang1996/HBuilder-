@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="text" id="text" value="" />
+		<script type="text/javascript">
+			var oText = document.getElementById("text");
+			//获取焦点
+			oText.onfocus = function(){
+				console.log("onfocus");
+			}
+			//失去焦点
+			oText.onblur = function(){
+				console.log("onblur");
+			}
+			
+		</script>
+	</body>
+</html>

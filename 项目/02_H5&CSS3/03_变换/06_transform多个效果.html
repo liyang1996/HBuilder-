@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			
+			div{
+				
+				width: 150px;
+				height: 150px;
+				margin: 100px auto;
+				background-color: aqua;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+			div:hover{
+				/*组合效果 效果的先后顺序*/
+				/*决定最后的效果和元素停留的位置*/
+				-webkit-transform: translateX(300px) scale(3) rotate(30deg) ;
+				-moz-transform: translateX(300px) scale(3) rotate(30deg) ;
+				-ms-transform: translateX(300px) scale(3) rotate(30deg) ;
+				-o-transform: translateX(300px) scale(3) rotate(30deg) ;
+				-o-transform: translateX(300px) scale(3)scale(3) rotate(30deg) ;
+				transform: translateX(300px) scale(3) rotate(30deg) ;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

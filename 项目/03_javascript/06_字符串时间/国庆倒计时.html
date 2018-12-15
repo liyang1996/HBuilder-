@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+   	 <style type="text/css">
+			    div{
+			    	width: 100%;
+			    	text-align: center;
+			    	font-size: 35px;
+			    	}	
+    			#_d,#_h,#_m,#_s{
+    				font-size: 45px;
+    				color: red;
+    			}
+    	</style>
+</head >
+	<body onload = "countTime()">
+    	<div>
+    		<span>距离十一放假还有</span>
+     	   <span id="_d">00</span>
+     	   <span>天</span>
+     	   <span id="_h">00</span>
+     	   <span>小时</span>
+      	  <span id="_m">00</span>
+      	  <span>分钟</span>
+      	  <span id="_s">00</span>
+      	  <span>秒</span>
+    	</div>
+    	
+    	 <script type="text/javascript">
+      	 	 function countTime() {
+            //获取当前时间
+            var date = new Date();
+           // var now = date.getTime();
+            //设置截止时间
+            var endDate = new Date("2018-10-10 00:00:00");
+           // var end = endDate.getTime();
+            //时间差
+          //  var leftTime = end-now;
+          	var leftTime =endDate-date;
+          
+            //定义变量 d,h,m,s保存倒计时的时间
+            var d,h,m,s;
+            if (leftTime>=0) {
+                d = Math.floor(leftTime/1000/60/60/24);
+                h = Math.floor(leftTime/1000/60/60%24);
+                m = Math.floor(leftTime/1000/60%60);
+                s = Math.floor(leftTime/1000%60);                   
+            }
+            //将倒计时赋值到div中
+            document.getElementById("_d").innerHTML = d < 10 ? "0" + d : '' + d;
+            document.getElementById("_h").innerHTML = h < 10 ? "0" + h : '' + h;
+            document.getElementById("_m").innerHTML = m < 10 ? "0" + m : '' + m;
+            document.getElementById("_s").innerHTML = s < 10 ? "0" + s : '' + s;
+            
+            //递归每秒调用countTime方法，显示动态时间效果
+            setTimeout(countTime,1000);
+        
+      	 	 }
+    </script>
+</body>
+</html>

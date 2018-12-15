@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: black;
+			}
+			div{
+				color: white;
+				font-size: 50px;
+				text-shadow: 0 0 10px white,0 0 20px white, 0 0 30px white,0 0 50px red,0 0 70px red,0 0 70px red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+		</div>
+		<script type="text/javascript">
+			var arr = [1,2,3,4,5,6];
+			//slice 方法,返回一个新数组
+			console.log(arr.slice(0,2))
+			//start 从什么位置开始截取， end到哪个下标结束（不包括）
+			var oBox = document.getElementById("box")
+			var i = 0;
+			var str = "《行尸走肉》讲述了警察瑞克在一次执法行动中因中弹负伤而不省人事，当他从昏迷中苏醒后却惊讶地发现，这个世界已然天翻地覆。周遭一派死境，丧尸横行，没有活人踪影。死里逃生的瑞克赶到家中，却不见妻儿的踪影……尽管僵尸题材有些老套，但这部漫画却着重刻画了人物角色的心理活动与变化，人性中的黑暗面在大灾难中暴露无疑。哀殍遍野，丧尸满目，人类在其中苟延残喘，带来毁灭与伤害的不仅仅是那些行尸走肉，还有活人间的互相争斗。故事将主人公一次次抛入绝境的同时，也给予观者一种如临末世的悲望。"
+			function showWord(){
+				if(i<str.length){
+					oBox.innerHTML = str.slice(0,i++) + "_";
+					setTimeout("showWord()",200);
+				}else{
+					oBox.innerHTML = str;
+				}
+			}
+			
+			showWord();
+		</script>
+	</body>
+</html>

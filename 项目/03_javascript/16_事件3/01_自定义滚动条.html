@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 500px;
+				height: 50px;
+				background-color: sandybrown;
+				border-radius: 25px;
+				margin: 0 auto;
+				position: relative;
+			}
+			#div1{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: rosybrown;
+				position: absolute;
+			}							
+			#box{
+				background-color: yellow;
+				position: absolute;
+				top: 200px;
+				left: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div id="div1"></div>
+		</div>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var oAll  = document.getElementById("all");
+			var oDiv1 = document.getElementById("div1");
+			var oBox  = document.getElementById("box");
+			var maxL  = oAll.clientWidth - oDiv1.offsetWidth;
+			oDiv1.onmousedown = function(){
+				var ev = ev || window.event;
+				var lessX = ev.clientX - oDiv1.offsetLeft; 
+				
+				document.onmousemove = function(){
+					var ev = ev || window.event;
+					var posL = ev.clientX - lessX;
+					if(posL<0){
+						posL = 0;
+					}
+					if(posL>maxL){
+						posL = maxL;
+					}
+					oDiv1.style.left = posL + "px";
+					//滚动条移动的百分比
+					//oDiv1.offsetLeft/maxL
+					var per = posL/maxL;
+					//定义宽0~300
+					oBox.style.width = 300*per+"px";
+					oBox.style.height = 300*per+"px";
+					oBox.style.marginTop = -oBox.offsetHeight/2+"px";
+					oBox.style.marginLeft = -oBox.offsetWidth/2+"px";
+				}
+			}
+			
+			document.onmouseup  =function(){
+				document.onmousemove = null;
+				
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

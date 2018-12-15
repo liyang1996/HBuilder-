@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_关系运算符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*关系运算符
+			 * > <     大于小于
+			 * >= <=   大于等于 小于等于
+			 * !=      不等于
+			 * ==      是否相等
+			 * ===     是否完全相等(值和类型) 
+			 * 
+			 */
+			//大于等于
+			var num1 = 20;
+			var num2 = "20";
+			var a = num1 >= num2 ;
+			console.log("a: "  +  a );//a: true
+			
+			//不等于
+			var b = num1 != num2;
+			console.log("b: "  +  b );//b: false
+			//如果num1 的值不等于num2,则返回true
+			//如果值相等返回false
+			
+			// ==数值相同返回true ,不同返回false
+			var c = num1 == num2 ;
+			console.log("c: "  +  c );//c: true
+			
+			//===要求数值和类型都完全相同才为true
+			var d =num1=== num2;
+			console.log("d: "  +  d );//d: false
+			
+			//三目运算符
+			/*条件表达式 (问号前有个条件表达式) ?  条件表达式成立返回a : 不成立返回b
+			 * 
+			 * a,b可以是变量,字符串,数值等等
+			 */
+			var yi = 1;
+			var ya = 2;
+			//如果yi>ya为真,返回 yi+5,否则返回 ya-3
+			var yhei = yi > ya ? yi +5 : ya -3;
+			//var yhei = yi > ya ? 5 : 3;
+			console.log("yHei: " + yhei);//-1
+			
+			
+			var a =1;
+			var b =3 ;
+			var c= a>b ? 5: 6;
+			console.log("c:" +c);
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

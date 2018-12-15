@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+           border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+ <canvas id="canvas" width="500" height="500"></canvas>
+
+</body>
+
+<script>
+
+    var oCanvas = document.getElementById("canvas");
+
+    var ctx = oCanvas.getContext("2d");
+
+    oCanvas.onmousedown = function (e) {
+        var e = e || window.event;
+        //起始点
+        var startX = e.offsetX;
+        var startY = e.offsetY;
+        ctx.beginPath();
+        ctx.moveTo(startX,startY);
+        oCanvas.onmousemove = function (e) {
+            var e = e || window.event;
+            //移动点坐标
+            var moveX = e.offsetX;
+            var moveY = e.offsetY;
+            ctx.lineTo(moveX,moveY);
+            ctx.stroke();
+        }
+        oCanvas.onmouseup = function () {
+            oCanvas.onmousemove = null;
+        }
+    }
+
+
+</script>
+
+</html>

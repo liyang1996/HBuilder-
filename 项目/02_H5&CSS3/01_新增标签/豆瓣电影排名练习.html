@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				width:1000px;
+				height: 400px;
+				margin: 0 auto;
+				text-align: center;
+				border: 3px solid groove;
+				border-radius: 20px;
+				overflow: hidden;
+			}
+			.table_title{
+				font-size: 25px;
+				color: black;
+				width: 100px;
+			}
+			table tr td{
+				font-size: 20px;
+				border:1px solid gainsboro;
+			}
+			table tr th{
+				font-size: 20px;
+				border:1px solid gainsboro;
+			}
+			
+			tr:nth-child(1):hover th{
+				background-color: greenyellow;
+				color: white;
+			}
+			tr:nth-child(even):hover td{
+				background-color: burlywood;
+				text-align: right;
+				color: skyblue;
+				padding-right: 15px;
+			}
+			tr:nth-child(odd):hover td{
+				background-color: skyblue;
+				text-align: left;
+				color: red;
+				text-decoration:line-through;
+				padding-left: 15px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		
+		<table border="1" cellspacing="0" cellpadding="20"  >
+			
+			<tr class="table_title" >
+				<th>#</th>
+				<th>豆瓣排名前5的电影</th>
+				<th>年份</th>
+			</tr>
+			
+			<tr class="table_1">
+				<td>1</td>
+				<td>肖生克的救赎</td>
+				<td>1994</td>
+			</tr>
+			
+			<tr class="table_1">
+				<td>2</td>
+				<td>这个杀手不太冷</td>
+				<td>1994</td>
+			</tr>
+			
+			<tr class="table_1">
+				<td>3</td>
+				<td>霸王别姬</td>
+				<td>1997</td>
+			</tr>
+			
+			<tr class="table_1">
+				<td>4</td>
+				<td>阿甘正传</td>
+				<td>1994</td>
+			</tr>
+			
+			<tr class="table_1">
+				<td>5</td>
+				<td>美丽人生</td>
+				<td>1994</td>
+			</tr>
+		</table>
+	
+		
+		
+	</body>
+</html>
+  

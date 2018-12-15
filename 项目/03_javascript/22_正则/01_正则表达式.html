@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = "12 213 hello2345 world00";
+			var re = /\d{2}/g;
+			//不加g找到一个停止，不继续往下找
+			console.log(str.match(re));
+			//math字符串方法调用
+			//正则
+			//正则表达式，又称规则表达式
+			//正则表达式，通常用来检索 匹配 替换某些符合某个模式（规则）的文本
+			//强大的字符串匹配工具
+			
+			var arr = new Array();
+			var arr1 = [];//字面量
+			
+			//正则
+			var str1 = "Hi girl";
+			var re = new RegExp("i");
+			console.log(re.test(str1))
+			//re正则表达式方式，主要做检测
+			//检测str1 是否含有符合该正则的字符串，返回值为true或false
+			//test() 方法检索字符串中的指定值。返回值是 true 或 false。
+			var re1 = new RegExp("h","i");
+			//加完"i"忽略大小写，不区分大小写，i为(ignore)的简写
+			console.log(re1.test(str1));
+			
+			var re2 = /h/i;//等于re1,封装函数传参用re1 较好
+			
+		</script>
+	</body>
+</html>

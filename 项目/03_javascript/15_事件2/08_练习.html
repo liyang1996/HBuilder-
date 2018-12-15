@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap{
+				width: 400px;
+				height: 50px;
+				background-color: wheat;
+				border-radius: 25px;
+				margin: 0 auto;
+				position: relative;
+			}
+			#div1{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: salmon;
+				position: absolute;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background-color: sandybrown;
+				position: absolute;
+				left: 50px;
+				top: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="div1"></div>
+			<div id="div2"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var oWrap = document.getElementById("wrap");
+			var oDiv = document.getElementById("div1");
+			var oDiv2 = document.getElementById("div2");
+			var maxL = oWrap.clientWidth-oDiv.clientWidth;
+			
+			oDiv.onmousedown = function(){
+				var ev = ev || window.event;
+				var ww = ev.clientX-oDiv.offsetLeft;
+				document.onmousemove = function(ev){
+					var ev = ev || window.event;
+					var posL = ev.clientX-ww;
+					if(posL< 0){
+						posL = 0;
+					}if(posL >= maxL){
+						posL = maxL;
+					}
+					
+					oDiv.style.left = posL+"px";
+					
+					oDiv2.style.width = (oWrap.clientWidth/posL)*oDiv2.clientWidth + "px"	
+					//oDiv2.style.height = posL + "px"	
+					
+				}
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				oDiv.onmouseup = null;
+			}
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+				//2. 创建一个数组, 10个元素, 随机为元素赋值, 取值范围[-66, 99] 
+				//求最大值和最小值, 及其所在的下标
+				var  arr = [];
+				for( var i= 0;i<10;i++){
+				arr[i] = Math.floor(Math.random()*(99-(-66)+1)+(-66));
+				}
+				document.write(arr);
+				document.write("<br>");
+				document.write(Math.max.apply(Math,arr));
+				document.write("<br>");
+				document.write(Math.min.apply(Math,arr));
+		</script>
+	</body>
+</html>

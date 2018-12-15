@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body {
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 100%;
+				height: 100%;
+			}
+			
+			/*vh：视窗高度的百分比，*/
+			/*% 是相对于父元素的大小设定的比率，vh 是视窗大小决定的。*/
+			#dmDom {
+				width: 100%;
+				height: 90vh;
+				background: #E8F1F5;
+			}
+			
+			#dmDom span {
+				width: auto;
+				height: 3rem;
+				font-size: 2rem;
+				line-height: 2rem;
+				position: absolute;
+				white-space: nowrap;
+				/*段落中的文本不换行*/
+			}
+			
+			#bottom {
+				width: 100%;
+				height: 10vh;
+				background: #666;
+				position: absolute;
+				bottom: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			#content {
+				width: 50rem;
+				height: 10vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.title {
+				font-size: 2.2px rein;
+				color: #fff;
+				line-height: #ccc;
+			}
+			
+			.text {
+				width: 30rem;
+				height: 2.5rem;
+				border: none;
+				border-radius: .5rem;
+				font-size: 1.4rem;
+				margin: 0 .5rem;
+				padding: 0 1rem;
+			}
+			
+			.btn {
+				width: 6rem;
+				height: 3rem;
+				border: none;
+				background: red;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<div id="dmDom"></div>
+			
+			<div class="bottom" id="bottom">
+				<div id="content">
+					<p class="title">吐槽:</p>
+					<input type="text" class="text" id="text" placeholder="请输入你想说的话" />
+					<button type="button" class="btn" id="btn">发射!</button>
+				</div>
+			</div>
+			
+		</div>
+		<script langugae="javascript">
+			var timer;
+			var oBtn = document.getElementById('btn');
+			var dmDom = document.getElementById('dmDom');
+			
+			oBtn.onclick = function() {
+				addBarrage();
+			}
+			
+			//键盘事件，13回车键
+			document.onkeydown = function(ev) {
+				var ev = ev || window.event;
+				if(event.keyCode == 13) {
+					addBarrage();
+				}
+			}
+			
+			//创建弹幕
+			function addBarrage() {
+				clearInterval(timer);
+				var oText = document.getElementById('text').value;
+				//输入完值后清空
+				document.getElementById('text').value = "";
+				//获取窗口的高度
+				var screenW = window.innerWidth;
+				//弹幕显示区域的高
+				var screenH = dmDom.offsetHeight;
+				var oHeight = Math.floor(Math.random()*(screenH-0+1)+0)
+				var oSpan = document.createElement('span');
+				oSpan.style.left = screenW + 'px';
+				oSpan.style.top = oHeight + 'px';
+				oSpan.style.color = getRandomColor();
+				oSpan.innerHTML = oText;
+				dmDom.appendChild(oSpan);
+				timer = setInterval(move, 10);
+			}
+			
+			function move() {
+				var arr = [];
+				var oSpanTag = document.getElementsByTagName('span');
+				for(var i = 0; i < oSpanTag.length; i++) {
+					arr.push(oSpanTag[i].offsetLeft);
+					arr[i] -= 2;
+					oSpanTag[i].style.left = arr[i] + 'px';
+					if(Math.abs(arr[i]) < oSpanTag[i].offsetWidth) {
+						dmDom.removeChild(dmDom.childNodes[0]);
+					}
+				}
+			}
+			
+			function getRandomColor() {
+				var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				return "rgb(" + r + "," + g + "," + b + ")";
+			}
+		</script>
+	</body>
+</html>

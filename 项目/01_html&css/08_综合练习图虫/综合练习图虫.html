@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>综合练习图虫</title>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+			background-color: black;
+			width: 100%;
+			position:fixed;
+			display: inline-block;
+			height: 50px;
+		}
+		ul{
+			display: inline-block;
+		}
+		.nav-logo{
+			margin-left: 5%;
+			display: inline-block;
+			float: left;
+		}
+		/*文字标题导航及下拉列表*/
+		.nav{
+		margin-left: 20%;
+		overflow: hidden;
+		line-height: 30px;
+		float: left;
+		position: relative;
+		}	
+		.nav_list {
+		display: none;
+		color: red;
+		text-decoration: none;
+		position: absolute;
+		background: black;
+		width: 200px;
+		}
+		.nav_list_item a{
+			color: white;
+			text-decoration: none;
+		}
+		.nav_list_item{
+			display: inline-block;
+			float: left;
+			margin-right: 40px;
+			position: relative;
+			text-align: center;
+		}
+		a:hover{
+			color: yellow;
+		}
+		/*右侧导航*/
+		.right{
+			margin-right: 5%;
+			float: right;
+			overflow: hidden;
+			
+		}
+		.search_img{
+			width: 30px;
+			height:30px ;
+			float: right;
+			margin-right: 15px;
+			line-height: 30px;
+			
+		}
+		.search{
+			float: right;
+			border: 1px solid cornflowerblue;
+			
+		}
+		.login{
+			float: right;
+			width: 120px;
+			height: 30px;
+			border: 1px yellow none;
+			background-color: black;
+			font-size: 16px;
+			color: white;
+			letter-spacing: 15px;
+			text-align: center;
+			overflow: hidden;
+			margin-right: 20px;
+		}
+		.register{
+			float: right;
+			width: 120px;
+			height: 30px;
+			border: 1px yellow none;
+			background-color: orange;
+			font-size: 16px;
+			color: white;
+			letter-spacing: 15px;
+		}
+		.nav:hover {
+			display: block;
+		}
+		.nav_list:hover{
+			background-color: #000000;
+			color: wheat;
+		}
+		/*中间轮播图*/
+		
+		.left_logo{
+			background-image: url(img/swiper-button_left1.png);
+			width: 50px;
+			height:50px;
+			background-size: 50px 50px;
+			position: absolute;
+			top: 65%;		
+			left: 5%;
+			opacity:.5;
+		}
+		.right_logo{
+			background-image: url(img/swiper-button_right2.png);
+			width: 50px;
+			height:50px;
+			background-size: 50px 50px;
+			position: absolute;
+			top: 65%;		
+			right: 5%;
+			opacity:.5;
+		}
+		/*轮播图底部固定栏*/
+		.banner_bottom{
+			width: 1920px;
+			height: 150px;
+			background-color: black;
+			background-color: rgba(0,0,0,0.5);
+			position: absolute;
+			top: 930px;	
+			overflow: hidden;
+		}
+		.banner_logo{
+			float: left;
+		}
+		/*中间content文字*/
+		.content{
+			width: 1920px;
+			height: 180px;
+			text-align: center;
+			line-height: 100px;
+			overflow: hidden;
+			}
+			
+	/*	<!--footer  13张图-->	*/
+		.footer{
+				width: 1920px;
+			}
+
+		.box1{
+			width: 570px;
+			height: 350px;
+			background-image: url(https://photo.tuchong.com/47916/ft640/33142869.webp);
+			background-size: 570px 350px;
+			float: left;
+			margin-left: 5%;
+			margin-right: 10px;
+			overflow: hidden;
+		}
+		.box{
+			text-align: center;
+			color: white;
+			margin-top: 0;
+			opacity: 0;
+			background-color: black;
+			background-color: rgba(0,0,0,0.2);
+		}
+		.box1:hover .box{
+			opacity: 1;
+		}
+		
+		.box2{
+			width: 305px;
+			height: 350px;
+			background-image: url(https://photo.tuchong.com/2297116/ft640/21278480.webp);
+			background-size: 305px 350px;
+			float: left;
+			margin-right: 10px;
+			overflow: hidden;
+		}
+		.box2:hover .box{
+			opacity: 1;
+		}
+		
+		.box3{
+			width: 570px;
+			height: 350px;
+			background-image: url(https://photo.tuchong.com/1394215/ft640/23784608.webp);
+			background-size: 570px 350px;
+			float: left;
+			margin-right: 10px;
+			overflow: hidden;
+		}
+		.box3:hover .box{
+			opacity: 1;
+		}
+		.box4{
+			width: 305px;
+			height: 350px;
+			background-image: url(https://photo.tuchong.com/46728/ft640/20177739.webp);
+			background-size: 350px 305px;
+			float: left;
+			margin-right: 10px;
+			overflow: hidden;
+		}
+		.box4:hover .box{
+			opacity: 1;
+		}
+		.box5{
+			width: 660px;
+			height: 400px;
+			background-image: url(https://photo.tuchong.com/1053493/ft640/20832994.webp);
+			background-size:660px 400px;
+			margin-left: 5%;
+			overflow: hidden;
+			float: left;
+			margin-right: 10px;
+			margin-top: 10px;
+		}
+		.box5:hover .box{
+			opacity: 1;
+		}
+		.box6{
+			width: 500px;
+			height: 400px;
+			background-image: url(https://photo.tuchong.com/957710/ft640/14740524.webp);
+			background-size: 500px 400px;
+			overflow: hidden;
+			float: left;
+			margin-right: 10px;
+			margin-top: 10px;
+		}
+		.box6:hover .box{
+			opacity: 1;
+		}
+		.box7{
+			width: 600px;
+			height: 400px;
+			background-image: url(https://photo.tuchong.com/107570/ft640/15581243.webp);
+			background-size: 600px 400px;
+			overflow: hidden;
+			float: left;
+			margin-right: 10px;
+			margin-top: 10px;
+		}
+		.box7:hover .box{
+			opacity: 1;
+		}
+		.box8{
+			width: 600px;
+			height: 400px;
+			background-image: url(https://photo.tuchong.com/2297116/ft640/21285170.webp);
+			background-size: 600px 400px;
+			overflow: hidden;
+			float: left;
+			margin-right: 10px;
+			margin-top: 10px;
+			margin-left: 5%;
+		}
+		.box8:hover .box{
+			opacity: 1;
+		}
+		.box9{
+			width: 600px;
+			height: 400px;
+			background-image: url(https://photo.tuchong.com/384279/ft640/18791736.webp);
+			background-size: 600px 400px;
+			overflow: hidden;
+			float: left;
+			margin-right: 10px;
+			margin-top: 10px;
+		}
+		.box9:hover .box{
+			opacity: 1;
+		}
+		.box10{
+			width: 560px;
+			height: 400px;
+			background-image: url(https://photo.tuchong.com/1324198/ft640/26071468.webp);
+			background-size: 560px 400px;
+			overflow: hidden;
+			float: left;
+			margin-right: 10px;
+			margin-top: 10px;
+		}
+		.box10:hover .box{
+			opacity: 1;
+		}
+		/*图册下方文字*/
+			.content_top{
+			width: 1920px;
+			height: 180px;
+			text-align: center;
+			line-height: 100px;
+			overflow: hidden;
+		}
+		
+		/*下方6张图*/
+		.main{
+			overflow: hidden;
+		}
+		.main_1{
+			width: 600px;
+			height: 220px;
+			background-image: url(img/nav_2.jpg);
+			background-size: 600px 220px;
+			background-repeat: no-repeat;
+		}
+		.m1{
+			float: left;
+			margin-left: 3.5%;
+			margin-right: 10px;
+		}
+		.m2{
+			float: left;
+			margin-right: 10px;
+		}
+		.m3{
+			float: left;
+		}
+		.m4{
+			float: left;
+			margin-left: 3.5%;
+			margin-right: 10px;
+		}
+		.m5{
+			float: left;
+			margin-right: 10px;
+		}
+		.m6{
+			float: left;
+		}
+		
+		/*底部页尾*/
+		.last{
+			width: 1920px;
+			height: 400px;
+			background-color: #000000;
+			overflow: hidden;
+		}
+		.last_left{
+			
+			float: left;
+			display: inline-block;
+			margin-left: 150px;
+			margin-top: 30px;
+		}
+		
+		.center1{
+			float: right;
+			
+		}
+		.last_center{
+			float: left;
+			display: inline-block;
+			overflow: hidden;
+			margin-left: 200px;
+			margin-top: 30px;
+		}
+		
+		.last_right{
+			float: left;
+			overflow: hidden;
+			margin-left: 500px;
+			margin-top: 30px;
+		}
+		.right1{
+			float: left;
+			overflow: hidden;
+		}
+		
+		.bottom_last{
+			width: 1920px;
+			height: 50px;
+			position: relative;
+			margin-top: -50px;
+			margin-left: 150px;
+		}
+		#goto{
+				position: fixed;
+				left: 1720px;
+				bottom: 20px;
+				background-color: rgba(0, 0, 0, .6);
+				color: #fff;
+				z-index: 1000;
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				background-image: url(img/gotop.png);
+				background-size: 50% 50%;
+				background-position: center center;
+				background-repeat: no-repeat;
+		}
+		.swiper-container{
+			width: 100%;
+			height: 500px;
+		}
+		
+		</style>
+	</head>
+	
+	<body>
+		<!--导航栏-->
+			<div class="header">
+				<div class="nav-logo"><img src="img/nav-logo.png"/></div>
+				<!--文字标题导航-->
+				<div class="nav" >
+					<ul>
+						<li class="nav_list_item"><a href="">首页</a></li>
+						<li class="nav_list_item"><a href="">活动</a></li>
+						<li class="nav_list_item"><a href="">短视频</a></li>
+						<li class="nav_list_item"><a href="">发现</a></li>
+							<ul class="nav_list">
+								<li><a href="">标签</a></li>
+								<li><a href="">摄影师</a></li>
+								<li><a href="">影像频道</a></li>
+								<li><a href="">教程</a></li>
+								<li><a href="">器材</a></li>
+								<li><a href="">正版图片下载</a></li>
+							</ul>
+
+						<li class="nav_list_item"><a href="">交流</a></li>
+							<ul class="nav_list">
+							<li><a href="">小组</a></li>
+							<li><a href="">讨论</a></li>
+							</ul>	
+						
+						<li class="nav_list_item"><a href="">更多</a></li>
+							<ul class="nav_list">
+								<li><a href="">创意图库</a></li>
+								<li><a href="">下载 APP</a></li>
+								<li><a href="">商务合作</a></li>
+							</ul>
+				</ul>
+				</div>
+				<!--搜索 登录 注册按钮-->
+				<div class="right">
+					<input type="button" value="注册" class="register" />
+					<div class="login"><input type="button" value="登录" class="login" /></div>
+					<div class="search"><input type="search"  value="" class="search" /></div>
+					<img src="img/search.png" style="" class="search_img"/>
+				</div>
+			</div>
+		<!--中间轮播图-->
+		
+			<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<img class="swiper-slide" src="img/nav_22.jpg"/>	
+				<img class="swiper-slide" src="img/nav_1.jpg"/>	
+				<img class="swiper-slide" src="img/nav_2.jpg"/>
+				<img class="swiper-slide" src="img/nav_20.jpg"/>
+			</div>
+			<div class="swiper-pagination"></div><!--中间小点-->
+       		<div class="swiper-button-prev"></div><!--左箭头-->
+   			<div class="swiper-button-next"></div><!--右箭头-->
+		</div>
+			<!--轮播t图下面-->
+			<div class="banner_bottom" ">
+				<div class="banner_logo" style="margin-left: 32%; margin-top: 50px;margin-right: 10px;">
+				<img src="img/icon_wrap.png" />
+				<p style="color: white;letter-spacing: 15px;margin-left: 10px;overflow: hidden;">正版图片下载</p>
+				</div>
+				
+				<div class="banner_text">
+					<input type="text" name="" id="" value="风景"style="width: 300px;height: 45px; float: left;margin-left: 5px;margin-top: 50px;" />
+				</div>	
+					<div class="banner_button">
+						<input type="button" name="" id="" value="搜索"style="width: 100px;height: 49px; float: left;background-color: orange;margin-top: 50px;color: white;letter-spacing: 10px;font-size: 15px;" />
+					</div>
+			</div>
+			
+		<!--	<!--中间content-->-->
+			<div class="content">
+				<h3>已经有超过五百万的摄影爱好者入驻了图中⋯⋯</h3>
+				<p style="margin-top: -50px;margin-bottom: 20px;">在这里,发现基于功能兴趣的同好;鼓励原创和分享精神;除了美好的摄影和技能,我们更在意影像背后价值观的认同</p>
+			</div>
+			
+			<!--Footer  13张图-->
+			<div class="footer">
+					<div class="box1">
+						<div class="box">
+							<h3>腾格尔火山群(bromo)活火山</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/047/47916/logo_small.jpg?2"/>
+							<p>mfs6174</p>
+						</div>
+					</div>	
+					<div class="box2">
+						<div class="box">
+							<h3>哈苏大师 MARKbr <br />HOLTHUSEN 作品</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/229/2297116/logo_small.jpg?1"/>
+							<p>mfs6174</p>
+						</div>
+					</div>	
+					<div class="box3">
+						<div class="box">
+							<h3>逆光.时光</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/139/1394215/logo_small.jpg?3"/>
+							<p>mfs6174</p>
+						</div>
+					</div>	
+					<div class="box4">
+						<div class="box">
+							<h3>新的旧楼&旧的新楼</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/046/46728/logo_small.jpg?19"/>
+							<p>mfs6174</p>
+						</div>
+					</div>	
+					<div class="box5">
+						<div class="box">
+							<h3>救赎</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/105/1053493/logo_small.jpg?1"/>
+							<p>长景</p>
+						</div>
+					</div>	
+					<div class="box6">
+						<div class="box">
+							<h3>救赎</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/957/957710/logo_small.jpg?2"/>
+							<p>长景</p>
+						</div>
+					</div>	
+					<div class="box7">
+						<div class="box">
+							<h3>救赎</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/107/107570/logo_small.jpg?4"/>
+							<p>长景</p>
+						</div>
+					</div>	
+					<div class="box8">
+						<div class="box">
+							<h3>哈苏大师 BARA PRASILOVA 作品</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/229/2297116/logo_small.jpg?1"/>
+							<p>哈苏HASSELBLAD</p>
+						</div>
+					</div>	
+					<div class="box9">
+						<div class="box">
+							<h3>冰与火</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/384/384279/logo_small.jpg?3"/>
+							<p>南卡</p>
+						</div>
+					</div>	
+					<div class="box10">
+						<div class="box">
+							<h3>角峰日出</h3>
+							<br /><br />
+							<img src="https://s1.tuchong.com/sites/132/1324198/logo_small.jpg?1"/>
+							<p>静为躁君</p>
+						</div>
+					</div>	
+			</div>
+			
+			<!--图册下方文字-->
+			<div class="content_top">
+				<h3>全年超过百万奖金的活动和大赛,好照片不再寂寞⋯⋯</h3>
+				<p style="margin-top: -50px;margin-bottom: 20px;">展示摄影作品,找到志趣相同的伙伴;上传视频,学习摄影;参与比赛赢取奖金;成为图库签约摄影师</p>
+			</div>
+			
+			<!--下方6张图main-->
+			<div class="main" >
+				<div class="m1">
+					<div class="main_1">
+					<h6 style="color: white; background: orange; width: 150px ;text-align: center;">距离高考15天</h6>
+					<br />
+					</div>
+					<div style="width: 600px;margin-left: 5%;">
+					<h2 >妈妈的温柔岁月</h2><br />
+					<span style="font-size: 10px;">优质图片故事,可获官网推荐</span>
+					<span >2042件作品</span>
+					</div>
+				</div>
+				<div class="m2">
+					<div class="main_1">
+					<h6 style="color: white; background: orange; width: 150px ;text-align: center;">距离高考15天</h6>
+					<br />
+					</div>
+					<div style="width: 600px;margin-left: 5%;">
+					<h2 >妈妈的温柔岁月</h2><br />
+					<span style="font-size: 10px;">优质图片故事,可获官网推荐</span>
+					<span >2042件作品</span>
+					</div>
+				</div>
+				<div class="m3">
+					<div class="main_1">
+					<h6 style="color: white; background: orange; width: 150px ;text-align: center;">距离高考15天</h6>
+					<br />
+					</div>
+					<div style="width: 600px;margin-left: 5%;">
+					<h2 >妈妈的温柔岁月</h2><br />
+					<span style="font-size: 10px;">优质图片故事,可获官网推荐</span>
+					<span >2042件作品</span>
+					</div>
+				</div>
+				<div class="m4">
+					<div class="main_1">
+					<h6 style="color: white; background: orange; width: 150px ;text-align: center;">距离高考15天</h6>
+					<br />
+					</div>
+					<div style="width: 600px;margin-left: 5%;">
+					<h2 >妈妈的温柔岁月</h2><br />
+					<span style="font-size: 10px;">优质图片故事,可获官网推荐</span>
+					<span >2042件作品</span>
+					</div>
+				</div>
+				<div class="m5">
+					<div class="main_1">
+					<h6 style="color: white; background: orange; width: 150px ;text-align: center;">距离高考15天</h6>
+					<br />
+					</div>
+					<div style="width: 600px;margin-left: 5%;">
+					<h2 >妈妈的温柔岁月</h2><br />
+					<span style="font-size: 10px;">优质图片故事,可获官网推荐</span>
+					<span >2042件作品</span>
+					</div>
+				</div>
+				<div class="m6">
+					<div class="main_1">
+					<h6 style="color: white; background: orange; width: 150px ;text-align: center;">距离高考15天</h6>
+					<br />
+					</div>
+					<div style="width: 600px;margin-left: 5%;">
+					<h2 >妈妈的温柔岁月</h2><br />
+					<span style="font-size: 10px;">优质图片故事,可获官网推荐</span>
+					<span >2042件作品</span>
+					</div>
+				</div>
+			</div>
+			
+			<!--合作品牌-->
+			<div class="brand_list ">
+				<h1 style="width: 1920px; text-align: center;color: grey;letter-spacing: 10px;margin-top: 50px;margin-bottom: 50px;">合作品牌</h1>
+				<img src="img/合作伙伴.jpg" style="margin-left: 5%;"/>
+			</div>
+			<!--<!--last 最后底部-->
+			
+			<div class="last">
+				<div class="last_left">
+					<h3 style="color: orange; letter-spacing: 5px;">关于我们</h3><br />
+					<p style="color: white;">已经有超过五百万的摄影爱好者入住了图虫<br /><br />
+						在这里,发现基于共同兴趣的同好,鼓励原创和分享精神<br /><br />
+						除了美好的摄影和技能,我们更在意影像背后价值观的认同
+					</p>
+				</div>
+				
+				<div class="last_center">
+					<h3 style="color: orange; letter-spacing: 5px;">下载APP</h3><br />
+					<img src="img/qrcode.png" style="width: 150px; height: 150px;"/>
+					<div class="center1">
+					<div><a href=""><img src="img/ios.png"/></a></div>
+					<div><a href=""><img src="img/android.png"/></a></div>
+					</div>
+				</div>
+				
+				<div class="last_right">
+					<h3 style="color: orange; letter-spacing: 5px;">关注图虫</h3><br />
+					<div class="right1">
+					<img src="img/weixin.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;
+					</div>
+					<div style="float: left;">
+					<img src="img/weibo.png" style="width: 30px; height: 30px;" />
+					</div>
+				</div>
+				
+			</div>
+				<div class="bottom_last">
+					<span style="color: white;"><em>@2017&nbsp;tuchong.com&nbsp;沪ICP备12005590-5&nbsp;&nbsp;
+					用户协议&nbsp;&nbsp;/&nbsp;&nbsp;版权政策&nbsp;&nbsp;/&nbsp;&nbsp;
+					移动版&nbsp;&nbsp;/&nbsp;&nbsp;电脑版</em>
+					</span>
+					
+					<span style="color: white;margin-left: 550px;"><em>EXIF查看器&nbsp;帮助&nbsp;关于&nbsp;&nbsp;
+					联系&nbsp;&nbsp;/&nbsp;&nbsp;服务&nbsp;&nbsp;/&nbsp;&nbsp;
+					加入我们</em>
+					</span>
+			</div>
+			<a id="goto" href="#"></a>
+			<script type="text/javascript">
+		var mySwiper = new Swiper('.swiper-container', {
+		autoplay: true,//可选选项，自动滑动
+			 speed:300,
+ 		 autoplay : {
+   		 delay:1000
+  		},
+		
+		parallax : true,
+		pagination: {
+   		el: '.swiper-pagination',
+    	clickable :true,
+   		//type: 'bullets',
+    	// type: 'fraction',
+   		//type : 'progressbar',
+    	//type : 'custom',
+  		},
+  		//左右箭头
+  		navigation: {
+     	nextEl: '.swiper-button-next',
+     	prevEl: '.swiper-button-prev',
+   		 },
+  
+		})
+		</script>
+	</body>
+	
+</html>

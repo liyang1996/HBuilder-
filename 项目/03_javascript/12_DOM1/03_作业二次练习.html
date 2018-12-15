@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		* {
+				margin: 0;
+				padding: 0;
+				font-size: 25px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			table,
+			td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				width: 500px;
+				height: 40px;
+			}
+			
+			thead {
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table id="all"> 
+			<tr>
+				<th>班级</th>
+				<th>姓名</th>
+				<th colspan="2">科目成绩</th>
+			</tr>
+			<tfoot>
+				<tr>
+					<td colspan="2">总平均</td>
+					<td id="average" colspan="2"></td>
+				</tr>
+			</tfoot>
+		</table>
+		<script type="text/javascript">
+			var aJson = {
+				"班级1": [{
+					"刘金花": [{
+							"数学": 93
+						},
+						{
+							"英语": 90
+						},
+						{
+							"语文": 89
+						}
+					]
+				}, {
+					"王大顶": [{
+							"数学": 67
+						},
+						{
+							"英语": 60
+						},
+						{
+							"语文": 99
+						}
+					]
+				}, {
+					"陈佳影": [{
+							"数学": 100
+						},
+						{
+							"英语": 100
+						},
+						{
+							"语文": 100
+						}
+					]
+				}],
+				"班级2": [{
+					"唐仁": [{
+							"数学": 79
+						},
+						{
+							"英语": 44
+						},
+						{
+							"语文": 66
+						}
+					]
+				}, {
+					"秦风": [{
+							"数学": 100
+						},
+						{
+							"英语": 100
+						},
+						{
+							"语文": 100
+						}
+					]
+				}, {
+					"宋义": [{
+							"数学": 79
+						},
+
+						{
+							"语文": 70
+						}
+					]
+				}],
+				"班级3": [{
+					"李白": [{
+							"生存": 40
+						},
+						{
+							"攻击": 60
+						},
+						{
+							"技能": 50
+						},
+						{
+							"难度": 90
+						}
+					]
+				}, {
+					"娜可露露": [{
+							"生存": 40
+						},
+						{
+							"攻击": 85
+						},
+						{
+							"技能": 65
+						},
+						{
+							"难度": 55
+						}
+					]
+				}, {
+					"兰陵王": [{
+							"生存": 20
+						},
+						{
+							"技能": 40
+						},
+						{
+							"难度": 50
+						}
+					]
+				}]
+			}
+			var oAll = document.getElementById("all");
+			//总成绩
+			var sum = 0;
+			//总科目
+			var subject = 0;
+			for(var className in aJson){
+				//班级名称
+				var classArr = aJson[className]
+				//动态创建 td
+				var classNameTd = document.createElement("td");
+				classNameTd.innerHTML = className;
+				//计算学生数
+				var students = 0;
+				for(var i in classArr){
+					var student = classArr[i];
+					for(var stuName in student){
+						//创建学生名字td
+						var studentTD = document.createElement("td");
+						studentTD.innerHTML = stuName;
+						var count = 0;
+						//创建成绩数组
+						var studentJson = student[stuName]
+						//console.log(student[stuName])
+						//成绩遍历
+						for(var j in studentJson){
+							var score = studentJson[j];
+							for(var scoreName in score){
+								//创建 tr
+								var newTr = document.createElement("tr");
+								//在 学生tr 添加 班级 td
+								if(students == 0){
+									newTr.appendChild(classNameTd);
+									console.log("你好："+newTr.appendChild(classNameTd))
+								}
+								//在 第一个tr 添加学生名的 td
+								if(count == 0){
+									newTr.appendChild(studentTD);
+								}
+								//创建 学科 名称
+								var scoreNameTd = document.createElement("td");
+								scoreNameTd.innerHTML = scoreName;
+								//创建 学科成绩
+								var scoreTd = document.createElement("td");
+								scoreTd.innerHTML = score[scoreName]
+								//console.log(score[scoreName])
+								newTr.appendChild(scoreNameTd)
+								newTr.appendChild(scoreTd)
+								oAll.appendChild(newTr);
+								//计算成绩和
+								sum += score[scoreName];
+								count++;
+								subject++;
+								students++;
+							}
+						}
+						//合并单元格 
+						studentTD.rowSpan = count;
+						classNameTd.rowSpan = students;
+					}
+				}
+			}
+			var oAverage = document.getElementById("average");
+			oAverage.innerHTML = (sum/subject).toFixed(2);
+		</script>
+	</body>
+
+</html>

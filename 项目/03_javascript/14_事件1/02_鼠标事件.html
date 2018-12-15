@@ -1,0 +1,63 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="wrap"></div>
+		<script type="text/javascript">
+			var oWrap = document.getElementById("wrap");
+//			oWrap.onclick = function(){
+//				console.log("点击事件")				
+//			}
+//			父级移到子级记录2次
+//			oWrap.onmouseover = function(){
+//				console.log("鼠标移入")
+//			}
+//			oWrap.onmouseout = function(){
+//				console.log("鼠标移出")
+//			}
+			
+			//鼠标双击
+			oWrap.ondblclick = function(){
+				console.log("鼠标双击")
+			}
+			 
+			//鼠标按下就会响应；
+			//onclick鼠标按下抬起响应
+			oWrap.onmousedown = function(){
+				console.log("鼠标按下")
+			}
+			
+			oWrap.onmouseup = function(){
+				console.log("鼠标抬起")
+			}
+			
+			//父级移到子级只只记录一次
+			//1、onmouseover、onmouseout：鼠标经过时自身触发事件，经过其子元素时也触发该事件；（父亲有的东西，儿子也有） 
+			//2、onmouseenter、onmouseleave：鼠标经过时自身触发事件，经过其子元素时不触发该事件。（父亲的东西就是父亲的，不归儿子所有） 
+			oWrap.onmouseenter = function(){
+				console.log("鼠标移入")
+			}
+			
+			oWrap.onmouseleave = function(){
+				console.log("鼠标移出")
+			}
+			
+			oWrap.onmousemove = function(){
+				console.log("鼠标在元素内移动")
+			}
+			
+			
+		</script>
+	</body>
+</html>

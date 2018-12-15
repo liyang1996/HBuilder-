@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+
+		<title>01选字游戏</title>
+
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			li {
+				list-style-type: none;
+			}
+			
+			.wrap {
+				width: 400px;
+				height: 600px;
+				border: 2px solid gold;
+				margin: 0 auto;
+			}
+			
+			#time {
+				float: left;
+			}
+			
+			#count {
+				float: right;
+			}
+			
+			#count,
+			#time {
+				font-size: 30px;
+			}
+			
+			#question {
+				clear: both;
+				font-size: 300px;
+				text-align: center;
+				margin-top: 70px;
+			}
+			
+			#answer {
+				display: flex;
+				justify-content: space-around;
+				margin-top: 20px;
+			}
+			
+			#answer li {
+				font-size: 50px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="wrap">
+
+			<!--剩余时间-->
+
+			<div id="time">剩余时间: 20</div>
+
+			<!--数量-->
+
+			<div id="count">数量: 0</div>
+
+			<!--问题的文字-->
+
+			<div id="question">字</div>
+
+			<!--答案部分-->
+
+			<ul id="answer">
+
+				<li>红</li>
+
+				<li>黄</li>
+
+				<li>蓝</li>
+
+				<li>绿</li>
+
+				<li>紫</li>
+
+			</ul>
+
+		</div>
+
+	</body>
+
+	<script type="text/javascript">
+		// 定义数组  存储要随机的汉字
+
+		var texts = ["红", "黄", "蓝", "绿", "紫"];
+
+		// 定义数组  存储要随机的字体颜色
+
+		var colors = ["red", "yellow", "blue", "green", "purple"];
+
+		// 定义函数  获取随机数
+
+		function randomNum(x, y) {
+
+			return Math.floor(Math.random() * (y - x + 1) + x);
+
+		}
+
+		 
+
+		/*
+
+		* 一, 倒计时
+
+		*/
+
+		// 获取 timeDiv
+
+		var timeDiv = document.getElementById("time");
+
+		var time = 20;
+
+		var timerDiv = setInterval(function() {
+
+			time--;
+
+			timeDiv.innerHTML = "剩余时间:" + time;
+
+			//清除计时器
+
+			if(time <= 0) {
+
+				clearInterval(timerDiv);
+
+				alert("Game Over");
+
+				// 取消 li 事件绑定
+
+				for(var i = 0; i < lis.length; i++) {
+
+					lis[i].onclick = null;
+
+				}
+
+			}
+
+		}, 1000);
+
+		/*
+
+		* 二, question 文字和字体颜色 的随机
+
+		*/
+
+		// 获取 questionDiv
+
+		var queDiv = document.getElementById("question");
+
+		var answer = "字";
+
+		// 随机问题
+
+		function randomQue() {
+
+			queDiv.innerHTML = texts[randomNum(0, 4)];
+
+			var color = colors[randomNum(0, 4)];
+
+			queDiv.style.color = color;
+
+			// 绑定答案
+
+			switch(color) {
+
+				case "red":
+
+					answer = "红";
+
+					break;
+
+				case "yellow":
+
+					answer = "黄";
+
+					break;
+
+				case "blue":
+
+					answer = "蓝";
+
+					break;
+
+				case "green":
+
+					answer = "绿";
+
+					break;
+
+				case "purple":
+
+					answer = "紫";
+
+					break;
+
+			}
+
+		}
+
+		// 自己先调用一次
+
+		randomQue();
+
+		/*
+
+		* 三, answer 文字和字体颜色 的随机
+
+		*/
+
+		var lis = document.getElementsByTagName("li");
+
+		 
+
+		// 洗盘算法(将数组打乱)
+
+		function randomArray(arr) {
+
+			for(var i = 0; i < arr.lenght; i++) {
+
+				//随机下标
+
+				var ran = randomNum(0, 4);
+
+				// 如果随机的下标与前元素下标不同, 则交换队应位置上的值
+				if(ran != i) {
+
+					//交换
+
+					var temp = arr[i];
+
+					arr[i] = arr[ran];
+
+					arr[ran] = temp;
+
+				}
+
+			}
+
+		}
+
+		 
+
+		function randomAns() {
+
+			// 打乱 texts 数组
+
+			randomArray(texts);
+
+			// 打乱 colors 数组
+
+			randomArray(colors);
+
+			// 赋值
+
+			for(var i = 0; i < lis.length; i++) {
+
+				lis[i].innerHTML = texts[i];
+
+				lis[i].style.color = colors[i];
+
+			}
+
+		}
+
+		// 先调用一次
+
+		randomAns();
+
+		 
+
+		/*
+
+		* 四, answer 中每个 li 关联点击事件
+
+		*/
+
+		// 获取 countDiv
+
+		var countDiv = document.getElementById("count");
+
+		var count = 0;
+
+		function clickAction() {
+
+			if(this.innerHTML == answer) {
+
+				// 数量 +1;
+
+				count++;
+
+				countDiv.innerHTML = "数量:" + count;
+
+				// 随机问题
+
+				randomQue();
+
+				// 随机答案
+
+				randomAns();
+
+			}
+
+		}
+
+		// 给 li 绑定事件
+
+		for(var i = 0; i < lis.length; i++) {
+			lis[i].onclick = clickAction;
+		}
+	</script>
+
+</html>

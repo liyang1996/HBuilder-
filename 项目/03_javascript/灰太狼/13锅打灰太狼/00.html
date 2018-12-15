@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">123456tyu</div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("div1")
+			
+			oDiv.onclick = function () {
+				
+				abc(this);
+				var _this = this;
+				var flag = 10;
+				
+				setInterval(function () {
+					console.log(_this);
+				},1000);
+			}
+			
+			function abc(a) {
+				
+				console.log(a);
+				
+			}
+			//window.abc();
+		
+			function mmm(ac) {
+				
+				ac();
+				
+			}
+			
+			mmm(a);
+			function a() {
+				
+			}
+			mmm(abc);
+			
+			function xyz(a,b) {
+				console.log(b);
+				if (b) {
+					b()
+				}
+				
+			}
+			xyz(1,function () {
+				
+			});
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+

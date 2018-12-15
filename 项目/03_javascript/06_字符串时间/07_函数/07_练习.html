@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//实现可以随机任意区间的随机数的函数
+			console.log(getrandomNum(9,99));
+			function getrandomNum(min,max){
+				//得到[min,max]区间的一个随机数
+				//然后返回
+			return Math.floor(Math.random()*(max-min+1)+min);					
+			}
+			
+			
+			//1.定义函数 求两个数的最小值
+			// 有参有返
+			console.log(min(9,6));
+			function min(a,b){
+				var a,b;
+				return a<b?a:b
+			};
+			
+			
+			// 2.定义函数 求1到n的和
+				function num1(a,b){
+				return b*(b+1)/2;
+			}
+			var n=prompt('请输入n的值');
+			document.write(alert(num1(1,parseInt(n))));
+			
+			
+			/*3.定义函数 实现如果 a > b  
+			返回 两数之差的绝对值否则 返回两数之和 
+			*/
+			console.log(num2(5,9));
+			function num2(a,b){
+				return a>b?Math.abs(b-a):(a+b)
+			}
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

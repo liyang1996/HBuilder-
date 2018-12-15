@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,li{
+				list-style: none;
+			}			
+			#list{
+				border: 10px solid lawngreen;
+				margin: 0 auto;
+				position: relative;
+			}
+			#list li{
+				width: 200px;
+				padding: 10px;
+				border:5px solid black ;
+				position: absolute;
+				visibility: hidden;
+				transition: all 1s;
+			}
+			#list li img{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list"></ul>
+		<script type="text/javascript">
+			var oList = document.getElementById("list");
+			//创建li和图片，添加到网页(ul)中
+			function creatImg(){
+				for(var i=1;i<=20;i++){
+					var oli = document.createElement("li");
+					oList.appendChild(oli);
+					var theImg= document.createElement("img");
+					theImg.src="img/"+i+".jpeg";
+					oli.appendChild(theImg);
+				}
+			}
+				creatImg();
+			//图片加载完成后，图片有高度，撑开li,此时可以布局瀑布流
+			window.onload=function(){
+				createFall();
+			}
+			
+			//瀑布流布局
+			function createFall(){
+
+				//获取所有的li
+				var listChild = oList.children; 
+				
+				var space = 10;
+				//计算列数
+				
+				//获取浏览器宽
+				var obrowserW = document.documentElement.clientWidth; 
+				//获取列数
+				var cols =parseInt((obrowserW-space) /(listChild[0].offsetWidth+space));
+				
+				//设置olist宽度
+				oList.style.width =  cols*(listChild[0].offsetWidth+space)+space+"px";
+				
+				//高度数组
+				var colsarr = [];
+				for(var a=0; a<cols; a++){
+					colsarr[a]=0;
+				}
+				
+				//算位置，更新高度数组
+				for(var i=0;i<listChild.length;i++){
+					
+					//找最短的列
+					var minhigh = colsarr[0];//top值
+					var minIndex = 0;//left值
+					for(var j = 0 ;j<colsarr.length;j++){
+						if(minhigh>colsarr[j]){
+						minhigh=colsarr[j];
+						minIndex=j;
+						}
+					}
+				
+				listChild[i].style.top = minhigh+space+"px";
+				listChild[i].style.left = (listChild[0].offsetWidth+space)*minIndex+space+"px";
+				listChild[i].style.visibility="visible";
+				console.log(listChild[0].offsetWidth)
+				//更新最短列的高
+				colsarr[minIndex]+=listChild[i].offsetHeight+space;
+			}
+				//给olist高度
+				var maxH = 0;
+				for(var i=0;i<colsarr.length;i++){
+					if(maxH<colsarr[i]){
+						maxH=colsarr[i];
+					}
+				}
+				oList.style.height=maxH+space+"px"
+		}
+			//当浏览器大小发生变化时
+			window.onresize=function(){
+				//console.log("onresize")
+				createFall();
+			}
+		</script>
+	</body>
+</html> 

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04_竖直3方块</title>
+		<style type="text/css">
+			.in {
+				width: 80px;
+				height: 80px;
+				margin: 5px;
+				line-height: 80px;
+				background-color: plum;
+				font-size: 25px;
+				color: yellow;
+				text-align: center;
+			}
+			
+			.right {
+				float: right;
+			}
+			
+			.left {
+				float: left;
+			}
+			
+			.clean {
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="clean">
+				<div class="in right">div1</div>
+			</div>
+
+			<div class="clean">
+				<div class="in right">div2</div>
+			</div>
+
+			<div class="clean">
+				<div class="in right">div3</div>
+			</div>
+		</div>
+		<hr />
+		<div class="all">
+			<div class="clean">
+				<div class="in">div1</div>
+			</div>
+
+			<div class="clean">
+				<div class="in right">div2</div>
+			</div>
+
+			<div class="clean">
+				<div class="in right">div3</div>
+			</div>
+		</div>
+		<hr />
+		<div class="all">
+			<div class="clean">
+				<div class="in left">div1</div>
+				<div class="in right">div2</div>
+			</div>
+
+			<div class="clean">
+				<div class="in right">div3</div>
+			</div>
+		</div>
+		<hr />
+		<div class="all left">
+			<div class="clean">
+				<div class="in left">div1</div>
+				<div class="in left">div2</div>
+			</div>
+
+			<div class="clean">
+				<div class="in right">div3</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

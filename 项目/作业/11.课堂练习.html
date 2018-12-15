@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+
+             
+			</style>
+
+	</head>
+	<body>
+		   <form role="form" class="shaixuan form-inline" method="post" action="" name="form1">
+                    地區篩選查詢：
+                    <select id="province" onChange="getCity()" class="form-control">
+                        <option value="0">选择地區</option>
+                        <option value="香港">香港</option>
+                        <option value="九龍">九龍</option>
+                        <option value="新界">新界</option>
+                        <option value="澳門">澳門</option>
+                    </select>
+                    <select id="city" class="form-control">
+                        <option value="0">選擇分區</option>
+                    </select>
+                </form>
+                <script>
+                     var city=[
+                     ["中西區","灣仔區","東區","南區"],
+                     ["九龍城區","黃大仙區","觀塘區","油尖旺區","深水埗區"],
+                     ["荃灣區","葵青區","西貢區","沙田區","大埔區","北區","屯門區","元朗區","離島區"],
+                     ["花地瑪堂區","聖安多尼堂區","大堂區","望德堂區","風順堂區","海島市","嘉模堂區","聖方濟各堂區"]
+                     ];
+
+                     function getCity(){
+                         //获得省份下拉框的对象
+                         var oProv=document.getElementById("province");
+                         //获得城市下拉框的对象
+                         var oCity=document.getElementById("city");
+
+                         //得到对应省份的城市数组
+                         var provinceCity=city[oProv.selectedIndex - 1];
+                        
+
+                         //清空城市下拉框，仅留提示选项
+                         oCity.length=1;
+
+                         //将城市数组中的值填充到城市下拉框中
+                         for(var i=0;i<provinceCity.length;i++){
+                             oCity[i+1]=new Option(provinceCity[i],provinceCity[i]);
+                              console.log(provinceCity[i]);
+                         }
+                     }
+                     
+                </script>
+	</body>
+</html>

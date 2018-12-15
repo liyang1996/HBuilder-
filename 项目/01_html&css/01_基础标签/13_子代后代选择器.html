@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				font-size: 20px;
+			}
+			span{font-size: 40px;}
+			/*标签选择器的优先级大于通用*/
+			/*子代选择器:符号
+			 * 左右两端写选择器
+			   p>span   影响P标签的儿子span样式
+			 * */
+			
+			p>span{
+				color: red;
+			}
+			
+			/*后代选择器 符号是空格*/
+			/*p span 影响p标签里的所有span标签*/
+			p span{
+				color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<span>怎么会爱上了他</span>
+			<strong>因为
+				<span>眼瞎</span>
+				是大家</strong>
+		</p>
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var aJson = {
+				"班级1": [{
+					"刘金花": [{
+							"数学": 93
+						},
+						{
+							"英语": 90
+						},
+						{
+							"语文": 89
+						}
+					]
+				}, {
+					"王大顶": [{
+							"数学": 67
+						},
+						{
+							"英语": 60
+						},
+						{
+							"语文": 99
+						}
+					]
+				}, {
+					"陈佳影": [{
+							"数学": 100
+						},
+						{
+							"英语": 100
+						},
+						{
+							"语文": 100
+						}
+					]
+				}],
+				"班级2": [{
+					"唐仁": [{
+							"数学": 79
+						},
+						{
+							"英语": 44
+						},
+						{
+							"语文": 66
+						}
+					]
+				}, {
+					"秦风": [{
+							"数学": 100
+						},
+						{
+							"英语": 100
+						},
+						{
+							"语文": 100
+						}
+					]
+				}, {
+					"宋义": [{
+							"数学": 79
+						},
+
+						{
+							"语文": 70
+						}
+					]
+				}],
+				"班级3": [{
+					"李白": [{
+							"生存": 40
+						},
+						{
+							"攻击": 60
+						},
+						{
+							"技能": 50
+						},
+						{
+							"难度": 90
+						}
+					]
+				}, {
+					"娜可露露": [{
+							"生存": 40
+						},
+						{
+							"攻击": 85
+						},
+						{
+							"技能": 65
+						},
+						{
+							"难度": 55
+						}
+					]
+				}, {
+					"兰陵王": [{
+							"生存": 20
+						},
+						{
+							"技能": 40
+						},
+						{
+							"难度": 50
+						}
+					]
+				}]
+			}
+		//求出每班平均成绩
+			for(var className in aJson){
+				console.log(className)
+				//总成绩
+				var sum=0;
+				//总个数	
+				var len=0;
+				//console.log(aJson[className])
+				for(var stuName in aJson[className]){
+					//console.log(aJson[className][stuName]);
+					var obj = aJson[className][stuName];
+					for(var key in obj){
+						//每人成绩的数组
+						console.log("学生姓名："+key)
+						for(var i in obj[key]){
+							//数组里全部单科成绩分组
+							//console.log(obj[key][i])
+							var arr=obj[key][i];
+						//	var sun=0;
+							for(var j in arr){
+								//数组里全部成绩列表
+								//console.log(j+arr[j])
+								sum+=arr[j];
+								len++;
+							}
+						}
+					}
+				}
+				console.log("len:"+len);
+				console.log("sum:"+sum);
+				console.log("----------"+(sum/len).toFixed(2)+"-------")
+			}
+		</script>
+	</body>
+</html>

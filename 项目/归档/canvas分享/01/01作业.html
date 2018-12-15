@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+
+    //2.给系统数组类添加一个方法，作用是检索出数组第一个重复的数字.
+
+    Array.prototype.getSame = function () {
+
+        var tempArr = [];
+
+        for(var i = 0; i < this.length;i++){
+
+            for(var j = 0; j < tempArr.length; j++){
+                if(this[i] == tempArr[j]){
+                    return this[i];
+                }
+            }
+            //如果this 和 tempArr 中没有相等元素，则添加
+            tempArr.push(this[i]);
+        }
+
+    }
+
+    var arr = [2,3,3,2];
+
+    console.log(arr.getSame());
+
+
+    Array.prototype.getSame1 = function () {
+        var tempArr = [];
+        //tempArr中的数组元素与this相同
+        for (var i = 0; i < this.length; i++){
+            tempArr[i] = this[i];
+        }
+            for(var i = 0; i < this.length;i++){
+                var count = 0;
+                for(var j = 0; j < tempArr.length;j++){
+                    if(this[i] == tempArr[j]){
+                        count++;
+                    }
+                    if(count == 2){
+                        return this[i];
+                }
+            }
+
+            tempArr.shift();
+        }
+    }
+    var arr1 = [1,2,3,3,2];
+    console.log(arr1.getSame1());
+
+
+
+    Array.prototype.showRepeat=function () {
+        var flag=false;
+        for(var i=0;i<this.length;i++)
+            for(var j=i+1;j<this.length-1;j++){
+                if(this[i]==this[j]){
+                    console.log(this[j]);
+                    flag=true;
+                    break;
+                }
+            }
+    }
+    var arr2 = [1,2,3,3,2];
+
+    arr2.showRepeat();
+
+</script>
+
+</html>

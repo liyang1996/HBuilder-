@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			@-webkit-keyframes fly {
+				0% {
+					background: url(img/bird0.png);
+				}
+				100% {
+					background: url(img/bird1.png);
+				}
+			}
+			
+			@-webkit-keyframes headMove {
+				0% {
+					transform: translateY(0);
+				}
+				100% {
+					transform: translateY(30px);
+				}
+			}
+			
+			#wrap {
+				width: 320px;
+				height: 480px;
+				background: url(img/bg.jpg);
+				background-size: 100% 100%;
+				position: relative;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			
+			#head {
+				position: absolute;
+				left: 50px;
+				top: 90px;
+				animation: headMove 1s linear infinite;
+				animation-direction: alternate;
+			}
+			
+			#head span {
+				background: url(img/bird0.png);
+				background-size: 100% 100%;
+				position: absolute;
+				right: 0;
+				top: 20px;
+				width: 40px;
+				height: 26px;
+				animation: fly 0.5s linear infinite;
+				animation-direction: alternate;
+			}
+			
+			#menu {
+				position: absolute;
+				left: 37%;
+				top: 60%;
+				z-index: 1000;
+			}
+			
+			#score {
+				position: absolute;
+				left: 48%;
+				top: 40px;
+				z-index: 3;
+			}
+			
+			#slider {
+				width: 100%;
+				position: absolute;
+				left: 0;
+				height: 14px;
+				top: 422px;
+			}
+			
+			#slider_img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+			}
+			
+			#slider img {
+				float: left;
+				width: 320px;
+				height: 100%;
+			}
+			
+			#bird {
+				position: absolute;
+				left: 30px;
+				top: 25%;
+				display: none;
+			}
+			
+			#ductWrap {
+				width: 320px;
+				height: 480px;
+				margin: 0 auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+				overflow: hidden;
+			}
+			
+			#ductWrap .ductSmall {
+				position: absolute;
+				top: 0;
+				width: 62px;
+				height: 100%;
+				border: 1px solid black;
+			}
+			
+			.duct_up {
+				background: url(img/up_mod.png) repeat-y;
+				width: 100%;
+				height: 30%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			.duct_up img {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+			
+			.duct_down {
+				background: url(img/down_mod.png) repeat-y;
+				height: 45%;
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+			}
+			
+			.duct_down img {
+				position: absolute;
+				top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+
+			<div id="head">
+				<img src="img/head.jpg" />
+				<span id=""></span>
+			</div>
+
+			<div id="menu">
+				<img src="img/start.jpg" />
+			</div>
+
+			<div id="score">
+				<img src="img/0.jpg" />
+			</div>
+			<div id="slider">
+				<div id="slider_img">
+					<img src="img/banner.jpg" />
+					<img src="img/banner.jpg" />
+				</div>
+			</div>
+			<img src="img/down_bird0.png" id="bird" />
+			<div id="ductWrap">
+				<!--<div class="ductSmall">
+					<div class="duct_up">
+						<img src="img/up_pipe.png" />
+					</div>
+
+					<div class="duct_down">
+						<img src="img/down_pipe.png" />
+					</div>
+				</div>-->
+
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			var oHead = document.getElementById("head");
+			var oBird = document.getElementById("bird");
+			var oDuctWrap = document.getElementById("ductWrap");
+			var oMenu = document.getElementById("menu");
+			var oSlider = document.getElementById("slider");
+			var oSlider_img = document.getElementById("slider_img");
+			var oScore = document.getElementById("score");
+			var score = 0;
+			var sliderTimer = null; //草坪的定时器
+			oSlider_img.style.width = oSlider_img.children[0].offsetWidth * 2;
+			var sliderTimer = setInterval(function() {
+				if(Math.abs(oSlider_img.offsetLeft) >= oSlider_img.offsetWidth / 2) {
+					//回到临界值
+					oSlider_img.style.left = 0 + "px";
+				} else {
+					//向左运动
+					oSlider_img.style.left = oSlider_img.offsetLeft - 1 + "px";
+				}
+			}, 30);
+			//开始按钮点击事件
+			oMenu.onclick = function() {
+				//开始按钮消失
+				oMenu.style.display = "none";
+				//标题消失
+				oHead.style.display = "none";
+				oBird.style.display = "block";
+				oDuctWrap.style.display = "block";
+				//鸟移动
+				birdMove();
+				//柱子移动
+				ductMove();
+			}
+			//柱子移动函数
+			function ductMove() {
+				//每隔三秒创建一个柱子
+				var ductMoveT = setInterval(function() {
+					var ductS = document.createElement("div");
+					ductS.className = "ductSmall";
+					ductS.style.left = "300px";
+					oDuctWrap.appendChild(ductS);
+					//创建ducts子元素
+					creatDuctsChild(ductS);
+					ductS.isAdd = true; //是否可以加分
+					ductS.timer = setInterval(function() {
+						if(ductS.offsetLeft <= -ductS.offsetWidth) {
+							//当移出屏幕时，从dom中移除
+							ductS.remove();
+						} else if(oBird.offsetLeft >= ductS.offsetLeft + ductS.offsetWidth) {
+							if(ductS.isAdd) {
+								//加分
+								changescore();
+								ductS.isAdd = false;
+							}
+						}
+						ductS.style.left = ductS.offsetLeft - 2 + "px";
+
+					})
+				}, 3000)
+			}
+
+			function changescore() {
+				score++;
+				oScore.innerHTML = "";
+				//数组分数转化成字符串分数
+				//var scorestr=score+"";
+				var scoreStr = String(score);
+				for(var i = 0; i < scoreStr.length; i++) {
+					var newImg = document.createElement("img");
+					newImg.src = "img/" + scoreStr[i] + ".jpg";
+					oScore.appendChild(newImg);
+				}
+
+			}
+
+			//创建ducts中的子元素
+			function creatDuctsChild(ductsmall) {
+				var ductup = document.createElement("div");
+				ductup.className = "duct_up";
+				var upheight = getrandonNum(25, 50);
+				ductup.style.height = upheight + "%";
+				ductsmall.appendChild(ductup);
+
+				var upimg = document.createElement("img");
+				upimg.src = "img/up_pipe.png";
+				ductup.appendChild(upimg);
+
+				var ductdown = document.createElement("div");
+				ductdown.className = "duct_down";
+				ductdown.style.height = (75 - upheight) + "%";
+				ductsmall.appendChild(ductdown);
+
+				var downimg = document.createElement("div");
+				downimg.src = "img/down_pipe.png";
+				ductdown.appendChild(downimg);
+
+			}
+			//随机数函数
+			function getrandonNum(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+
+			//鸟移动
+			function birdMove() {
+				oBird.speed = 0;
+				var birdTimer = setInterval(function() {
+					oBird.speed += 0.5;
+					if(oBird.speed > 5) {
+						oBird.speed = 5;
+					}
+					if(oBird.speed > 0) {
+						oBird.src = "img/down_bird1.png";
+					} else {
+						oBird.src = "img/up_bird1.png";
+					}
+					//顶部和草坪
+					if(oBird.offsetTop <= 0) {
+						clearalltimer();
+						alert("游戏结束");
+					} else if(oBird.offsetTop + oBird.offsetHeight >= oSlider.offsetTop) {
+						clearalltimer();
+						alert("游戏结束");
+					}
+                     var ductchildren=oDuctWrap.children;
+                     //获取所有的大柱子
+                     for(var i=0;i<ductchildren.length;i++ ){
+                     	var ducts=ductchildren[i];
+                     	for(var j=0;j<ducts.children.length;j++){
+                     		//上柱子或下柱子
+                     		var duct=ducts.children[j];
+                     		var flag=istouch(oBird,duct);
+                     		if(flag){
+                     			clearalltimer();
+                     			alert("游戏结束");
+                     		}
+                     	}
+                     }
+					oBird.style.top = oBird.offsetTop + oBird.speed + "px";
+				}, 30);
+				document.onclick = function() {
+					oBird.speed = -7;
+				}
+                 //obj1是鸟，obj2是柱子，上柱子或下柱子
+				function istouch(obj1, obj2) {
+					var theleft = obj1.offsetLeft + obj1.offsetWidth >= obj2.parentNode.offsetLeft;
+					var thetop = obj1.offsetTop + obj1.offsetHeight >= obj2.offsetTop;
+					var thebottom = obj1.offsetTop <= obj2.offsetHeight + obj2.offsetTop;
+					var theright=obj1.offsetLeft<=obj2.offsetLeft+obj2.offsetWidth;
+					if(theleft && thetop && thebottom && theright) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+
+				function clearalltimer() {
+					//确定当前界面有多少定时器
+					/*for(var i = 0; i <= 10000; i++) {
+						clearInterval(i);
+					}*/
+					var timer = setTimeout(function() {
+						for(var i = 0; i < timer; i++) {
+							clearInterval(i);
+						}
+					}, 10);
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_时间对象</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			
+			var nowDate = new Date();
+			console.log(nowDate);
+			//Tue Sep 25 2018 15:27:00 GMT+0800
+			//GMT:格林威治标准时间
+			//CST：代表不同时区，北京是东八区  +8小时就是北京时间
+			
+			//获取年份
+			var year =nowDate.getFullYear();
+			console.log(year);//2018
+			
+			//获取月份,月0~11
+			var month =nowDate.getMonth()+1;
+			console.log(month);//9
+			
+			//获取日
+			var day=nowDate.getDate();
+			console.log(day)//25
+			
+			//获取星期.0~6 ,0:星期天
+			var weekDay = nowDate.getDay();
+			console.log(weekDay)//2
+			
+			//获取小时,取值0~23
+			var hours = nowDate.getHours();
+			console.log(hours)
+			
+			//分钟 (0 ~ 59)。
+			var min = nowDate.getMinutes();
+			console.log(min)
+			
+			//秒 (0 ~ 59)。
+			var seconds = nowDate.getSeconds();
+			console.log(seconds)
+			
+			//毫秒数  (0 ~ 999)。
+			var millSecond = nowDate.getMilliseconds();
+			console.log(millSecond)
+			
+			//时间戳
+			//返回1970 年 1 月 1 日 到现在的毫秒数。
+			var time = nowDate.getTime();
+			console.log(time);//1537861160958
+			//时间戳转换工具：https://tool.lu/timestamp/
+			
+			//自定义时间:
+			//new Date(year,month,date,hrs,min,sec)
+			var future = new Date(2018,9,1);
+			console.log(future)
+			
+		</script>
+	</body>
+</html>

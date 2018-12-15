@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_定时器</title>
+	</head>
+	<body>
+		<button id="btn">停止</button>
+		<script type="text/javascript">
+			//每隔1s执行 function中的代码一次
+			//setInterval(函数,时间1000代表1s)
+			var timer = setInterval(function(){
+				console.log("你好 啊")
+				
+			},1000);
+			console.log("haha ");
+			
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				//停止定时器,将定时器从内存中清除
+				clearInterval(timer);
+			}
+			
+		</script>
+		
+	</body>
+</html>

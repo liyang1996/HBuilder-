@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				background-color: wheat;
+				position: absolute;	
+				left: 0;
+				top: 0;	
+					
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oall=document.getElementById("all")
+			function move(obj,targetposition,speed,time){
+				clearInterval(obj.timer)
+				obj.timer=setInterval(function(){
+					if(Math.abs(targetposition-obj.offsetLeft<=Math.abs(speed))){
+						obj.style.left=targetposition+"px";
+					}else{
+						obj.style.left=obj.offsetLeft+speed+"px"
+					}
+						console.log("offset:"+obj.offsetLeft);
+				},time)
+			}
+			
+			move(oall,500,4,100)
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

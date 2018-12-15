@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//练习
+			console.log("ifn1: " + ifn);
+			var ifn = 3;
+			function ifn() {
+				console.log("fn调用")
+			};
+			console.log("ifn2: " + ifn);
+			console.log(ifn()); 
+			
+			/*上一段代码相当于：
+			 * 
+			 * function ifn() {
+			console.log("fn调用")
+			};
+			删除这行：var ifn;(这是重复声明，被省略)
+			console.log("ifn1: " + ifn);
+			ifn=3;
+			console.log("ifn2: " + ifn);//3
+			console.log(ifn()); //报错
+			ifn()赋值为3，不是函数，所报错 
+			
+			 */
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#all{
+				width: 300px;
+				height: 300px;
+				border: 2px solid saddlebrown;
+			}
+			#all div{
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				position: absolute;
+			}		
+			#wolfs img{
+				position: absolute;
+			}	
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<div id="wolfs"></div>
+		<script type="text/javascript">
+		
+			var oAll = document.getElementById("all");
+			var oDiv = document.createElement("div");
+			var wolf_ = document.createElement("div");
+			var wolfImg = document.createElement("img");
+			oAll.appendChild(oDiv);
+			oDiv.appendChild(wolf_);
+			wolf_.appendChild(wolfImg);
+			var wolfArr = ["img/h0.png", "img/h1.png", "img/h2.png", "img/h3.png", "img/h4.png", "img/h5.png"];
+			//var showTimer;
+			
+			//随机变化位置的黑方块的定时器
+		
+			var timer = setInterval(function(){
+				
+				var arr = [0,100,200];
+				var arr11=arr[Math.round(Math.random()*(arr.length))];
+				var arr22=arr[Math.round(Math.random()*(arr.length))];
+				oDiv.style.left=arr11+"px";
+				oDiv.style.top=arr22+"px";
+				
+				var count = 0;
+				var index = 0;
+				var showTimer = setInterval(function() {
+					if(count < 6) {
+						wolfImg.src = wolfArr[index];
+						index++
+					}else if(count >= 6 && count < 12) {
+						index--;
+						wolfImg.src = wolfArr[index];
+						
+					}else if( count==12){
+						//运动结束
+						clearInterval(showTimer);
+						//wolf_.removeChild(wolfImg)
+						//wolfImg.remove();
+						//wolfMove()
+					}
+                     count++
+                }, 200);
+              
+			},1200);
+
+//				var arr = [0,100,200];
+//				var arr11=arr[Math.round(Math.random()*(arr.length))];
+//				var arr22=arr[Math.round(Math.random()*(arr.length))];
+//				oDiv.style.left=arr11+"px";
+//				oDiv.style.top=arr22+"px";			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#home{
+				background-image: url(img/bg.jpg);
+				width: 320px;
+				height: 480px;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+			/* 时间图片*/
+			#home_time img{
+				position: absolute;
+				left: 50%;
+				margin-left: -14px;
+				top: 8%;
+			}
+			@-webkit-keyframes move{
+				from{
+					margin-top: 0px;
+				}
+				33%{
+					margin-top: -10px;
+				}
+				66%{
+					margin-top: 0px;
+				}
+				to{
+					margin-top: 10px;
+				}
+			}
+			/* 标题图+鸟*/
+			#home_title{
+				position: relative;
+				top: 25%;
+				width: 100%;
+				height:77px ;
+				left: 12%;
+			}
+			#home_title img:nth-child(1){
+				position: absolute;
+				-webkit-animation: move 2s linear infinite alternate ;
+				-o-animation: move 2s linear infinite alternate ;
+				animation: move 2s linear infinite alternate ;
+			}
+			#home_title img:nth-child(2){
+				position: absolute;
+				top: 27%;
+				left:62%;
+				-webkit-animation: move 2s linear infinite alternate ;
+				-o-animation: move 2s linear infinite alternate ;
+				animation: move 2s linear infinite alternate ;
+			}
+			#home_btn{
+				position: absolute;
+				left: 50%;
+				margin-left: -42px;
+				top: 60%;
+			}
+			#home_bottom{
+				width:1400px;
+				position: absolute;
+				top: 87.5%;
+			}
+			
+			#home_bottom_img:nth-child(1){
+				float: left;
+				-webkit-animation:move_banner 10s linear infinite normal ;
+				-o-animation:move_banner 10s linear infinite normal ;
+				animation:move_banner 10s linear infinite normal ;
+			}
+			#home_bottom_img:nth-child(2){
+				float: left;
+				-webkit-animation:move_banner 10s linear infinite normal ;
+				-o-animation:move_banner 10s linear infinite normal ;
+				animation:move_banner 10s linear infinite normal ;
+			}
+			
+			@-webkit-keyframes move_banner {
+				from{
+					margin-left: 0;
+				}
+				to{
+					margin-left: -300px;
+				}
+			
+			/*柱子*/
+			.wrap_up{
+				position: absolute;top: 0;left: 50px;width: 100%;height: 30%;background: url(img/up_mod.png) repeat-y;
+			}
+			
+			.wrap_small{
+				width: 62px;height: 480px;position: absolute;top: 0;left:50px;
+			}
+			.wrap{
+				position: absolute;
+			}
+			.imgUp1{
+				position: absolute;left: 50px;bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!--首页-->
+		<div id="home">
+			<div id="home_time">
+				<img src="img/0.jpg"/>
+			</div>
+			<div id="home_title">
+				<img src="img/head.jpg"/>
+				<img src="img/bird1.png"/>
+			</div>
+			<div id="home_btn">
+				<img src="img/start.jpg"/>
+			</div>
+			<div id="home_bottom">
+				<div id="home_bottom_img">
+					<img src="img/banner.jpg"/>
+					<img src="img/banner.jpg"/>
+				</div>
+			</div>
+		</div>
+		
+		<!--内容-->
+		<div id="content" style="background-image: url(img/bg.jpg);width: 320px;height: 480px;margin: 0 auto;visibility: hidden;position: relative;overflow: hidden;">
+			<!--草滚动条-->
+			<div id="home_bottom">
+				<div id="home_bottom_img">
+					<img src="img/banner.jpg"/>
+					<img src="img/banner.jpg"/>
+				</div>
+			</div>
+			<img id="bird" style="position: absolute;top: 200px;" src="img/down_bird0.png"/>
+		
+		
+		<!--柱子-->
+			<div id="wrap" class="wrap" style="position: absolute;">
+				<div id="wrap_small" class="wrap_small" style="width: 62px;height: 480px;position: absolute;top: 0;left: 0;">
+					<div id="wrap_up" class="wrap_up"  style="position: absolute;top: 0;left: 0;width: 100%;height: 30%;background: url(img/up_mod.png) repeat-y;">
+						<img src="img/up_pipe.png" style="position: absolute;left: 0;bottom: 0;" />
+					</div>
+					<div id="wrap_down" style="width: 100%;height: 45%;background: url(img/down_mod.png) repeat-y;position: absolute;bottom: 0;left: 0;">
+						<img src="img/down_pipe.png" style="position: absolute;top: 0;left: 0;" />
+					</div>
+				</div>
+			</div>
+			
+			</div>
+			
+		<script type="text/javascript">
+			var oHome = document.getElementById("home");
+			var oBtn = document.getElementById("home_btn");
+			var oContent = document.getElementById("content");
+			var oBird = document.getElementById("bird");
+			var oContent = document.getElementById("content");
+			var oWrap = document.getElementById("wrap");
+			//鸟最大运动范围
+			var maxNiao = oContent.clientHeight - oBird.offsetHeight 
+			
+			//点击开始
+			oBtn.onclick = function(){
+				oHome.style.display = "none";
+				oContent.style.visibility = "visible";
+			}
+			
+			//鸟运动
+			var timer = null;
+			var Topdist =200;
+			var speed = 0;
+			clearInterval(timer);
+			timer = setInterval(function(){
+				speed+=1;
+				 // 获取小鸟当前位置
+				var oBirdT = oBird.offsetTop+speed;
+				console.log(oBirdT)
+				if(Topdist>oBirdT){
+					oBird.src = "img/down_bird0.png"
+				}else{
+					oBird.src = "img/up_bird0.png"
+				}
+				
+				if(oBirdT>500){
+					alert("撞墙了");
+					clearInterval(timer)
+				}
+				if(oBirdT<0){
+					alert("撞墙了");
+					clearInterval(timer)
+				}
+				oBird.style.top = oBirdT+"px";
+				
+				oContent.onclick = function(){
+				speed=speed-15;
+					}
+				},100);
+			
+			
+			
+			
+			//柱子移动
+			var speed1 = -10;
+			var timer1 = setInterval(function(){
+				speed1+=-5;
+				var ozhuzi = 320 +speed1;
+				oWrap.style.left =ozhuzi+"px";
+			},100);
+				
+			// 创建管道
+    		var pipeUp = document.createElement("div");
+    		pipeUp.className = "wrap_up";
+    		var popediv = document.createElement("div")
+    		popediv.className ="wrap_small";
+    		popediv.appendChild(pipeUp);
+    		var oWrap1 = document.createElement("div");
+    		oWrap1.appendChild(popediv);
+    		oWrap1.className ="wrap";
+    		var imgUp = new Image();
+    		imgUp.src = "img/up_mod.png";
+    		imgUp.className = "imgUp1"
+    		pipeUp.appendChild(imgUp);
+    		// 为管到设置高度
+    		//var upHeight = getNum(100,50);
+			
+    		// 下管道
+//  		var pipeDown = document.createElement("div");
+//  		pipeDown.className = "pipe_b_box pipe";
+//  		// 为下管道设置高度
+//  		pipeDown.style.height = maxH - upHeight - blank + "px";
+//  		var imgDown = new Image();
+//  		imgDown.src = "down_pipe.png";
+//  		pipeDown.appendChild(imgDown);
+//
+//  		oWrap.appendChild(pipeUp);
+//  		oWrap.appendChild(pipeDown);
+    			
+    	
+    	
+    	
+    	
+    	function getNum(maxPipe,minPipe){
+			var num = Math.floor(Math.random() * (maxPipe - minPipe + 1) + minPipe);
+			return num;
+		}
+    	
+    	</script>
+	</body>
+</html>

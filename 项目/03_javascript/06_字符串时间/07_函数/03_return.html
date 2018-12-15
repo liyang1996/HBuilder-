@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_return</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function func1(){
+				var a =1;
+				var b =2;
+				return 5;
+			}
+			console.log(func1());//返回return
+			
+			function func2(){
+				var a ="2";
+				var b =1;
+				console.log(a-b);
+			}
+			var c=func2();
+			console.log(c);
+			//当函数没有返回值，还获取返回值，打印undefined
+			
+			//写在return后面的代码不执行
+			function func3(){
+				console.log("啊啊啊");
+				console.log("嗯嗯嗯");
+				return;
+				console.log("呵呵呵");
+			}
+			
+			//必须调用
+			func3();
+			
+		</script>
+	</body>
+</html>

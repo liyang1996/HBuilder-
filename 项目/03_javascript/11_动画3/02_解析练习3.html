@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_解析练习
+</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 打印 学生姓名 和 每课成绩
+			var arr = [{
+				"小明": [{
+					"sx": 53
+				}, {
+					"yw": 76
+				}, {
+					"yy": 77
+				}],
+				"玲玲": [{
+					"sx": 56
+				}, {
+					"yw": 90
+				}, {
+					"yy": 99
+				}]
+			}, 
+			{
+				"大渣": [{
+					"sx": 12
+				}, {
+					"yw": 66
+				}, {
+					"yy": 67
+				}],
+				"一亲": [{
+					"sx": 34
+				}, {
+					"yw": 66
+				}, {
+					"yy": 67
+				}]
+			}];
+
+			for(var i in arr){
+				for(var stuName in arr[i]){
+					var scores = arr[i][stuName]
+					for(var index in scores ){
+						
+						for(var scName in scores[index]){
+							console.log(scName+":"+scores[index][scName])
+						}
+					}
+				}
+			}
+
+//			for(var i in arr){
+//				var classJson=arr[i];
+//				for(var stuName in classJson){
+//					var scores = classJson[stuName]
+//					for(var index in scores ){
+//						var score=scores[index];
+//						for(var scName in score){
+//							console.log(scName+":"+score[scName])
+//						}
+//					}
+//				}
+//			}
+		</script>
+	</body>
+</html>

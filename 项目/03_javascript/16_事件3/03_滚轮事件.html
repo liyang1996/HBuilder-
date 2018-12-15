@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 500px;
+				height: 500px;
+				background-color: salmon;
+				margin:  0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.onmousewheel = function(){
+				var ev = ev || window.event;
+				console.log(ev.wheelDelta);
+				if(ev.wheelDelta>0){
+					console.log("向上滚")
+				}else{
+					console.log("向下滚")
+				}
+			}
+				
+//				var a=1;
+//				function abc(){
+//					 var a =5;
+//				return a;
+//					}
+//				
+//				console.log(abc())
+
+		</script>
+	</body>
+</html>

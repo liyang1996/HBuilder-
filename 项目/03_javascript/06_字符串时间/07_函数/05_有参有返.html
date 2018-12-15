@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_有参有返</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: wheat;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="myDiv1"></div>
+		<div id="myDiv2"></div>
+		<script type="text/javascript">
+			//点击div求不同数组的和
+			var arr1=[1,2,3,4,5];
+			var arr2=[9,8,7,6,5];
+			var myDiv1 = document.getElementById("myDiv1");
+			var myDiv2 = document.getElementById("myDiv2");
+			
+			myDiv1.onclick=function(){
+				this.innerHTML=getsum(arr1);
+			}
+			
+			myDiv2.onclick=function(){
+				this.innerHTML=getsum(arr2);
+			}
+			
+			//有参数有返回值
+			function getsum(arr){
+				var sum=0;
+				for(var i=0;i<arr.length;i++){
+					sum=sum+arr[i]
+					}
+					return sum;
+				}
+			
+			//在调用函数时，可以向函数传递多个值
+			//这些值被称为参数，由“，”号隔开
+			
+			//a,b是形式参数，简称形参
+			function getS(a,b){
+				a=2;
+				return a+b;
+			}
+			
+			var aa=1;
+			var b=2;
+			//aa,b是实际参数，简称实参			
+			var c=getS(aa,b);
+			console.log("c:"+c);//4
+			console.log("aa:"+aa);//1
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

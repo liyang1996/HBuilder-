@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 500px;
+				height: 500px;
+				border: 2px solid sandybrown;
+				position: relative;
+				margin: 0 auto;
+			}
+			#div1{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				position: absolute;
+			}
+			#center{
+				width: 150px;
+				height: 150px;
+				background-color: black;
+				position: absolute;
+				margin: 175px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div id="div1"></div>
+			<div id="center"></div>
+		</div>
+		<script type="text/javascript">
+			var oAll  = document.getElementById("all");
+			var oDiv1 = document.getElementById("div1");
+			var oCenter = document.getElementById("center");
+			
+			var maxL = oAll.clientWidth - oDiv1.clientWidth;
+			var maxT = oAll.clientHeight - oDiv1.clientHeight;
+			
+			oDiv1.onmousedown = function(){
+				var ev = ev || window.event;
+				var lessX = ev.clientX - oDiv1.offsetLeft;
+				var lessY = ev.clientY - oDiv1.offsetTop;
+				document.onmousemove = function(){
+					var ev = ev || window.event;
+					var posL = ev.clientX - lessX;
+					var posT = ev.clientY - lessY;
+					
+					if(oCenter.offsetLeft-oDiv1.offsetWidth<posL && posL<325 && oCenter.offsetLeft-oDiv1.offsetWidth<posT && posT<325 ){
+						oCenter.style.backgroundColor = "red"
+					}else{
+						oCenter.style.backgroundColor = "black"
+					}
+					if(posL<0){
+						posL = 0;
+					}
+					if(posT<0){
+						posT = 0;
+					}
+					if(posL>maxL){
+						posL = maxL;
+					}
+					if(posT>maxT){
+						posT = maxT;
+					}
+					oDiv1.style.left = posL + "px";
+					oDiv1.style.top = posT + "px";
+				}
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				oDiv1.onmousemove = null;
+			}
+		</script>
+	</body>
+</html>

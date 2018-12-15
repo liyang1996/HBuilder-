@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = "ddsdrfgomakdpfgahpgmkog a6451,6ZDEGFDH54gd5ra4gh3,2ft4hn56tf1ahn3515";
+			var re1 = /[0-9]/g;//匹配0~9
+			var re2 = /[a-z]/g;//匹配a~z
+			var re3 = /[A-Z]/g;//匹配A~Z
+			var re4 = /[1,3]/g;//匹配1或3或，
+			var re5 = /[1-3]/g;//匹配1~3的数
+			var re6 = /[2-6a-z]/g;//同时匹配2-6和a~z
+			var re7 = /[^a]/g;//匹配不是a的字符
+			var re8 = /[^a]+/g;//匹配不是a的字符,以a为分割点，a前面的拼在一起
+			var re9 = /[^0-9a-z]/;//匹配不是0-9,不是a-z的字符
+			var re10 = /[123 456]/g;//匹配1-6
+			
+			console.log(str.match(re1))
+			console.log(str.match(re2))
+			console.log(str.match(re3))
+			console.log(str.match(re4))	
+			console.log(str.match(re6))	
+			console.log(str.match(re7))	
+			console.log(str.match(re9))	
+			console.log(str.match(re10))
+			
+			
+			var str1 = "21a1a1a345bc1a2bbc1a5bc";
+			var  re11 = /(1a)+[2-6]+bc/g;//(1a)加括号为量词，量化
+			console.log(str1.match(re11))
+			
+		</script>
+	</body>
+</html>

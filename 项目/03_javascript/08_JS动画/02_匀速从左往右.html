@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_匀速动画</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color:rosybrown;
+				position: absolute;
+				top:0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll= document.getElementById("all");
+			//小方块每速度7px/20ms,运动到800px,停止
+			var speed=7;
+			var timer = setInterval(function(){
+				if(800-oAll.offsetLeft<=7){
+					oAll.style.left="800px"
+					clearInterval(timer);
+				}else{
+					
+					oAll.style.left=oAll.offsetLeft+speed+"px";
+				}
+					console.log("off:"+oAll.offsetLeft);
+			},20)
+			
+			
+			
+		</script>
+	</body>
+</html>

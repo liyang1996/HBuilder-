@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<script src="JQ/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#btn").click(function(){
+				//打开新标签页
+				//window.open();
+				
+				//在新标签页，打开指定页面
+				//window.open("http://www.baidu.com");
+				
+				//在当前页面，打开对应页面
+				//window.open("http://www.baidu.com","_self");
+				
+				//关闭页面
+				/*
+				 * Firefox：默认无法关闭
+				 * Chrome：直接关闭
+				 * IE：会出现提示框询问是否关闭
+				 */
+				window.close();
+			})
+			
+			//加载完成后响应
+			window.onload = function(){
+				
+			}
+			
+			//窗口或框架被调整时响应
+			window.onresize = function(){
+				
+			}
+
+			//浏览器页面滚动响应
+			window.onscroll = function(){
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>

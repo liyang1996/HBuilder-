@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>滚轮事件</title>
+		<style type="text/css">
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+		</div>
+		<script type="text/javascript">
+			var oall = document.getElementById("all");
+			mouseScroll(oall, function(isup) {
+				if(isup) {
+					oall.style.width = oall.offsetWidth + 1 + "px";
+					console.log("向上滚动");
+				} else {
+					oall.style.width = oall.offsetWidth - 1 + "px";
+					console.log("向下滚动");
+				}
+			});
+			//判断是否为火狐浏览器
+			var isFirefox = window.navigator.userAgent.indexOf("Firefox") !=-1;
+
+			function mouseScroll(obj, callback) {
+				//判断浏览器，
+				if(isFirefox) {
+					obj.addEventListener("DOMMouseScroll", progress, false);
+				} else {
+					obj.onmousewheel = progress;
+				}
+				//绑定事件，根据浏览器判断绑定两种 相同的事件
+				function progress(ev) {
+					console.log("i");
+					var ev = ev || window.event;
+					var flag = true; //向上
+					//两种情况 让flag true向上，false向下
+					if(!isFirefox) {
+						if(ev.wheelDelta < 0) {
+							flag = false;
+						}
+					}else{
+						if(ev.detail > 0){
+							flag = false;
+						}
+						console.log(flag)
+					}
+					callback(flag);
+				}
+			}
+
+			/*oall.onmousewheel = progress;//如果加括号，那么就是再要函数的返回值，而progress函数没有返回值，如果加括号，就会是undefined；
+
+			function progress(ev) {
+				var ev = ev || window.event;
+				console.log(ev.wheelDelta);
+				if(ev.wheelDelta > 0) {
+					oall.style.width=oall.offsetWidth+1+"px";
+				} else {
+					oall.style.width=oall.offsetWidth-1+"px";
+					console.log("向下滚动");
+				}
+			}*/
+		</script>
+	</body>
+
+<ml>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="myCanvas"></canvas>
+   <script>
+
+       var oCanvas = document.getElementById("myCanvas");
+       var ctx = oCanvas.getContext("2d");
+       /*  平移
+       //保存路径
+       ctx.save();
+       //平移
+       ctx.translate(10,10);
+       ctx.fillStyle = "red";
+       ctx.fillRect(0,0,200,200);
+
+
+       //恢复到之前保存的路径
+       ctx.restore();
+
+       ctx.fillStyle = "black";
+       ctx.fillRect(10,10,100,100);*/
+
+        /*缩放
+       ctx.save();
+       ctx.beginPath();
+       //缩放
+       //scale(水平方向缩放系数,垂直方向缩放系数)
+       ctx.scale(0.5,1);
+       ctx.fillRect(0,0,100,100);
+
+       ctx.fillRect(100,100,50,50);
+
+       ctx.fillRect(250,250,100,100);
+
+       ctx.restore();
+
+       ctx.beginPath();
+       ctx.fillRect(250,250,100,100);*/
+
+       ctx.beginPath();
+       ctx.rotate(Math.PI / 4);
+       //ctx.arc(20,20,20,0,Math.PI*2);
+       ctx.fillRect(0,0,100,100);
+
+       ctx.fillRect(200,100,50,50);
+       ctx.fill();
+
+
+
+
+
+
+
+   </script>
+
+</body>
+</html>
+
+
+
+
+
+

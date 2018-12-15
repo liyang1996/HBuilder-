@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+
+<script>
+    var oCanvas = document.getElementById("canvas");
+
+    //创建绘图对象环境 画笔
+    //参数唯一的合法值：2d
+    var ctx = oCanvas.getContext("2d");
+
+    //画直线
+    //第一步 开始路径
+    ctx.beginPath();
+    //第二步 设置起点
+    ctx.moveTo(100,100);
+    //第三步 设置终点
+    ctx.lineTo(400,100);
+    //设置线的颜色
+    ctx.strokeStyle = "pink";
+    //线的宽度
+    ctx.lineWidth = 30;
+    //第四步 绘制
+    ctx.stroke();
+
+    //开始一个新的路径
+    ctx.beginPath();
+    ctx.moveTo(250,50);
+    ctx.lineTo(250,300);
+    ctx.lineWidth = 40;
+    ctx.strokeStyle = "lightgray";
+    ctx.stroke();
+
+
+</script>
+
+</html>

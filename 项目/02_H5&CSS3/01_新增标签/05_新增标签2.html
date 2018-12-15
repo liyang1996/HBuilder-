@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_新增标签2</title>
+	</head>
+	<body>
+		<!--<details> 标签用于描述文档或文档某个部分的细节。-->
+		<details open>
+			<!--不谢open闭合,写了open之后为打开状态-->
+			<summary>小猪佩奇</summary>
+			<!--一般和summary一起使用,用来设置标题-->
+			<p>小猪佩奇身上纹</p>			
+			<p>掌声送给社会人</p>		
+			
+			
+		</details>
+		
+		<p>这是一个进度条</p>
+		<!--value:当前进度
+			max:需要完成进度
+			progress:一般结合JS使用
+		-->
+		<progress value="50" max="100"></progress>
+		
+			<!--注释 中文注音-->
+			<ruby>汗<rt>han</rt>字</ruby>
+			<ruby>李<rt>li</rt>尚<rt>shang</rt>书<rt>shu</rt></ruby>
+			
+			<!--定义一组媒体内容(图像,图标,代码等)-->
+			<figure>
+				<figcaption>我是标题</figcaption>
+				<img src="source/12.jpg" style="width: 200px; height: 200px;"/>
+			</figure>
+			
+			<!--time 定义时间日期-->
+			<p>周一是<time datetime="2018-9-24">中秋节</time>!</p>
+			<!--不显示日期-->
+			
+			<!--画布标签,渲染到页面为图片-->
+			<canvas id="myCanvas" width="500" height="500" style="border: 1px solid red;"></canvas>
+			<script>
+				var canvas = document.getElementById("myCanvas");
+				var ctx = canvas.getContext("2d")
+				
+				ctx.fillStyle = "aquamarine"
+				ctx.fillRect(100,100,200,300);
+			</script>
+			
+
+			
+			
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_匀速运动函数</title>
+		<script src="js/tools.js"></script>
+		<style type="text/css"  >
+			#all{
+				width: 150px;
+				height: 100px;
+				background-color: rosybrown;
+				position: absolute;
+				left: 20px;
+				top: 50px;
+				margin: 20px;padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			//封装匀速运动的函数
+			//无论width，height,left,top进行任何的改变
+			//都可以使用这一个函数完成
+			var all=document.getElementById("all");
+			function uniformMove(obj,attr,targetPosition,speed,time){
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function(){
+					//通过属性名获得属性值
+					//getStyle(obj,attr) 是字符串"~px"
+					var attrvalue=parseInt(getStyle(obj,attr));
+					//var attrvalue=parseInt(getComputedStyle(obj)[attr]);
+					if(Math.abs(targetPosition-attrvalue)<=Math.abs(speed)){
+						obj.style[attr]=targetPosition+"px";
+						clearInterval(obj.timer);
+					}else{
+						obj.style[attr]=attrvalue+speed+"px";
+					}
+				console.log("offset: "+ attrvalue);
+				},time);
+			}
+				uniformMove(all,"top",500,10,10);
+//			function getStyle(obj,attr){
+//				if(obj.currentStyle){
+//					//支持IE
+//					return obj.currentStyle[attr];
+//				}else{
+//					return getComputedStyle(obj)[attr];
+//				}
+//			}
+			
+		</script>
+	</body>
+</html>

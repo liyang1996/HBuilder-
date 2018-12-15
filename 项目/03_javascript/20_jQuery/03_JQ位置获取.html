@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap{
+				width: 200px;
+				height: 200px;
+				padding: 10px;
+				border: 5px solid black;
+				margin: 20px;
+			}
+			#all{
+				width: 200px;
+				height: 200px;
+				border: 10px solid salmon;
+				position: absolute;
+				left: 50px;
+				top: 300px;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				background-color: sandybrown;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap"></div>
+		<div id="all">
+			<div id="div1"></div>
+		</div>
+		<button id="btn">按钮</button>
+		<script src="JQ/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//内容+padding
+			console.log($("#wrap").innerHeight());
+			console.log($("#wrap").innerWidth());
+			
+			//内容+padding+border
+			console.log($("#wrap").outerWidth());
+			
+			//内容+padding+border+margin
+			console.log($("#wrap").outerWidth(true));
+			
+			//获取本身宽度（不加margin，padding，border）
+			console.log($("#wrap").width());
+			
+			//设置宽
+			$("#wrap").width(100);
+			$("#btn").click(function(){
+				$("#wrap").width(function(index,w){
+					return w + 10;
+				});
+			})
+			
+			//距离定位父级左侧的距离
+			console.log($("#div1").position().left);//20
+			
+			//距离浏览器左侧的位置（任意元素距离浏览器左侧的位置）
+			console.log($("#div1").offset().left);//80
+			
+		</script>
+	</body>
+</html>

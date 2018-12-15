@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//本地存储	
+			//cookie 只能存储4KB，以字符串形式存
+			//如果每条cookie,没有设置过期时间,在浏览器完全退出时，cookie也会清除
+			document.cookie = "name=nihaoaa";
+//			document.cookie = "age=18";
+//			document.cookie = "name=aaaa";//更改数据
+			console.log(document.cookie);
+			
+			//设置过期时间，保存到浏览器中
+			var nowDate = new Date();
+			nowDate.setDate(nowDate.getDate()+100);//当前时间+100天
+			console.log(nowDate)
+			document.cookie = "name=tony;expires=" + nowDate.toUTCString();
+			//删除cookie设置过期时间
+			var nowDate1 = new Date();
+			nowDate1.setDate(nowDate1.getDate()-1);
+			document.cookie = "name=tony;expires=" + nowDate1.toUTCString();
+			
+		</script>
+	</body>
+</html>

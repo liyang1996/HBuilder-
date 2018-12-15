@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>16段子</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!DOCTYPE html>
+		<html lang="en">
+
+		<head>
+			<meta charset="UTF-8">
+			<title>Title</title>
+			<style type="text/css">
+				#wrap div {
+					width: 500px;
+					padding: 10px;
+					background-color: lightgray;
+					border-radius: 10px;
+					margin: 0 auto;
+					margin-bottom: 10px;
+					overflow: hidden;
+				}
+			</style>
+		</head>
+
+		<body>
+			<button id="btn" onclick="btnClick()">按钮</button>
+			<div id="wrap"></div>
+
+		</body>
+		<script>
+			//使用jsonp的形式，点击按钮获取返回结果
+			function btnClick() {
+				var oScript = document.createElement("script");
+				oScript.src = "http://c.3g.163.com/recommend/getChanRecomNews?channel=duanzi&passport=91153191bdb987ca2bc10b1d3e7a5004@tencent.163.com&devId=CE80EFE4-9CE9-4E06-B117-DFA8DE7893F1&size=20&callback=getData";
+				document.body.appendChild(oScript);
+			}
+			var oWrap = document.getElementById("wrap");
+
+			function getData(data) {
+				console.log(data);
+			}
+		</script>
+
+		</html>
+	</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="400" height="300"></canvas>
+		<script type="text/javascript">
+			window.onload=function(){
+				var can =document.getElementById("myCanvas");
+				//向上按键，默认蛇是向上走
+				var kc=38;
+				document.onkeydown=function(key){
+					if(Math.abs(kc-key.ketCode)!=2){
+						ke=key.keyCode;
+					}
+				};
+				var context = can.getContext("2d");
+				var array=[{
+					x:200,
+					y:150},
+					{
+						x:200,
+						y:155
+				}];
+				var bean = null;
+				function draw(){
+					var point = {
+						x:array[0].x,
+						y:array[0].y
+					};
+					switch(kc){
+						case 37:
+							point.x-=5;
+							break;
+						case 38	:
+							point.y-=5;
+							break;
+						case 39	:
+							point.x+=5;
+							break;
+						case 40	:
+							point.y+=5;
+							break;	
+					
+					}
+					
+					if(bean==null){
+						var x = Math.floor(Math.random()*80)*5;
+						var y = Math.floor(Math.random()*60)*5;
+						bean={
+							x:x,
+							y:y
+							
+						};
+					}
+					
+					for(var i = array.length;i>=0;i--){
+						if(i==array.length){
+							if(point.x==bean.x&&point.y==bean.y){
+								array[i]=array[i-1];
+								bean = null;
+							}
+							else if(i>0){
+								array[i]=array[i-1];
+							}else{
+								array[i]=point;
+							}
+							console.log(array)
+						}
+						if(bean ==null){
+							var x=Math.floor(Math.random()*80)*5;
+							var y=Math.floor(Math.random()*60)*5;
+							bean = {
+								x:x,
+								y:y
+							};
+						}
+					//画矩形
+					context.fillStyle = "#000000";
+					//画布位置
+					context.fillRect(0,0,400,300);
+					
+					context.fillStyle = "red";
+					
+					for(var i=0;i<array.length;i++){
+					context.fillRect(array[i].x,array[i].y,5,5);
+					}
+					context.fillStyle="#00ff00";
+					context.fillRect(bean.x,bean.y,5,5);
+					
+					setTimeout(draw,200);
+					} 
+					
+					setTimeout(draw,200);
+					}
+				}
+		</script>
+	</body>
+</html>

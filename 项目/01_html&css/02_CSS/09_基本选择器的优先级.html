@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>09_基本选择器的优先级</title>
+		<style type="text/css">
+			div{
+				color: red;
+			}
+			.d2{
+				color: green;
+			}
+			#d1{color: burlywood;}
+			/*div{color: blue;}*/
+			/*类选择器优先级高于标签选择器*/
+			/*id选择器优先级最高*/
+			/*id选择器>类选择器>标签选择器*/
+			/*选择器相同,看执行顺序,采用就近原则,哪个离标签近,哪个起效*/
+		</style>
+	</head>
+	<body>
+		<div id="d1" class="d2">都是大法官</div>
+		
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/tools.js"></script>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+				oAll.onmouseover=function(){
+					uniformMove(oAll,"width",500,10,50);
+				}
+				oAll.onmouseout=function(){
+					uniformMove(oAll,"top",500,10,50);
+				}
+		</script>
+	</body>
+</html>

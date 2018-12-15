@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="girls">
+			<li id="girl1">江疏影</li>
+			<li id="girl2">刘涛</li>
+			<li id="girl3">江一燕</li>
+		</ul>
+		
+		
+		<input type="text" name="username" id="username" value="孙俪" />
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.操作节点为文本
+			$("#girl1").html("高圆圆");
+			//获取
+			var theHTML = $("#girl1").html();
+			console.log(theHTML);
+			
+			//获取input的value值
+			var theValue = $("#username").val();
+			console.log(theValue);
+			$("#username").val("周迅");
+			
+			//appendTo
+			$("p").appendTo("#div1");
+			
+			//添加元素
+			//向一个元素的尾部添加内容
+			var $theLi = $("<li class='girl3'>舒淇</li>");
+			$("#girls").append($theLi);
+			$("<span>哈哈...</span>").appendTo($("#girl1"));
+			
+			//向一个元素的头部添加内容
+			$("#girls").prepend($("<li>景甜</li>"));
+			$("<span>hehe</span>").prependTo($("#girls"));
+			
+			//插入节点
+			$("<li>关晓彤</li>").insertBefore($("#girl3"));
+			$("<li>什么</li>").insertAfter($("#girl3"));
+			
+			//3.移除元素
+			$("#girl1").remove();
+			
+			//4.清空节点内容
+			//$("#girls").empty();
+			
+			//5.替换
+			//$("li").replaceWith($("<li>赵丽颖</li>"));
+			
+			//6.包裹节点
+			$("#girl3").wrap("<div></div>");//给#girl3,li包一个div；
+			$("li").wrapAll("<div></div>");//给所有li外面包一个大的DIV,把里面的其他div移到大div下面
+			$("li").wrapInner("<div></div>");//每个li里包了一个DIV；
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="all"></div>
+		
+		<script src="JQ/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#btn").click(function(){
+				//消失
+				//$("#all").hide(2000,function(){
+				//	alert("隐藏啦")
+				//});
+				
+				//显示
+				//$("#all").show(2000,function(){
+				//	alert("显示啦")
+				
+				//淡入（显示）
+				//$("#all").fadeIn(1000);			
+				
+				//淡出（消失）
+				//$("#all").fadeOut(1000);
+				
+				//动画
+//				$("#all").animate({
+//					"width":"900px",
+//					"height":"400px",
+//				},2000);
+				
+				//动画移动
+//				$("#all").animate({
+//					"width":"900px",
+//					"height":"400px",
+//					"left":"300px"
+//				},2000);
+
+				$("#all").animate({
+					"width":"500px"
+				},1000,function(){
+					$("#all").animate({
+					"hight":"500px"
+				},1000)
+					
+				})
+				
+			})
+			
+		</script>
+	</body>
+</html>

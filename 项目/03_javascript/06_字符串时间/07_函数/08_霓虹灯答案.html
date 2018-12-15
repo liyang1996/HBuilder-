@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all div{
+				width: 150px;
+				height: 150px;
+				background-color: rosybrown;
+				margin: 5px;
+				display: inline-block;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		</div>
+		
+		<script type="text/javascript">
+			var oAlls=document.getElementById("all");
+			var oDivs=oAlls.getElementsByTagName("div");
+			var timer =setInterval function(){
+				for(var i = 0; i < oDivs.length; i++) {
+					delayTime(oDivs[i], i);
+					}
+				}, 500);
+
+			function delayTime(){
+				var t = index * 10;
+				oDiv.timer = setTimeout(function() {
+					oDiv.style.backgroundColor = getRandomColor();
+				}, t);
+			}
+			
+			function getcolor(){
+				var r = Math.floor(Math.random()*(255-0+1)-0);
+				var g = Math.floor(Math.random()*(255-0+1)-0);
+				var b = Math.floor(Math.random()*(255-0+1)-0);
+				return "rgb("+ r + "," + g + "," + b + " )"
+			}
+				
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 200px;
+			}
+			#all div{
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="btn1" value="添加" />
+		<input type="button" name="" id="btn2" value="删除" />
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oBtn1= document.getElementById("btn1");
+			var oBtn2= document.getElementById("btn2");
+			var oAll = document.getElementById("all");
+			oBtn2.disabled = "disabled";
+			oBtn1.onclick=function(){
+				var newDiv=document.createElement("div");
+				oAll.appendChild(newDiv);
+				newDiv.style.backgroundColor=getRandomColor();
+				newDiv.onclick=function(){
+					this.remove();
+					if(oAll.children.length == 0){
+						oBtn2.disabled = "disabled";
+					}
+				}
+				oBtn2.removeAttribute("disabled");
+			}
+			oBtn2.onclick=function(){
+				oAll.removeChild(oAll.children[oAll.children.length - 1]);	
+				if(oAll.children.length==0){
+					oBtn2.setAttribute("disabled", "disabled");
+				}
+			}
+			function getRandomColor() {
+				var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				return "rgb(" + r + "," + g + "," + b + ")";
+			}
+		</script>
+	</body>
+</html>

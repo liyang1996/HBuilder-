@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var aJson = {
+				"a": [{
+					"abc": 123,
+					"bc": 34,
+					"cd": 34
+				}, {
+					"abc": 456,
+					"bdc": 123,
+					"mn": 78
+				}, {
+					"abc": 789,
+					"xyz": 123
+				}]
+			};
+			//打印每个 abc对应的value值
+			var aArr=aJson.a;
+			for(var i in aArr){
+				console.log(aArr[i]["abc"])
+			}
+			
+			// 打印所有 value
+			var aArr=aJson.a;
+			for(var i in aArr){
+				//var liJson=aArr[i];
+				for(var key in aArr[i]){
+					console.log(key+":"+aArr[i][key])
+				}
+			}
+			
+//			var aArr=aJson.a;
+//			for(var i in aArr){
+//				for(var key in aArr[i]){
+//					console.log(key+":"+aArr[i][key])
+//				}
+//			}
+			
+			
+		</script>
+	</body>
+</html>

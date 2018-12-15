@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 150px;
+				height: 150px;
+				background-color: black;
+				margin-bottom: 5px;
+				color: white;
+				text-align: center;
+				font-size: 35px;
+				line-height: 150px;
+			}		
+		</style>
+	</head>
+	<body>
+		<div class="all" >
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		</div>
+		<script type="text/javascript">
+			var alls = document.getElementsByClassName("all");	
+			var oDiv=alls[0].getElementsByTagName("div");
+				for(var i = 0; i < oDiv.length; i++){
+					oDiv[i].index=i;
+					oDiv[i].onclick=function(){
+					this.innerHTML = (this.index+1+"F");
+					}
+				}
+		</script>
+	</body>
+</html>
+
++

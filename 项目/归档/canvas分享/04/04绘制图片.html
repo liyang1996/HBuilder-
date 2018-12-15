@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+</body>
+<script>
+
+    var oCanvas = document.getElementById("canvas");
+
+    var ctx = oCanvas.getContext("2d");
+
+var img = new Image();
+img.src = "迪玛希.jpg";
+//图片加载完成
+img.onload = function () {
+//drawImage(图片对象，绘制位置X,绘制位置Y)
+//ctx.drawImage(img,0,0);
+//drawImage(图片对象，绘制位置X,绘制位置Y,图片宽，图片高)
+//        ctx.drawImage(img,10,10,oCanvas.width,oCanvas.height);
+//drawImage(图片对象，截取的位置X，截取的位置Y，截取宽，截取高,
+// 绘制位置X,绘制位置Y,图片宽，图片高)
+
+ctx.drawImage(img,100,100,500,700,10,10,300,300);
+
+}
+
+
+</script>
+
+</html>

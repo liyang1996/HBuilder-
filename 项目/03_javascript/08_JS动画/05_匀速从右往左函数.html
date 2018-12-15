@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color:rosybrown;
+				position: absolute;
+				top:0;
+				left: 800px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll= document.getElementById("all");
+			//800->10px 7
+			function starMove(obj,ditance,speed,time){
+			obj.timer = setInterval(function(){
+				if((obj.offsetLeft-ditance)<=speed){
+					obj.style.left=ditance+"px";
+					clearInterval(timer);
+				}else{
+					obj.style.left=obj.offsetLeft-speed+"px";
+				}
+					console.log("off:"+obj.offsetLeft);
+			},time)
+			
+			};
+			
+			starMove(oAll,10,7,20)
+			
+		</script>
+	</body>
+</html>

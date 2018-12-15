@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background-color: black;
+			}
+			
+			.box {
+				width: 500px;
+				height: 300px;
+				text-align: center;
+				margin: 100px auto;
+				color: white;
+				font-size: 50px;
+			}
+			
+			img {
+				margin: 10px;
+				vertical-align: middle;
+				-webkit-transform: scale(1.5);
+				-moz-transform: scale(1.5);
+				-ms-transform: scale(1.5);
+				-o-transform: scale(1.5);
+				transform: scale(1.5);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="div">
+			<img src="../img/0.png" />
+			<img src="../img/0.png" /> :
+			<img src="../img/0.png" />
+			<img src="../img/0.png" /> :
+			<img src="../img/0.png" />
+			<img src="../img/0.png" />
+		</div>
+		<script type="text/javascript">
+			var oDiv=document.getElementById("div");
+			var oImg=oDiv.getElementsByTagName("img");
+			
+			var timer=setInterval(function(){
+			//获取当前时间
+			var nowDate = new Date();
+			//获取时分秒
+			var h=nowDate.getHours();
+			var m=nowDate.getMinutes();
+			var s=nowDate.getSeconds();
+			
+			var hours = h < 10 ? "0" + h : '' + h;
+			var min   = m < 10 ? "0" + m : '' + m;
+			var sec   = s < 10 ? "0" + s : '' + s;
+			var str=hours+min+sec;
+			
+			console.log(str);
+			for(var i=0;i<str.length;i++){
+				oImg[i].src='../img/' + str[i] + '.png';
+			}
+				
+			},1000);
+			
+			
+			
+			
+			
+			
+
+				
+			
+			
+		</script>
+	</body>
+</html>

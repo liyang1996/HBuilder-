@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.container {
+				position: relative;
+				margin: 0 auto;
+				width: 500px;
+			}
+			
+			input{
+				border: 1px solid red;
+				height: 20px;
+				padding-left: 30px;
+				line-height: 20px;
+			}
+			
+			.title {
+				position: absolute;
+				left: 0;
+			}
+			
+			#mail,.title {
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+			
+			#mail:hover+.title {
+				-webkit-transform: translateX(-40px);
+				-moz-transform: translateX(-40px);
+				-ms-transform: translateX(-40px);
+				-o-transform: translateX(-40px);
+				transform: translateX(-40px);
+			}
+			
+			input:hover {
+				padding-left: 10px;
+			}
+			input:valid{
+			border: 1PX solid gold;
+			}
+			
+			input:invalid{
+			border: 1PX solid gray;
+			}
+			
+			label{
+				font-size: 20px;
+				
+			}
+			
+			input:valid ~ label::after{
+			content:"耶,一个邮箱";	
+			}
+			
+			input:invalid~label::after{
+			content:"枣糕,这是邮箱吗?";	
+			}
+			
+			
+			
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div class="container">
+			<input id="mail" type="email" required placeholder="your mail">
+			<span class="title">邮箱</span>
+			<label for="mail"></label>
+		
+		</div>
+			
+		
+	</body>
+
+</html>

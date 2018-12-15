@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			//[\u4e00-\u9fa5] unicode编码 所有汉字区间
+			var str = "a我b我ba我a我b"
+			var re = /a我b/g;
+			console.log(str.match(re));
+			
+			var str1 = "hshs,明天我上课";
+			var re1 = /[\u4e00-\u9fa5]/g;
+			console.log(str1.match(re1))
+			
+		</script>
+	</body>
+</html>

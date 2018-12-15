@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box {
+				margin: 40px auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				width: 200px;
+			}
+			
+			.div1 {
+				width: 200px;
+				height: 200px;
+				border-radius: 10%;
+				background-color: red;
+				color: white;
+				font-size: 100px;
+				line-height: 200px;
+				text-align: center;
+				flex-basis: 100%;
+				margin-bottom: 40px;
+				-webkit-transition: all 1s ease-in-out;
+				-moz-transition: all 1s ease-in-out;
+				-ms-transition: all 1s ease-in-out;
+				-o-transition: all 1s ease-in-out;
+				transition: all 1s ease-in-out;
+			}
+			
+			.div2{
+				border-radius: 50%;
+			}
+			
+			.btn{
+				width: 100px;
+				height: 50px;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div id="div1" class="div1">0</div>
+			<button id="btn" class="btn">开始</button>
+		</div>
+		<script type="text/javascript">
+			var oBtn = document.getElementById("btn");
+			var oDiv1 = document.getElementById("div1");
+			
+			var timer = null;
+			var flag  = true;
+			var count = 0;
+			oBtn.onclick = function () {
+				if (flag) {
+					timer = setInterval(function () {            
+						count++;
+						oDiv1.innerHTML = count;
+						var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+						var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+						var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+						oDiv1.style.backgroundColor = "rgb(" +r+ "," +g+ "," +b+ ")";
+						
+						// 1. 标签如果有 div2这个类就删掉, 如果没有就添加
+						// 不影响其他 class 
+						oDiv1.classList.toggle("div2");
+						
+						// 2. 覆盖式. class只剩有div2了
+//						oDiv1.className = "div2";
+						// 3. 添加 class
+						oDiv1.addClass("div2");
+						// 4. 移除 class
+						oDiv1.removeClass("div2");
+						
+					},1000);
+					oBtn.innerHTML = "结束";
+				} else {
+					clearInterval(timer);
+					oBtn.innerHTML = "开始";
+				}
+				flag = !flag;
+			}
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_新增伪类选择器</title>
+		<style type="text/css">
+			*{
+				
+				font-size: 20px;
+			}
+		
+		
+		/*获取焦点时*/
+			input:focus{
+				background-color: aqud;
+			}
+			/*禁用*/
+			input:disabled{
+				background-color: red;
+			}
+			/*不禁用*/
+			input:enabled{
+				background-color: royalblue;
+			}
+			/*取值在指定区间内*/
+			input:in-range{
+				border: 5px dotted green;
+				}
+			/*取值不在指定区间内*/
+			input:out-of-range{
+				border: 5px solid red;
+			}
+				
+			
+			
+		</style>
+		
+		
+		
+		
+	</head>
+	<body>
+		<form action=""  method="get">
+			姓名:
+			<input type="text" disabled />
+			<br />
+			成绩:
+			<input type="number" max="150" min="0" value="90" step="30"/>
+			
+			
+		</form>
+		
+		
+		
+		
+		
+	</body>
+</html>

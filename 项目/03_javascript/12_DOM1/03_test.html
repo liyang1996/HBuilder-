@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_test</title>
+		<style type="text/css">
+			#all{
+				background-color: red;
+			}
+			#all div{
+				background-color: rosybrown;
+				width: 100px;
+				height: 100px;
+			}			
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			//获取元素
+			var oAll = document.getElementById("all");
+			
+			//创建元素  创建一个新的div
+			var newDiv=document.createElement("div");
+			newDiv.innerHTML="指哪打哪";
+			var newDiv1=document.createElement("div");
+			newDiv1.innerHTML="hahahahhah";
+			var newDiv2=document.createElement("div");
+			newDiv2.innerHTML="aaaaa";
+			
+			//添加元素
+			oAll.appendChild(newDiv);
+			oAll.appendChild(newDiv1);
+			oAll.appendChild(newDiv2);
+		</script>
+	</body>
+</html>

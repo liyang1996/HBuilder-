@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08-获取元素</title>
+		<style type="text/css">
+			#div1{
+				width: 150px;
+				height: 150px ;
+				background-color: palegoldenrod;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+			<div id= "div1"></div>
+			<script type="text/javascript">
+				//在JS中获得 id 名为div1的div标签
+				var oDiv1 = document.getElementById("div1")
+				console.log(oDiv1);
+				
+				//修改背景颜色
+				//生成行间样式
+				oDiv1.style.backgroundColor = "saddlebrown";
+				oDiv1.style.width = "300px";
+				
+				//点击标签,背景颜色变色
+				//添加点击事件 
+				//只有在鼠标点击元素时才会响应 function大括号里面的代码
+				oDiv1.onclick = function(){
+					//function为函数
+						oDiv1.style.backgroundColor = "fuchsia";
+				}
+				oDiv1.style.height = "300px";
+				
+			</script>
+		
+	</body>
+</html>

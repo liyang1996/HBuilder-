@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_video</title>
+	</head>
+	<body>
+		<!--poster视频封面,地址需要自己输入路径,系统不提示-->
+		<video src="source/7180829DE2121A738DACC1B9940DE068.mp4" poster="source/12.jpg" controls width="800" height="800">
+			您的浏览器不支持!
+		</video>
+		<!--支持的格式:MP4 webM ogg
+			width:宽
+			height:高
+			source媒体元素标签,为audio和video定义媒体资源
+		-->
+		<video width="800" height="500" controls autoplay loop poster="source/12.jpg">
+			<source src="source/7180829DE2121A738DACC1B9940DE068.mp4"  type="video/mp4"></source>
+			<source src="source/ebfebcd1f2aaf579b35e7a14ef5de9c1(1).mp4" poster="source/12.jpg" type="video/mp4"></source>
+			当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+		</video>
+			
+		<a href="source/归档.zip">点击下载</a>
+			
+	</body>
+</html>

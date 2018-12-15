@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<button id="btn">开始</button>
+		<script type="text/javascript">
+			var oBtn=document.getElementById("btn");
+			var flag=true;
+			oBtn.onclick=function(){
+				if(flag){
+					oBtn.innerHTML="结束";
+				}else{
+					oBtn.innerHTML="开始";
+				}
+				flag=!flag;
+			}
+		</script>
+	</body>
+</html>

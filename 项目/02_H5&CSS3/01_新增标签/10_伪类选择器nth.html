@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>10_伪类选择器nth</title>
+		<style type="text/css">
+		
+		/*所有父标签中的第二个标签
+		 如果是P就选择*/
+			p:nth-child(2){
+				color: red;
+			}
+			
+			/*odd 奇数 第一个子元素下标是1*/
+			/*父标签中的奇数子元素,如果是P则选中*/
+			/*p:nth-child(odd){
+				background-color: red;
+			}*/
+			
+			/*p:nth-child(2n+1){
+				text-align: right;
+				
+			}*/
+			
+			/*even 偶数 */
+			/*父标签中的偶数子元素,如果是P则选中*/
+			/*p:nth-child(even){
+				background-color: salmon;
+			}*/
+			
+			/*所有父标签中的第二个子元素P标签*/
+			/*p:nth-of-type(2){
+				color: red;
+			}*/
+			
+			/*所有父标签中的奇数个P标签子元素*/
+			/*p:nth-of-type(odd){
+			color: chartreuse;
+			}*/
+			
+			
+			/*父标签中倒数第2个子元素
+			 *如果是P就选中*/
+			/*p:nth-last-child(2){
+				color: red;
+			}*/
+			
+			
+			/*父标签中的倒数第二个P标签*/
+			/*p:nth-last-of-type(2){
+				color: red;
+			}*/
+			
+			/*child:当前父标签中找第几个元素,找到第几个元素后再看是不是P
+			 * type:
+			 */
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<div>body 第一个元素: div</div>
+		<p>body第2个元素:  p</p>
+		<p>body第3个元素:  p</p>
+		<div>
+			<p>神奇的事情，就要发生了1</p>
+			<div>divdivdivdivdivdivdiv</div>
+			<p>神奇的事情，就要发生了2</p>
+			<p>神奇的事情，就要发生了3</p>
+			<p>神奇的事情，就要发生了4</p>
+			<p>神奇的事情，就要发生了5</p>
+			<p>神奇的事情，就要发生了6</p>
+			<p>神奇的事情，就要发生了</p>
+			<p>神奇的事情，就要发生了</p>
+			<p>神奇的事情，就要发生了-2</p>
+			<p>神奇的事情，就要发生了-1</p>
+		</div>
+
+		<p>body 倒数第二个元素:  p</p>
+		<div>body最后一个元素: div</div>
+		
+		
+		
+	</body>
+</html>

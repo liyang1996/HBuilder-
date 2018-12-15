@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="myDiv1"></div>
+		<script type="text/javascript">
+			//实现功能：点击div,将球和结果显示在div上
+			var arr=[1,2,3,4,5];
+			var omyDiv1=document.getElementById("myDiv1");
+			omyDiv1.onclick=function(){
+					var result=getsum();
+					console.log(result);
+					myDiv1.innerHTML=result;
+				}
+				//无参有返回值函数
+				function getsum(){
+				var sum=0;
+				for(var i=0;i<5;i++){
+					sum=sum+arr[i]
+					}
+					return sum;
+				}
+			
+		</script>
+	</body>
+</html>

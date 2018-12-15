@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+    var ctx = oCanvas.getContext("2d");
+    oCanvas.width = document.documentElement.clientWidth;
+    oCanvas.height = document.documentElement.clientHeight;
+    
+    function getRandom(n,m) {
+        return Math.floor(Math.random()*(m - n + 1) + n);
+    }
+
+    function Ball() {
+
+        this.r = getRandom(10,30);
+        this.x = getRandom(this.r,oCanvas.width - this.r);
+        this.y = getRandom(this.r,oCanvas.height - this.r);
+
+        var speed = getRandom(1,10);
+
+        this.speedX = getRandom(0,2) == 1 ? -speed : speed;
+        this.speedY = getRandom(0,2) == 1 ? -speed : speed;
+
+        var rgb_r = getRandom(0,255);
+        var rgb_g = getRandom(0,255);
+        var rgb_b = getRandom(0,255);
+        var a = getRandom(1,10)/10;
+
+        this.color = "rgba(" + rgb_r + "," + rgb_g + "," + rgb_b + "," + a + ")";
+
+    }
+
+    
+    Ball.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.r,0,Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill()
+    }
+    Ball.prototype.move = function () {
+        if (this.x < this.r || this.x > oCanvas.width - this.r){
+            this.speedX *= -1;
+        }
+        if (this.y < this.r || this.y > oCanvas.height - this.r){
+            this.speedY *= -1;
+        }
+
+        this.x += this.speedX;
+        this.y += this.speedY;
+    }
+    var ballArr = [];
+    for(var i = 0; i < 50; i++){
+        var theBall = new Ball();
+        ballArr.push(theBall);
+
+    }
+    setInterval(function () {
+        ctx.clearRect(0,0,oCanvas.width,oCanvas.height);
+        for(var i = 0; i < ballArr.length; i++){
+            ballArr[i].move();
+            ballArr[i].draw();
+        }
+
+    },20);
+    
+
+    
+
+</script>
+</body>
+</html>

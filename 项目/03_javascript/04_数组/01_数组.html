@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_数组</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//数组 用来存放多条数据.数据类型可以不一样
+			var  arr= [3,7,,9,"白人","萝莉",true];
+			console.log(typeof arr);//object
+			
+			//1.数组如何定义
+			//a.空数组 只声明不给数组中放初始值
+			var  arr1 = new Array();
+			console.log(arr1);
+			
+			//b. 声明一个数组 并给初值
+			var  arr2 = new Array(1,2,3);
+			
+			//c .空数组
+			var arr3= []	;
+			
+			//d.声明 并给初值
+			var arr4 = [4,6,7,8,9];
+			
+			//2. 查看数组长度
+			var arr5 = [4,5,6,7,8,9];
+			console.log("数组长度:" +arr5.length);//6
+			
+			// 3.!!!数组下标
+			//数组下标从0开始
+			//[0]表示获取数组中某一下标对应的值
+			console.log(arr5[0]);//4
+			
+			//数组中最后一个元素的下标是:数组长度-1
+			var i = arr5.length-1;
+			console.log(arr5[i]);//9
+			
+			//改变数组中某个下标的对应的值
+			arr5[0] = 100;
+			console.log(arr5);
+			
+			//4. !!!数组遍历(把每个数组取出来看一下)
+			for (var i=0;i <arr5.length;i++ ){
+				console.log(i+"yey:" + arr5[i]);
+			}
+			
+		</script>
+	</body>
+</html>

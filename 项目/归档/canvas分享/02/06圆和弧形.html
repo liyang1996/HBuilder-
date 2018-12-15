@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+
+<script>
+    var oCanvas = document.getElementById("canvas");
+
+    var ctx = oCanvas.getContext("2d");
+    //圆心坐标X 圆心坐标Y 半径 起始弧度 结束弧度 是否顺时针(默认false)
+    //Math.PI 180度
+    //弧
+    //ctx.arc(100,100,100,0,Math.PI,false);
+    //圆
+    //ctx.arc(100,100,100,0,Math.PI*2,false);
+
+    //ctx.arc(100,100,100,0,38*Math.PI/180,false);
+
+    //ctx.stroke();
+    //ctx.fill();
+
+    //扇形
+
+    ctx.beginPath();
+    ctx.moveTo(100,100);
+    ctx.arc(100,100,100,0,60*Math.PI/180,false);
+    ctx.closePath();
+    ctx.stroke();
+
+    //画特殊角度的直线
+    //通过扇形起始弧度一样则可实现
+    /*ctx.beginPath();
+    ctx.moveTo(100,100);
+    ctx.arc(100,100,100,60*Math.PI/180,60*Math.PI/180,false);
+    ctx.closePath();
+    ctx.stroke();*/
+
+
+
+
+
+
+
+</script>
+
+</html>

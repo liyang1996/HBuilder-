@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			#all div{
+				width: 100px;
+				height: 100px;
+				background-color: salmon;
+				margin-bottom: 5px;
+			}
+			#btn{
+				width: 120px;
+				height: 60px;
+				background-color: black;
+				color: white;
+				font-size: 20px;
+				position: fixed;
+				bottom: 50px;
+				right: 0;
+				margin-top: -50px;
+				opacity: 1;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		</div>
+		<button href="" id="btn">回到顶端</button>
+		<script type="text/javascript">
+			var oBtn =document.getElementById("btn");
+			
+			//1.浏览器高
+			var winHeight = document.documentElement.clientHeight;
+			
+			//2.页面宽高
+			var pageHight = document.documentElement.scrollHeight;
+			
+			
+			window.onscroll=function(){
+				var top1= document.documentElement.scrollTop;
+				
+				
+			}
+			
+			
+			oBtn.onclick=function(){
+				var speed=20;
+				var timer = setInterval(function(){
+					var top= document.documentElement.scrollTop;
+					if(top<=0){
+						clearInterval(timer);
+					}else{
+						document.documentElement.scrollTop=top-speed;
+					}
+				},30);
+			}
+		</script>
+	</body>
+</html>

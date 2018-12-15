@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width:600px;
+				height: 400px;
+				background-color: skyblue;		
+				display: inline-block;
+				min-height: 200px;
+				margin: 0 auto;
+				padding: 10px;
+				font-size: 25px;
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="fact" ></div>
+		<script type="text/javascript">
+		
+		var fact= document.getElementById("fact");
+		fact.onclick = function() {
+			var min = parseInt(prompt("请输入起始数字"));
+			var max = parseInt(prompt("请输入结束数字"));
+				if(min>max){
+				var temp =min;
+					 min   =max;
+					 max   =temp;
+				}
+				var count = 0;
+				for( var c=min;c<=max;c++){
+					count++;
+					fact.innerHTML += c+ "&nbsp" ;
+					if( count%10==0){
+						fact.innerHTML += "<br>";
+					}
+				}
+			}
+			
+		</script>
+		
+		
+	</body>
+</html>

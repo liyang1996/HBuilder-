@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>缓冲运动</title>
+		<script src="js/tools.js"></script>
+		<style type="text/css">
+			#all{
+				width: 150px;
+				height: 100px;
+				background-color: wheat;
+				margin: 10px;
+				position: absolute;
+				left:100px;
+				top: 10px;				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll =document.getElementById("all")
+			function move(obj,attr,targetPosition,time,speedScale){
+				clearInterval(obj.timer)
+				obj.timer=setInterval(function(){
+					// 1. 获取当前属性值
+					var attrValue=parseInt(getStyle(obj,attr))	;
+					// 2. 计算速度  (目标值 - 当前值) / 系数
+					var speedEnd= Math.abs(targetPosition-attrValue)/speedScale;
+					// >0向上取整, speedEnd最终才能达到1, <0向下取整,达到-1
+					speedEnd=speedEnd>0?Math.ceil(speedEnd):Math.floor(speedEnd);
+					console.log("计算速度值:"+speedEnd);
+					var isStop = true;
+					if(targetPosition!=attrValue){
+						isStop=false;
+						obj.style[attr]=attrValue+speedEnd+"px";
+					}if(isStop){
+							clearInterval(obj.timer);		
+						}
+					console.log("attrValue:"+ obj.style[attr]);
+				},time);
+			}
+					move(oAll,"width",500,10,15)
+		</script>
+	</body>
+</html>

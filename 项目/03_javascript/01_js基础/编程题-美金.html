@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--1.编写一个程序,要求定义一个美金数量,然后显示出如何用
+			最少的 20美元、10美元、5美元和1美元来付款:
+			var money = 359;         -->
+		<script type="text/javascript">
+				var money = 359; //定义美金数量
+				var a = 20;
+				var b = 10;
+				var c = 5;
+				var d = 1;
+				var e = money % a % b % c ;
+				var f = (money-money % a % b % c) %a % b /c;
+				var g = (money-money % a % b) %a /b;
+				var h = (money-money % a)/a;
+				
+				console.log ("最少的1美元:" + e);
+				console.log( "最少的5美元:" + f);
+				console.log( "最少的10美元:" + g);
+				console.log( "最少的20美元:" + h);
+		</script>
+		
+		
+		
+	</body>
+</html>

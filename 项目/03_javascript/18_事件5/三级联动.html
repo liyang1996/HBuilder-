@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+
+	<body>
+		<div>
+			<fieldset>
+				<legend>下拉选择框实现省市区（县）三级联动</legend>
+				<form action="#">
+					<label for="addr-show">您选择的是：
+                <input type="text" value="" id="addr-show">
+            </label>
+					<br/>
+
+					<!--省份选择-->
+					<select id="prov">
+						<option value="00">=请选择省份=</option>
+					</select>
+
+					<!--城市选择-->
+					<select id="city">
+						<option value="00">=请选择城市=</option>
+					</select>
+
+					<!--县区选择-->
+					<select id="country">
+						<option value="00">=请选择县区=</option>
+					</select>
+					<button type="button" id="sureBtn">确定</button>
+				</form>
+			</fieldset>
+		</div>
+		<script src="city (1).js"></script>
+		<script type="text/javascript">
+			var addrShow = document.getElementById("addr-show");
+			var sureBtn = document.getElementById("sureBtn");
+			var provS = document.getElementById("prov");
+			var cityS = document.getElementById("city");
+			var countryS = document.getElementById("country");
+
+			var provN = null;
+			var cityN = null;
+			var countryN = null;
+			//按钮不可点击
+			sureBtn.disabled = true;
+			// 最开始加载省
+			showProvice();
+
+			function showProvice() {
+				for(var i = 0; i < provice.length; i++) {
+					//console.log(provice[i]["name"]);
+					var theOption = document.createElement("option");
+					theOption.innerHTML = provice[i]["name"];
+					theOption.value = i;
+					provS.appendChild(theOption);
+				}
+			}
+
+			// 省份被选择时 
+			provS.onchange = function() {
+				cityS.innerHTML = "<option value=\"00\">=请选择城市=</option>";
+				countryS.innerHTML = "<option value=\"00\">=请选择县区=</option>"
+				if(this.value != "00") {
+					showCity(this.value);
+				}
+			}
+
+			function showCity(proviceIndex) {
+				var cityArr = provice[proviceIndex]["city"];
+				for(var i = 0; i < cityArr.length; i++) {
+					var cityOption = document.createElement("option");
+					cityOption.innerHTML = cityArr[i]["name"];
+					cityOption.value = i;
+					cityS.appendChild(cityOption);
+				}
+			}
+
+			cityS.onchange = function() {
+				countryS.innerHTML = "<option value=\"00\">=请选择县区=</option>"
+				if(this.value != "00") {
+					//showCity(cityS.value);
+					showCountry(provS.value, this.value);
+					console.log(provS.value);
+				}
+			}
+
+			function showCountry(proviceIndex, cityIndex) {
+				var countryArr = provice[proviceIndex]["city"][cityIndex]["districtAndCounty"];
+				console.log(countryArr.length);
+				for(var i = 0; i < countryArr.length; i++) {
+					var countryOption = document.createElement("option");
+					countryOption.innerHTML = countryArr[i];
+					countryOption.value = i;
+					countryS.appendChild(countryOption);
+				}
+			}
+			countryS.onchange = function() {
+				if(this.value != "00") {
+					//showCity(cityS.value);
+					showCountry(provS.value, this.value);
+					sureBtn.disabled = false;
+				}
+			}
+
+			sureBtn.onclick = function() {
+				provN = provice[provS.value]["name"];
+				cityN = provice[provS.value]["city"][cityS.value]["name"];
+				countryN = provice[provS.value]["city"][cityS.value]["districtAndCounty"][countryS.value];
+				addrShow.value = provN + "--" + cityN + "--" + countryN;
+			}
+		
+
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/**{
+				margin: 0;
+				padding: 0;
+			}*/
+			
+			#wrap{
+				width: 100px;
+				height: 100px;
+				background-color: wheat;
+			}
+			#div1{
+				width: 100px;
+				height: 1000px;
+				border: 5px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="wrap"></div>
+		<script type="text/javascript">
+			var theWrap = document.getElementById("wrap");
+			theWrap.onclick=function(){
+				var ev = ev || window.event;
+				//距离浏览器窗口的位置
+				console.log("clientX:"+ev.clientX)
+				console.log("clientY"+ev.clientY)
+				//鼠标距离当前页面的位置
+				console.log("pageX:"+ev.pageX)
+				console.log("pageY:"+ev.pageY)
+				//pageY到页面的最上面
+				
+				//鼠标距离显示器屏幕的位置
+				console.log("距离屏幕："+ev.screenX);
+				console.log("距离屏幕："+ev.screenY);
+				
+				
+				//获取鼠标距离本身的距离
+				console.log(ev.pageX-this.offsetLeft);
+				console.log(ev.pageY-this.offsetTop);
+				
+				
+				
+			}
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

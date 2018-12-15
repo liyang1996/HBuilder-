@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>11_伪类选择器only</title>
+		<style type="text/css">
+		
+		/*所有父标签中,只有一个元素
+		 并且元素是P标签,才会被选中*/
+			/*p:only-child{
+				color: red;
+			}*/
+	
+		/*所有父标签中只有一个P标签,可以有其它标签,但只有一个P标签
+		 * 才会被选中*/	
+			p:only-of-type{
+				background-color: darkgreen;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<p>最后啦1</p>
+			<h3>h3标签</h3>
+		</div>
+		
+		<div>
+			<p>最后啦2</p>
+			<p>最后啦3</p>
+		</div>
+		
+		<div>
+			<p>最后啦4</p>
+		</div>
+		
+		
+	</body>
+</html>

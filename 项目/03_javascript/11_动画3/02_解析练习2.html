@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var iJson = {
+				"text": "MXCHIP won a prize",
+				"id": 1234,
+				"detail": {
+					"comp": "MXCHIP.Inc",
+					"from": "ShangHai",
+					"focus": "Internet of Things",
+					"module": [{
+						"k": "EMW0000",
+						"l": "EMW3167"
+					}, {
+						"k": "EMW1111",
+						"j": "EMW3065"
+					}, {
+						"k": "EMW2222",
+						"l": "EMW1005"
+					}, {
+						"k": "EMW3333",
+						"s": "EMW0099"
+					}]
+				}
+			};
+			// 打印 k 值
+			//var arr=iJson.detail.module
+			var detailJson=iJson["detail"];
+			var moduleArr=detailJson["module"];
+			for(var i in moduleArr){
+				console.log(moduleArr[i]["k"])
+			}
+			// 打印 module 中所有的数据
+			var detailJson=iJson["detail"];
+			var moduleArr=detailJson["module"];
+			for(var i in moduleArr){
+				var aJson=moduleArr[i];
+				for(var key in aJson){
+					console.log(key+":"+aJson[key]);
+				}
+			}
+		</script>
+	</body>
+</html>

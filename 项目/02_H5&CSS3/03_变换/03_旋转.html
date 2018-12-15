@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 150px;
+				height: 150px;
+				background-color: aquamarine;
+				margin-bottom: 30px;
+				-webkit-transform: all 1s;
+				-moz-transform: all 1s;
+				-ms-transform: all 1s;
+				-o-transform: all 1s;
+				transform: all 1s;
+				
+			}	
+			.div1:hover{
+				/*旋转 正数顺时针 负数逆时针  deg :角度*/
+				/*trfr*/
+			-webkit-transform: rotate(20deg);
+			-moz-transform: rotate(20deg);
+			-ms-transform: rotate(20deg);
+			-o-transform: rotate(20deg);
+			transform: rotate(20deg);
+			border-radius: 50%;
+			}
+			
+			/*修改基准点*/
+			.div2{
+				/*trfo*/
+				/*水平方向:left center right 像素 百分比*/
+				/*垂直方向:top bottom center 像素 百分比*/
+				-webkit-transform-origin:center  top ;
+				-moz-transform-origin:center top ;
+				-ms-transform-origin:center top ;
+				-o-transform-origin: center top;
+				transform-origin: center top;
+				}
+			.div2:hover{
+			-webkit-transform: rotate(20deg);
+			-moz-transform: rotate(20deg);
+			-ms-transform: rotate(20deg);
+			-o-transform: rotate(20deg);
+			transform: rotate(20deg);
+				
+			}
+			
+			.div3{
+				/*trfo*/
+				/*水平方向:left center right 像素 百分比*/
+				/*垂直方向:top bottom center 像素 百分比*/
+				-webkit-transform-origin:right  top ;
+				-moz-transform-origin:right top ;
+				-ms-transform-origin:right top ;
+				-o-transform-origin: right top;
+				transform-origin: right top;
+				
+				-webkit-transition-duration: 2s;
+				-moz-transition-duration: 2s;
+				-ms-transition-duration: 2s;
+				-o-transition-duration: 2s;
+				transition-duration: 2s;
+				
+				
+				}
+			.div3:hover{
+			-webkit-transform: rotate(-180deg);
+			-moz-transform: rotate(-180deg);
+			-ms-transform: rotate(-180deg);
+			-o-transform: rotate(-180deg);
+			transform: rotate(-180deg);
+				
+							}
+			
+			
+			
+			
+		</style>	
+	</head>
+	<body>
+		
+		
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3">练习</div>
+		
+		
+	</body>
+</html>

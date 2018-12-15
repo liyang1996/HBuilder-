@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background-color: rosybrown;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all")
+			//document也有点击事件，指点击网页
+			document.onclick = function(){
+				var ev = ev || window.event;
+				oAll.style.left=ev.pageX+"px";
+				oAll.style.top=ev.pageY+"px";
+				
+			}
+		</script>
+	</body>
+</html>

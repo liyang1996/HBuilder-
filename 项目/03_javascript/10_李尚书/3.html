@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				position: absolute;
+				left:0;
+				top: 0;		
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div"></div>
+		<script type="text/javascript">
+			var oDiv=document.getElementById("div");
+			//透明度封装没做出来
+			easeMove(oDiv,"width",500,10,15);
+			function easeMove(obj,attr,targetPosition,time,speedScale){
+				clearInterval(obj.timer)
+				obj.timer=setInterval(function(){
+					var attrValue = parseInt(getStyle(obj,attr));
+					var speedEnd = Math.abs(targetPosition-attrValue)/speedScale;
+					speedEnd = speedEnd>0?Math.ceil(speedEnd):Math.floor(speedEnd);
+					var isStop = true;
+					if(targetPosition!=attrValue){
+						isStop = false;
+						obj.style[attr]=attrValue+speedEnd+"px";
+					}if(isStop){
+							clearInterval(obj.timer);		
+						}
+					console.log("attrValue:"+ obj.style[attr]);
+				},time);
+			}
+			function getStyle(obj,attr){
+			if(obj.currentStyle){
+					return obj.currentStyle[attr];
+				}else{
+					return getComputedStyle(obj)[attr];
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/片刻世界.css"/>
+		<style type="text/css">
+			
+			/*查看更多精选内容*/
+			.more_title{
+				width: 960px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			.more_content_title{
+				width:200px;
+				height: 46px;
+				border:1px solid #57ad68;
+				background-color: #57ad68;
+				text-align: center;
+				color: white;
+				line-height: 46px;
+				border-radius: 50px 50px 50px 50px;
+				margin: 0 auto;
+				margin-top: 100px;
+				margin-bottom: 50px;
+				border:5px double white;
+			}
+			
+			/*底部瀑布流*/
+			.last{
+				width:1200px; 
+				margin: 0 auto;
+				overflow: hidden;
+				margin-bottom: 50px;
+				display: none;
+				margin-top: 50px;
+			}
+			.hrLine{
+   			 vertical-align:middle;
+   			 display:inline-block;
+ 			}
+ 			
+ 			/*更多精彩内容*/
+ 			.more{
+ 				width: 1200px;
+ 				margin: 0 auto;
+ 				overflow: hidden;
+ 				display: none;
+ 			}
+ 			.more_content{
+ 				width: 290px;
+ 				box-sizing: border-box;
+ 				border: 1px solid #e8e8e8;
+ 				float: left;
+ 				margin-right: 5px;
+ 			}
+ 			.more_content_Titleimg{
+ 				width: 290px;
+ 			}
+ 			.more_content_head{
+ 				padding: 15px;
+ 			}
+ 			.more_content_head a{
+ 				font-size: 24px;
+ 				text-decoration:none;
+ 				color: #333333;
+ 			} 
+ 			.more_content_articl{
+ 				padding: 15px;
+ 				font-size: 14PX;
+ 				color: #333;
+ 			}
+ 			.more_content_articl span{
+ 				color: green;
+ 			}
+ 			.more_content_bottom{
+ 				width: 260px;
+ 				margin-top: 15px;
+ 				font-size: 10PX;
+ 				color: #333;
+ 				overflow: hidden;
+ 				padding: 15px;
+ 			}
+ 			.more_content_bottom a{
+ 				text-decoration:none;
+ 				color: #333;
+ 				float: left;
+ 			}
+ 			.more_content_bottom span{
+ 				float: right;
+ 			}
+ 			.more_content_bottom_last{
+ 				width: 290px;
+ 				padding: 15px;
+ 				overflow: hidden;
+ 				
+ 			}
+ 			.more_content_bottom_last img{
+ 				width: 32px;
+ 				height: 32px;
+ 				float: left;
+ 			}
+ 			.more_content_bottom_last span{
+ 				margin-left: 20px;
+ 				font-size: 10px;
+ 				float: left;
+ 				line-height: 32px;
+ 			}
+ 			.footer_width{
+ 				width: 100%;
+ 				background-color:#1a1818;
+ 			}
+ 			.footer_wrap{
+ 				width: 1200px;
+ 				height: 120px;
+ 				margin: 0 auto; 
+ 			}
+ 			.footer_wrap img{
+ 				width: 100px;
+ 				height: 120px;
+ 				background-color:black;
+ 				float: left;
+ 			}
+ 			.footer_content{
+ 				float: left;
+ 				color: white;
+ 				font-size: 14px;
+ 				display:inline-block;
+ 				margin-top: 40px;
+ 				opacity: .5;
+ 			}
+ 			.footer_wrap img:nth-of-type(2){
+ 				float: right;
+ 			}
+		</style>
+	</head>
+	<body>
+		<!--导航-->
+		<div class="nav">
+			<div class="nav_all">
+			<img src="img/logo.jpg"/>
+			<div class="nav_list">
+				<a href="">首页</a>
+				<a href="">阅读</a>
+				<a href="">电台</a>
+				<a href="">碎片</a>
+				<a href="">客户端</a>
+			</div>
+			<div class="nav_btn">登录/注册</div>
+			<div class="nav_logo1">
+				<img src="http://qnstatic.pianke.me/public/assets/img/edit-icon.png"/>
+			</div>
+			</div>
+		</div>
+		<!--head 5张图-->
+		<div class="all">
+			<div class="head_top">
+				<div class="aaa">
+				<div class="head_top_box">
+					<img class="scaleimg" style="width: 480px; height: 480px;float: left;" src="http://hpimg.pianke.com/2bc9aa39ea47b28e3477096514667cae20180814.jpg?imageView2/2/w/640/format/jpg"/>
+					<div style="width:480px;;" class="htead_title">
+						<span>杀掉一个无人际关系的人</span>
+					</div>
+				</div>
+				<div class="abc">
+				<div class="head_top_box">
+					<img class="scaleimg" style="width: 240px;height: 240px;float: left;" src="http://hpimg.pianke.com/01a158910150133149221cfef791e0b220180814.jpg?imageView2/2/w/640/format/jpg"/>
+					<div class="htead_title">
+						<span>我想要一个无条件站在的人</span>
+					</div>
+				</div>
+				</div>
+					<div class="abc">
+				<div class="head_top_box">
+					<img class="scaleimg" style="width: 240px;height: 240px;float: left;" src="http://hpimg.pianke.com/1045d95381b0b09d765e5e3f7a74545120180814.jpg?imageView2/2/w/640/format/jpg"/>
+					<div class="htead_title">
+						<span>杀掉一个无人际关系的人</span>
+					</div>
+				</div>
+				</div>
+				<div class="abc">
+				<div class="head_top_box">
+					<img class="scaleimg" style="width: 240px;height: 240px;float: left;" src="http://hpimg.pianke.com/6c4d64457db904a94057bc4c3a5859ed20180814.jpg?imageView2/2/w/640/format/jpg"/>
+					<div class="htead_title">
+						<span>杀掉一个无人际关系的人</span>
+					</div>
+				</div>
+				</div>
+				<div class="abc">
+				<div class="head_top_box">
+					<img class="scaleimg" style="width: 240px;height: 240px;float: left;" src="http://hpimg.pianke.com/25c4460266d120ed5536c854a84e8ea620171012.jpg?imageView2/2/w/640/format/jpg"/>
+					<div class="htead_title">
+						<span>杀掉一个无人际关系的人</span>
+					</div>
+				</div>
+				</div>
+				</div>
+			</div>
+			
+			<!--阅读 | Read-->
+			<div class="articl_wrap1">
+				<div class="articl_wrap1_top">
+					<div class="articl_wrap1_top_black"></div>
+					<p>阅读 | Read</p>
+				</div>
+				<div class="maxbox">
+				<div class="articl_wrap1_box">
+					<a>年华</a>
+					<p>By/盗梦的益安</p>
+					<p class="articl_wrap1_box_content">1。再结婚一次，当下的安稳。只拍一组白纱做纪念。怀孕已三月，也不见胖，涨点年纪是韵味，挽着G先生的手，不输那些年轻男女。到这个年纪再婚，条件不用列举彼此心里都有</p>
+					<span>7.9 k次阅读  |  评论:58  |  喜欢:127</span>
+				</div>
+				<img class="articl_wrap1_box_img1" src="http://hpimg.pianke.com/92a75c703093606dc4c0f14f7484563620170426.jpg?imageView2/2/w/640/format/jpg"/>
+				</div>
+				<div class="maxbox">
+				<div class="articl_wrap1_box">
+					<a>偷心</a>
+					<p>By / 子夜晨星</p>
+					<p class="articl_wrap1_box_content">-001-她说：“我要去偷一个东西，你帮我好不好？”她说这句话的时候，没有一点求我办事的语气，反而有些趾高气扬，不可一世的狂傲。我当时正躺在草地上晒太阳，没好气</p>
+					<span>5.1 k次阅读  |  评论:29  |  喜欢:133</span>
+				</div>
+				<img class="articl_wrap1_box_img1" src="http://hpimg.pianke.com/2d926883da0fb830cb9950b57a22149820170426.jpg?imageView2/2/w/640/format/jpg"/>
+			</div>
+				</div>
+		
+			<!--ting-->
+			<div class="articl_wrap2">
+				<div class="articl_wrap1_top">
+					<div class="articl_wrap1_top_black"></div>
+					<p>TING</p>
+				</div>
+				
+				<div class="Ting_box">
+					<img src="http://hpimg.pianke.com/0bf77448922fc99dede2466d71430ddd20180130.jpeg?imageView2/2/w/640/format/jpg"/>
+					<div class="Ting_box_bottom">
+						<a href="">老人｜卡瓦菲斯</a>
+						<p>主播 / 许邻</p>
+						<p>4.6 k次播放  |  评论:3  |  喜欢:63</p>
+					</div>
+				</div>
+				
+				<div class="Ting_box" style="margin-left: 33px;margin-right: 33px;">
+					<img src="http://hpimg.pianke.com/b932337326b53587ab49a16d5661619b20180129.jpg?imageView2/2/w/640/format/jpg"/>
+					<div class="Ting_box_bottom">
+						<a href="">那份笨拙的爱，是心底最</a>
+						<p>主播 / 许邻</p>
+						<p>4.6 k次播放  |  评论:3  |  喜欢:63</p>
+					</div>
+				</div>
+				
+				<div class="Ting_box">
+					<img src="http://hpimg.pianke.com/44a9f10c70efce7b773c17c054ef8e3c20180120.png?imageView2/2/w/640/format/jpg"/>
+					<div class="Ting_box_bottom">
+						<a href="">老人｜卡瓦菲斯</a>
+						<p>主播 / 许邻</p>
+						<p>4.6 k次播放  |  评论:3  |  喜欢:63</p>
+					</div>
+				</div>
+			</div>
+			
+			<!--人气片客 | Hot Pianker-->
+			<div class="articl_wrap3">
+				<div class="articl_wrap1_top">
+					<div class="articl_wrap1_top_black"></div>
+					<p>人气片客 | Hot Pianker</p>
+				</div>
+				
+				<div class="Hot_box">
+					<div class="Hot_box_min">
+						<img style="width: 80px;height: 80px;" src="http://tva2.sinaimg.cn/crop.0.0.996.996.50/ec39c62fjw8f6ddod449ij20ro0rp0vb.jpg"/>
+						<span class="Hot_box_min_name1">双笙子</span>
+						<img style="width: 52px;height: 18px;margin-left: 14px;" src="img/1.jpg"/>
+						<span class="Hot_box_min_name2">古风歌手双笙</span>
+					</div>
+				</div>
+				
+				<div class="Hot_box">
+					<div class="Hot_box_min">
+						<img style="width: 80px;height: 80px;" src="http://tva4.sinaimg.cn/crop.0.0.512.512.180/7f71be41jw8etj0gb4oovj20e80e8mxf.jpg"/>
+						<span class="Hot_box_min_name1">双笙子</span>
+						<img style="width: 52px;height: 18px;margin-left: 14px;" src="img/1.jpg"/>
+						<span class="Hot_box_min_name2">古风歌手双笙</span>
+					</div>
+				</div>
+				
+				<div class="Hot_box">
+					<div class="Hot_box_min">
+						<img style="width: 80px;height: 80px;" src="http://pkicon.image.alimmdn.com/icon/20161125/126c947d4b6f525cb61ac69519450ec2.png@90w_90h_1e_1c_85Q.jpg"/>
+						<span class="Hot_box_min_name1">双笙子</span>
+						<img style="width: 52px;height: 18px;margin-left: 14px;" src="img/1.jpg"/>
+						<span class="Hot_box_min_name2">古风歌手双笙</span>
+					</div>
+				</div>
+				
+				<div class="Hot_box">
+					<div class="Hot_box_min">
+						<img style="width: 80px;height: 80px;" src="http://wx.qlogo.cn/mmopen/Qo5MQt4c6EBMGzhTXq8f6VfaSwbKFUjG8gYCnBgibk5TRxUEAvDjGvUteiaHZcRHJf4icCWnicibb9x2LkwiaKovibkQLEYkpuYNicZg/0"/>
+						<span class="Hot_box_min_name1">双笙子</span>
+						<img style="width: 52px;height: 18px;margin-left: 14px;" src="img/1.jpg"/>
+						<span class="Hot_box_min_name2">古风歌手双笙</span>
+					</div>
+				</div>
+			</div>
+			<!--查看更多精选内容-->
+			<div class="more_title">
+				<div class="more_content_title">
+					查看更多精选内容
+				</div>
+			</div>
+			
+			<!--底部瀑布流分割线-->
+			<div class="last">
+				<hr class="hrLine" style="width:550px;"/>  往期推荐  <hr class="hrLine" style="width:550px;"/>
+			</div>
+			
+			<!--瀑布流-->
+			<div class="more">
+			<!--<div class="more_content">
+					<img class="more_content_Titleimg" src="http://hpimg.pianke.com/2bc9aa39ea47b28e3477096514667cae20180814.jpg?imageView2/2/w/640/format/jpg"/>
+					<div class="more_content_head">
+						<a href="">杀掉一个无人人际关系的人</a>
+					</div>
+					
+					<div class="more_content_articl">一“茉莉、凤梨、西番莲、蜜桃、柠檬、雪松木、麝香、胡椒、牡丹花、香根草、鸾尾花、柑橘、苍兰、广
+						藿香。”二十样东西放在纸箱内让大家推理，大象
+						仅靠辨味一项就全说出谜<span>VIEW ALL</span>
+					</div>
+					
+					<div class="more_content_bottom">
+						<a href="">阅读</a>
+						<span>8.5 k次阅读  |  评论:26  |  喜欢:221</span>
+					</div>
+					
+					<div class="more_content_bottom_last">
+						<img src="http://pkicon.image.alimmdn.com/icon/20160531/ff81f8a17679821edf16f814ef662d9d.jpg@90w_90h_1e_1c_85Q.jpg"/>
+						<span>阿帆哒</span>
+					</div>
+				</div>-->
+			</div>
+		</div>
+			
+			<div class="footer_width ">
+				<div class="footer_wrap">
+					<img src="img/footer_logo.png"/>
+					<div class="footer_content">
+					<span>关于我们 &nbsp;&nbsp; 友情链接&nbsp;&nbsp; 片刻帮助&nbsp;&nbsp; 意见反馈&nbsp;&nbsp; 成长记忆</span>
+					<p>All rights reserved © 2016 pianke.me /黔ICP备17008875号-1</p>
+					</div>
+					<img src="img/footer_last.png"/>
+				</div>
+			</div>
+			
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Json.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//导航
+			var $nav = $(".nav_all");// 获取导航整个div
+			var winTop_1 = 0;// 设置初始位置
+			//滚动事件
+			$(window).on('scroll', function() {
+				var winTop_2 = $(window).scrollTop();//滚动条距离顶部距离
+				//判断鼠标向上滚动，显示出来
+				if(winTop_2 < winTop_1 ) {
+					$nav.show();
+				} else if(winTop_2 > winTop_1) {
+					$nav.hide();
+				}
+				winTop_1 = $(window).scrollTop();//滚动后距离赋值
+			});
+			
+			//登录注册按钮
+			$(".nav_btn").mouseover(function(){
+				$(".nav_btn").css("background-color","#57ad68")
+				$(".nav_btn").css("color","white")
+			}).mouseout(function(){
+				$(".nav_btn").css("background-color","white")
+				$(".nav_btn").css("color","#57ad68")
+			})
+			
+			//logo
+			$(".nav_logo1").mouseover(function(){
+				$(".nav_logo1").css("box-shadow","5px 5px 5px #999 inset");
+			}).mouseout(function(){
+					
+			})
+			
+			//顶部5张图
+			for(var i = 0;i<$(".scaleimg").length;i++){
+				$(".scaleimg").eq(i).mouseover(function(){
+					$(this).addClass("head_scale");
+					$(".htead_title").eq($(this).index()).show();
+				}).mouseout(function(){
+					$(this).removeClass("head_scale");
+					$(".htead_title").eq($(this).index()).hide();
+				})
+			}
+			
+			//更多推荐按钮
+			$(".more_content_title").click(function(){
+				$(".more").show();
+				$(".more_title").hide()
+				$(".last").show()
+			});
+			
+			//更多推荐
+			for(var k in waterflow){
+				//创建封面图
+				$more_content_div = $("<div class='more_content'></div>");
+				$(".more").append($more_content_div);
+				$TitleImg = $("<img class='more_content_Titleimg' src=''/>");
+				$more_content_div.append($TitleImg)
+				$TitleImg.attr("src",waterflow[k]["imgsrc"]);
+				console.log($more_content_div)
+				//创建标题div
+				$more_title = $("<div class='more_content_head'><div>");
+				$more_content_div.append($more_title);
+				$more_title.append($("<a>" +waterflow[k]["title"]+ "</a>"));
+				//创建文章内容div
+				$more_articl = $("<div class='more_content_articl'>" +waterflow[k]["text"] + "</div>");
+				$("<div class='more_content_articl'>" +waterflow[k]["text"] + "</div>").append($("<span>" +"VIEW ALL"+"</span>" ));
+				$more_content_div.append($more_articl);
+				//创建bottom div
+				$more_bottom = $("<div class='more_content_bottom'> </div>");
+				$more_content_div.append($more_bottom);
+				$more_bottom.append($("<a href=''>" + "阅读" + "</a>"));
+				$more_bottom.append($("<span>" + waterflow[k]["readnumber"] + "</span>"));
+				//创建last div
+				$more_last = $("<div class='more_content_bottom_last'></div>");
+				$more_content_div.append($more_last);
+				$more_last_Img = $("<img src=''/>");
+				$more_last_Img.attr("src",waterflow[k]["headsrc"]);
+				$more_last.append($more_last_Img);
+				$more_last.append($("<span>" + waterflow[k]["name"] + "</span>"))
+			}
+			
+				
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

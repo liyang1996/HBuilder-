@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/city.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.prov{
+				width: 100%;
+				color: red;
+				font-size: 25px;
+			}
+			.prov1{
+				width: 100%;
+				color: red;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		
+	<script type="text/javascript">
+			for(var i in provice) {
+				document.write("<span class='prov'>省份名称: " + provice[i]["name"] + "</span><br>");
+				var cityArr = provice[i]["city"];
+				// 当前省的所有市名称
+				for(var j in cityArr) {
+					document.write("<span class='city'>市名称: " + cityArr[j]["name"] + "</span><br>");
+					var countryArr = cityArr[j]["districtAndCounty"];
+					document.write("<span class='country'>区名称: </span><br>");
+					for(var k in countryArr) {
+						document.write("<span class='country'>"  + countryArr[k] + "</span>");
+					}
+					document.write("<hr>");
+				}
+				document.write("<hr>");
+			}
+			
+		</script>
+	</body>
+</html>

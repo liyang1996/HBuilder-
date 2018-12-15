@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			
+			/*横条样式*/
+			input[type=range] {
+ 				 -webkit-appearance: none;/*清除系统默认样式*/
+  				background: -webkit-linear-gradient(#6C3365, #6C3365) no-repeat, #DDA0DD;/*设置左边颜色为#61bd12，右边颜色为#ddd*/
+  				height: 5px;/*横条的高度*/
+				}
+			input[type=range]::-webkit-slider-thumb {
+				 -webkit-appearance: none;
+				border-radius: 0px;
+				border: 1px solid gainsboro;
+				height: 25px;
+    				width: 25px;
+    				background-color: white;
+				}	
+			input[type=range]::-webkit-slider-runnable-track {
+				
+				}
+
+		</style>
+	</head>
+	<body>
+		<form action="" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+			0<input type="range" id="a" min="0" max="100" />100
+			+
+			<input type="" name="b" id="b" value="50" />
+			=
+			<output name="x" for="a b  " >150</output>
+			
+			
+			
+		</form>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		输入X的值:<input type="text"  id="x"  />		
+					<input type="submit"  value="输出" onclick="div2()" />
+					<input type="text" name="" id="result" value="" />
+		<script type="text/javascript">
+		
+			/*2. 输入 x 的值 :
+				x < 1 的时候, y = x;
+				1<=x<10的时候,y = 2x-1; 
+				x>=10 的时候,y = 3x-11。
+				最后输出y值。
+			*/	
+				function div2(){
+					var x = document.getElementById("x").value;
+					var y;
+					if(x<1){
+						y = x;
+						console.log("y的值为" +y );
+					}else if( 1<=x && x<10 ){
+						y = 2*x-1;
+						console.log("y的值为" +y);
+					}else if(x>=10){
+						y = 3*x - 11;
+						console.log("y的值为" +y)
+					}else{
+						console.log("你输入的是哈")
+					}
+					
+					 document.getElementById("result").value =y;
+					};
+				
+				
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

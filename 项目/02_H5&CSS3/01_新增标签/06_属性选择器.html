@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_属性选择器</title>
+		<!--属性选择器都与中括号有关-->
+		<style type="text/css">
+			a{
+				font-size: 20px;
+				margin-right: 20px;
+			}
+			/*属性选择器 跟代码执行顺序有关,有优先级无关*/
+			/*[attribute]
+			 *选择带有href属性的a 标签 
+			 * */
+			a[href]{
+				color: red;
+			}		
+			
+			/*[attribute=value]
+			 选择href属性值为123 的a 标签*/
+			a[href="123"]{
+				color: yellow;
+			}
+		/*	/*[attribute~value]7
+		 选择属性值包含某个词汇的*/
+			a[href~="123"]{
+				background-color: darkblue;
+			}			
+				/*[attribute|=value]
+				 value 必须是单独的,或者后面跟一个连字符(-)
+				 所以带有top top-... 都好用*/
+			a[href|="top"]{
+					color: green;
+				}		
+		/*  -------------- 上面这些事CSS2-----------*/				
+		/*  -------------- 下面这些事CSS3-----------*/
+		
+				/*[attribute^=value]
+				 属性值必须以指定值开头*/
+			a[href^="top"]{
+				background-color: gray;
+			}
+			
+			/*[attribute$=value]
+				 属性值必须以指定值结束*/
+			a[href$="text"]{
+				color: darkcyan;
+			}
+			/*[attribute*=value]
+				选中属性值包含指定值得元素*/
+			a[href*="op"]{
+				color:aqua;
+			}
+			
+			
+			
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		
+	<a>超链接1</a>
+	<a href="456 123">456 123</a>
+	<a href="123-456" target="_blank">123-456</a>
+	<a href="123456">123456</a>
+	<a href="123">123</a>
+
+	<br><br /><br />
+	<a href="top">top</a>
+	<a href="top-text">top-text</a>
+	<a href="topText">topText</a>
+	<a href="top Text">top Text</a>
+	<a href="text top">text top</a>
+	<a href="top_text">top_text</a>
+	<div class="top-11">div</div>
+		
+		
+		
+		
+	</body>
+</html>

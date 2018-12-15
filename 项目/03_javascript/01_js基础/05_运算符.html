@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_运算符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//[1] 加减乘除
+			var a =10 ;
+			var b = 3 ;
+			
+			var c =a / b;
+			console.log("c: "+ c);  //c: 3.3333333333333335
+			
+			//浮点数  的最高精度是17位
+			//浮点数计算会有舍入的误差
+			var num1 = 0.1;
+			var num2 = 0.2;
+			console.log("浮点数和:" + (num1+num2));  //浮点数和:0.30000000000000004
+			
+			//隐式转换
+			/*  -  * / % 等算数运算符号都会把操作数转换成数字
+			 * 但是+ 号有些情况是算数加号,有些情况是字符串连接符号
+			 */
+			var n1 = "2" -1 ;
+			console.log("n1:" +n1 + "," + typeof n1);//n1:1,number
+			
+			var n2 = "2" + 1 ;
+			console.log("n2:" +n2 + "," + typeof n2);//n2:21,string
+			//字符串里的内容是原样输出
+			
+			var n3 = 1 + 2+ "3" ;
+			console.log("n3:" +n3 + "," + typeof n3);//n3:33,string
+			
+			//[2]取余
+			var d =a % b;
+			console.log("取余: " + d );// 取余: 1
+			
+			//[3] 符合运算符  +=  *= -= /= %=
+			
+			var aa =4;
+			aa = aa + 1 ; //aa=5
+			aa += 1;//相当于aa = aa + 1 ;
+			//aa=6
+			
+			var f = 500;
+			f /= 50;
+			console.log("你好:" + f);  // 你好:10
+			
+			
+			
+			var m = 2;
+			m *= 10;
+			console.log("m:" + m);  //m:20
+			//[4] 自加自减   ++  --  自加自减都是+1
+			//x++  先返回再自加
+			//++x  先自加在返回
+			
+			var x1 = 5;
+			var y1 = x1++;
+			console.log("y1:" + y1); //5
+			console.log("x1:" + x1);//6
+			
+			var x2 = 5;
+			var y2 = ++ x2;
+			console.log("y2:" + y2); //6
+			console.log("x2:" + x2);//6
+			
+			//代码执行顺序从上往下
+			//仅自加
+			var z = 0;
+			z++; //和无返回值时  ++z; 效果一样
+			console.log("z:" + z); //1
+			
+			var zz = 2;
+			var xyz = zz++ +1;
+			console.log(xyz); //3
+			
+			var x = 2;
+			var y =  --x  + x--  +  x*10;
+			console.log("y: " + y);//2
+			
+			var lx1 = false + 1;    // 隐式转换,false=0,true=1
+			 console.log("lx1: " + lx1); //1
+			
+			var lx = 4;
+			var ly2 = (lx--)+(--lx)+(lx++)+(10 % lx);
+			 console.log("ly2: " + ly2); //9
+			//4  2  2  1    算式值
+			//3  2  3      lx当前值
+			//x++  先返回再自加
+			//++x  先自加在返回
+			lx = 5;
+			var ly3 = (--lx)+(lx++)+lx-(lx--*2)+(--lx-3)-(20%++lx);
+			 console.log("ly3: " + ly3);
+		// 4 4 5-10 0   0
+			// 4 5 5 4  3   4
+		</script>
+		
+		
+	</body>
+</html>

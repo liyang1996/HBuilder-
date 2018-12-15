@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_canvas</title>
+			<canvas id="mycanvas" width="1000" height="1000" style="border: 1px solid #008000;"></canvas>		
+			<script type="text/javascript">
+				
+				//使用JS来寻找canvas 的元素
+				var canvas = document.getElementById("mycanvas");
+				
+				//创建一个context的对象 
+				//getContext("2d") 对象是内建的HTML5的对象, 拥有多种绘制路径
+				var cxt = canvas.getContext("2d")
+				//矩形\圆\字符以及添加图像的方法
+				
+				//fillStyle将其背景添加颜色				
+				cxt.fillStyle = "rosybrown"
+				//fillRect 方法规定了形状,位置和尺寸
+				cxt.fillRect(0,0,150,75);
+				
+				cxt.beginPath() ;   //声明
+				cxt.moveTo(100,100)  ;    //起始点
+				cxt.lineTo(500,100)  ;    //结束点
+				cxt.lineTo(500,300)  ;    //结束点
+				cxt.lineTo(100,300)  ;    //结束点
+				cxt.lineTo(100,100)  ;    //结束点
+				
+				cxt.fill();          //背景填充颜色
+				cxt.stroke();    //默认边框为黑色
+				
+				//画圆
+				cxt.fillStyle = "rosybrown";
+				cxt.beginPath();
+				cxt.arc(500,500,100,0,Math.PI*2,true )
+				//横坐标,纵坐标,半径,起始角(弧度计0.5pi  1pi   1.5pi   2pi  ),PI=π,False顺时针,true逆时针
+				cxt.closePath();
+				cxt.fill();
+				
+				//线性渐变
+				var lg =cxt.createLinearGradient(600,600,800,800);
+				//600 X轴起始位置,600 Y轴起始位置,800 X轴结束位置,800 Y轴结束位置
+				lg.addColorStop("0", "red");
+				lg.addColorStop("0.3","yellow");
+				lg.addColorStop("0.6","black");
+				lg.addColorStop("1","pink");
+				cxt.fillStyle = lg;  //把自定义的填充颜色样式赋值给  cxt
+				cxt.fillRect(600,600,200,200);//图片大小
+								
+			</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

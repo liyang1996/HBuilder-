@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="add">添加</button>
+		<button id="delete">删除</button>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAdd = document.getElementById("add");
+			var oDel = document.getElementById("delete");
+			var oAll = document.getElementById("all");
+			oDel.disabled = "disabled";
+			oAdd.onclick = function () {
+				var newDiv = document.createElement("div");
+				newDiv.style.width = "100px";
+				newDiv.style.height = "100px";
+				newDiv.style.backgroundColor = getColor();
+				newDiv.onclick = function () {
+					this.remove();
+					if(oAll.children.length == 0){
+						oDel.disabled = "disabled";
+					}
+				}
+				oAll.appendChild(newDiv);
+				oDel.removeAttribute("disabled");
+			}
+			oDel.onclick = function () {
+				oAll.removeChild(oAll.children[oAll.children.length - 1]);  
+				// 删除最后一个元素
+				//oAll.removeChild(oAll.lastChild);
+				if(oAll.children.length == 0){
+					// 设置属性的新方法; 自定义属性也可以
+					oDel.setAttribute("disabled", "disabled");
+				}
+			}
+			
+			function getColor() {
+				var r = Math.floor(Math.random()*(255 - 0 + 1) + 0);      
+				var g = Math.floor(Math.random()*(255 - 0 + 1) + 0);      
+				var b = Math.floor(Math.random()*(255 - 0 + 1) + 0);      
+				return "rgb(" + r + "," + g + "," + b + ")";
+			}
+			
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

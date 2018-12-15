@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#dv{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			
+		</style>
+			<script type="text/javascript">
+				window.onload = function(){
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+			<div id="dv"></div>	
+			<script type="text/javascript">
+			//文当加载完成,文档div写下面的话需要加window.onload = function(){}
+		
+			var oDiv = document.getElementById("dv");
+			//鼠标移入
+			oDiv.onmouseover = function(){
+				oDiv.style.backgroundColor="blue";
+			}
+			
+			//鼠标移出
+			oDiv.onmouseout = function(){
+				oDiv.style.backgroundColor = "red";
+			}
+			
+			</script>
+		
+	</body>
+</html>

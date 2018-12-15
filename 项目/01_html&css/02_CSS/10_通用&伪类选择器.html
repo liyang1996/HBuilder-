@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>10_通用&伪类选择器</title>
+		<style type="text/css">
+			/*通用选择器 所有元素*/
+			*{font-size: 30px;}
+			/*伪类选择器*/
+			/*链接没有被访问*/
+			a:link{
+				color: gray;
+			}
+			/*连接被访问后*/
+			a:visited{color: green;}
+			
+			
+			
+			/*当鼠标悬停在标签上时*/
+			
+			a:hover{
+            color: red;
+            font-size: 50px;				
+			}
+			
+			
+			
+			
+			/*当鼠标点中激活的一瞬间*/
+			a:active{background-color: darkblue;}
+		</style>
+	</head>
+	<body>
+		<a href="https://www.taobao.com">我要去淘宝</a>
+		<a href="https://www.163.com">我要去网易</a>
+		<a href="https://www.baidu.com">我要去baidu</a>
+		<br />
+		<a >煤矿领导风格</a>
+		
+	</body>
+</html>

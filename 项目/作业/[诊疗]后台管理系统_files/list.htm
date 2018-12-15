@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="layui.css">
+	<script src="layui.js"></script>
+	<script src="common.js"></script>
+	<style type="text/css">
+		/*日历样式*/
+		@media screen and (max-width: 4100px) {
+		    .layui-calendar .layui-laydate-content td,.layui-laydate-content th{width:140px;height:88px;padding:35px}
+		    .layui-calendar .layui-laydate-main{width:100%}
+		}
+		@media screen and (max-width: 1500px) {
+		    .layui-calendar .layui-laydate-content td,.layui-laydate-content th{width:100px;height:88px;padding:35px}
+		    .layui-calendar .layui-laydate-main{width:100%}
+		}
+		@media screen and (max-width: 1200px) {
+		    .layui-calendar .layui-laydate-content td,.layui-laydate-content th{width:87px;height:88px;padding:35px}
+		    .layui-calendar .layui-laydate-main{width:100%}
+		}
+		@media screen and (max-width: 768px) {
+		    .layui-calendar .layui-laydate-content td,.layui-laydate-content th{width:36px;height:30px;padding:5px}
+		    .layui-calendar .layui-laydate-main{width:100%}
+		}
+		.layui-calendar .layui-laydate .laydate-disabled{color: #666 !important;}
+	</style>
+<link id="layuicss-layer" rel="stylesheet" href="layer.css" media="all"><link id="layuicss-laydate" rel="stylesheet" href="list_data/laydate.css" media="all"></head>
+<body>
+	<div class="layui-card" id="abc">
+		<!-- <div class="layui-card-header" style="padding: 15px 15px 0px 15px;">
+			
+		</div> -->
+		<div class="layui-card-body">
+			<!-- <input type="text" class="layui-input" id="test1"> -->
+			<div style="width: 500px;height: 500px;" id="a" lay-key="1">
+			<div id="layui-laydate1" class="layui-laydate layui-laydate-static laydate-theme-grid"><div class="layui-laydate-main laydate-main-list-0"><div class="layui-laydate-header"><i class="layui-icon laydate-icon laydate-prev-y"></i><i class="layui-icon laydate-icon laydate-prev-m"></i><div class="laydate-set-ym"><span lay-ym="2018-10" lay-type="year">2018年</span><span lay-ym="2018-10" lay-type="month">10月</span></div><i class="layui-icon laydate-icon laydate-next-m"></i><i class="layui-icon laydate-icon laydate-next-y"></i></div><div class="layui-laydate-content"><table><thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead><tbody><tr><td class="laydate-day-prev" lay-ymd="2018-9-30">30</td><td lay-ymd="2018-10-1" class=""><span class="laydate-day-mark">国庆</span></td><td lay-ymd="2018-10-2" class="">2</td><td lay-ymd="2018-10-3" class="">3</td><td lay-ymd="2018-10-4" class="">4</td><td lay-ymd="2018-10-5" class="">5</td><td lay-ymd="2018-10-6" class="">6</td></tr><tr><td lay-ymd="2018-10-7" class="">7</td><td lay-ymd="2018-10-8" class="">8</td><td lay-ymd="2018-10-9" class="">9</td><td lay-ymd="2018-10-10" class=""><span class="laydate-day-mark">工资</span></td><td lay-ymd="2018-10-11" class="">11</td><td lay-ymd="2018-10-12" class="">12</td><td lay-ymd="2018-10-13" class="">13</td></tr><tr><td lay-ymd="2018-10-14" class=""><span class="laydate-day-mark">生日</span></td><td lay-ymd="2018-10-15" class=""><span class="laydate-day-mark">15</span></td><td lay-ymd="2018-10-16" class="">16</td><td lay-ymd="2018-10-17" class="">17</td><td lay-ymd="2018-10-18" class="">18</td><td lay-ymd="2018-10-19" class="">19</td><td lay-ymd="2018-10-20" class=""><span class="laydate-day-mark">预发</span></td></tr><tr><td lay-ymd="2018-10-21" class=""><span class="laydate-day-mark">发布</span></td><td lay-ymd="2018-10-22" class="">22</td><td lay-ymd="2018-10-23" class="">23</td><td lay-ymd="2018-10-24" class="">24</td><td lay-ymd="2018-10-25" class="">25</td><td class="layui-this" lay-ymd="2018-10-26">26</td><td lay-ymd="2018-10-27" class="">27</td></tr><tr><td lay-ymd="2018-10-28" class="">28</td><td lay-ymd="2018-10-29" class="">29</td><td lay-ymd="2018-10-30" class="">30</td><td lay-ymd="2018-10-31" class="">31</td><td class="laydate-day-next" lay-ymd="2018-11-1">1</td><td class="laydate-day-next" lay-ymd="2018-11-2">2</td><td class="laydate-day-next" lay-ymd="2018-11-3">3</td></tr><tr><td class="laydate-day-next" lay-ymd="2018-11-4">4</td><td class="laydate-day-next" lay-ymd="2018-11-5">5</td><td class="laydate-day-next" lay-ymd="2018-11-6">6</td><td class="laydate-day-next" lay-ymd="2018-11-7">7</td><td class="laydate-day-next" lay-ymd="2018-11-8">8</td><td class="laydate-day-next" lay-ymd="2018-11-9">9</td><td class="laydate-day-next" lay-ymd="2018-11-10"><span class="laydate-day-mark">工资</span></td></tr></tbody></table></div></div><div class="layui-laydate-footer"><div class="laydate-footer-btns"></div></div></div></div>
+		</div>
+	</div>
+
+	<script>
+		layui.use([ 'jquery', 'core', 'layer', 'form', 'table', 'element', 'laydate'], function() {
+
+			var layer = layui.layer,
+			$ = jQuery = layui.jquery,
+			core = layui.core,
+			layer = layui.layer,
+			form = layui.form,
+			table = layui.table,
+			element = layui.element,
+			laydate = layui.laydate;
+
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#a', //指定元素
+				type: 'date',
+				format: 'yyyy年MM月dd日 HH时mm分ss秒',
+				position: 'static',
+				btns: [],
+				theme: 'grid',
+				calendar: true,
+				mark: {
+				    '0-10-14': '生日'
+				    ,'0-12-31': '跨年' //每年12月31日
+				    ,'0-0-10': '工资' //每个月10号
+				    ,'2018-10-15': '' //具体日期
+				    ,'2018-10-20': '预发' //如果为空字符，则默认显示数字+徽章
+				    ,'2018-10-21': '发布'
+				}
+			});
+			
+		});
+	</script>
+
+</body></html>

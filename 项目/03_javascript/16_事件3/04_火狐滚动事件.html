@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 500px;
+				height: 1000px;
+				background-color: wheat;
+				margin:  0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.addEventListener("DOMMouseScroll",function(ev){
+				var ev = ev || window.event;
+				if(ev.detail>0){
+					console.log("向下");
+				}else{
+					console.log("向上");
+				}
+			},false)
+		</script>
+	</body>
+</html>

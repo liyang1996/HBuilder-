@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#main{
+				width: 500px;
+				height: 500px;
+				border: 5px solid red;
+				position: relative;
+				padding: 50px;
+			}
+			#all{
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				padding: 10px;
+				margin: 10px;
+				border: 5px solid red;
+				position: absolute;
+				top: 0;
+				left: 20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div id="all"></div>
+		</div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			//设置行间样式
+			//oAll.style.left="50px";
+			
+			//.style.left能够获取的是标签行间样式，获取不到内部引用的left
+			console.log("style.left:"+oAll.style.left);
+			
+			//可见边，距离定位父级的距离
+			//offsetLeft=margin+left的值
+			//offsetTop=margin+top的值
+			//如果没有margin 值就只剩left和top值
+			console.log("offsetleft:"+oAll.offsetLeft);//30；20
+			console.log("offsetleft:"+oAll.offsetTop);//10；0
+			
+			/*1.元素定义了position 属性才会有left属性
+			 *  但是每个元素都可以获得offsetLeft属性
+			 *2.元素只有在内联（行间）样式设置了left。才能通过元素.style.left获取值
+			 *3.left可读可写，获取的是字符串 
+			 *  offsetLeft只读，获取到的是数字
+			 */
+		</script>
+	</body>
+</html>

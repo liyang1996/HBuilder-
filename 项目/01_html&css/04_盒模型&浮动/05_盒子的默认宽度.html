@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_盒子的默认宽度</title>
+	</head>
+	<body>
+		<style type="text/css">
+			.father{
+				width:300px ;
+				height: 300px;
+				background-color: hotpink;
+				padding-left: 10px;
+				/*因为父盒子有宽度,给了固定值
+				 添加padding会撑开盒子*/
+			}
+			.son{
+				background-color: red;
+				padding-left: 10px;		
+				
+				/*margin-left: 100px;*/
+				/*儿子没有给指定宽度,用的是默认,与父级同宽
+				 添加padding不会撑开盒子*/		
+			}
+			
+		</style>
+		
+		<div class="father">
+			<div class="son">儿子 is here</div>
+
+		</div>
+		
+	</body>
+</html>

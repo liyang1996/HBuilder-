@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				background-color: wheat;
+				position: absolute;	
+				left: 0;
+				top: 0;	
+				left: 0;		
+			}			
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+				
+				var times=setInterval(function(){
+					
+					oAll.style.backgroundColor=getcolr();
+					
+				},100)
+				
+				oAll.onmouseover=function(){
+					move(oAll,800,10,20)
+				}
+				oAll.onmouseout=function(){
+					move(oAll,100,-10,20)
+				}
+				
+			function move(obj,targetposition,speed,time){
+					clearInterval(obj.timer)
+				obj.timer=setInterval(function(){
+					if(Math.abs(targetposition-obj.offsetWidth)<=Math.abs(speed)){
+						obj.style.width=targetposition+"px"	
+						clearInterval(obj.timer);
+					}else{
+						obj.style.width=obj.offsetWidth+speed+"px"				
+					}
+						console.log("offset:"+obj.offsetWidth)
+					},time);
+			}
+			
+			function getcolr(){
+			var r = Math.floor(Math.random()*(255-0+1)+0);
+			var g = Math.floor(Math.random()*(255-0+1)+0);
+			var b = Math.floor(Math.random()*(255-0+1)+0);
+				return "rgb("+r+","+g+","+b+")";
+				}	
+			
+			
+			
+		</script>
+	</body>
+</html>

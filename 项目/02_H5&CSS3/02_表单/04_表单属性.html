@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_表单属性</title>
+	</head>
+	<body>
+		<form action="" <!--novalidate="novalidate"-->>
+			<!--novalidate	提交表单不验证-->
+			姓名*:
+			<input type="text"  required autofocus/>
+			<!--required提交时必须填写-->
+			<!--autofocus自动获取焦点-->
+			<br/>
+			密码:
+			<input type="password" placeholder="请填写密码"/>
+			<!--placeholder占位提示-->
+			<!--checked默认选中-->
+			<br/>
+			年龄:
+			<input type="text" disabled value="3"/>
+			<!--disabled禁用-->
+			<br/>
+			选择文件:
+			<input type="file"/>
+			<br/>	
+			<input type="file" multiple/>
+			<!--multiple选择多个值,按cmd键可以多选-->
+			<br/>
+			数字:正则表达式
+			<input type="text" name="code" pattern="[0-9]{6,10}" title="只能输入6-10个数字"/>
+			<br/>
+			<input type="submit" value="提交"/>
+		</form>
+		
+	</body>
+</html>

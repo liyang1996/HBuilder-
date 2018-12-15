@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_无参无返回</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="myDiv1"></div>
+		<div id="myDiv2"></div>
+		<script type="text/javascript">
+			//实现功能：点击myDiv1，实现数组求和并打印值
+			var arr=[1,2,3,4,5];
+			var omyDiv1=document.getElementById("myDiv1");
+			omyDiv1.onclick=function(){
+					getsum();
+			} 
+			//实现功能：点击myDiv2，实现数组求和并打印值
+			 
+			omyDiv2.onclick=function(){
+				getsum();
+			}
+			//函数声明
+			//function(关键字) getsum（函数名）
+			//对数组求和
+			//无参无返回值
+			function getsum(){
+				var sum=0;
+				for(var i=0;i<5;i++){
+					sum=sum+arr[i]
+				}
+					console.log(sum);
+			}
+			
+			
+		</script>
+	</body>
+</html>

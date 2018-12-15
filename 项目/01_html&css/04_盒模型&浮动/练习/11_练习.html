@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper{
+				width: 310px;
+				background-color: #98FB98;
+				margin:50px auto;
+				padding: 10px 10px;
+			}
+			.wrapper .box{
+				/*border: 1px solid yellow;*/
+				margin: 10px auto;
+			}
+			
+			.wrapper>.box:first-child{
+				margin-top: 0;
+			}
+			
+			.wrapper>.box:last-child{
+				margin-bottom: 0;
+			}
+			
+			.wrapper .first{
+				width: 100px;
+			}
+			.wrapper .second{
+				width: 210px;
+			}
+			.wrapper .third{
+				width: 320px;
+			}
+			
+			
+			.box div{
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				display: inline-block;
+				font-size: 30px;
+				color: white;
+				line-height: 100px;
+				text-align: center;
+				display: none;
+			}
+			.wrapper:hover .box div{
+				display: inline-block;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="box first">
+				<div>1</div>
+			</div>
+			<div class="box second">
+				<div>1</div>
+				<div>2</div>
+			</div>
+			<div class="box third">
+				<div>1</div>
+				<div>2</div>
+				<div>1</div>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

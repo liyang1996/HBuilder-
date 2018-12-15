@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			
+			#wrap {
+				background: url(img/game_bg.jpg) 0 0 no-repeat;
+				height: 480px;
+				width: 320px;
+				position: relative;
+				margin: 0 auto;
+			}
+			
+			#score {
+				position: absolute;
+				font-weight: bold;
+				font-size: 16px;
+				color: white;
+				left: 65px;
+				top: 15px;
+			}
+			
+			#countDown {
+				position: absolute;
+				background: url(img/progress.png) 0 0 no-repeat;
+				/*background-color: red;*/
+				width: 180px;
+				height: 16px;
+				left: 63px;
+				top: 66px;
+			}
+			
+			#wolfs {
+				position: absolute;
+			}
+			
+			#menu {
+				position: absolute;
+				width: 320px;
+				text-align: center;
+				left: 0;
+				top: 200px;
+			}
+			
+			#start,
+			#handle,
+			#gameOver {
+				line-height: 50px;
+				font-size: 30px;
+				font-weight: bold;
+				color: #F60;
+				text-shadow: 0 0 5px #FFFF00;
+				display: block;
+				text-decoration: none;
+			}
+			
+			#gameOver {
+				position: absolute;
+				width: 320px;
+				text-align: center;
+				top: 200px;
+				left: 0;
+				display: none;
+			}
+			
+			.img {
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="wrap">
+			<!--分数-->
+			<div id="score">0</div>
+			<!--倒计时-->
+			<div id="countDown"></div>
+			<!--灰太狼-->
+			<div id="wolfs">
+
+			</div>
+			<div id="menu">
+				<div id="start">开始</div>
+				<div id="handle">游戏开始说明</div>
+			</div>
+			<div id="gameOver">
+				game over!
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oScore = document.getElementById("score");
+			var oWolfs = document.getElementById("wolfs");
+			var oStart = document.getElementById("start");
+			var oMenu = document.getElementById("menu");
+			var oCountDown = document.getElementById("countDown");
+			var oGameOver = document.getElementById("gameOver");
+			var moverTimer = null;
+			var score = 0; //记录分数
+			//出现
+			var arrPos = [{
+				l: "98px",
+				t: "115px"
+			}, {
+				l: "17px",
+				t: "160px"
+			}, {
+				l: "15px",
+				t: "220px"
+			}, {
+				l: "30px",
+				t: "293px"
+			}, {
+				l: "122px",
+				t: "273px"
+			}, {
+				l: "207px",
+				t: "295px"
+			}, {
+				l: "200px",
+				t: "211px"
+			}, {
+				l: "187px",
+				t: "141px"
+			}, {
+				l: "100px",
+				t: "185px"
+			}];
+			//灰太狼图片路径
+			var wolf_1 = ['img/h0.png', 'img/h1.png', 'img/h2.png', 'img/h3.png', 'img/h4.png', 'img/h5.png', 'img/h6.png', 'img/h7.png', 'img/h8.png', 'img/h9.png'];
+			//小灰灰图片路径
+			var wolf_2 = ['img/x0.png', 'img/x1.png', 'img/x2.png', 'img/x3.png', 'img/x4.png', 'img/x5.png', 'img/x6.png', 'img/x7.png', 'img/x8.png', 'img/x9.png'];
+			var wolfArr = [wolf_1, wolf_2];
+			oStart.onclick = function() {
+				//menu消失
+				oMenu.style.display = "none";
+				//灰太狼出现
+				createWolf();
+				//倒计时开始 进度条
+				countDown();
+			}
+
+			function createWolf() {
+				//创建狼
+				var newWolf = document.createElement("img");
+				oWolfs.appendChild(newWolf);
+				//随机狼的位置
+				//随机下标
+				var wolfIndex = getRandom(0, arrPos.length - 1);
+				//位置json
+				var wolfPos = arrPos[wolfIndex];
+				oWolfs.style.left = wolfPos["l"];
+				oWolfs.style.top = wolfPos["t"];
+				//设置图片 灰太狼 还是 小灰灰
+				//随机出现哪儿种狼  0代表灰太狼  1代表小灰灰
+				var wolfType = getRandom(0, 4) == 3 ? 1 : 0;
+				var index = 0; //记录图片下标
+				var count = 0; //记录定时器走过的次数
+				moverTimer = setInterval(function() {
+					//给狼赋图片
+					if (count < 6) {
+						newWolf.src = wolfArr[wolfType][index];
+						index++;
+					} else if (count >= 6 && count <= 11) {
+						index--;
+						newWolf.src = wolfArr[wolfType][index];
+					} else {
+						clearInterval(moverTimer);
+						oWolfs.removeChild(newWolf);
+						createWolf();
+					}
+					count++;
+				}, 150)
+				var flag = true;
+				newWolf.onclick = function() {
+					//只能点击一次
+					if (flag) {
+						flag = false;
+						//改变分数
+						score = wolfType == 0 ? score + 10 : score - 10;
+						oScore.innerHTML = score;
+						//改变图片
+						//不管之前是哪儿张图，都变成被打带锅的图片
+						clearInterval(moverTimer);
+						index = 6;
+						moverTimer = setInterval(function() {
+							if (index < 10) {
+								newWolf.src = wolfArr[wolfType][index];          
+								index++;
+							} else {
+								clearInterval(moverTimer);
+								oWolfs.removeChild(newWolf);
+								createWolf();
+							}
+						}, 150);
+					}
+				}
+			}
+
+			function getRandom(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+
+			function countDown() {
+				var countDownT = setInterval(function () {                  
+					var attrV = oCountDown.offsetWidth;
+					var speed = 1;
+					if (attrV == 0) {
+						clearInterval(countDownT);
+						clearInterval(moverTimer);
+						oGameOver.style.display = "block";
+						oWolfs.removeChild(oWolfs.children[0]);
+						
+					} else{
+						oCountDown.style.width = attrV - speed + "px";
+					}
+				},100);
+				
+			}
+		</script>
+	</body>
+
+</html>

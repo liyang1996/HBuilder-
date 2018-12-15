@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="myCanvas"></canvas>
+<script>
+
+    var oCanvas = document.getElementById("myCanvas");
+    var ctx = oCanvas.getContext("2d");
+
+    ctx.beginPath();
+    ctx.translate(250,250);
+
+
+    var deg = Math.PI/180;
+    /*setInterval(function () {
+        ctx.clearRect(-250,-250,oCanvas.width,oCanvas.height);
+        ctx.rotate(deg);
+        ctx.strokeRect(-50,-50,100,100);
+
+    },20);*/
+    
+    
+    function rectRotate() {
+        ctx.clearRect(-250,-250,oCanvas.width,oCanvas.height);
+        ctx.rotate(deg);
+        ctx.strokeRect(-50,-50,100,100);
+        //H5新增
+        requestAnimationFrame(rectRotate);
+        //递归
+    }
+    rectRotate();
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

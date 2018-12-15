@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background-color: rosybrown;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			
+			//鼠标按下
+		document.onmousedown=function(){
+			document.onmousemove = function(){
+				var ev = ev || window.event;
+				oAll.style.left = ev.pageX+"px";
+				oAll.style.top = ev.pageY+"px";
+			}
+		}	
+			//鼠标抬起
+			oAll.onmouseup = function(){
+				document.onmousemove=null;
+			}
+		</script> 	
+	</body>
+</html>

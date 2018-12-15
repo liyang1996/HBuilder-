@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_input新增类型</title>
+	</head>
+	<body>
+		<!--input:button;submit;text;password;checkbox;
+			radio;range;file;search;reset;hidden -->
+		<form action="00_dahuangye.html" method="get">
+			<label for="num"> 数字: </label>
+			<!--点击文字触发输入框-->
+			<input type="number" name="number" id="num" value="50" min="10" max="60"  step="5" />
+			<!--min max 可以设置最大值最小值,setp点击按倍数增加减少-->
+			<br />
+			<!--提交表单的话name必须写-->
+			
+			邮箱
+			<!--邮箱格式必须正确-->
+			<input type="email"/>
+			<!--往后台传必须写name属性<--><br />
+			<br />
+			
+			<!--链接-->
+			<!--http://www 开头-->
+			<input type="url"/>
+			<br />
+			
+			颜色:
+			<input type="color"/>
+			<br />
+			
+			Date pickers(日期选择器):
+			年月日
+			<input type="date" value="2018-09-08" />
+			<br />
+			年月:
+			<input type="month"  value="2019-03" />
+			<br />
+			
+			星期: <br />
+			<!--W大写,不可忽略   -->
+			<input type="week"  value="2018-W04" />
+			<br />
+			
+			时间: <br />
+			<input type="time"  value="22:48" />
+			<br />
+			
+			滑动条: <br />
+			<input type="range"  value="5" min="1" max="10"  step="2"/>
+			<br />
+			
+			搜索框: <br />
+			<input type="search"/>
+			<br />
+			<br />
+			<!--新增表单元素
+				input list属性值与datalist的id值保持一致,则绑定使用
+			-->
+			<input list="browsers" />
+			<datalist id="browsers">
+				<option value="IE"></option>	
+				<option value="firefox"></option>	
+				<option value="Opera"></option>	
+				<option value="Safari"></option>	
+				<option  label="W3School" value="http://www.w3school"></option>
+			</datalist>
+			<br />
+			<br />
+			
+			
+			
+			
+			
+			<br />
+			<input type="submit" value="提交" />
+		</form>
+	</body>
+</html>

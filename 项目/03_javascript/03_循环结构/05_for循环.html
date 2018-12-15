@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_for循环</title>
+	</head>
+	<body>
+		<!--/*
+		 * for(定义初值(a);循环条件(b);增量(c)){
+			循环体(d);
+		}		 
+		
+		 */-->
+		 
+		<script type="text/javascript">
+			
+			for ( var i=0;i<10;i++ ){ //打印后执行
+				
+				console.log("i:" +i);
+			}
+			console.log("haha" );
+			/*先执行 i=0,判断循环条件是否满足, i<10.满足开始执行第一轮循环体
+			 * 然后执行i++;进行循环条件判断,满足执行第二轮循环体
+			 * ...
+			 * 直到最后一次,i++后i>=10;不满足i<10,此时循环结束
+			 */
+			
+			//打印9_0
+			for ( var a=9;a>=0;a--){ //打印后执行
+				
+				console.log("a:" +a);
+			}
+			console.log("haha" );
+			
+			//打印0,2,4,,6,8,
+			for ( var a=0;a<0;a+=2){ //打印后执行
+				
+				console.log("a:" +a);
+			}
+			
+			//打印1_100
+			for( var a=1; a<=100;a++ ){
+				console.log("a:" +a );
+			}
+			console.log("haha" );
+			
+			//打印1_100第二种写法
+			//for( var a01; a<100;a++ ){
+			//	console.log("a:" +(a+1) );
+			//}
+			//console.log("haha" );
+			
+		</script>
+		
+	</body>
+</html>

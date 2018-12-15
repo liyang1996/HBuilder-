@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all{
+				width: 800px;
+				height: 800px;
+				background-color: green;
+			}
+			
+			.div1 {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				position: absolute;
+				left: 40px;
+				top: 40px;
+				z-index: 100;
+				
+			}			
+			.div2 {
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				position: absolute;
+				left: 80px;
+				top: 80px;
+				/*改变定位顺序*/
+				/*z-index: 2;*/
+				/*
+				 * 1.改变定位元素堆叠顺序
+				 * 2.数值越大,层级越往上				
+				 * 3.只可以同级定位元素进行比较
+				 * */
+				
+			}
+			.div3 {
+				width: 200px;
+				height: 200px;
+				/*background-color: rgba(0,0,0,.1);*/
+				background-color: yellow;
+				position: absolute;
+				left: 120px;
+				top: 120px;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<div class="all">
+			<div class="div1">1</div>
+			<div class="div2">2</div>
+			<div class="div3">3</div>
+		</div>
+		
+		
+		
+	</body>
+</html>

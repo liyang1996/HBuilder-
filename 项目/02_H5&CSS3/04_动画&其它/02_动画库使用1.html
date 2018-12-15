@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_动画库使用1</title>
+		<link rel="stylesheet" href="css/animate.css" />
+		<style type="text/css">
+			div{
+				width: 150px;
+				height: 150px;
+				background-color: rosybrown;
+			}
+			p{
+				font-size: 100px;
+				color: white;
+				/*
+				第一个值：必写 水平阴影位置,允许负值
+				第二个值：必写 垂直阴影位置,允许负值
+				第三个值：可选 模糊的距离
+				第四个值: 可选 阴影颜色
+			*/
+				text-shadow: 5px 5px 5px hotpink;
+				/*text-shadow: 5px 5px 5px hotpink,5px 5px 10px black;文本阴影*/
+			}
+			
+			.myDiv{
+				
+				-webkit-animation: lightSpeedIn 3s linear ;
+				-o-animation: lightSpeedIn 3s linear ;
+				animation: lightSpeedIn 3s linear ;
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<!--animated必须要写-->
+		<div class="animated lightSpeedIn infinite"></div>
+		<p class="animated fadeInUp infinite">Beautiful Girl</p>
+		
+		<div class="myDiv infinite">  </div>
+		
+		
+	
+	</body>
+</html>

@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all {
+				width: 770px;
+				margin: 20px auto;
+			}
+			
+			.today {
+				width: 100%;
+				height: 60px;
+				background-color: palevioletred;
+				margin: 10px;
+				font-size: 20px;
+				text-align: center;
+				line-height: 60px;
+				color: lavender;
+			}
+			
+			.day {
+				overflow: hidden;
+				background-color: plum;
+				width: 100%;
+				margin: 10px;
+			}
+			
+			.day div {
+				width: 150px;
+				height: 50px;
+				line-height: 50px;
+				float: left;
+				background-color: lightblue;
+				color: deeppink;
+				margin-right: 5px;
+				text-align: center;
+				font-size: 18px;
+			}
+			
+			.day div:last-child {
+				margin-right: 0px;
+			}
+		</style>
+	</head>
+	<div class="all">
+		<div id="today" class="today"></div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+
+	<body>
+		<script type="text/javascript">
+			// json  解析接口数据并显示在页面中
+			
+			var aJson = {
+				"data": {
+					"today": {
+						"date": "15日星期日",
+						"high": "高温 29℃",
+						"fx": "南风",
+						"low": "低温 23℃",
+						"fl": "<![CDATA[4-5级]]>",
+						"type": "多云"
+					},
+					"city": "大连",
+					"aqi": "53",
+					"forecast": [{
+						"date": "16日星期一",
+						"high": "高温 29℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 23℃",
+						"fengxiang": "南风",
+						"type": "多云"
+					}, {
+						"date": "17日星期二",
+						"high": "高温 30℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 23℃",
+						"fengxiang": "南风",
+						"type": "晴"
+					}, {
+						"date": "18日星期三",
+						"high": "高温 30℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 24℃",
+						"fengxiang": "南风",
+						"type": "晴"
+					}, {
+						"date": "19日星期四",
+						"high": "高温 30℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 23℃",
+						"fengxiang": "南风",
+						"type": "晴"
+					}, {
+						"date": "20日星期五",
+						"high": "高温 30℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 23℃",
+						"fengxiang": "南风",
+						"type": "晴"
+					}],
+					"ganmao": "各项气象条件适宜，发生感冒机率较低。但请避免长期处于空调房间中，以防感冒。",
+					"wendu": "23"
+				},
+				"status": 1000,
+				"desc": "OK"
+			}
+			var todayDiv = document.getElementById("today");
+			var dayDivs = document.getElementsByClassName("day");
+			
+			var todayJson = aJson["data"]["today"];
+			for(var item in todayJson) {
+				todayDiv.innerHTML+= item + ":" + todayJson[item] + "&nbsp;&nbsp;";
+			}
+
+			var forecastArr = aJson["data"]["forecast"];
+			for(var i = 0; i < forecastArr.length; i++) {
+				var childDivs = dayDivs[i].getElementsByTagName("div");
+				var count = 0;
+				for(var key in forecastArr[i]) {
+					if(key == "fengli") continue;
+					var str = key + " : " + forecastArr[i][key];
+					childDivs[count].innerHTML = str;
+					count++;
+				}
+			}
+			
+//			var m = oTrs.shift(oTrs);
+//			var m = arr.shift();
+//			arr.splice(0, 1);
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/下拉导航栏.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/首页css.css"/>
+		<script src="js/秒杀活动.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/*购物车*/
+			#shopping_cart {
+				width: 100px;
+				height: 35px;
+				background-color: rgb(228, 41, 61);
+				outline: none;
+				margin: 0;
+				border: none;
+				color: white;
+				border: 1px solid rgb(228, 41, 61);
+				border-bottom: none;
+				position: absolute;
+				z-index: 3;
+				top: 8px;
+				right: 5%;
+			}
+			
+			#shopping_div {
+				width: 350px;
+				/*height: 100px;*/
+				background-color: white;
+				border: 1px solid rgb(228, 41, 61);
+				position: absolute;
+				z-index: 2;
+				top: 80px;
+				right: 5%;
+				padding: 20px;
+				box-sizing: border-box;
+				display: none;
+				z-index: 80000;
+			}
+			
+			#shopping_cart:hover {
+				background-color: white;
+				color: rgb(217, 31, 27);
+				border: 1px solid rgb(228, 41, 61);
+				border-bottom: none;
+			}
+			
+			#shopping_cart:hover+#shopping_div {
+				display: block;
+			}
+			
+			#shopping_text {
+				font-size: 12px;
+			}
+			
+			.shopping_goods {
+				overflow: hidden;
+				margin-bottom: 15px;
+			}
+			
+			.shopping_goods_img {
+				width: 30px;
+				height: 30px;
+				float: left;
+			}
+			
+			.shopping_goods_infor {
+				width: 200px;
+				float: left;
+				font-size: 12px;
+				margin-left: 6px;
+			}
+			
+			.shopping_goods_name {
+				/*超出宽度显示省略号*/
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.shopping_goods_price {
+				color: #c1383e;
+			}
+			
+			.shopping_goods_del {
+				color: #c1383e;
+				float: right;
+				margin-top: 7px;
+				cursor: pointer;
+			}
+			
+			.total_price {
+				font-size: 12px;
+			}
+			
+			.shopping_button {
+				background-color: #c1383e;
+				color: white;
+				float: right;
+				height: 34px;
+				width: 100px;
+				line-height: 34px;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			#shopping_content {
+				/*display: none;*/
+			}
+			.oshopCarImg{
+				width: 50px;
+				height: 50px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<!--顶部-->
+			<div class="head_top">
+				<div class="head_right">
+					<a href=""><img src="http://i2.vanclimg.com/cms/20150605/w2.jpg" /></a>
+					<a href="" id="img1"><img src="http://i1.vanclimg.com/cms/20150605/w1.jpg" /></a>
+					<a href="">网站公告</a>
+					<a href="">我的订单</a>
+					<a href="">注册</a>
+					<a href="">|</a>
+					<a href="">登录</a>
+					<p>您好，欢迎光临凡客诚品！</p>
+				</div>
+				<img id="img2" src="img/扫一扫.jpg" />
+			</div>
+			<!--搜索、购物车-->
+			<div id="search">
+				<div id="search_shop">
+					<a href="#" style="color: white;">购物车</a>
+				</div>
+				<button style="border:0" id="search_btn">搜索</button>
+				<input type="text" name="" id="search_text" value="" />
+			</div>
+			<div class="search_top">
+				<div class="search_top_wenzi">
+					<span>热门搜索：</span>
+					<a href="">免烫衬衫</a>
+					<a href="">水揉棉</a>
+					<a href="">熊本熊</a>
+					<a href="">麻衬衫</a>
+					<a href="">帆布鞋</a>
+					<a href="">运动户外</a>
+					<a href="">家具</a>
+				</div>
+			</div>
+
+			<!--导航-->
+			<div class="nav_all">
+				<img class="nav_logo" src="img/nav_logo.jpg" />
+				<div class="nav_list">
+					<div class="nav_list1">
+						<a href="#">首页</a>
+					</div>
+					<div class="nav_list1">
+						<a href="#">衬衫</a>
+					</div>
+					<div class="nav_list1">
+						<a href="#">T恤</a>
+					</div>
+					<div class="nav_list1">
+						<a href="#">卫衣</a>
+					</div>
+					<div class="nav_list1">
+						<a href="#">外套</a>
+					</div>
+					<div class="nav_list1">
+						<a href="#">针织衫</a>
+					</div>
+					<div class="nav_list1">
+						<a href="#">裤装</a>
+					</div>
+					<div class="nav_list1">
+						<a href="#">鞋</a>
+					</div>
+					<div class="nav_list1">
+						<a href="#">家居配饰</a>
+					</div>
+					<div class="nav_list1">
+						<a href="#">内衣袜品</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--轮播图-->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="http://i3.vanclimg.com/cms/20181019/4.0a1200576.jpg" /></div>
+				<div class="swiper-slide"><img src="http://i2.vanclimg.com/cms/20181012/a1200-576.jpg" /></div>
+				<div class="swiper-slide"><img src="http://i3.vanclimg.com/cms/20181012/b1200-576.jpg" /></div>
+				<div class="swiper-slide"><img src="http://i5.vanclimg.com/cms/20181012/wy1200576.jpg" /></div>
+				<div class="swiper-slide"><img src="http://i1.vanclimg.com/cms/20180420/wtg.jpg" /></div>
+			</div>
+			<div class="swiper-pagination"></div>
+			<!--中间小点-->
+			<div class="swiper-button-prev"></div>
+			<!--左箭头-->
+			<div class="swiper-button-next"></div>
+			<!--右箭头-->
+		</div>
+
+		<!--v团-->
+		<div class="recommend">
+			<a href=""><img class="recommend_img" src="http://i3.vanclimg.com/cms/20180726/618pcqp_02.jpg" /></a>
+			<a href=""><img class="recommend_img" src="http://i1.vanclimg.com/cms/20180828/5.jpg" /></a>
+			<!--初秋推荐-->
+			<div class="recommend_bottom">
+				<img src="http://i5.vanclimg.com/cms/20181025/9.jpg" />
+				<img src="http://i5.vanclimg.com/cms/20180906/1g.jpg" />
+				<img src="http://i5.vanclimg.com/cms/20181025/9.jpg" />
+				<img src="http://i2.vanclimg.com/cms/20180828/4.jpg" />
+			</div>
+		</div>
+
+		<!--优选推荐	-->
+		<h2>优选推荐</h2>
+		<div class="content">
+			<div class="content_center">
+				<div class="box1">
+					<img src="http://i2.vanclimg.com/cms/20181019/6.jpg" />
+					<div class="box1_1">
+						<a style="float: left;padding-left: 10px;" href="">4.0日式免烫衬衫</a>
+						<a style="float: right;color: #a10000;padding-right: 10px ;" href="">充值购买更优惠</a>
+					</div>
+				</div>
+
+				<div class="float_1">
+					<div class="box2">
+						<img src="http://i3.vanclimg.com/cms/20181012/pc-srmks-03.jpg" />
+						<div class="box1_1">
+							<a style="float: left;padding-left: 10px;" href="">4.0日式免烫衬衫</a>
+							<a style="float: right;color: #a10000;padding-right: 10px ;" href="">充值购买更优惠</a>
+						</div>
+					</div>
+					<div class="box3">
+						<img src="http://i2.vanclimg.com/cms/20181024/cx.jpg" />
+						<div class="box1_1">
+							<a style="float: left;padding-left: 10px;" href="">4.0日式免烫衬衫</a>
+							<a style="float: right;color: #a10000;padding-right: 10px ;" href="">充值购买更优惠</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="box4">
+					<img src="http://i1.vanclimg.com/cms/20181012/pc-xbxwy-03.jpg" />
+					<div class="box1_1">
+						<a style="float: left;padding-left: 10px;" href="">4.0日式免烫衬衫</a>
+						<a style="float: right;color: #a10000;padding-right: 10px ;" href="">充值购买更优惠</a>
+					</div>
+				</div>
+
+				<div class="box1">
+					<img src="http://i1.vanclimg.com/cms/20181012/pc-njf-03.jpg" />
+					<div class="box1_1">
+						<a style="float: left;padding-left: 10px;" href="">4.0日式免烫衬衫</a>
+						<a style="float: right;color: #a10000;padding-right: 10px ;" href="">充值购买更优惠</a>
+					</div>
+				</div>
+
+				<div class="float_1">
+					<div class="box2">
+						<img src="http://i1.vanclimg.com/cms/20181012/pc-mcs-03.jpg" />
+						<div class="box1_1">
+							<a style="float: left;padding-left: 10px;" href="">4.0日式免烫衬衫</a>
+							<a style="float: right;color: #a10000;padding-right: 10px ;" href="">充值购买更优惠</a>
+						</div>
+					</div>
+					<div class="box3">
+						<img src="http://i2.vanclimg.com/cms/20181012/pc-flr-03.jpg" />
+						<div class="box1_1">
+							<a style="float: left;padding-left: 10px;" href="">4.0日式免烫衬衫</a>
+							<a style="float: right;color: #a10000;padding-right: 10px ;" href="">充值购买更优惠</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="box4">
+					<img src="http://i3.vanclimg.com/cms/20181012/pc-wt-03.jpg" />
+					<div class="box1_1">
+						<a style="float: left;padding-left: 10px;" href="">4.0日式免烫衬衫</a>
+						<a style="float: right;color: #a10000;padding-right: 10px ;" href="">充值购买更优惠</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h2>夏装推荐</h2>
+		<div class="content_zhong">
+			<div class="content_zhong1">
+				<!--<div class="content_box1">-->
+				<!--<img src="http://i5.vanclimg.com/cms/20181012/pc-xxk-03.jpg"/>
+					<div class="content_box1_top">
+					<a href="">休闲裤</a>
+					<a href="">充值购买相当于&nbsp;&nbsp;&nbsp;&nbsp;79元起</a>
+					</div>-->
+				<!--</div>-->
+			</div>
+		</div>
+
+		<h2>更多精品</h2>
+		<div class="content_bottom">
+			<div class="content_bottom1">
+				<img src="http://i5.vanclimg.com/cms/20181012/pc-jj-03.jpg" />
+				<img src="http://i4.vanclimg.com/cms/20181012/pc-ny-03.jpg" />
+				<img src="http://i4.vanclimg.com/cms/20181012/pc-wp-03.jpg" />
+				<img src="http://i1.vanclimg.com/cms/20181012/pc-mj-01.jpg" />
+				<img src="http://i1.vanclimg.com/cms/20181012/pc-xb-03.jpg" />
+				<img src="http://i3.vanclimg.com/cms/20181012/pc-fbx-03.jpg" />
+			</div>
+		</div>
+
+		<div class="last">
+			<div class="last1">
+				<div class="qingfudong">
+					<div class="last_left">
+						<img src="//i4.vanclimg.com/cms/20160802/onlinecustomer.png" />
+						<div class="zizhu">
+							<p>7X9小时在线客服</p>
+						</div>
+					</div>
+					<div class="last_center">
+						<img src="//i2.vanclimg.com/cms/20160802/seven.png" />
+						<p style="margin-top: 30px;height: 26px;">7天内退货</p>
+						<p>购物满199元免运费</p>
+					</div>
+					<div class="last_right">
+						<img style="width: 104px; height: 104px;" src="//i7.m.vancl.com/oms/2014_8_29_16_39_33_7709.jpg" />
+						<p>扫描下载凡客客户端</p>
+					</div>
+				</div>
+
+				<!--底部-->
+				<div class="last_bottom">
+					<div class="last_bottom_div">
+						<a href="">关于凡客</a>
+					</div>
+					<div class="last_bottom_div">
+						<a href="">新手指南</a>
+					</div>
+					<div class="last_bottom_div">
+						<a href="">配送范围</a>
+					</div>
+					<div class="last_bottom_div">
+						<a href="">支付方式</a>
+					</div>
+					<div class="last_bottom_div">
+						<a href="">售后服务</a>
+					</div>
+					<div class="last_bottom_div">
+						<a href="">帮助中心</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr/>
+		<p style="color: #3e3a39; font-size: 12px; text-align: center;margin-top: 20px;min-width: 1200px;">Copyright 2007 - 2018 vancl.com All Rights Reserved 京ICP证100557号 京公网安备11011502002400号 出版物经营许可证新出发京批字第直110138号</p>
+		<p style="color: #3e3a39; font-size: 12px; text-align: center;margin-top: 20px;min-width: 1200px;">凡客诚品（北京）科技有限公司</p>
+
+		<!--页面底部-->
+		<div class="fina">
+			<div class="fina1">
+				<div class="fina1_img"><img src="img/logo11.png" /></div>
+				<div class="fina1_img"><img src="img/logo22.jpg" /></div>
+				<div class="fina1_img"><img src="img/logo33.jpg" /></div>
+				<div class="fina1_img"><img src="img/logo44.jpg" /></div>
+				<div class="fina1_img"><img src="img/logo55.jpg" /></div>
+				<div class="fina1_img"><img src="img/logo66.jpg" /></div>
+			</div>
+		</div>
+
+		<!--侧边栏-->
+		<div class="adve" id="img1">
+			<div class="adve_img"><img src="img/lg1.jpg" /></div>
+			<div class="adve_img"><img src="img/lg2.jpg" /></div>
+			<div class="adve_btn">
+				<a href="" style="width: 73px;height: 75px;display: block;border: 2px solid brown; background-color: brown;line-height: 75px;text-align: center;">回到顶部</a>
+			</div>
+		</div>
+
+		<!--购物车-->
+		<div id="shopping_div">
+	<span id="shopping_text">您的购物车没有任何商品</span>
+	<div id="shopping_content" class="shopping_content">
+		<hr />
+		<div id="shopping_goods_list">
+			<!--<div class="shopping_goods">
+						<img class="shopping_goods_img"/>
+						<div class="shopping_goods_infor">
+							<div class="shopping_goods_name"></div>
+							<div class="shopping_goods_price"></div>
+						</div>
+						<span class="shopping_goods_del">删除</span>
+					</div>-->
+		</div>
+		<hr/>
+		<div class="shopping_goods_bootom">
+			<div class="total_price" style="float: left;">
+				<div>共计(未计算促销折扣)</div>
+				<div id="goods_total_price" class="goods_total_price">¥</div>
+			</div>
+			<div id="shopping_button" class="shopping_button">
+				查看购物车
+			</div>
+		</div>
+	</div>
+		<script type="text/javascript">
+			//扫一扫显示消失
+			$("#img1").mouseover(function() {
+				$("#img2").show();
+			}).mouseout(function() {
+				$("#img2").hide();
+			});
+			
+			//下拉列表
+			
+			for(var i in navJson){
+				var $theDiv = $("<div class='creatli'> </div>");
+				for(var j in navJson[i]){
+				$theDiv.append($("<div>" + navJson[i][j] + "</div>"));
+					}
+				$(".nav_list1").eq(i).append($theDiv);
+			}
+			$(".nav_list1").mouseover(function(){
+				$(".creatli").eq($(this).index()).show();
+			}).mouseout(function(){
+				$(".creatli").hide()
+			})
+
+			//轮播图
+			var mySwiper = new Swiper('.swiper-container', {
+				autoplay: true, //可选选项，自动滑动
+				speed: 2000,
+				autoplay: {
+					delay: 2000
+				},
+				//中间小点
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+					type: 'bullets',
+				},
+				//箭头	
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			})
+
+			//Json获取夏装推荐数据
+			for(var i in cloJson) {
+				//创建包含图片、名称、价格的div
+				var $con_box1 = $("<div class='content_box1'></div>");
+				$(".content_zhong1").append($con_box1);
+				var theImg = $("<img src=''/>");
+				$con_box1.append(theImg);
+				theImg.attr('src', cloJson[i]["oImg"]);
+				//创建包含价格和名称的div
+				//创建名称a标签
+				var $newDiv = $("<div> </div>");
+				$con_box1.append($newDiv)
+				var $oclosename = $("<a class='aaa' href=''></a>");
+				$newDiv.append($oclosename);
+				//创建价格a标签
+				var $ocloseprice = $("<a class='aaa' href=''></a>");
+				$newDiv.append($ocloseprice);
+				$oclosename.html(cloJson[i]["cloName"])
+				$ocloseprice.html(cloJson[i]["priName"])
+			}
+			
+			//购物车
+			$("#search_shop").mouseover(function(){
+				$("#shopping_div").show();
+			}).mouseout(function(){
+				//$("#shopping_div").hide();
+			})
+			
+			//购物车JQ
+			var shoppingCarArr = [];
+			for(var k in cloJson){
+				//$(".content_box1")夏装推荐4个小div
+				//$(".content_box1").index = k;
+				$(".content_box1").eq(k).click(function(){
+				console.log($(".content_box1"))
+				var $shopCarDiv = $("<div class='shopping_goods'></div>")
+				$("#shopping_goods_list").append($shopCarDiv);
+				$shopCarImg = $("<img class='oshopCarImg' src=''/>");
+				$shopCarDiv.append($shopCarImg);
+				$shopCarImg.attr("src",cloJson[k]['oImg']);
+				$shopCarmDiv = $("<div class='shopping_goods_infor'></div>");
+				$shopCarDiv.append($shopCarmDiv);
+				$shopCarName = $("<div class='shopping_goods_name'></div>");
+				$shopCarName.html(cloJson[k]["cloName"]);
+				$shopCarmDiv.append($shopCarName);
+				$shopCarPrice = $("<div class='shopping_goods_price'></div>");
+				$shopCarPrice.html(cloJson[k]["price"]);
+				$shopCarmDiv.append($shopCarPrice);
+				})
+					
+				}
+				
+			
+			
+		</script>
+	</body>
+</html>

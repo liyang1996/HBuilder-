@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all div {
+				width: 200px;
+				height: 200px;
+				background-color: lightblue;
+				margin-bottom: 5px;
+				-webkit-transition: all .5s;
+				-moz-transition: all .5s;
+				-ms-transition: all .5s;
+				-o-transition: all .5s;
+				transition: all .5s;
+			}
+			.div_ra {
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="all">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="all">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+
+		<script type="text/javascript">
+			var oAlls = document.getElementsByClassName("all");
+			for(var j = 0; j < oAlls.length; j++) {
+				var oDivs = oAlls[j].getElementsByTagName("div");
+				var flag = true;
+				//鼠标移出时，改变回原来的颜色
+				for(var i = 0; i < oDivs.length; i++) {
+					oDivs[i].onmouseover = function() {
+						this.style.backgroundColor = "lightcoral";
+					}
+					
+					oDivs[i].onmouseout = function() {
+						this.style.backgroundColor = "";
+						this.classList.remove("div_ra");
+						flag = true;
+					}
+					
+					oDivs[i].onclick = function() {
+						this.classList.toggle("div_ra");
+						if(flag) {
+//							this.classList.add("div_ra");
+							this.style.backgroundColor = "lightcoral";
+						} else {
+//							this.classList.remove("div_ra");
+							this.style.backgroundColor = "yellow";
+						}
+						flag = !flag;
+					}
+				}
+				console.log("~~~~~~");
+			}
+		</script>
+
+	</body>
+
+</html>

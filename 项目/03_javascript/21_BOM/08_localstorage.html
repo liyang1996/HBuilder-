@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//localstorage 存储大小5MB  对象形式存储（和json比较像）
+			//localstorage是H5新增的方法，支持大部分浏览器，IE8+
+			//没有时间限制
+			window.localStorage.username = "哈哈";//写法一
+			window.localStorage["age"] = "18";//写法二
+			window.localStorage.setItem("sex","男");//写法三
+			
+			//获取存储在浏览器的localstorage值
+//			console.log(window.localStorage.username);//写法一
+//			console.log(window.localStorage["age"]);//写法二
+//			console.log(window.localStorage.getItem("sex"));//写法三
+
+			//移除
+			//window.localStorage.removeItem("sex");			
+			
+			//全部清除
+			//window.localStorage.clear()
+			
+			//获取所有的localStorage存储数据
+			for(var value in window.localStorage){
+				//console.log(value);
+			}
+//			console.log(window.localStorage)
+//			console.log(window.localStorage.key(0))
+//			console.log(window.localStorage.key(1))
+//			console.log(window.localStorage.key(2))
+			
+			//遍历获取所有的localStorage数据
+			for(var i= 0; i<window.localStorage.length;i++){
+				var theKey = window.localStorage.key(i);
+				var otheKey = window.localStorage[theKey];
+				console.log(theKey+":"+otheKey)
+			}
+		</script>
+	</body>
+</html>

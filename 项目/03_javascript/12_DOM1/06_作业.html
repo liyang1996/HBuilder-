@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#all{
+				width: 70%;
+				height: 60px;
+				background-color: silver;
+				margin: 0 auto;
+				margin-top: 20px;
+				border-radius: 20px;
+				min-width: 500px;
+			}
+			#allbtn{
+				width:80%;
+				margin: 0 auto;
+				line-height: 40px;
+				text-align: center;
+			}
+			#allbtn button{
+				width: 15%;
+				height: 40px;
+				margin-top: 10px;
+				background-color:white ;
+			}
+			#content div{
+				width: 70%;
+				height: 60px;
+				background-color: skyblue;
+				margin: 0 auto;
+				margin-top: 20px;
+				border-radius: 20px;
+				text-align: center;
+				line-height: 60px;
+				color: white;
+				font-size: 35px;
+				min-width: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div id="allbtn">
+		<button id="btnadd">添加</button>
+		<button id="btndel">删除</button>
+		<button id="btnda">大于0</button>
+		<button id="btnxiao">小于0</button>
+		<button id="btnfresh">刷新</button>
+		<button id="btnclear">清空</button>
+			</div>
+		
+		</div>
+		<div id="content"></div>
+		
+		<script type="text/javascript">
+			var ocontent = document.getElementById("content");
+			var obtnadd =  document.getElementById("btnadd");
+			var obtndel =  document.getElementById("btndel");
+			var obtnclear =  document.getElementById("btnclear");
+			var obtnfresh =  document.getElementById("btnfresh");
+			var obtnda =  document.getElementById("btnda");
+			var obtnxiao =  document.getElementById("btnxiao");
+			//添加
+			var arr=[];
+			var count=0;
+			obtnadd.onclick=function(){
+				var newDiv = document.createElement("div");
+				ocontent.appendChild(newDiv);
+				arr.push(newDiv);
+				newDiv.innerHTML=getNum(50,-50);
+				count++;
+				//console.log(arr)
+			//大于0	
+			obtnda.onclick=function(){
+//				//ocontent.innerHTML = ""
+//				var num=[];
+//				for(var i = 0; i < arr.length; i++) {
+//					var a =parseInt(arr[i].innerHTML);
+//					if(a < 0) {
+//						num.push(i);
+//					//	ocontent.appendChild(arr[i])
+//						}
+//					for(var j=0;j<arr.length;j++){
+//						ocontent.children[num[i]].remove();
+//							}
+//					}
+			for(var i = 0; i < arr.length; i++) {
+					var  bbb=parseInt(content.children[i].innerHTML);
+					if(bbb < 0) {
+						ocontent.children[i].remove();
+						}
+					}
+				}
+				
+			//小于0
+				obtnxiao.onclick = function(){
+					//ocontent.innerHTML = ""				
+					for(var i = 0; i < arr.length; i++) {
+						var  aaa=parseInt(content.children[i].innerHTML);
+					if(aaa > 0) {
+						ocontent.children[i].remove();
+						}
+					}
+				}
+			//删除
+			obtndel.onclick=function(){
+				ocontent.removeChild(ocontent.children[ocontent.children.length-1])
+			}
+			
+			//清空
+			obtnclear.onclick=function(){
+				ocontent.innerHTML="";
+			}
+			
+			//刷新
+			obtnfresh.onclick=function(){
+				for(var i=0;i<count;i++){
+					ocontent.children[i].innerHTML=getNum(50,-50);
+					}
+				}
+			}
+			
+			function getNum(max,min){
+				var sum =Math.floor(Math.random()*(max-min+1)+min)
+				return sum;
+			}
+			
+		</script>
+	</body>
+</html>

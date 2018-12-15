@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="500" width="500"></canvas>
+</body>
+
+<script>
+
+    var oCanvas = document.getElementById("canvas");
+
+    var ctx = oCanvas.getContext("2d");
+ctx.font = "40px Arial";
+ctx.strokeStyle = "pink";
+//绘制空心文本
+//strokeText(绘制的文字，绘制起始位置X，绘制起始位置Y，文本最大宽度)
+ctx.strokeText("Hello World",200,200,200);
+
+ctx.fillStyle = "blue";
+//文本超出最大宽度时，按照最大宽度缩放
+ctx.fillText("Hello 214",200,300,50);
+
+
+</script>
+
+</html>

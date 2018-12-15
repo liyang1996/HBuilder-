@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_盒模型margin&padding</title>
+		<style type="text/css">
+			div{
+				border: 5px solid red;
+				/*w9 h9*/
+				width: 200px;
+				height: 200px;
+			}
+			
+			.div1{
+				/*内边距:padding*/
+				/*内容区和外边框间的距离*/
+				/*padding写一个值自动设置:上下左右*/
+				/*padding写二个值自动设置:上下 左右*/
+				/*padding写三个值自动设置:上 左右 下*/
+				/*padding写四个值自动设置:上 右 下 左*/
+				
+				padding: 20px 50px 80px 100px;
+				
+				/*外边距*/
+				/*margin: 50px;*/
+				
+				/*块标签,本身居中,左右*/
+				margin: 0 auto;
+				
+				/*一个标准的盒模型所占据网页的大小
+				 
+				 * 宽:左外边距+左边框+左内边距+内容区content+右内边距+右边框+右外边距
+				 * content+padding*2+margin*2+border*2
+				 * */
+				/*并列关系兄弟关系  (上下) 使用margin*/
+				/*父子关系(左右):使用padding*/
+				
+				
+			}
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		<div class="div1">学习使我快乐</div>
+		<div></div>
+		
+		
+		
+	</body>
+</html>

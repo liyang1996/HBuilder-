@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				border: 1px solid black;
+				width: 100px;
+			}
+			.div1{
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">今天是程序员节</div>
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#all").css("background-color","red");
+			$("#all").css("height","100px");
+			
+			var cssJson = {
+				"color":"white",
+				"font-size":"25px",
+				"width":"300px"
+			}
+			
+			$("#all").css(cssJson);
+			//获取
+			console.log($("#all").css("width"));
+			//添加一个类名
+			$("#all").addClass("div1");
+			//移除类名
+			//$("#all").removeClass("div1");
+			
+		</script>
+	</body>
+</html>

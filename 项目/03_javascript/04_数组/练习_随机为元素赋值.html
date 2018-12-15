@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1. 创建一个数组, 50个元素, 随机为元素赋值
+			//取值范围[0, 99],求数组中元素的和 
+			
+			var arr = [];
+			var sum=0;
+			for(var i=0;i<50;i++){
+			arr[i]= Math.floor(Math.random()*(99-0+1)+0 );
+			sum+=arr[i];
+			}
+				document.write(arr);
+				document.write("和:"+sum);		
+			
+		</script>
+		
+		
+	</body>
+</html>

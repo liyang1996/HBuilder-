@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_容器属性简写</title>
+		<style type="text/css">
+			
+			
+			.box{
+					border: 10px solid black;
+					/*弹性布局 */
+					display: flex;
+					
+					/*主轴对其方式
+					   flex-start（默认值）：左对齐
+  					  flex-end：右对齐
+   				     center： 居中
+  					  space-between：两端对齐，项目之间的间隔都相等。
+  					  space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+					 * */
+					justify-content: space-between;
+					
+					}
+			
+			.box div{
+					width: 150px;
+					height: 150px;
+					background-color: rosybrown;
+					text-align: center;
+					font-size: 30px;
+					line-height: 150px;
+					margin: 10px;
+					
+				}
+				
+			.box div:nth-child(1){
+					width: 200px;
+			}	
+				
+			.box div:nth-child(2){
+					width: 100px;
+			}
+			
+			.box div:nth-child(3){
+					width: 300px;
+			}	
+				
+				
+			
+		</style>
+	</head>
+	<body>
+			<div class="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+		</div>
+		
+		
+		
+	</body>
+</html>

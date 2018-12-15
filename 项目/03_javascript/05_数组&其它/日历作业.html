@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all{
+				width: 300px;
+				height: 500px;
+				background-color: gainsboro;
+			}
+			input{
+				width: 80px;
+				height: 80px;
+				background-color: black;
+				color: white;
+				font-size: 20px;
+				margin: 5px;
+				text-align: center;
+			}
+			.yangshi{
+				background-color: white;
+				color: red;
+			}
+			.input{
+				width: 80px;
+				height: 80px;
+				background-color: black;
+				color: white;
+				font-size: 20px;
+				margin: 5px;
+				text-align: center;
+			}
+			
+			.all div{
+				width: 280px;
+				height: 50px;
+				background-color: gray;
+				text-align: center;
+				margin-left: 3px;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<input type="button" name="" id="btn" value="1JAN" />
+			<input type="button" name="" id="btn" value="2FER" />
+			<input type="button" name="" id="btn" value="3MAR" />
+			<input type="button" name="" id="btn" value="4ARP" />
+			<input type="button" name="" id="btn" value="5MAY" />
+			<input type="button" name="" id="btn" value="6JUN" />
+			<input type="button" name="" id="btn" value="7JUL" />
+			<input type="button" name="" id="btn" value="8AUG" />
+			<input type="button" name="" id="btn" value="9SEP" />
+			<input type="button" name="" id="btn" value="10OCT" />
+			<input type="button" name="" id="btn" value="11NOV" />
+			<input type="button" name="" id="btn" value="12DEC" />
+			<div id="div1">1月活动<br />这是1月活动内容</div>
+		</div>
+		
+		<script type="text/javascript">
+			var obtn=document.getElementById("btn")
+			var alls=document.getElementsByClassName("all");
+			var oDiv=alls[0].getElementsByTagName("input")
+			var  div1 =document.getElementById("div1");
+			
+			for(var i=0;i<oDiv.length-1;i++){
+				oDiv[i].index=i;
+				oDiv[i].onclick =function(){
+					this.classList.toggle("yangshi");
+				}
+			}
+			
+			
+			
+					
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

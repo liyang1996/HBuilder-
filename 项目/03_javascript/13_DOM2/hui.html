@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">
+            .canvas {
+                width: 320px;
+                height: 480px;
+                background: url(img/game_bg.jpg);
+                margin: auto;
+                position: relative;
+            }
+
+            .score {
+                position: absolute;
+                left: 60px;
+                top: 15px;
+                font-size: 1.4em;
+                color: white;
+            }
+
+            .jindutiao {
+                position: absolute;
+                top: 65px;
+                left: 63px;
+                width: 180px;
+                height: 17px;
+                border-radius: 10px;
+                background: red;
+            }
+
+            .wolf_ img {
+                position: absolute;
+            }
+
+            .wolfmenu {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 320px;
+                height: 480px;
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            .wolfmenu .gamestart {
+                position: absolute;
+                left: 100px;
+                top: 200px;
+                width: 120px;
+                height: 50px;
+                border-radius: 10px;
+                text-align: center;
+                line-height: 50px;
+                background: peru;
+                color: powderblue;
+            }
+
+            .gameover {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 320px;
+                height: 480px;
+                background: rgba(0, 0, 0, 0.5);
+                text-align: center;
+                line-height: 480px;
+                font-size: 2em;
+                color: white;
+                display: none;
+            }
+
+            .gameover .restart {
+                display: inline-block;
+                width: 120px;
+                height: 50px;
+                border-radius: 10px;
+                background: peru;
+                position: absolute;
+                left: 100px;
+                top: 300px;
+                font-size: 0.8em;
+                color: white;
+                line-height: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="canvas">
+            <!--积分-->
+            <div class="score">
+                0
+            </div>
+            <!--时间进度条-->
+            <div class="jindutiao">
+
+            </div>
+            <!--狼��-->
+            <div class="wolf_">
+
+            </div>
+            <!--开始页面-->
+            <div class="wolfmenu">
+                <span class="gamestart">开始</span>
+            </div>
+            <!--结束页面-->
+            <div class="gameover">
+                GAMEOVER!!!!
+                <span class="restart">重新开始</span>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        //
+        var wolfmenu = document.querySelector(".wolfmenu");
+        var gamestart = document.querySelector(".gamestart")
+            //狼的位置 数组
+        var wolfArr = [
+            [98, 115],
+            [20, 160],
+            [188,140],
+            [16, 220],
+            [100,190],
+            [200,210],
+            [20, 290],
+            [110,270],
+            [200,290]
+        ];
+        //按钮
+        gamestart.onclick = gamestart_;
+
+        function gamestart_() {
+            wolfmenu.style.display = 'none';
+            gameStartFn();
+            daojishi();
+        }
+        
+        var createwolfTimer;
+        var jingdutiao = document.querySelector(".jindutiao")
+            //游戏开始
+        function gameStartFn() {
+            //创建狼
+            createwolfTimer = setInterval(function() {
+                var wolf = createWolf(); //获取到创建的狼的对象
+                //灰太狼出现
+                wolf.showTimer = setInterval(function() {
+                    wolf.index++;
+                    if(wolf.index > 4) { //如果展示到打击前最后一个状态 清除定时器
+                        clearInterval(wolf.showTimer);
+                        //wolf.disHide();
+                    }
+                    wolf.src = "img/" + wolf.type + wolf.index + '.png';
+                }, 80);
+                //灰太狼消失
+                wolf.disHide = function() {
+                    wolf.downTimer = setInterval(function() {
+                        wolf.index--;
+                        if(wolf.index <= 0) { //消失到最后一个的时候 清空一次狼的容器
+                            wolf_.removeChild(wolf);
+                            clearInterval(wolf.downTimer)
+                        }
+                        wolf.src = "img/" + wolf.type + wolf.index + '.png';
+                    }, 80)
+                }
+                beatwolf(wolf);
+            }, 800)
+
+        }
+        var score = document.querySelector(".score");
+        //击打狼����效果
+        function beatwolf(wolf) {
+
+            wolf.beat = false;
+            wolf.onclick = function() {
+                if(wolf.beat === true) {
+                    return;
+                }
+                wolf.beat = true; //设置状态为击打
+                var scoring = parseInt(score.innerHTML)
+                    //积分
+                if(wolf.type == 'h') {
+                    score.innerHTML = scoring + 10;
+                }
+                if(wolf.type == 'x') {
+                    score.innerHTML = scoring - 10;
+                }
+                //重置
+                wolf.index = 5;
+                clearInterval(wolf.showTimer);
+                clearInterval(wolf.downTimer);
+                //击打效果
+                wolf.clickTimer = setInterval(function() {
+                    wolf.index++;
+                    if(wolf.index >= 9) { //狼的最后一个状态
+                        clearInterval(wolf.clickTimer);
+                        wolf_.removeChild(wolf)
+                        return;
+                    }
+                    wolf.src = "img/" + wolf.type + wolf.index + '.png'; //改变狼的图片
+                }, 80)
+            }
+        }
+        var wolf_ = document.querySelector(".wolf_")
+            //随机函数
+        function rand(min, max) {
+            return(parseInt(Math.random() * (max - min) + min));
+        }
+
+        //创建狼��
+        function createWolf() {
+            var wolf = document.createElement('img');
+            wolf.type = rand(0, 100) > 80 ? "x" : "h"; //狼的概率
+            wolf.index = 0; //初始化图片的 索引
+            wolf.src = "img/" + wolf.type + wolf.index + ".png";
+
+            //所有狼��
+            var wolfs = wolf_.children;
+
+            var bol = true; //是否出现多只狼
+            while(bol) {
+                //随机洞口函数    
+                var ran = rand(0, wolfArr.length);
+
+                for(var i = 0; i < wolfs.length; i++) {
+                    if(wolfs[i].offsetLeft == wolfArr[ran][0]) {
+                        break;
+                    } //当狼的坐标确认后，退出循环
+                }
+                if(i == wolfs.length) {
+                    bol = false;
+                    //当狼的数量达到后，退出循环
+                }
+            }
+
+            //设置生成狼的坐标
+            wolf.style.left = wolfArr[ran][0] + 'px';
+            wolf.style.top = wolfArr[ran][1] + 'px';
+            wolf_.appendChild(wolf);
+            return wolf;
+        }
+        //游戏结束函数
+        var gameover = document.querySelector(".gameover")
+
+        function gameoverFn() {
+
+            gameover.style.display = 'block';
+            clearInterval(jindutiaoTimer);
+            clearTimer();
+        }
+        var jingdutiaoWidth = jingdutiao.offsetWidth;
+        console.log(jingdutiaoWidth)
+            //开始计时
+        function daojishi() {
+            jindutiaoTimer = setInterval(function() {
+                jingdutiaoWidth -= 1;
+                jingdutiao.style.width = jingdutiaoWidth + 'px';
+                if(jingdutiaoWidth <= 0) {
+                    gameoverFn();
+                    wolf_.innerHTML = ''
+                }
+
+            }, 100);
+        }
+        //清除所有定时器
+        function clearTimer() {
+            //找出所有定时器
+            var timer = setInterval(function() {}, 10);
+            //循环清除定时器
+            for(var i = 0; i < timer; i++) {
+                clearInterval(i);
+            }
+        }
+        //重新开始
+        var restart = document.querySelector(".restart");
+        restart.onclick = restart_;
+
+        function restart_() {
+            gameover.style.display = 'none';
+            jingdutiaoWidth = 180;
+            score.innerHTML = '0';
+            gameStartFn();
+            daojishi()
+        }
+    </script>
+</html>

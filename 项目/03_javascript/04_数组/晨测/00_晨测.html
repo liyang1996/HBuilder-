@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 20px;
+				height: 20px;
+				margin: 5px;
+				display: inline-block;
+			}
+			.div1{
+				background-color: orange;
+				
+			}
+			.div3{
+				background-color: red;
+				
+				
+			}
+			.div2{
+				background-color: orange;
+				
+			}
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		
+		<script type="text/javascript">
+			for(var i=0;i<6;i++){
+				for(var j=0;j<5-i;j++){
+				document.write("<div class='div3'></div>")	;
+				}
+				
+			//	for(var j=0;j<2*i+1;j++){
+					//j : 0~2*i
+					//if((i==5  &&  j%2==0)||j==0||j==2*i){
+					//	document.write("<div class='div1'></div>");
+					
+				//	}else{
+						
+					//	document.write("<div class='div2'></div>");
+					//}
+				//}
+				
+				document.write("<br>");
+			}
+			
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

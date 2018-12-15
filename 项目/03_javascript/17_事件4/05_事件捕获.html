@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 500px;
+				height: 500px;
+				border: 10px solid skyblue;
+			}
+			#div2{
+				width: 300px;
+				height: 300px;
+				border: 5px solid lightgreen;
+			}
+			#div3{
+				width: 200px;
+				height: 200px;
+				border: 5px solid salmon;
+				position: fixed;
+				right: 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oDiv1 = document.getElementById("div1");
+			var oDiv2 = document.getElementById("div2");
+			var oDiv3 = document.getElementById("div3");
+
+			function theClick(){
+				console.log(this.id)
+			}
+			
+			//事件捕获。
+			//事件捕获和事件冒泡相反
+			//标准事件响应过程：事件捕获 处理目标 事件冒泡
+			//IE 只有事件冒泡过程，无事件捕获
+			oDiv1.addEventListener("click",theClick,true);
+			oDiv2.addEventListener("click",theClick,true);
+			oDiv3.addEventListener("click",theClick,true);
+
+			oDiv1.addEventListener("click",theClick,false);
+			oDiv2.addEventListener("click",theClick,false);
+			oDiv3.addEventListener("click",theClick,false);
+		</script>
+	</body>
+</html>

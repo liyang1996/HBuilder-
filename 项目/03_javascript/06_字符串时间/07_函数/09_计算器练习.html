@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>09_计算器练习</title>
+		<style type="text/css">
+			.all{
+				width: 100%;
+			}
+			/*上部分*/
+			.header{
+				width:500px ;
+				height: 150px;
+				background-color: grey;
+				border-radius: 10px;
+				margin: 0 auto;
+				box-shadow: 0px 0px 10px black;
+				z-index:50;
+				position: relative;
+				/*前两个0px分别代表X,Y轴移动*/
+			}
+			/*中间*/
+			.center{
+				width: 500px;
+				height: 500px;
+				background-color: #008B8B;
+				margin: 0 auto;
+				box-shadow: 0px 0px 5px black;
+				border-radius: 10px;
+				box-sizing: border-box;
+				position: relative;
+			}
+			button{
+				width: 80px;
+				margin: 20px;
+				height:50px ;
+				font-size: 25px;
+				color: white;
+				background-color:#004A80;
+				border: none;
+			}
+			.bt0{
+				width: 205px;
+				height: 50px;
+			}
+			.btd{
+				width: 80px;
+				height: 160px;
+				position: absolute;
+				right: 1%;
+				bottom: 6%;
+				background: orange;
+			}
+			button:nth-of-type(1){
+				background: orange;
+			}
+			button:nth-of-type(2){
+				background: orange;
+			}
+			button:nth-of-type(3){
+				background: orange;
+			}
+			button:nth-of-type(4){
+				background: orange;
+			}
+			button:nth-of-type(8){
+				background: orange;
+			}
+			button:nth-of-type(12){
+				background: orange;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="header" id="header">
+				<!--<input type="text" name="" id="" value="" />-->
+			</div>
+			<div class="center" id="center">
+				<button id="btchu">/</button>
+				<button id="btcheng">*</button>
+				<button id="btt">CE</button>
+				<button id="btgl">AC</button>
+				<button id="btqi">7</button>
+				<button id="btba">8</button>
+				<button id="btjiu">9</button>
+				<button id="btjia">+</button>
+				<button id="btsi">4</button>
+				<button id="btwu">5</button>
+				<button id="btliu">6</button>
+				<button id="btjian">-</button>
+				<button id="btyi">1</button>
+				<button id="bter">2</button>
+				<button id="btsan">3</button>
+				<button class="bt0" id="btling">0</button>
+				<button id="btdian">.</button>
+				<button class="btd" id="btdeng">=</button>
+			</div>
+			<script type="text/javascript">
+
+				
+				var obutton=document.getElementsByTagName("button");
+				obutton.onclick=function(){
+					for(var i=0;i<obutton.length;i++){
+						obutton[i].style.backgroundColor="red";				
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>

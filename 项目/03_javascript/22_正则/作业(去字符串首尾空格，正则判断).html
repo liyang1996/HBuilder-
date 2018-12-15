@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// +至少一个，没有上限
+			// 星号 * 相当于{0,}  //没有或不限;
+			// 问号 ？相当于{0,1} //没有或1个;
+			
+			//1.整数或者小数
+			//var str = "20.5";
+			//////////var re=/^\-?[0-9]+\.?[0-9]*$/;
+			//var re = /^[\+\-]?(0$|[1-9]\d*$|[1-9]\d*\.\d+$|0\.\d+$)/
+			//console.log(re.test(str))
+			
+			
+			//2.只能非零的正整数
+			//var str1 = "1";
+			///////var re1 = /^[1-9]{1}[0-9]*$/;
+			//var re1 = /^\+?[1-9]\d*$/;
+			//console.log(re1.test(str1))
+			
+			
+//			/false
+			//3.只能输入零和非零开头的数字
+//			var str3 = "5a.a";
+//			var re3 = /^[0-9]/;
+//			console.log(re3.test(str3));
+			
+			
+			//4.验证日期格式，正确格式为：2017-01-09
+			//var str4 = "2016-12-26";
+			//////////var re4 = /^([1-9]{4})-([0][1-9]|[1][0-2])-([0][1-9]|[1][0-9]|[2][0-9]|[3][0-1])$/;
+			//var re4 =/^[12]\d{3}-([0][1-9]|[1][0-2])-(0[1-9]|[12]\d|30)/;
+			//[(12)]才是一个整体12
+			//console.log(re4.test(str4));
+			
+			//5.去掉字符串的首尾空格
+			var str5 = " s ";
+			var re5  = / /g;
+			//var re5  = /^\s+|\s+$/;
+			var str6 = str5.replace(re5,"")
+// 			console.log(str6)
+			
+		</script>
+	</body>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				font-size: 25px;
+				line-height: 30px;
+				letter-spacing: 2px;
+				text-indent: 2em;
+			}
+			/*选择器匹配被用户选取的部分*/
+			/*IE9+Opera 谷歌 Safari支持 */
+			p::selection{
+				background-color: yellowgreen;
+				color: white;
+				/*鼠标选中改变*/
+			}
+			/*火狐浏览器支持以下写法,不支持上面的写法*/
+			p::-moz-selection{
+				background-color: yellowgreen;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<p>太在乎别人的眼光和评价，只会让自己做事放不开手脚，犹豫不决，失去自我，失去个性，丢失自我的价值。坚持自己所选择的，相信自己所坚持的，才是属于你自己的正确道路。别人怎么看你并不重要，重要的是你要做你自己，去做自己认为正确的事。 </p>
+	</body>
+</html>

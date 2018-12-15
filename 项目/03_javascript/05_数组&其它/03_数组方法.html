@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [1,2,3,4,5,6];
+			//1.push
+			//向数组末尾添加一个或多个数组
+			arr.push(7);
+			//返回的是添加元素后新数组的个数
+			var num = arr.push(8,9);
+			console.log(arr+",num:"+ num);
+			
+			//2.unshift
+			//在数组开头添加一个或多个元素
+			arr.unshift(0);
+			var n = arr.unshift(-1,-2);
+			console.log(arr+"n:"+n);
+			
+			
+			//3.pop
+			//删除并返回数组中的最后一个元素
+			var c = arr.pop();
+			console.log(c+",arr:"+arr);
+			//对空数组进行pop时，不会对数组产生影响
+			//但是返回值是undefind
+			
+			//4.shift
+			//删除并返回数组的第一个元素
+			var d = arr.shift();
+			console.log("d:"+ d + ",arr"+ arr);
+			//对空数组进行shift方法时，不会对数组产生影响
+			//但是返回值是undefind
+			
+			//5.splice
+			
+			console.log(arr);//[-2, 0, 1, 2, 3, 4, 5, 6, 7, 8]
+			//第一个参数：必填，开始删除的下标
+			//第二个参数：必填，删除的个数
+			//第三个参数：选填，删除的位置添加一个或多个值
+			
+			//从下标为2的元素开始删，删除3个
+			var x=arr.splice(2,3);
+			//返回值类型为数组类型，将删除元素存在数组中返回
+			console.log(x);//[1,2,3]
+			
+			
+			arr.splice(1,2,888,999);
+			console.log(arr);
+			
+			
+			//6.concat 拼接
+			var arrA = [1,2,3];
+			var  arrB= [4,5,6];
+			var arrC = [7,8,9];
+			//拼接多个数组，并返回新数组
+			var arrD = arrA.concat(arrB);
+			console.log(arrD);//[1,2,3,4,5,6]
+			
+			var arrD = arrA.concat(arrB,arrC);
+			console.log(arrD);//[1,2,3,4,5,6,7,8,9]
+			console.log(arrA);//[1,2,3]
+			
+			//7.join 数组转字符串
+			var arrE = ["LOL","农药","消消乐","吃鸡"];
+			var str = arrE.join();//默认使用逗号拼接
+			console.log(str);//LOL,农药,消消乐,吃鸡
+			
+			str =arrE.join(" ");
+			console.log(str);//LOL 农药 消消乐 吃鸡
+			
+			
+		</script>
+	</body>
+</html>

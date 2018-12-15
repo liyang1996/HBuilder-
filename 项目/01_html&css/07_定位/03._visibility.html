@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				
+				width: 200px;
+				height: 200px;
+				background-color: darkblue;
+				margin-bottom: 20px;
+			}
+			 /*.mydiv{
+				/*
+				 */
+				/*visibility: hidden;*/
+				/*visibility: visible;*/
+				/*鼠标在mydiv悬停的时候,第二个div消失*/
+			
+			/*兄弟选择器: + ~ *   */
+			.mydiv:hover + div{
+				visibility: hidden;
+			}
+			.div1{
+				visibility: hidden;
+			}
+			
+			/*
+			 * 一，display:none;
+					隐藏元素，不占网页中的任何空间，让这个元素彻底消失（看不见也摸不着）
+			 * 
+			 *二，overflow:hidden;
+					让超出的元素隐藏，就是在设置该属性的时候他会根据你设置的宽高把多余的那部分剪掉
+			 * 
+			 * 三，visibility:hidden;
+					他是把那个层隐藏了，元素隐藏（但元素所占的位置还在）。（看不见但摸得到）	
+			 * 
+			 *  */
+		</style>
+		
+	</head>
+	<body>
+		
+		<div class="mydiv"></div>
+		<div></div>
+		<div class="div1"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		
+	</body>
+</html>

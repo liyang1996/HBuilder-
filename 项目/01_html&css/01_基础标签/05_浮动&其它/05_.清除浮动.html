@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_.清除浮动html</title>
+		
+		<style type="text/css">
+			.father{
+				border: 5px solid red;
+				/*第一种*/
+				/*height: 100px;*/ 
+				/*清除浮动,极不推荐*/
+				/*第二种 把覆盖在我身上的浮动都清除*/
+			
+				/*第四种:overflow:hidden
+				 与清除浮动现象一样,但原理不一样
+				快但有弊端,在某些特定情况下会把需要的内容隐藏了 
+				*/
+				overflow: hidden;
+				/*超出部分隐藏*/
+			}
+			
+			.in{
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				float: left;
+			}
+			
+			/*第三种 利用伪元素(::after;    ::before)实现第二种清除浮动方式
+			 * (在father的最后添加空的div)*/
+			/*.father::after{
+				content: "";
+				clear: both;
+				display: block;
+				
+			}*/
+			
+			.test{
+				width: 100px;
+				height: 100px;
+				border: 10px solid royalblue;
+				overflow: hidden;
+				font-size: 10px;
+			}
+			
+			
+			
+		</style>
+		
+		
+		
+	</head>
+	<body>
+		
+		
+		
+		<div class="father">
+			<div class="in"></div>
+			<div class="in"></div>
+			<div class="in"></div>
+			<!--第二种:把覆盖在我身上的浮动都清除,破坏页面结构-->
+			<!--<div style="clear: both;">	-->
+		</div>
+			<div class="test">氨基酸东方his阿尔福ueiu金丝偶尔发牢骚低筋粉is了飞机上累计覅偶时间</div>	
+		</div>
+	</body>
+</html>

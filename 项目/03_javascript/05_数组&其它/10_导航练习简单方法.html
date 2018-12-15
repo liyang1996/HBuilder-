@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all{
+				width: 500px;
+				height: 100px;
+				border: 3px solid skyblue;
+				text-align: center;
+				line-height: 160px;
+				
+			}
+			.btn{
+				width: 90px;
+				height: 40px;
+				background-color: black;
+				color: black;
+				font-size: 20px;
+				border: 2px solid white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<input type="button" name="" class="btn"  value="栏目一" />
+			<input type="button" name="" class="btn" value="栏目二" />
+			<input type="button" name="" class="btn" value="栏目三" />
+			<input type="button" name="" class="btn" value="栏目四" />
+		</div>
+		
+		<script type="text/javascript">
+			
+			var count = 0;
+			for(var i=0;i<aBtns.length;i++){
+				aBtns[i].index=i;
+				aBtns[i].onclick=function(){
+					+
+					aBtns[count].className="all";
+					
+					this.className="btn";
+					
+					count=this.index;
+					
+					
+				}
+				
+				
+				
+				
+			}
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

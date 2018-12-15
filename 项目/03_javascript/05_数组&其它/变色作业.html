@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.btn{
+				width: 200px;
+				height: 80px;
+				background-color: blue;
+				color: white;
+				font-size: 25px;
+				border: none;
+				text-align: center;
+				margin-top: 50px;
+				margin-left: 40%;
+			}
+			hr{
+				margin-top: 50px;
+				margin-bottom: 50px;
+				background-color: palevioletred;
+			}
+			
+			.all div{
+				width: 100px;
+				height: 100px;
+				background-color: plum;
+				margin: 10px;
+				display: inline-block;
+				box-sizing: border-box;
+			}
+			
+			.all{
+				margin-left: 15%;
+			}
+			.yangshi{
+				border:5px dotted red;
+			}
+			
+			.btn2{
+				background-color: red;
+			}
+			
+			.change{
+					background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<input type="button" name="" class="btn" id="btn" value="变色" />-->
+		<button class="btn" id="btn">变色</button>
+		<hr />
+		<div class="all">
+			<div ></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<br />
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<br />
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<script type="text/javascript">
+			var btn=document.getElementById("btn")
+			//var btn=document.getElementById("btn").innerHTML;
+			var alls=document.getElementsByClassName("all");
+			var oDiv=alls[0].getElementsByTagName("div");
+			
+			
+			var flag = true;
+			btn.onclick = function(){
+				if (flag) {
+					btn.innerHTML = "不变色";
+				} else{
+					btn.innerHTML = "变色";
+				}
+				btn.classList.toggle("btn2");
+				flag = !flag;
+				 for (var i = 0; i < arr.length; i++) {
+				 	 oDivs[arr[i]].classList.toggle("change");
+				 }
+			}
+			
+			
+		
+// 1. 标签如果有 div2这个类就删掉,如果没有就添加,不影响其他 class oDiv1.classList.toggle("div2");	
+// 2. 覆盖式.class只剩有div2了
+// oDiv1.className = "div2";
+// 3. 添加 class
+// oDiv1.classList.add("div2")
+// 4. 移除 class
+// oDiv1.classList.remove("div2")
+			
+		</script>
+	</body>
+</html>

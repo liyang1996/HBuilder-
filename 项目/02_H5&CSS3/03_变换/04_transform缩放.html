@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_transform缩放</title>
+		<style type="text/css">
+			
+		
+		div{
+				width: 150px;
+				height: 150px;
+				background-color: aquamarine;
+				margin-bottom: 30px;
+				margin: 50px auto;
+				
+				-webkit-transform: all 1s;
+				-moz-transform: all 1s;
+				-ms-transform: all 1s;
+				-o-transform: all 1s;
+				transform: all 1s;
+				
+				-webkit-transition-duration: 2s;
+				-moz-transition-duration: 2s;
+				-ms-transition-duration: 2s;
+				-o-transition-duration: 2s;
+				transition-duration: 2s;
+				
+			}	
+			.div1:hover{
+				/*缩放:scale  基数1  大于1放大,小于1缩小*/
+				/*trfsc*/
+				-webkit-transform: scale(2, 2);
+				-moz-transform: scale(2, 2);
+				-ms-transform: scale(2, 2);
+				-o-transform: scale(2, 2);
+				transform: scale(2, 2);
+			}			
+			
+			.div2:hover{
+				/*trfscx*/
+				-webkit-transform: scaleX(1.2);
+				-moz-transform: scaleX(1.2);
+				-ms-transform: scaleX(1.2);
+				-o-transform: scaleX(1.2);
+				transform: scaleX(1.2);
+			}
+			
+			.div3:hover{
+				/*trfscy*/
+				-webkit-transform: scaleY(2);
+				-moz-transform: scaleY(2);
+				-ms-transform: scaleY(2);
+				-o-transform: scaleY(2);
+				transform: scaleY(2);
+				
+			}
+			
+			/*修改基准点左下角,缩小1/2*/
+			.div4{
+				-webkit-transform-origin:left  bottom ;
+				-moz-transform-origin:left    bottom;
+				-ms-transform-origin:left    bottom ;
+				-o-transform-origin: left    bottom;
+				transform-origin: left    bottom;
+				
+			}
+			.div4:hover{
+				
+				-webkit-transform: scale(0.5,.5);
+				-moz-transform: scale(0.5,.5);
+				-ms-transform: scale(0.5,.5);
+				-o-transform: scale(0.5,.5);
+				transform: scale(0.5,.5);
+				
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div3"></div>
+		
+	</body>
+</html>

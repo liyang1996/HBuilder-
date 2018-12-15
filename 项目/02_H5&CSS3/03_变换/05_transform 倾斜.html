@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+		
+		div{
+				width: 150px;
+				height: 150px;
+				background-color: aquamarine;
+				margin-bottom: 30px;
+				margin: 50px auto;
+				
+				-webkit-transform: all 1s;
+				-moz-transform: all 1s;
+				-ms-transform: all 1s;
+				-o-transform: all 1s;
+				transform: all 1s;
+				
+				-webkit-transition-duration: 2s;
+				-moz-transition-duration: 2s;
+				-ms-transition-duration: 2s;
+				-o-transition-duration: 2s;
+				transition-duration: 2s;
+			}	
+			
+			.div1:hover{
+				/*扭曲*/
+				/*trfk*/
+				/*x轴*/
+				-webkit-transform: skewX(30deg);
+				-moz-transform: skewX(30deg);
+				-ms-transform: skewX(30deg);
+				-o-transform: skewX(30deg);
+				transform: skewX(30deg);
+			}
+			.div2:hover{
+				-webkit-transform: skewY(30deg);
+				-moz-transform: skewY(30deg);
+				-ms-transform: skewY(30deg);
+				-o-transform: skewY(30deg);
+				transform: skewY(30deg);
+				
+			}
+			.div3:hover{
+				
+				-webkit-transform: skew(30deg,10deg);
+				-moz-transform: skew(30deg,10deg);
+				-ms-transform: ske(30deg,10deg);
+				-o-transform: skew(30deg,10deg);
+				transform: skew(30deg,10deg);
+			}
+			
+			
+			</style>
+	</head>
+	<body>
+		
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div3"></div>
+	</body>
+</html>

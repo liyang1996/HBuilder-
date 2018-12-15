@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            min-width: 1290px;
+        }
+        .nav{
+            overflow: hidden;
+        }
+        .logo{
+            margin-left: 30px;
+            float: left;
+            width: 300px;
+        }
+        .logo img{
+            width: 100%;
+        }
+        .shop_car{
+            margin: 20px 20px 0px 15px;
+            float: right;
+
+        }
+        .swiper{
+            width: 100%;
+            height: 400px;
+        }
+        .swiper img{
+            width: 100%;
+            height: 100%;
+        }
+        .gift{
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .gift .title{
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+
+        }
+        .gift_list{
+            overflow: hidden;
+            list-style: none;
+        }
+        .gift_list .box{
+            float: left;
+            width: 248px;
+            margin: 0 5px 5px;
+            cursor: pointer;
+        }
+        .box .s_img{
+            width: 248px;
+            height: 248px;
+        }
+        .box .s_img img{
+            width: 100%;
+            height: 100%;
+        }
+        .box .s_bottom{
+            overflow: hidden;
+        }
+        .box .s_bottom .s_info{
+            float: left;
+            color: #555;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .box .s_bottom .che{
+            float: right;
+            width: 34px;
+            height: 34px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        #black{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+         #middle{
+            width: 500px;
+             height: 400px;
+             background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!--导航部分-->
+        <div class="nav">
+            <div class="logo">
+                <img src="img/logo.svg" alt="">
+            </div>
+
+            <div class="shop_car">
+                <img src="img/绿车.jpg" alt="">
+            </div>
+        </div>
+        <!--轮播图-->
+        <div class="swiper">
+            <img src="img/轮播2.jpg" alt="">
+        </div>
+        <!--商品-->
+        <div class="gift">
+            <div class="title">
+                <img src="img/lp.png" alt="">
+            </div>
+            <ul class="gift_list" id="gift_list">
+                <!--<li class="box">-->
+                    <!--<div class="s_img">-->
+                        <!--<img src="img/t1-1.jpg" alt="">-->
+                    <!--</div>-->
+                    <!--<div class="s_bottom">-->
+                        <!--<div class="s_info">-->
+                            <!--<div class="s-name">欢乐时光水果礼篮</div>-->
+                            <!--<div class="s-unit">￥188.00/1份</div>-->
+                        <!--</div>-->
+                        <!--<div class="che">-->
+                            <!--<div class="che1">-->
+                                <!--<img src="img/黄色购物车.png" alt="">-->
+                                <!--<img src="img/黄色购物车2.png" alt="">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+
+            </ul>
+        </div>
+
+        <!--<div id="black">-->
+            <!--<div id="middle"></div>-->
+        <!--</div>-->
+
+    </div>
+   <script src="js/json.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var shopCar_Arr = [];//购物车数组
+        var dataArr = goodliest["t1"];
+        for(var i = 0; i < dataArr.length;i++){
+            //创建整个li
+            var $theLi =$("<li class='box'></li>");
+            $("#gift_list").append($theLi);
+            //上面大图片部分
+            var $s_img = $("<div class='s_img'></div>");
+
+            $theLi.append($s_img);
+
+            var $theImg = $("<img>");
+
+            $theImg.attr("src",dataArr[i]["goodsImg"]);
+
+            $s_img.append($theImg);
+            //下部具体部分
+            var $s_bottom = $("<div class='s_bottom'></div>");
+            $theLi.append($s_bottom);
+
+            var $s_info = $("<div class='s_info'></div>");
+            $s_bottom.append($s_info);
+
+            var $s_name = $("<div class='s-name'></div>");
+
+            $s_name.html(dataArr[i]["goodsName"]);
+
+            $s_info.append($s_name);
+
+            var $s_unit = $("<div class='s-unit'></div>");
+            $s_unit.html(dataArr[i]["goodsMoney"]);
+            $s_info.append($s_unit);
+            //购物车部分
+            var $che = $("<div class='che'></div>");
+            //自定义属性
+            $che.attr("info",JSON.stringify(dataArr[i]));
+
+            $s_bottom.append($che);
+
+            var $che1 = $("<div class='che1'></div>");
+            $che.append($che1);
+            $("<img src='img/黄色购物车.png'>").appendTo($che1);
+
+            $("<img src='img/黄色购物车2.png'>").appendTo($che1)
+
+            //购物车点击事件 $che每次循环创建了一个新的
+            $che.click(function () {
+                //当前点击的购物车对应的info
+                var currentInfo = $(this).attr("info");
+                currentInfo = JSON.parse(currentInfo);
+
+                //如果购物车没有商品直接添加
+                if(shopCar_Arr.length == 0){
+                    shopCar_Arr.push(currentInfo);
+                } else {
+
+                    //判断购物车数组中是否存在 和点击的商品 相同的商品
+                    var flag = false;//默认没有相同的
+                    for(var i = 0; i < shopCar_Arr.length; i++){
+                        //如果点击商品的ID 和数组中的一个相同
+                        if(currentInfo["goodsID"] == shopCar_Arr[i]["goodsID"]){
+                            flag = true;//有相同的
+                            shopCar_Arr[i]["count"] = parseInt(shopCar_Arr[i]["count"]) + 1;
+                            //因为购物车数组中商品都是唯一，发现一个相同的即可不遍历
+                            break;
+                        }
+                    }
+                    //如果flag为false，说明没有相同的，添加json
+                    // 注意在for循环结束
+                    if(flag == false){
+                        shopCar_Arr.push(currentInfo);
+                    }
+                }
+                console.log(shopCar_Arr);
+
+            })
+
+
+        }
+        // $(".che").click(function () {
+        //
+        // })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

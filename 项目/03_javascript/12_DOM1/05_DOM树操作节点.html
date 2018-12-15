@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_DOM树操作节点</title>
+	</head>
+	<body>
+		<div id="all">
+			<div>
+				<div id="div1">
+					lalala
+				</div>
+			</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div id="div10">10</div>
+
+			<p>p1</p>
+			<p>p2</p>
+			<p>p3</p>
+			<p>p4</p>
+			<p>p5</p>
+		</div>
+		<script type="text/javascript">
+			//1.获取元素all
+			var oAll = document.getElementById("all");
+			//2.获取子节点，找父元素的子标签，不找孙子辈
+			console.log(oAll.children)
+			//3.创建元素
+			var newDiv=document.createElement("div");
+			newDiv.innerHTML="haha";
+			//4.添加元素
+			oAll.appendChild(newDiv);
+			//5.插入元素
+			var newP = document.createElement("p");
+			newP.style.backgroundColor="red";
+			newP.innerHTML="11"
+			//insertBefore(新元素A，子元素B)
+			//在子元素B之前插入新元素A
+			oAll.insertBefore(newP,oAll.children[0]);
+			
+			//6.删除子节点
+			oAll.removeChild(oAll.children[0]);
+			
+			//.删除自身
+			//oAll.remove();
+			
+			//清空oall中的内容
+			//oAll.innerHTML="";
+			
+			//7.替换
+			//replaceChild(新标签，被替换的标签)
+			var newA = document.createElement("a");
+			newA.href="#";
+			newA.innerHTML="嘻嘻";
+			oAll.replaceChild(newA,oAll.children[2]);
+			
+			//8.获取父节点
+			var parentDiv= newA.parentNode;
+			//parentDiv.style.backgroundColor="black"
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_弹性布局</title>
+		<style type="text/css">
+				.box{
+					border: 10px solid black;
+					/*弹性布局 */
+					display: flex;
+					/*flex加在容器里*/
+					
+				/*注意,设为 Flex 布局以后,
+				1. 设为Flex布局以后,子元素的float、clear和vertical-align属性将失效
+				2. 伸缩容器的margin与其内容的margin不会重叠
+				3. text-align属性在伸缩容器上没有效果,因为其只可应用于块级block 容器子元素的float、clear和vertical-align属性将失效。*/
+
+				}			
+			
+				.box div{
+					width: 150px;
+					height: 150px;
+					background-color: rosybrown;
+					text-align: center;
+					font-size: 30px;
+					line-height: 150px;
+					margin: 10px;
+					
+				}
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+		</div>
+	</body>
+</html>

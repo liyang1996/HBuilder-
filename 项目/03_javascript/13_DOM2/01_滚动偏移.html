@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: salmon;
+				margin: 5px;
+				overflow: auto;
+				font-size:2em ;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script type="text/javascript">
+			//1.浏览器可见宽高
+			var winHeight = document.documentElement.clientHeight;
+			var winWidth = document.documentElement.clientWidth;
+			console.log("浏览器可见宽高："+winHeight)
+			
+			//2.页面宽高
+			var pageHight = document.documentElement.scrollHeight;
+			var pageWidth = document.documentElement.scrollWidth;
+			console.log("页面高度："+pageHight)
+			
+			//3.页面滚动距离
+			//页面滚动时响应
+			window.onscroll=function(){
+				var scrollT= document.documentElement.scrollTop;
+				console.log("top:"+scrollT);
+				
+//				if((scrollT+winHeight)>=pageHight){
+//				console.log("到底了");
+//				}
+			}
+		</script>
+	</body>
+</html>

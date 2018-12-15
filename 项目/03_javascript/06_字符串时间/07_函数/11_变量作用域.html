@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08_变量作用域</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * JS 作用域 scope
+			 * JS 作用域：函数作用域 全局作用域
+			 */
+			var a = 10;//全局变量 任何地方都可以使用a变量
+			function abc(){
+				console.log("全局："+a);//全局：undefined
+				var a=2;//局部变量，作用域只作用于当前函数中
+				console.log(a);//2
+			}
+			abc();
+			console.log(a);//10
+			abcd();
+			
+			function abcd(){
+				console.log("全局："+a);//全局：10
+				//不同函数可以使用相同名称的变量
+				var b=3;//局部变量，作用域只作用于当前函数中
+			}
+		</script>
+	</body>
+</html>

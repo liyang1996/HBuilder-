@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+			input{
+				width: 100px;
+				height: 50px;
+			}
+			
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;		
+				margin-top: 30px;	
+				-webkit-transition: all 2s ;
+				-moz-transition: all 2s ;
+				-ms-transition: all 2s ;
+				-o-transition: all 2s ;
+				transition: all 2s ;		
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" name="" id="red" value="变宽" />
+		<input type="button" name="" id="high" value="变高" />
+		<input type="button" name="" id="col" value="变色" />
+		<input type="button" name="" id="hid" value="隐藏" />
+		<div id="div1">
+		</div>
+		
+		<script type="text/javascript">
+		//变宽
+				var  div1 =document.getElementById("div1");
+				var red = document.getElementById("red");
+				var high = document.getElementById("high");
+				var col = document.getElementById("col");
+				var hid = document.getElementById("hid");
+				
+				red.onclick=function(){
+				div1.style="width:300px";
+					};
+					
+		//变高
+				high.onclick=function(){
+					div1.style="height:300px";
+				};
+			
+		//变色	
+				col.onclick=function(){
+					div1.style="background-color:blue";
+				};
+		
+		//隐藏
+				hid.onclick=function(){
+					div1.style="display:none";
+				};
+		
+		
+		
+		
+		
+
+		</script>
+		
+		
+	</body>
+</html>

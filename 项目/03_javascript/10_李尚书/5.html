@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 300px;
+				top: 100px;
+				text-align: center;
+				color: white;
+				line-height: 100px;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div">炸弹启动</div>
+		<script type="text/javascript">
+			var oDiv=document.getElementById("div");
+			var count=5;
+			var timer=setInterval(function(){
+				if(count==1){
+					oDiv.innerHTML="boom!";
+					oDiv.style.backgroundColor="black"
+				}else{
+					count--;
+					oDiv.innerHTML=count;
+				}
+			},1000)
+		</script>
+	</body>
+</html>

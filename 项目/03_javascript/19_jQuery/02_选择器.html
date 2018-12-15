@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="starts">
+			<li class="boy">陈伟霆</li>
+			<li>赵丽颖</li>
+			<li class="boyA">冯绍峰</li>
+			<li class="boy">胡歌</li>
+		</ul>
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//$：本质是一个函数，传参，调用函数
+			//dom树加载完成时，响应（页面代码都加载完，和资源无关（图片，视频））
+			$(document).ready(function(){
+				//获取元素
+				$(".boy").html("张嘉译");
+				
+				var $ul = $("#starts");
+				console.log($ul);
+				//设置CSS颜色为红色
+				$("li").css("color","red");
+				
+				$("li:first").html("王迅");
+				
+				$("li[class=boyA]").html("黄晓明");
+			})
+			
+		</script>
+	</body>
+</html>

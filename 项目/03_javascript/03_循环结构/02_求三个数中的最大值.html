@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_求三个数中的最大值</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = 10;
+			var b =	20;
+			var c = 30;
+			var max = 0;
+		if(a>=b&&a>=c){
+			max = a;
+		}else if(b>=a && b>=c){
+			max = b ;
+			
+		}else{
+			max = c;
+		}
+		//console.log(alert(max))
+			
+		//三目运算
+		
+		var a = 10;
+		var b =	20;
+		var c = 30;
+		var max =a > b ?   a:  b;
+		max = max > c? max :c;
+		console.log(alert(max));
+		
+		//使用一个表达式,合并写法, 不推荐
+		//var m = a > b && a > c;  a:(b > c ? b : c);  
+	
+		</script>
+		
+	</body>
+</html>

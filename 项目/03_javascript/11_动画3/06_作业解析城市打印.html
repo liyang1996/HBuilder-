@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/city.js"></script>
+		<style type="text/css">
+			#div1{
+				width: 100%;
+				color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var oDiv1=document.getElementById("div1");
+			for(var i in provice){
+				var obj= provice[i]["city"];
+				oDiv1.innerHTML+="<br>"+provice[i]["name"]+"<br>";
+				for(var j in obj){
+					//console.log(obj[j]["districtAndCounty"]);
+					oDiv1.innerHTML+=obj[j]["name"]+"<br>";
+					var all=obj[j]["districtAndCounty"]; 
+					for(var key in all){
+						oDiv1.innerHTML+=all[key]+"&nbsp;&nbsp";
+					}
+					oDiv1.innerHTML+="<br>";
+				}
+				oDiv1.innerHTML+="<hr>";
+				oDiv1.innerHTML+="<hr>";
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_变量提升</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//给未声明变量赋值时，JS不会报错
+			//认为是隐式声明一个全局变量
+			
+			b=3;
+			console.log("b:"+b);
+			
+			//--------------------------
+			
+			a = 2;
+			var a;
+			console.log("a"+a);//a2
+			
+			/*
+			 * 上一段代码相当于
+			 * var a;
+			 * a=2;
+			 * console.log("a"+a);
+			 */
+			
+			/*
+			 * 引擒在处理JS代码时候，
+			 * 分为二两个步骤，一个解释，一个执行
+			 * 解释就是会先通篇扫描JS代码
+			 * 然后把所有声明提升到顶端
+			 */
+			
+			
+			/*
+			 * 变量提升hoisting
+			 * 变量提升就是将变量 的声明 提升到所在作用域的最顶端
+			 * js作用域：全局和局部（函数）
+			 */
+
+			//--------------------全局作用域-------------
+			//console.log(c);//undefind
+			var c ="bbb";
+			
+			//undefind是声明了，但没赋值
+			
+			/*
+			 * 上一段代码相当于
+			 * var c;
+			 * console.log(c);
+			 * c="bbb"
+			 */
+			
+			//-----------------函数作用域----------------
+			function nn(){
+				console.log(c);//undefind
+				var c="aaa";
+				console.log(c);//aaa
+			}
+			/*
+			 * 上一段代码相当于
+			 * function nn(){
+			 * var c;
+			 * console.log(c);//undefind
+			 * c="aaa"
+			 * console.log(c);//aaa
+			 }*/
+			
+			//--------------函数提升  只针对函数声明有效----------
+			f1();
+			function f1(){
+				console.log(3);
+			}
+			
+			/*
+			 * 上一段代码相当于：
+			 * function f1(){
+			 * console.log(3);
+			 * }
+			 * 
+			 * f1();
+			 */
+			
+			
+			
+		</script>
+	</body>
+</html>

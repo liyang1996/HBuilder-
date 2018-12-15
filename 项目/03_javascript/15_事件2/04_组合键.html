@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.onkeydown = function(){
+				var  ev = ev || window.event;
+				//如果按下，值为true，否则为false
+				console.log("alt:"+ev.altKey);
+				console.log("shift:"+ev.shiftKey);
+				console.log("ctrl:"+ev.ctrlKey);
+				if(ev.ctrlKey && ev.keyCode == 65){
+					console.log("ctrl+a");
+				}
+			}
+			
+		</script>
+	</body>
+</html>

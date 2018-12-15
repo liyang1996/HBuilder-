@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html>
+
+
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<style>
+* {
+ padding: 0;
+ margin: 0;
+}
+html, body {
+ height: 100%;
+ font-size: 16px;
+}
+.main {
+ height: 100%;
+ border:1px solid black ;
+ background-color: #000000;
+ position: relative;
+ overflow: hidden;
+ color:red;
+}
+.main span {
+ position: absolute;
+ left: 100%;
+ width: 100%;
+}
+</style>
+<body>
+<div class="main"id="main"></div> 
+<div class="submit">
+<input  id="input"type="text" placeholder="请输入弹幕内容" />
+<button id="button">发送</button>
+</div>
+</body>
+<script>
+var mainContent = document.querySelector('.main')//获取第一个class属性值为main的元素。
+var submitButton = document.querySelector('button')//获取第一个button元素对象。
+var inputText = document.querySelector('input')//获取第一个input元素。
+submitButton.onclick = function () {
+ randomText();
+}
+function randomText() {
+var text = inputText.value;//获取文本空发送的文本内容。
+var length = text.length;//获取文本的长度
+var p = document.createElement('span');//创建一个span元素
+p.style.color = randomColor();//设置文本的颜色。
+var random = randomFontSize(1, 3);//获取字体大小。
+p.style.fontSize = random + 'rem';//设置字体的大小。
+var randomHeight = randomFontSize(0, (document.body.clientHeight - 10 * 16));//计算出span元素的margin-top。
+p.style.marginTop = randomHeight + 'px';//设置span元素的margin-top值。
+p.innerText = text;//将文本内容写入span元素。
+mainContent.appendChild(p);//将span元素添加到弹幕区域。
+var i = 0.9;//声明一个变量并赋值为0.9，后面会用到。
+var timer = setInterval(function () {
+ p.style.left = i * document.body.clientWidth + 'px';
+ i -= 0.003;
+ if (p.offsetLeft < -length * random * 16) {
+   clearInterval(timer);
+   mainContent.removeChild(p);
+  }
+}, 10)
+
+/**采用定时器函数，每隔10毫秒执行一次回调函数。
+每一次执行span元素的left属性值都会变小。
+length * random * 16值就是span元素的宽度，因为span元素的宽度由其内容所决定。
+p.offsetLeft < -length * random * 16，也就是span元素完全在弹幕区域消失。
+那么就停止定时器函数的执行，并移除该span元素。*/
+}
+function randomColor() {
+ return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
+}//随机生成颜色。
+function randomFontSize(min, max) {
+ return (min + Math.random() * (max - min)).toFixed(2);
+}//随时生成介于min到max之间的数字。
+</script>
+</html>
+--------------------- 
+作者：tongdu8724 
+来源：CSDN 
+原文：https://blog.csdn.net/tongdu8724/article/details/78743583 
+版权声明：本文为博主原创文章，转载请附上博文链接！

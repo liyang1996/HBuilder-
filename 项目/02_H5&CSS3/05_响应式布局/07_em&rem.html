@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_em&rem</title>
+		<style type="text/css">
+			/* 任意浏览器默认的字体高是 16px */
+			div{
+				font-size: 2em;  /*当前div字体大小16*2=32px*/
+				
+				/*em--相对父级的字体大小加倍
+				 *1em=16px;10px=0.625em 
+				 * */
+			}
+			.p1{
+				font-size: 1.5em;
+				/*当前P1字体大小:32*1.5=48px*/
+			}
+			
+			/*相对于浏览器默认的字体大小,进行加倍*/
+			.p2{
+				font-size: 2rem;
+				/*16*2=32*/
+			}
+			
+			html{
+				
+				/* 浏览器宽度在600px~1000px变化的时候，
+				 * html根元素的font-size大小是 18px~22px */
+				 font-size: calc(112.5% + 4 * (100vw - 600px) / 400);
+			}
+									
+						
+		</style>
+	</head>
+	<body>
+		
+		
+		<div>
+			<p class="p1">我是em</p>
+			<p class="p2">我是rem</p>
+			<p class="p3">我就是PX</p>
+		</div>
+	</body>
+</html>

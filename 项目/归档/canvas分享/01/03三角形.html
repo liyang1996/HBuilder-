@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+</body>
+
+<script>
+
+    var oCanvas = document.getElementById("canvas");
+
+    var ctx = oCanvas.getContext("2d");
+
+    ctx.beginPath();
+    ctx.moveTo(100,100);
+    ctx.lineTo(100,300);
+    ctx.lineTo(300,300);
+    /*
+    //第一种方式
+    //ctx.lineTo(100,100);
+    //第二种方式
+    //闭合路径
+    ctx.closePath();
+    ctx.lineWidth = 5;
+    ctx.stroke();*/
+
+    //填充
+
+    //设置填充颜色
+    ctx.fillStyle = "cyan";
+    //如果路径没有闭合，
+    //会从路径的结束点到起点之间，添加一条线，来关闭路径
+    //进行填充
+    ctx.fill();
+
+
+</script>
+
+</html>

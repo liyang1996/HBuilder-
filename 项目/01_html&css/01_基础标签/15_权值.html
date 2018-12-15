@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>15_权值</title>
+		
+		<style type="text/css">
+			*{
+				font-size: 25px;
+			}
+			/*影响当前页面的所有span 标签*/
+			span{
+				color: red;
+			}
+			/*div的后代span*/
+			div span{
+				/*看权值,权值1+1=2*/
+				color: green;
+			}
+			/*影响类名为div_class 的标签后代span*/
+			.div_class span{
+				/*class类选择器10, 10+1=11*/
+				color: yellow;
+			}
+			/*类名为div_class的标签后代,后代的类名是spanclass*/
+			.div_class .spanclass{
+				/*10+10=20*/
+				color: gray;
+			}
+			
+			/*id为div_id的标签的后代span标签*/
+			#div_id span {
+				/*权值 100+1=101*/
+				color: bisque;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div_class" id="div_id">
+			圣诞节覅老师
+ 		<span class="spanclass" id="spanid">的非拉二十</span>
+ 		<div><span class="spanclass">带上飞机啦</span></div>
+		</div>
+		
+		<div class="div_class">
+			<div class="spanclass>哈哈</div>
+		</div>
+		
+	</body>
+</html>

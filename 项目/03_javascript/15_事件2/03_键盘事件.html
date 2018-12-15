@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//键盘按下抬起时响应，不识别大小写（按什么都是大写）
+			document.onkeyup = function(ev){
+				var ev = ev || window.event;
+				console.log(ev);
+				console.log("按下抬起响应不识别大小写")
+				//ACSII 65~90是大写A~Z；
+					//  97~122是小写a~z;
+				
+				//通过ACSII转换成对应的字母
+				var a = String.fromCharCode(ev.keyCode=65);
+				console.log("a"+a);
+			}
+			
+			//键盘按下，如果不抬起会一直响应,不识别大小写（按什么都是大写）
+			document.onkeydown = function(ev){
+				var ev = ev || window.event;
+				console.log("按下响应不识别大小写："+String.fromCharCode(ev.keyCode))
+				console.log("onkeydown")
+			}
+			
+			//可以识别大小写，不响应功能按键（sheift,ctrl,上下左右等功能按键）
+			document.onkeypress = function(ev){
+				var ev = ev || window.event;
+				console.log("onkeypress")
+				console.log("可以识别大小写："+String.fromCharCode(ev.keyCode))
+			}
+			
+			
+		</script>
+	</body>
+</html>

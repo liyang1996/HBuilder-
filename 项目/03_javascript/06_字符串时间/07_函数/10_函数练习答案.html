@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span {
+				font-size: 18px;
+				min-width: 100px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				background-color: bisque;
+				margin: 5px;
+				display: inline-block;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 1. 使用函数 mTable 打印出m乘法表 
+			function mTable(m) {
+				var sum = 0;
+				for(var i = 1; i <= m; i++) {
+					for(var l = 1; l <= i; l++) {
+						sum = i * l;
+						document.write("<span>" + l + "&nbsp;x&nbsp;" + i + "&nbsp;=&nbsp;" + sum + "</span>");
+					}
+					document.write("<br>");
+				}
+			}
+			var num = Number(prompt("请输入一个>0的值"));
+			if(isNaN(num)) {
+				alert("输入数字!!");
+			} else {
+				if(num > 0) {
+					mTable(num);
+				} else {
+					alert("大于0OK??!!");
+				}
+			}
+
+			// 2.创建一个函数 JJCC 实现两个数之间的加减乘除运算 
+			//   并将结果在页面显示
+			var num1 = Number(prompt('a'));
+			var num2 = Number(prompt('b'));
+
+			function JJCC(a, b) {
+				return [a + b, a - b, a * b, a / b];
+			}
+			document.write('<hr>' + JJCC(num1, num2) + '<hr>')
+
+			// 3. 写一个函数来检测传入的字符串是否为回文
+			// isPalindrome('hello'); // false
+			// isPalindrome('madam'); // true
+			function isPalindrome(str) {
+				if(typeof str !== 'string') {
+					return "请输入字符串!";
+				}
+				var tmp = str.split('').reverse().join('');
+
+				return tmp === str;
+			}
+			console.log(isPalindrome("1234"));
+
+			// 4. 写一个函数找出传入的字符串中最长的单词
+			console.log(findLongest(23));
+
+			function findLongest(str) {
+				if(typeof str !== 'string') {
+					// throw exception
+					throw "请输入字符串!";
+				}
+				var arr = str.split(' ');
+				var max = 0;
+				for(var i = 0; i < arr.length; i++) {
+					if(arr[i].length > arr[max].length) {
+						max = i;
+					}
+				}
+				return arr[max];
+			}
+
+			// 5：首字母改大写
+			function firstLetterToUpperCase(str) {
+				var res;
+				if(typeof str === 'string') {
+					res = str.charAt(0).toUpperCase() + str.substr(1);
+				} else {
+					res = str;
+				}
+				return res;
+			}
+			console.log(firstLetterToUpperCase("pojdka"));
+		</script>
+	</body>
+
+</html>

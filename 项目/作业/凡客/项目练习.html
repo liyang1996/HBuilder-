@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/项目样式.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<script src="json/下拉导航栏.js" type="text/javascript" charset="utf-8"></script>
+		<script src="json/秒杀活动.js" type="text/javascript" charset="utf-8"></script>
+		<script src="json/为你推荐.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/limonte-sweetalert2/7.21.1/sweetalert2.all.js"></script>
+		<script src="js/项目js.js" type="text/javascript" charset="utf-8"></script>
+
+		<title>项目练习</title>
+	</head>
+
+	<body>
+		<header>
+			<nav id="top_nav">
+				<div class="nav_inner">
+					<ul id="nav_left" class="nav_left">
+						
+						<li>
+							你好,欢迎光临凡客诚品!
+						</li>
+						<li class="under_line">登入</li>
+						<li class="under_line">注册</li>
+						<li id="nav_more" class="nav_more">
+							<div></div>
+							<div></div>
+							<div></div>
+						</li>
+						<li><a href="https://login.vancl.com" class="notice">我的订单</a></li>
+					
+					</ul>
+					<div class="nav_right">
+						<button id="login">登录</button>
+						<button>注册</button>
+
+					</div>
+					<!-- 购物车按钮-->
+					<button id="shopping_cart">购物车(0)</button>
+					<!--购物车弹窗 -->
+					<div id="shopping_div">
+						<span id="shopping_text">您的购物车没有任何商品</span>
+						<div id="shopping_content" class="shopping_content">
+							<hr />
+							<div id="shopping_goods_list">
+								<!--<div class="shopping_goods">
+						<img class="shopping_goods_img"/>
+						<div class="shopping_goods_infor">
+							<div class="shopping_goods_name"></div>
+							<div class="shopping_goods_price"></div>
+						</div>
+						<span class="shopping_goods_del">删除</span>
+
+					</div>-->
+							</div>
+							<hr />
+							<div class="shopping_goods_bootom">
+								<div class="total_price" style="float: left;">
+									<div>共计(未计算促销折扣)</div>
+									<div id="goods_total_price" class="goods_total_price">¥ 498</div>
+								</div>
+								<div id="shopping_button" class="shopping_button">
+									<!--查看购物车(1)-->
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--更多弹窗 -->
+				<div id="more_div">
+					<div class="top_square">
+
+					</div>
+					<div class="more_div_top"><span>教育</span>
+						<span>移动应用</span>
+						<span>采集工具</span></div>
+					<hr />
+					<ul class="more_div_middle">
+						<li>
+							<span>UI/UX</span><span>男士/风尚</span>
+						</li>
+						<li>
+							<span>平面</span><span>婚礼</span>
+						</li>
+						<li>
+							<span>插画/漫画</span><span>工业设计</span>
+						</li>
+						<li>
+							<span>家居/家装</span><span>摄影</span>
+						</li>
+						<li>
+							<span>女装/搭配</span><span>兴趣/生活 »</span>
+						</li>
+					</ul>
+					<hr />
+					<div>
+						<span class="icon_pin"></span>
+						<div class="more_div_bottom">
+							<span>关于</span> ·
+							<span>帮助中心</span> ·
+							<span>反馈</span> ·
+							<span>博客</span>
+						</div>
+					</div>
+
+				</div>
+
+			</nav>
+
+			<!-- swiper-container 轮播图区域 -->
+			<div class="swiper-container">
+				<!-- 图片区域 -->
+				<div class="swiper-wrapper">
+					<div class="swiper-slide slide_img1"></div>
+					<div class="swiper-slide slide_img2"></div>
+					<div class="swiper-slide slide_img3"></div>
+					<div class="swiper-slide slide_img4"></div>
+					<div class="swiper-slide slide_img5"></div>
+					<div class="swiper-slide slide_img6"></div>
+				</div>
+				<!-- 小圆点 -->
+				<div class="swiper-pagination"></div>
+				<!-- 左右导航按钮 -->
+				<div class="swiper-button-next swiper-button-white"></div>
+				<div class="swiper-button-prev swiper-button-white"></div>
+			</div>
+
+		</header>
+		<section id="main" class="main">
+			<nav id="shop_nav">
+				<ul>
+					<li><span>首页</span></li>
+					<li class="nav_pull"><span>衬衫</span></li>
+					<li class="nav_pull"><span>T恤</span></li>
+					<li class="nav_pull"><span>卫衣</span></li>
+					<li class="nav_pull"><span>外套</span></li>
+					<li class="nav_pull"><span>针织衫</span></li>
+					<li class="nav_pull"><span>裤装</span></li>
+					<li class="nav_pull"><span>鞋</span></li>
+					<li class="nav_pull"><span>家居配饰</span></li>
+					<li class="nav_pull"><span>内衣袜品</span></li>
+				</ul>
+			</nav>
+			<div id="seckill" class="seckill">
+				<span class="seText">秒杀即将开始，距开始还有</span>
+				<span id="seckill_hour">00</span>
+				<span id="seckill_minute">00</span>
+				<span id="seckill_second">00</span>
+			</div>
+			<div id="seckill_goods">
+				<!--<div class="seckill_goodsdiv">
+					<img class="seckill_goodspic" src="http://p3.vanclimg.com/232/232/product/6/3/7/6379148/mid/6379148-1j201711290954420647.jpg"></img>
+					<p class="seckill_goodsname">凡客女士精梳棉中筒袜 彩点 提花款 (2双装) 粉点</p>				
+					<div class="seckill_bottom_div">
+						<p class="seckill_original_price">58</p>
+						<span class="seckill_discount_price">36</span>
+						<span class="seckill_recharge_price">18</span>
+					</div>
+				</div>-->
+
+			</div>
+			<div class="recommend_div">
+				<div class="recommend_title">
+					<div class="recommend_text">为你推荐</div>
+				</div>
+				<div id="recommend_infor">
+					<!--<div class="recommend_infor_sigle">-->
+					<!--<img class="recommend_infor_img" src="http://img.hb.aicdn.com/feaacd43db83a3cbdf01af998176233a2d4499abef1b12-n9hcPp_sq320" />-->
+					<!--<div class="recommend_infor_right">
+						<div class="recommend_infor_top_square"></div>
+							<div class="recommend_infor_top">
+								
+								<div>
+									<p class="recommend_infor_title">兴趣</p>
+									<span class="recommend_infor_text">交互设计</span>
+								</div>
+							</div>
+							<div class="recommend_infor_bottom_square"></div>
+							<div class="recommend_infor_bottom">
+								
+								<div>
+									<div class="recommend_infor_bottom_inner">
+										<p class="recommend_infor_title_r">兴趣</p>
+									</div>
+									<span class="recommend_infor_text_r">交互设计</span>
+								</div>
+							</div>
+						</div>-->
+					<!--</div>-->
+				</div>
+			</div>
+			<div class="optimization_div">
+				<div class="recommend_title">
+					<div class="recommend_text">优选推荐</div>
+				</div>
+				<ul id="optimization_infor">
+					<li>
+						<img src="http://i3.vanclimg.com/cms/20180801/pc-dxcsqlsx-08.jpg" />
+						<div class="optimization_content">
+							<span>夏日休闲短袖衬衫</span>
+							<span>充值购买更优惠</span>
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="http://i3.vanclimg.com/cms/20180601/pfy.jpg">
+							<div class="optimization_content">
+								<span>新品到货</span>
+								<span>充值购买更优惠</span>
+							</div>
+						</div>
+						<div>
+							<img src="http://i5.vanclimg.com/cms/20180801/pc-polo-08.jpg" />
+							<div class="optimization_content">
+								<span>夏日休闲短袖衬衫</span>
+								<span>充值购买更优惠</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="http://i5.vanclimg.com/cms/20180801/pc-hwyd-10.jpg" />
+						<div class="optimization_content">
+							<span>夏日休闲短袖衬衫</span>
+							<span>充值购买更优惠</span>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+			<div class="after_sale">
+				<ul class="sale_serve">
+					<li>
+						<img src="http://i4.vanclimg.com/cms/20160802/onlinecustomer.png"></img>
+						<p>7x9小时在线客服</p>
+					</li>
+					<li>
+						<img src="http://i2.vanclimg.com/cms/20160802/seven.png" />
+						<p>七天内退货</p>
+						<p>购物满199元免运费</p>
+					</li>
+					<li>
+						<img class="QRcode" src="http://i7.m.vancl.com/oms/2014_8_29_16_39_33_7709.jpg" />
+						<p>扫描下载<span>凡客</span>客户端</p>
+					</li>
+				</ul>
+				<ul class="about">
+					<li>
+						<a>关于凡客</a>
+					</li>
+					<li>
+						<a>新手指南</a>
+					</li>
+					<li>
+						<a>配送范围及时间</a>
+					</li>
+					<li>
+						<a>支付方式</a>
+					</li>
+					<li>
+						<a>售后服务</a>
+					</li>
+					<li>
+						<a>帮助中心</a>
+					</li>
+				</ul>
+
+			</div>
+
+		</section>
+		<footer>
+			<p>Copyright 2007 - 2018 vancl.com All Rights Reserved 京ICP证100557号 京公网安备11011502002400号 出版物经营许可证新出发京批字第直110138号</p>
+			<p>凡客诚品（北京）科技有限公司</p>
+			<ul>
+				<li>
+					<a href="https://search.szfw.org/cert/l/CX20111229001302001330" target="_blank"><img src="img/foot1.png" /></a>
+				</li>
+				<li><img src="img/foot2.png" /></li>
+				<li>
+					<a href="http://www.315online.com.cn/member/315090053.html" target="_blank"><img src="img/foot3.png" /></a>
+				</li>
+				<li>
+					<a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202010081900017" target="_blank"><img src="img/foot4.png" /></a>
+				</li>
+				<li>
+					<a href="http://www.vancl.com/help/about_2.htm" target="_blank"><img src="img/foot5.png" /></a>
+				</li>
+				<li>
+					<a href="http://trust.cctvmall.cn/reg/templates/brandtem1010.html" target="_blank"><img src="img/foot6.png" /></a>
+				</li>
+			</ul>
+		</footer>
+		<!--回到顶部-->
+		<div id="scroll_top">
+			<a></a>
+			<a></a>
+			<a id="go_top"></a>
+		</div>
+		<!-- 广告弹窗 -->
+		<div class="ad" id="ad">
+			<div class="ad_img" />
+			<button id="ad_close"></button>
+		</div>
+
+		</div>
+
+	</body>
+
+</html>

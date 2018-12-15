@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function getUniqueArr (max,min,n){
+			var arr=[];
+			while (arr.length != n) {
+			var sum=Math.floor(Math.random()*(max-min+1)+min);
+			var flag=true;
+			for(var i=0;i<arr.length;i++){
+			if(sum == arr[i]) {
+				flag =!flag;
+				break;
+				}
+			}
+			if(flag) {
+				arr.push(sum);
+				}
+			}
+			console.log(arr);
+			}
+			getUniqueArr (100,50,10);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				font-size: 16px;
+			}
+			
+			#box {
+				width: 600px;
+				height: 600px;
+				margin: 30px auto;
+				border: 1px solid black;
+				text-align: center;
+				line-height: 1.5;
+				padding: 20px;
+				border-radius: 5px;
+				position: relative;
+			}
+			
+			#box a {
+				color: dodgerblue;
+				cursor: help;
+			}
+			
+			.tooltipbox {
+				display: block;
+				border: 1px solid black;
+				border-radius: 5px;
+				background-color: white;
+				padding: 20px;
+				background-color: saddlebrown;
+			}
+			</style>
+	</head>
+	<body>
+		<div id="box">
+			<p>你搜安抚校色飞机欧赔<a id="tootip">你好</a>电脑上覅偶设计覅偶</p>
+		</div>
+		<script type="text/javascript">
+			var div = document.getElementById("box");
+			
+			function showToolTip(obj,content,id){
+				if(document.getElementById(id)==null){
+					var tooltipbox = document.createElement("div");
+					tooltipbox.className = "tooltipbox";
+					tooltipbox.id = id;
+					tooltipbox.innerHTML=content;
+					obj.appendChild(tooltipbox);
+					
+					tooltipbox.style.position = "absolute";
+					tooltipbox.style.top = obj.offsetHeight+"px";
+					tooltipbox.style.left = obj.offsetLeft+"px";
+					
+					obj.onmouseleave=function(){
+						document.getElementById(id).style.display = "none";
+					}
+					
+				}else{
+					document.getElementById(id).style.display = "block";
+				}
+			}
+			
+				var t1 = document.getElementById("tootip");
+				t1.onmouseenter = function(){
+					showToolTip(t1,"秋田县的一所著名高校。该校的篮球队是一支", "t1");
+				}
+		</script>
+		
+		
+	</body>
+</html>

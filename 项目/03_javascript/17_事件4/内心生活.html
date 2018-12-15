@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.banner{
+				width: 100%;
+				height: 120px;
+				background-color: red;
+				position: relative;
+			}
+			.div1{
+				width: 100px;
+				height: 50px;
+				color: white;
+				font-size: 20px;
+				position: absolute;
+				left: 50%;
+				top: 20%;
+				margin-left: -50px;
+			}
+			.center{
+				position: absolute;
+				top: 45%;
+				width:80%;
+				left: 50%;
+				margin-left: -32%;
+			}
+			#text{
+				float: left;
+				width: 60%;
+				height: 30px;
+			}
+			#button{
+				float: left;
+				width: 20%;
+				height: 35px;
+			}
+			.content {
+				width: 100%;
+				height: 50px;
+			}
+			.odiv1{
+				width: 95%;
+				height: 50px;
+				background-color: silver;
+				line-height: 50px;
+				text-indent: 2em;
+				float: left;
+			}
+			.oBtn{
+				width: 5%;
+				height: 50px;
+				float: left;
+			}
+			
+			.content:hover{
+				background-color: sandybrown;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="banner">
+			<div class="div1">内心生活</div>
+			<div id="center" class="center">
+				<input type="text" name="" id="text" value="Title..." />
+				<input type="button" name="" id="button" value="Add" />
+			</div>
+		</div>
+		<div id="content" class="content">
+		</div>
+		
+		<script type="text/javascript">
+			var oContent = document.getElementById("content")
+			var oButton = document.getElementById("button");
+			
+		oButton.onclick = function(){
+			var oDiv1 = document.createElement("div");
+			var oBtn = document.createElement("button")
+			oDiv1.className="odiv1";
+			oDiv1.innerHTML="是滴我偶尔见覅澎湃佛"
+			oContent.appendChild(oDiv1);
+			oBtn.className="oBtn";
+			oContent.appendChild(oBtn);
+		}
+			
+		oBtn.onclick = function(){
+			this.remove();
+			this.remove();
+			alert("是否删除")
+			}
+			
+		</script>
+	</body>
+</html>

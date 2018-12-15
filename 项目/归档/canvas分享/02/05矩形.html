@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+
+<script>
+
+    var oCanvas = document.getElementById("canvas");
+
+    var ctx = oCanvas.getContext("2d");
+    //ctx.strokeStyle = "red";
+    //x,y,w,h 空心矩形
+    //ctx.strokeRect(100,100,100,100);
+
+    ctx.fillStyle = "pink";
+    //实心矩形
+    ctx.fillRect(100,100,100,100);
+
+    oCanvas.onclick = function () {
+        //ctx.clearRect(100,100,50,50);
+
+//        ctx.clearRect(100,100,100,100);
+        //清除画布上的所有内容
+        ctx.clearRect(0,0,oCanvas.width,oCanvas.height);
+
+    }
+
+
+</script>
+
+
+
+
+</html>

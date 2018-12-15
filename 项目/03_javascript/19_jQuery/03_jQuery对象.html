@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//jQuery
+			//1.通过jQuery选择器获取到的都是一个jQuery对象，不是原生DOM对象
+			//2.jQuery对象是jQ独有的
+			//3.jQuery对象无法使用原生JS中的DOM对象的属性和方法
+			//4.原生JS中DOM对象也无法使用jq的任何方法
+			var oAll = document.getElementById("all");
+			console.log(oAll)
+			$(document).ready(function(){
+				var $all = $("#all");
+				console.log($all)
+				//jq对象转js的DOM对象
+				console.log($all[0]);
+				
+				//js对象转成jq对象
+				console.log($(oAll));
+			})
+		</script>
+	</body>
+</html>

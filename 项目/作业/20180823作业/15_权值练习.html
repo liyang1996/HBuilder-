@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--/* 1. id 为div1的后代 span 标签字体变成红色*/
+			/* 2. 找到类名是 span4 的标签字体变成黄色*/
+			/* 3. 找到类名是 span4 的 span 标签变成绿色 */
+			/* 4. 类名 div_c2 里的 儿子 span*/-->
+		
+		<style type="text/css">
+			#div1 span{
+				color: red;
+			}
+			
+			.span4{
+				color: yellow;
+			}
+			
+			span.span4:hover{
+				color: green;
+				font-size: 30px;
+			}
+			
+	.div_c2 span.span4{
+		background-color: palevioletred;
+	}
+			/*鼠标悬停在类名是div_c1的标签上时,他的后代span变化*/
+			
+		</style>
+	</head>    
+	<body>
+		
+		<div id="div1" class="div_c1">
+			<span class="span1" id="span_id1">span1</span>
+			<div id="div2" class="div_c2">
+				<span class="span2" id="span_id2">span2
+					<div class="div_c2">
+						<span class="span4">span4</span>
+						<strong class="span4">strong</strong>
+					</div>
+				</span>
+			</div>
+			<span class="span3" id="span_id3">span3</span>
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

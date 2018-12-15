@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_动画</title>
+		<style type="text/css">
+			div{
+				width: 150px;
+				height: 150px;
+				background-color: skyblue;
+				margin-bottom: 20px;
+			}
+			.div1{
+				/*an*/
+				/*至少需要规定2个属性	
+				 * 1.规定动画的名称
+				   2.规定动画的时长
+				*/
+				-webkit-animation:bcc 5s ;
+				-o-animation:bcc 5s ;
+				animation: bcc 5s;
+			}
+			/*bcc自己起的动画名
+			 动画过程自己定义
+			 keyframes关键帧动画*/
+			@-webkit-keyframes bcc {
+				/*fram原始状态*/
+				/*from(相当于0%) {  }*/
+				/*to要达成的状态*/
+				/*to(相当于100%) {  }*/
+				from{
+					background-color: rosybrown;
+				}
+				
+				25%{
+					background-color: royalblue;
+				}
+				
+				50%{
+					background-color: red;
+				}
+				
+				to{
+					background-color: forestgreen;
+				}
+				
+			}
+			/*@-o-keyframes bcc {
+				from {  }
+				to {  }
+			}
+			@-moz-keyframes bcc {
+				from {  }
+				to {  }
+			}
+			@keyframes bcc {
+				from {  }
+				to {  }
+			}*/
+			
+			
+			
+			
+			
+			.div2{
+				/*动画名称*/
+				/*ann*/
+				-webkit-animation-name: move;
+				-moz-animation-name: move;
+				-o-animation-name: move;
+				animation-name: move;
+				
+				/*动画时长 andu*/
+				-webkit-animation-duration: 2s;
+				-moz-animation-duration: 2s;
+				-o-animation-duration: 2s;
+				animation-duration: 2s;
+				
+				/*速度曲线 ant
+				 linear	动画从头到尾的速度是相同的。	
+				 ease	默认。动画以低速开始，然后加快，在结束前变慢。	
+				 ease-in	动画以低速开始。	
+				 ease-out	动画以低速结束。	
+				 ease-in-out	动画以低速开始和结束。
+				 * */
+				-webkit-animation-timing-function: ease;
+				-moz-animation-timing-function: ease;
+				-o-animation-timing-function: ease;
+				animation-timing-function: ease;
+				
+				/*动画延迟时间 ande*/
+				-webkit-animation-delay: 1s;
+				-moz-animation-delay: 1s;
+				-o-animation-delay: 1s;
+				animation-delay: 1s;
+				
+				/*动画次数 anic*/
+				-webkit-animation-iteration-count: 3;
+				-moz-animation-iteration-count: 3;
+				-o-animation-iteration-count: 3;
+				animation-iteration-count: 3;
+				
+				/*动画运动方向 andir*/
+				
+				/*normal  默认值 正常轨迹
+				reverse 反向运动
+				alternate 往返运动
+				alternate-reverse 反向往返运动*/
+				
+				-webkit-animation-direction: alternate-reverse;
+				-moz-animation-direction: alternate-reverse;
+				-o-animation-direction: alternate-reverse;
+				animation-direction: alternate-reverse;
+				
+				/*动画运动状态 anp
+				 *running 默认运动
+				 * pause 暂停
+				 * */
+				-webkit-animation-play-state: running;
+				-moz-animation-play-state: running;
+				-o-animation-play-state: running;
+				animation-play-state: running;
+				
+				/*运动结束停留的位置 anfm
+				 *forwards: 停留在动画结束的那一帧
+				 * backwards:停留在动画开始的那一帧
+				 * */
+				-webkit-animation-fill-mode: forwards;
+				-moz-animation-fill-mode: forwards;
+				-o-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+
+			}
+			@-webkit-keyframes move{
+				from{
+					-webkit-transform: translate(0,0);
+					-moz-transform: translate(0,0);
+					-ms-transform: translate(0,0);
+					-o-transform: translate(0,0);
+					transform: translate(0,0);
+				}
+				
+				50%{
+					-webkit-transform: translate(300px,0);
+					-moz-transform: translate(300px,0);
+					-ms-transform: translate(300px,0);
+					-o-transform: translate(300px,0);
+					transform: translate(300px,0);
+				}
+				
+				to{
+					-webkit-transform: translate(300px,300px);
+					-moz-transform: translate(300px,300px);
+					-ms-transform: translate(300px,300px);
+					-o-transform: translate(300px,300px);
+					transform: translate(300px,300px);
+				}
+			}
+			
+			
+			/*复合写法,运动名称,运动时长,速度曲线,运动次数:infinite(重复),延迟时间,运动方向,停留位置*/
+			.div3{
+				-webkit-animation: move 3s ease-in-out infinite 1s normal forwards;
+				-o-animation: move 3s ease-in-out infinite 1s normal forwards;
+				animation: move 3s ease-in-out infinite 1s normal forwards;
+			}
+			
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		
+		
+	</body>
+</html>

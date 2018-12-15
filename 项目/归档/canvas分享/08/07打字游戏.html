@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+    var ctx = oCanvas.getContext("2d");
+    oCanvas.width = document.documentElement.clientWidth;
+    oCanvas.height = document.documentElement.clientHeight;
+
+    function getRandom(n, m) {
+        return Math.floor(Math.random() * (m - n + 1) + n);
+
+    }
+
+    function Letter() {
+        this.color = "orange";
+        this.speed = getRandom(1, 10);
+        this.text = String.fromCharCode(getRandom(65, 90));
+        this.fontSize = getRandom(40, 80);
+        this.x = getRandom(0, oCanvas.width - this.fontSize);
+        this.y = this.fontSize;
+    }
+
+
+
+    Letter.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.font = this.fontSize + "px Arial";
+        ctx.fillStyle = this.color;
+        ctx.fillText(this.text, this.x, this.y);
+    }
+    Letter.prototype.move = function () {
+        this.y += this.speed;
+    }
+    Letter.prototype.isClear = function () {
+        return this.y > oCanvas.height;
+    }
+
+    var letterArr = [];//存放字母对象
+    //定时器每走20次，创建一个字母
+    var count = 0;//记录定时器走过的次数
+    setInterval(function () {
+        ctx.clearRect(0,0,oCanvas.width,oCanvas.height);
+        if(count % 20 == 0){
+            var newLetter = new Letter();
+            letterArr.push(newLetter);
+        }
+        for(var i = 0; i < letterArr.length; i++){
+            letterArr[i].move();
+            //判断字母是否应该清除
+            if (letterArr[i].isClear()){
+                letterArr.splice(i,1);
+                i--;
+            } else {
+                letterArr[i].draw();
+            }
+
+        }
+        count++;
+
+    }, 20);
+
+
+
+    document.onkeydown = function (ev) {
+
+       var ev = ev || window.event;
+       var str = String.fromCharCode(ev.keyCode);
+       for(var i = 0; i < letterArr.length; i++){
+           if (letterArr[i].text == str){
+               letterArr.splice(i,1);
+               //删除第一个下落相同的字母
+               //break;
+               //删除所有相同的字母
+               i--;
+           }
+       }
+
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

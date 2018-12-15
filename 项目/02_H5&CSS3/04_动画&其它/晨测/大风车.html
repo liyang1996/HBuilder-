@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;	
+				
+			}
+		
+			.all{
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			position: relative;
+			margin: 300px auto;
+			margin-left: 50%;	
+			border-radius: 50%;
+			
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;	
+			
+			-webkit-transition: all 10s;
+			-moz-transition: all 10s;
+			-ms-transition: all 10s;
+			-o-transition: all 10s;
+			transition: all 10s;
+				
+			}
+			
+			.all:hover{
+				-webkit-transform: rotateZ(360deg);
+				-moz-transform: rotateZ(360deg);
+				-ms-transform: rotateZ(360deg);
+				-o-transform: rotateZ(360deg);
+				transform: rotateZ(360deg);
+			}
+			.all div{
+				width: 200px;
+				height: 100px;
+				position: absolute;
+				
+			} 
+			
+			.all div:nth-child(1){
+				border-radius:100px 100px 0 0;
+				background-color: aquamarine;
+				-webkit-transform:translateX(-200px) translateZ(100px) translateY(-70px);
+				-moz-transform:translateX(-200px) translateZ(100px) translateY(-70px);
+				-ms-transform:translateX(-200px) translateZ(100px) translateY(-70px);
+				-o-transform:translateX(-200px) translateZ(100px) translateY(-70px);
+				transform:translateX(-200px) translateZ(100px) translateY(-70px);
+				}
+			.all div:nth-child(2){
+				border-radius: 0 0 100px 100px;
+				background-color: blanchedalmond;
+				-webkit-transform:translateX(100px) translateZ(100px) translateY(70px);
+				-moz-transform:translateX(100px) translateZ(100px) translateY(70px);
+				-ms-transform:translateX(100px) translateZ(100px) translateY(70px);
+				-o-transform:translateX(100px) translateZ(100px) translateY(70px);
+				transform:translateX(100px) translateZ(100px) translateY(70px);
+				}
+				
+			.all div:nth-child(3){
+				border-radius: 100px 100px 0 0;
+				background-color: salmon;
+				-webkit-transform:rotateZ(90deg) translateX(-153px) translateY(-20px);
+				-moz-transform:rotateZ(90deg) translateX(-153px) translateY(-20px);
+				-ms-transform:rotateZ(90deg) translateX(-153px) translateY(-20px);
+				-o-transform:rotateZ(90deg) translateX(-153px) translateY(-20px);
+				transform:rotateZ(90deg) translateX(-153px)  translateY(-20px);
+				}	
+				
+			.all div:nth-child(4){
+				border-radius: 100px 100px 0 0;
+				background-color: orchid;
+				-webkit-transform:rotateZ(-90deg) translateX(-153px) translateY(-120px);
+				-moz-transform:rotateZ(-90deg) translateX(-153px) translateY(-120px);
+				-ms-transform:rotateZ(-90deg) translateX(-153px) translateY(-120px);
+				-o-transform:rotateZ(-90deg) translateX(-153px) translateY(-120px);
+				transform:rotateZ(-90deg) translateX(-150px)  translateY(-120px) ;
+				}	
+			
+		</style>
+		
+	</head>
+	<body>
+		<div class="all">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08_相对定位</title>
+		<style type="text/css">
+		.div{
+			width: 100px;
+			height: 1000px;
+			margin-bottom: 20px;
+			border: 1px solid red;
+		}
+		
+		.div1{
+			background-color: rosybrown;
+		}	
+				
+			.div2{
+				background-color: antiquewhite;
+				/*相对定位 相对自身*/
+				position: relative;
+				top:20px;
+				left:30px;
+				}
+			/*相对定位
+			 
+			 * 没有脱离文档流
+			 * 相对自身定位
+			 * 一般用于微调
+			 * 不改变元素特效,行块标签特性不变
+			 * 给绝对定位做父级使用
+			 * 
+			 * */
+			
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		<div class="div1 div"></div>
+		<div class="div2 div"></div>
+		<div class="div1 div"></div>
+		
+		
+		
+	</body>
+</html>

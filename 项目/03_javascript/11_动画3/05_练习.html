@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.today{
+				width: 800px;
+				height: 50px;
+				background-color: pink;
+				margin: 5px;
+				text-align: center;
+				line-height: 50px;
+				color: white;
+				font-size: 25px;
+			}
+			.day{
+				width: 800px;
+				height: 50px;
+				background-color: palevioletred;
+				margin: 5px;
+			}
+			.day div{
+				width: 156px;
+				height: 50px;
+				background-color: skyblue;
+				float: left;
+				margin-left: 5px;
+				text-align: center;
+				line-height: 50px;
+			}
+			.day div:first-child {
+				margin-left: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+		<div id="today" class="today"></div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="day">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+		
+		<script type="text/javascript">
+			var aJson = {
+				"data": {
+					"today": {
+						"date": "15日星期日",
+						"high": "高温 29℃",
+						"fx": "南风",
+						"low": "低温 23℃",
+						"fl": "<![CDATA[4-5级]]>",
+						"type": "多云"
+					},
+					"city": "大连",
+					"aqi": "53",
+					"forecast": [{
+						"date": "16日星期一",
+						"high": "高温 29℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 23℃",
+						"fengxiang": "南风",
+						"type": "多云"
+					}, {
+						"date": "17日星期二",
+						"high": "高温 30℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 23℃",
+						"fengxiang": "南风",
+						"type": "晴"
+					}, {
+						"date": "18日星期三",
+						"high": "高温 30℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 24℃",
+						"fengxiang": "南风",
+						"type": "晴"
+					}, {
+						"date": "19日星期四",
+						"high": "高温 30℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 23℃",
+						"fengxiang": "南风",
+						"type": "晴"
+					}, {
+						"date": "20日星期五",
+						"high": "高温 30℃",
+						"fengli": "<![CDATA[4-5级]]>",
+						"low": "低温 23℃",
+						"fengxiang": "南风",
+						"type": "晴"
+					}],
+					"ganmao": "各项气象条件适宜，发生感冒机率较低。但请避免长期处于空调房间中，以防感冒。",
+					"wendu": "23"
+				},
+				"status": 1000,
+				"desc": "OK"
+			}
+			
+			var oToday=document.getElementById("today");
+			var oDay= document.getElementsByClassName("day");
+			
+			//标题
+			var title=aJson.data.today;
+			for(var key in title){
+				oToday.innerHTML+=key+title[key]+"&nbsp;&nbsp;";
+			}
+			
+			//内容
+			var forecastArr=aJson.data.forecast;
+			for(var i=0;i<forecastArr.length;i++){
+				var oDiv=oDay[i].getElementsByTagName("div");
+				var count=0;
+				for(var key in forecastArr[i]){
+					if(key=="fengxiang")continue;
+					oDiv[count].innerHTML+=key+":"+forecastArr[i][key];
+					count++;
+				}
+			}
+	
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//		var forecastArr=aJson.data.forecast;
+//			for(var i=0;i<forecastArr.length;i++){
+//				var oDiv=oDay[i].getElementsByTagName("div");
+//				var count = 0;
+//				for(var key in forecastArr[i]){
+//					if(key == "fengli") continue;
+//					oDiv[count].innerHTML+=key + " : " + forecastArr[i][key];
+//					count++;
+//				}
+//			}	
+			
+		</script>
+	</body>
+</html>

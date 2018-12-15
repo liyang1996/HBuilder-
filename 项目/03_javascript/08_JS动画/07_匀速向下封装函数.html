@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color:rosybrown;
+				position: absolute;
+				top:0;
+				left:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll= document.getElementById("all");
+			function startMove(obj,targetPosition,speed,time){
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function(){
+					clearInterval(obj.timer)
+					if(Math.abs(targetPosition-obj.offsetTop)<=Math.abs(speed)){
+						obj.style.top=targetPosition+"px";
+						clearInterval(obj.timer);
+					}else{
+						obj.style.top=obj.offsetTop+speed+"px";
+					}
+				console.log("offset: "+ obj.offsetTop);
+				},time);
+			}
+			
+			
+				startMove(oAll,500,7,20)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>项目属性_放大比例</title>
+		<style type="text/css">
+				.box{
+					border: 10px solid black;
+					/*弹性布局 */
+					display: flex;
+					}
+			
+				.box div{
+					width: 150px;
+					height: 150px;
+					background-color: rosybrown;
+					text-align: center;
+					font-size: 30px;
+					line-height: 150px;
+					margin: 10px;
+					/*放大比例 默认0不放大*/
+					flex-grow: 1;
+				}			
+				
+				.box div:nth-child(2){
+					/*2不方大,1和3会把剩余空间充满*/
+					flex-grow: 0;
+				}
+				
+				
+		</style>
+		
+	</head>
+	<body>
+		<body>
+		<div class="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+		</div>
+	</body>
+</html>

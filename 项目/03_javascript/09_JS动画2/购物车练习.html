@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.all {
+				width: 100px;
+				height: 100px;
+				margin-bottom: 5px;
+				position: relative;
+			}
+			
+			.top {
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 100;
+			}
+			
+			.bottom {
+				width: 200px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				top: 0;
+				left: -100px;
+				text-align: center;
+				line-height: 100px;
+				color: white;
+				font-size: 30px;
+				z-index: 50;
+			}
+			
+			/*z-index 属性设置元素的堆叠顺序。
+			 * 拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。*/
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="top"></div>
+			<div class="bottom">购物车</div>
+		</div>
+		<div class="all">
+			<div class="top"></div>
+			<div class="bottom">我的订单</div>
+		</div>
+		<div class="all">
+			<div class="top"></div>
+			<div class="bottom">历史足迹</div>
+		</div>
+		<div class="all">
+			<div class="top"></div>
+			<div class="bottom">网红达人</div>
+		</div>
+		<div class="all">
+			<div class="top"></div>
+			<div class="bottom">精彩推荐</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oDiv1s = document.getElementsByClassName("all");
+		var oBottoms = document.getElementsByClassName("bottom");
+		for(var i=0;i<oDiv1s.length;i++){
+			oDiv1s[i].index=i;
+			oDiv1s[i].onmouseover=function(){
+				uniformMove(oBottoms[this.index],"left",100,10,10);
+			}
+			oDiv1s[i].onmouseout=function(){
+				uniformMove(oBottoms[this.index],"left",-100,-10,10)
+			}
+		}
+	</script>
+
+</html>

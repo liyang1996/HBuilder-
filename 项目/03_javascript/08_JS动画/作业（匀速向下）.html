@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color:rosybrown;
+				position: absolute;
+				top:0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll= document.getElementById("all");
+			function starMove(obj,ditance,speed,time){
+				obj.timer = setInterval(function(){
+					if(ditance-obj.offsetTop<=speed){
+					obj.style.top=ditance+"px"
+					clearInterval(obj.timer);
+				}else{
+					obj.style.top=obj.offsetTop+speed+"px";
+				}
+					console.log("off:"+obj.offsetTop);
+				},time)
+			}
+				starMove(oAll,500,7,20);
+		</script>
+	</body>
+</html>

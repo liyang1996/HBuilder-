@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#wrap{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap"></div>
+		<script type="text/javascript">
+			var oWrap = document.getElementById("wrap");
+			oWrap.onmousedown = function(ev){
+				//事件对象，是响应当前事件时，所有的相关信息
+				console.log(ev)	;
+				//window.event兼容IE
+				var ev = ev || window.event;
+			}
+			
+			function add(a,b){
+				var a = a||0;//形参默认值
+				console.log(a,b)
+			}
+				add(1,2);
+				add();
+				
+				
+				
+				
+		</script>
+	</body>
+</html>

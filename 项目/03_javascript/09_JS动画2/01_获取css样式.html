@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				margin: 10px;
+				border: 1px solid red;
+				background-color: rosybrown;
+				position: absolute;
+				left: 20px;
+				top: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll=document.getElementById("all");
+			//getComputedStyle可以获取当前元素最终使用的css属性值
+			console.log(getComputedStyle(oAll));
+			//获取单个属性值，中括号加属性名
+			var theBoder = getComputedStyle(oAll)["border"];
+			console.log(theBoder)
+			
+			var theLeft= getComputedStyle(oAll)["left"];
+			console.log(theLeft);//20px
+			
+			//IE需要使用其他方式获取
+			//attr属性
+			function getStyle(obj,attr){
+				if(obj.currentStyle){
+					//支持IE
+					return obj.currentStyle[attr];
+				}else{
+					return getComputedStyle(obj)[attr];
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*JSON
+			 * JavaScript Object Notation
+			 * 1.json是什么？
+			 * 它是JS提供的一种数据交换格式
+			 * 
+			 * 2.json的语法
+			 * 一对儿花括号{}代表是对象
+			 * {
+			 * 		属性名1：属性值1,	
+			 * 		属性名2：属性值2,	
+			 * 		......
+			 * }
+			 * 
+			 * >属性名必须使用双引号括起来
+			 * >属性值：
+			 * 		null
+			 * 		数值
+			 * 		字符串
+			 * 		数组：[]
+			 * 		boolean值
+			 * 		对象
+			 * 
+			 * 属性名1：属性值1   
+			 * 称为键值对
+			 * key(键):value（值）
+			 * 
+			 */
+			var aJson = {
+				"name":"老姨",
+				"age":18,
+				"gender":"女"
+			};
+			console.log(aJson);
+			
+			//json的取值
+			console.log(aJson["gender"]);//女
+			console.log(aJson.name);//老姨
+			
+			//赋值
+			//如果json中存在Key值，那么直接改变key所对应的value值（相当于替换）；
+			//如果json中不存在Key值，那么直接在json中添加一组键值对
+			aJson.name="大老姨";
+			aJson["weight"]=60;
+			
+			var height="weight";
+			aJson[height]="175";
+			
+			console.log(aJson);
+			
+			var name = "老舅";
+			var sex = "男";
+			var age = 18;
+			var bJson = {name,sex,age};
+			console.log("bJson"+bJson["name"]);//老舅
+			console.log("bJson"+bJson[name]);//未定义
+			//name是变量，[name]需要填Key值，key值中没有"老舅"，key值只有name,sex,age这三个属性名
+			
+			//name;age;gender
+			//遍历json for...in 
+			for(var key in aJson ){
+				console.log(key+":"+aJson[key])
+			}
+			
+			//for ...in 也可以遍历数组
+			var arr=[1,2,3,4,4]
+			for(var i in arr ){
+				console.log(i+":"+arr[i])
+			}
+			
+			//json转成json字符串
+			var jsonStr=JSON.stringify(aJson);
+			console.log(jsonStr)
+			
+			//json字符串转成json  json数据为object
+			console.log(JSON.parse(jsonStr))
+		</script>
+	</body>
+</html>

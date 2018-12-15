@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all {
+				overflow: hidden;
+			}
+			
+			#min,
+			#max {
+				width: 350px;
+				height: 350px;
+				border: 1px solid black;
+				position: relative;
+				float: left;
+				margin-right: 20px;
+			}
+			#mask {
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				opacity: 0.5;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 100;
+				display: none;
+			}
+			
+			#max {
+				overflow: hidden;
+				display: none;
+			}
+			
+			#max img {
+				position: absolute;
+			}
+		</style>
+
+		<body>
+			<div id="all">
+				<div id="min">
+					<img src="img/min.jpg" />
+					<div id="mask"></div>
+				</div>
+				<div id="max">
+					<img src="img/max.jpg" id="maxImg" />
+				</div>
+			</div>
+
+			<script type="text/javascript">
+				var oMin = document.getElementById("min");
+				var oMax = document.getElementById("max");
+				var oMask = document.getElementById("mask");
+				var oMaxImg = document.getElementById("maxImg");
+				oMin.onmouseover = function() {
+					oMask.style.display = "block";
+					oMax.style.display = "block";
+				}
+				oMin.onmouseout = function() {
+					oMask.style.display = "";
+					oMax.style.display = "";
+				}
+				
+				oMin.onmousemove = function(ev) {
+					var ev = ev || window.event;
+					var maskL = oMin.clientWidth - oMask.offsetWidth;
+					var maskT = oMin.clientHeight - oMask.offsetHeight;
+					
+					var posL = ev.pageX - this.offsetLeft - oMask.offsetWidth / 2;
+					var posT = ev.pageY - this.offsetTop  - oMask.offsetHeight / 2;
+					if (posL <= 0) {
+						posL = 0;
+					} 
+					if (posL >= maskL) {
+						posL = maskL;
+					}
+					if (posT <= 0) {
+						posT = 0;
+					} 
+					if (posT >= maskT) {
+						posT = maskT;
+					}
+					oMask.style.left = posL + "px";
+					oMask.style.top  = posT + "px";
+					//mask走过的百分比
+					var percL = posL / maskL;
+					var percT = posT / maskT;
+					var maxImgL = oMax.clientWidth - oMaxImg.offsetWidth;
+					var maxImgT = oMax.clientHeight - oMaxImg.offsetHeight;
+					oMaxImg.style.left = maxImgL * percL + "px";
+					oMaxImg.style.top  = maxImgT * percT + "px";
+				}
+			</script>
+		</body>
+
+</html>

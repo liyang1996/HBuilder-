@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_if_else</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*顺序结构
+			 *分支结构 
+			 */
+			/*单分支
+			 * if(填条件表达式){
+			 		语句
+			 }
+			 语句2....
+			 条件表达式满足的情况下,执行大花括号里的语句
+			 不满足不执行大花括号!继续执行花括号扩死下面的内容
+			 
+			if(下雨){
+				放假回家!
+			}
+			
+			别忘了打卡!			 
+			 
+			 */
+			var x =15;
+			var y = 10;
+			if(x>y) {
+				console.log("x大于y");
+			}
+			
+			console.log("aaa");//aaa
+			
+			/*双分支
+			  if(条件表达式){
+			  	语句1
+			  	
+			  }
+			  else{
+			  	语句2
+			  	
+			  }
+			
+				if(请假){
+					
+					补时
+				}else{
+					旷课扣分
+				}
+				就不给假!
+			 */
+			
+			if(x>y){
+				console.log("x大于y");
+			}else{
+				console.log("x小于等于y");
+			}
+			
+			console.log("aaa");	
+			
+			/*多分支
+			 * if(条件表达式){
+			 * 	
+			 * 语句1
+			 * 
+			 * }else if(条件表达式){
+			 * 	语句2
+			 * 
+			 * }else if(条件表达式){
+			 * 语句3	
+			 * }else{
+			 * 	语句四
+			 * }
+			 */
+			
+			x = 15;
+			y = 25;
+			if(x>y){
+				console.log("x大于y");
+			}else if(x<y){
+				console.log("x小于y");
+			}else{
+				console.log("x等于y");
+			}
+			
+			/*练习: 定义一个成绩, 90分以上控制台打印优.
+					80分以上打印良
+					60分以上打印及格
+					不到60打印不及格
+			* */
+			
+			var score =80;
+			if(score>=90){
+				console.log("优");
+			}else if(90>score &&  score>=80){
+				console.log("良");                                                                                                                                                                                                                                                                                                                                           
+			}else if(80>score &&  score>=60){
+				console.log("及格");
+			}else{
+				console.log("不及格");
+			}
+			console.log("a")
+			var m = true ;
+			
+			
+			//非0即为真
+			if (-1){
+				console.log("朱一龙");
+			}else{
+				console.log("五千");
+			}
+			
+			
+			
+			
+		</script>		
+	</body>
+</html>

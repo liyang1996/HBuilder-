@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+
+<script>
+
+    var oCanvas = document.getElementById("canvas");
+
+    var ctx = oCanvas.getContext("2d");
+    //白色大半圆
+    ctx.beginPath();
+    ctx.arc(250,250,200,Math.PI/2,270 * Math.PI/180,false);
+    ctx.stroke();
+    //黑色大半圆
+    ctx.beginPath();
+    ctx.arc(250,250,200,Math.PI/2,270 * Math.PI/180,true);
+    ctx.stroke();
+    ctx.fill();
+
+    //上面黑色小圆
+    ctx.beginPath();
+    ctx.arc(250,150,100,0,Math.PI*2,false);
+    ctx.fill();
+    //下面白色小圆
+    ctx.beginPath();
+    ctx.arc(250,350,100,0,Math.PI*2,false);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+
+    ctx.beginPath();
+    ctx.arc(250,150,50,0,Math.PI*2,false);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(250,350,50,0,Math.PI*2,false);
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+
+</script>
+
+</html>

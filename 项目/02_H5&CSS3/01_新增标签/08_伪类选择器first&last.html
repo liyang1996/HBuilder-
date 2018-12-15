@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08_伪类选择器first&last.</title>
+		<style type="text/css">
+			/*父标签中的第一个子元素
+			 如果是P标签,选择器就会选中*/
+			 
+			h1:first-child{
+				color: red;
+			}
+			
+			/*所有父标签中第一个P标签子元素*/
+			/*p:first-of-type{
+				color: red;
+			}*/
+			
+			/*所有父标签中的最后一个元素
+			 如果是P标签,才会被选中*/
+			
+			/*p:last-child{
+				color: red;
+			}*/
+			
+			/*所有父标签中最后一个P标签*/
+			/*P:last-of-type{
+				color: greenyellow;
+				}
+			*/
+		</style>
+		
+	</head>
+	<body>
+		
+		<p>我是 body 的第一个子元素: p</p>
+		<p>我是 body 的第二个子元素: p</p>
+
+
+	<div>
+		<h1>我是div中的第一个元素: h1</h1>
+		<p>div中的第二个元素: 我是p标签</p>
+		<p>div中的p标签</p>
+		<p>div中的p标签</p>
+		<p>div中的p标签</p>
+		<p>div中的最后一个元素: 我是p标签</p>
+	</div>
+
+	<p>body中的最后一个p标签</p>
+	
+	<div>body 中最后一个标签div</div>
+		
+	</body>
+</html>

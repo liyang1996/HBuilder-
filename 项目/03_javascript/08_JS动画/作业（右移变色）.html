@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				background-color: wheat;
+				position: absolute;	
+				width: 0;
+				top: 0;	
+				left: 0;		
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+				startMove(oAll,500,10,100);
+				oAll.timers = setInterval(function(){
+					oAll.style.backgroundColor =getcolr();
+					//oAll.style.width=800px;
+				},100);
+			
+			function startMove(obj,targetPosition,speed,time){
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function(){
+					if(Math.abs(targetPosition-obj.offsetWidth)<=Math.abs(speed)){
+						obj.style.width=targetPosition+"px";
+					}else{
+						obj.style.width=obj.offsetWidth+speed+"px";
+					}
+				console.log("offset: "+ obj.offsetWidth);
+				},time);
+			}
+			
+			function getcolr(){
+			var r = Math.floor(Math.random()*(255-0+1)+0);
+			var g = Math.floor(Math.random()*(255-0+1)+0);
+			var b = Math.floor(Math.random()*(255-0+1)+0);
+				return "rgb("+r+","+g+","+b+")";
+				}	
+				
+		</script>
+	</body>
+</html>

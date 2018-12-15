@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			
+			div{
+				width: 150px;
+				height: 150px;
+				background-color: yellowgreen;
+				border: 5px solid red;				
+				margin: 20px;
+				/*如果外边距直接接触,会发生折叠
+				 这个现象 只存在于垂直方向,水平没有
+				 * */
+			}
+
+			/*如果两个外边距不相等,会选择较大的外边距进行设置*/			
+			.div1{
+				margin-bottom: 60px;
+			}
+			.div2{
+				margin-top: 10px;
+			}
+			
+			
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<div class="div1"></div>
+		<div class="div2"></div>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#box {
+				width: 300px;
+				height: 300px;
+				border: 2px solid black;
+				position: relative;
+			}
+			
+			#box div {
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="wolfs"></div>
+		</div>
+		<script type="text/javascript">
+			var arrPos = [{
+				"left": 0,
+				"top": 0
+			}, {
+				"left": 100,
+				"top": 0
+			}, {
+				"left": 200,
+				"top": 0
+			}, {
+				"left": 100,
+				"top": 100
+			}, {
+				"left": 200,
+				"top": 100
+			}, {
+				"left": 0,
+				"top": 100
+			}, {
+				"left": 0,
+				"top": 200
+			}, {
+				"left": 100,
+				"top": 200
+			}, {
+				"left": 200,
+				"top": 200
+			}];
+			var oWolf = document.getElementById("wolfs");
+			//var movertimer = null;
+			
+			var wolfArr = ["img/h-1.png","img/h0.png", "img/h1.png", "img/h2.png", "img/h3.png", "img/h4.png", "img/h5.png", "img/h6.png", "img/h7.png", "img/h8.png", "img/h9.png"]
+			//随机狼出现的位置
+			
+			function wolfMove() {
+				var wolfPos = Math.floor(Math.random()*((arrPos.length- 1)- 0 + 1) + 0);
+				console.log(arrPos)
+				//console.log(arrPos[wolfPos]["left"])
+				
+				oWolf.style.left = arrPos[wolfPos]["left"] + "px";
+				oWolf.style.top = arrPos[wolfPos]["top"] + "px";
+				//创建存放狼的图片标签
+				var wolfImg = document.createElement("img");
+				oWolf.appendChild(wolfImg);
+				//记录定时器走过的次数
+				var count = 0
+				//记录图片的下标
+				var index = 0
+				 var movertimer = setInterval(function() {
+					if(count < 6) {
+						wolfImg.src = wolfArr[index]
+						index++
+					}else if(count >= 6 && count < 12) {
+						index--
+						wolfImg.src = wolfArr[index]
+					}else{
+						//运动结束
+						clearInterval(movertimer);
+						wolfImg.remove();
+						wolfMove()
+					}
+                     count++;
+				}, 200)
+			}
+			
+					wolfMove()
+		</script>
+	</body>
+</html>

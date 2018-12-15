@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all{
+				width: 500px;
+				border: 1px solid red;
+				margin: 0 auto;
+				position: relative;
+				background-color: #000000;
+				z-index: 50;
+				/*添加相对定位才会跟着框走,否则跟着页面走*/
+			}
+			.all img{
+				width: 500px;
+				height: 500px;
+			}
+			.all div{
+				width: 200px;
+				height: 50px;
+				background-color: rgba(0,0,0,.5);
+				font-size: 20px;
+				text-align: center;
+				line-height: 50px;
+				color: aquamarine;
+				
+				
+				position: absolute;
+				left: 0;
+				bottom: 100px;
+				
+				/*绝对定位
+				 * 1.不占文档流
+				 * 2.元素会变成定位元素,默认由内容撑起宽高,可以设置宽高
+				 * 3.一般用于堆叠效果
+				 * 4.基于祖宗辈中(上级)最近的定位元素(绝对,相对)进行定位
+				 * 如果父级标签元素都没有定位元素,则相对于浏览器进行定位
+				 * */
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<div class="all">
+			<img src="../../图片/sd.jpg"/>
+			<div>社会人就是我</div>
+		</div>
+		
+	</body>
+</html>

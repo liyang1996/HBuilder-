@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				-webkit-transform-style: preserve-3d;
+					-moz-transform-style: preserve-3d;
+					-ms-transform-style: preserve-3d;
+					transform-style: preserve-3d;
+						
+					-webkit-perspective:3000px;
+					-moz-perspective:3000px;
+					-ms-perspective: 3000px;	
+					perspective: 3000px;
+			}
+		
+			.all{
+				width: 150px;
+				height: 150px;
+				background-color: blue;
+				border-radius: 50%;
+				margin: 200px auto;
+				position: relative;
+				
+				-webkit-transition: all 10s;
+				-moz-transition: all 10s;
+				-ms-transition: all 10s;
+				-o-transition: all 10s;
+				transition: all 10s;
+				
+				-webkit-transform-style: preserve-3d;
+				-moz-transform-style: preserve-3d;
+				-ms-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+			.all:hover{
+				-webkit-transform:rotateZ(360deg) ;
+				-moz-transform: rotateZ(360deg) ;
+				-ms-transform:  rotateZ(360deg) ;
+				-o-transform:  rotateZ(360deg) ;
+				transform:  rotateZ(360deg)   ;
+				}
+				
+			.div1{
+				width: 150px;
+				height: 150px;
+				background-color: yellow;
+				position: relative;
+				top: -150px;
+				
+				-webkit-transform:rotateX(60deg) rotateY(45deg) translateZ(-150px);
+				-moz-transform:rotateX(60deg) rotateY(45deg)   translateZ(-150px);
+				-ms-transform:rotateX(60deg) rotateY(45deg)  translateZ(-150px);
+				-o-transform:rotateX(60deg) rotateY(45deg) translateZ(-150px);
+				transform: rotateX(-60deg)  rotateY(45deg) translateZ(-50px) translateX(20px) translateY(40px);
+				
+			}
+			
+			.div2{
+				width: 150px;
+				height: 150px;
+				background-color: red;
+				position: relative;
+				
+				-webkit-transform:rotateX(60deg) rotateY(45deg) translateZ(250px);
+				-moz-transform:rotateX(60deg) rotateY(45deg)   translateZ(250px);
+				-ms-transform:rotateX(60deg) rotateY(45deg)  translateZ(250px);
+				-o-transform:rotateX(60deg) rotateY(45deg) translateZ(250px);
+				transform: rotateX(-60deg)  rotateY(-45deg) rotateZ(-45deg) translateX(750px) translateY(-330px) translateZ(100px) ;
+			}
+			
+			.div3{
+				width: 150px;
+				height: 150px;
+				background-color: green;
+				position: relative;
+				
+				-webkit-transform:rotateX(60deg) rotateY(45deg) translateZ(100px);
+				-moz-transform:rotateX(60deg) rotateY(45deg)   translateZ(100px);
+				-ms-transform:rotateX(60deg) rotateY(45deg)  translateZ(100px);
+				-o-transform:rotateX(60deg) rotateY(45deg) translateZ(100px);
+				transform: rotateX(-60deg)  rotateY(45deg) translateZ(100px)  translateX(-100px) translateY(-550px) ;
+			}
+			
+			
+			
+			.div4{
+				width: 150px;
+				height: 150px;
+				background-color: orange;
+				position: relative;
+				top: -600px;
+				left: -100px;
+				
+				-webkit-transform:rotateX(60deg) rotateY(45deg) translateZ(100px);
+				-moz-transform:rotateX(60deg) rotateY(45deg)   translateZ(100px);
+				-ms-transform:rotateX(60deg) rotateY(45deg)  translateZ(100px);
+				-o-transform:rotateX(60deg) rotateY(45deg) translateZ(100px);
+				transform: rotateX(-60deg)  rotateY(-45deg) rotateZ(-45deg) translateX(-100px) translateY(100px) translateZ(100px) ;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="all">
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div4"></div>
+		</div>
+	</body>
+</html>

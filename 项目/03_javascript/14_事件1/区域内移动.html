@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#div {
+				margin: 0 auto;
+				width: 800px;
+				height: 600px;
+				border: 2px solid black;
+				position: relative;
+			}
+			
+			#svg {
+				width: 100px;
+				height: 100px;
+				background-color: orchid;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div">
+			<div id="svg"></div>
+		</div>
+		<script type="text/javascript">
+			var div = document.getElementById("div");
+			var svg = document.getElementById("svg");
+		
+			svg.onmousedown = function(){
+				document.onmousemove = function(ev) {
+					var ev = ev || window.event;
+					//  mouseX 横向运动的距离
+				var mouseX= ev.clientX - div.offsetLeft- svg.offsetWidth/2;
+					//	console.log("这是啥： "+mouseX);
+					//  mouseY 纵向运动的距离
+				var 	mouseY =  ev.clientY- div.offsetTop- svg.offsetHeight/2  ;
+					//	console.log("这又是啥："+mouseY);
+										
+					//  运动距离小于0 就会从黑框出去， 所以定位到 紧贴黑框左边
+					if(mouseX <0){
+						svg.style.left = 0 +"px";
+					}		
+					//  黑框的内容宽800px  - 粉块的宽100    这里找运动距离的最大值
+					else if(mouseX > div.clientWidth-svg.offsetWidth){
+						
+							svg.style.left=div.clientWidth-svg.offsetWidth+"px";
+						}else{
+					//  100<  运动距离 <800 
+						svg.style.left = mouseX +"px";
+						}
+						
+					//  同理 纵向运动距离
+						if(mouseY <0){
+							svg.style.top = 0 +"px";
+						}
+						else if(mouseY > div.clientHeight - svg.offsetHeight){
+							 svg.style.top = div.clientHeight - svg.offsetHeight;
+						}
+						else{
+							svg.style.top = mouseY + "px";
+						}
+				}
+			}
+		</script>
+	</body>
+
+</html>

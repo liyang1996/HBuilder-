@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*必填*/
+			input:required{
+				background-color: rosybrown;
+			}
+			/*可选填*/
+			input:optional{
+				background-color: greenyellow;
+			}
+			
+			/*readonly只读
+			 readwrite读写*/
+			input:read-write{
+				background-color: aqua;
+			}
+			
+			/*请将只读的那一栏,身份证制度变成红色*/
+			input:read-only+span.title{
+				color: red;
+			}
+			
+			/*输入的值有效*/
+			input:valid{
+				border: 2px solid black;
+			}
+			/*输入的值无效*/
+			input:invalid{
+				border: 5px solid red;
+				
+			}
+						
+			
+			
+		</style>
+	</head>
+	<body>
+		姓名:
+		<input type="text" readonly />
+		<br />
+		年龄:
+		<input type="text" required />
+		<br />
+		身份证号:
+		<input type="text"  value="210281XXXXXXXX" readonly />
+		<span class="title">身份证只读</span>
+		其它:
+		<input type="type" readonly/>
+		<div class="title">其它元素</div>
+		<br />
+		
+		email:
+		<input type="email"/>
+		
+	</body>
+</html>

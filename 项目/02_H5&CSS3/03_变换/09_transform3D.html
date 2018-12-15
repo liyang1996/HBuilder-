@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 350px;
+				height: 350px;
+				background-color: rgba(100,50,100,.5);
+				margin: 100px auto;
+				position:relative ;
+				/*开启3D
+				 * 必须在具有3D效果的父级添加
+				 让里面的子元素处于3D空间中*/
+				/*trfs 开启3D*/
+				-webkit-transform-style: preserve-3d;
+				-moz-transform-style: preserve-3d;
+				-ms-transform-style: preserve-3d; 
+				transform-style: preserve-3d;
+				
+				/*设置透视距离,透视距离越大,3D效果越不明显*/
+				/*perspective+tab*/
+				-webkit-perspective: 2000px;
+				-moz-perspective: 2000px;
+				-ms-perspective: 2000px;
+				perspective: 2000px;
+				
+				
+			}
+			.inner{
+				width: 260px;
+				height: 260px;
+				border: 2px solid black;
+				background-color: aquamarine;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -230px;
+				margin-top: -130px;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+				/*背面不可见*/
+				backface-visibility: hidden;
+				
+			}
+			.inner:hover{
+				/*trfrx  x轴60度*/
+				-webkit-transform: rotateX(60deg);
+				-moz-transform: rotateX(60deg);
+				-ms-transform: rotateX(60deg);
+				-o-transform: rotateX(60deg);
+				transform: rotateX(60deg);
+				
+				/*trfry  y轴60度*/
+				-webkit-transform: rotateY(180deg);
+				-moz-transform: rotateY(180deg);
+				-ms-transform: rotateY(180deg);
+				-o-transform: rotateY(180deg);
+				transform: rotateY(180deg);
+				
+				/*trfry  Z轴*/
+				-webkit-transform: rotateZ(180deg);
+				-moz-transform: rotateZ(180deg);
+				-ms-transform: rotateZ(180deg);
+				-o-transform: rotateZ(180deg);
+				transform: rotateZ(180deg);
+				
+				/*Z轴移动*/
+				-webkit-transform: translateZ(-500px);
+				-moz-transform: translateZ(-500px);
+				-ms-transform: translateZ(-500px);
+				-o-transform: translateZ(-500px);
+				transform: translateZ(-500px);
+				
+				/*多种效果,先后位置和最终停留效果有关系*/
+				-webkit-transform: rotateY(30deg) translateZ(-500px) ;
+				-moz-transform: rotateY(30deg) translateZ(-500px);
+				-ms-transform: rotateY(30deg) translateZ(-500px);
+				-o-transform: rotateY(30deg) translateZ(-500px);
+				transform: rotateY(30deg) translateZ(-500px) ;
+				
+				
+				
+			}
+			
+			
+		</style>
+		
+		
+		
+	</head>
+	<body>
+		
+				<div class="box">
+					<div class="inner"></div>
+					
+				</div>
+		
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_映纷视觉</title>
+		<style type="text/css">
+			
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			body{
+				background-color: #f2f2f2;
+			}
+			/*导航*/
+			
+			.nav{
+				width: 100%;
+				background-color: black;
+				opacity: .8;
+				text-align: center;
+				position: fixed;
+				z-index: 100;
+				box-shadow: 0px 0px 2px 2px;
+			}
+			
+			a{
+				text-decoration: none;
+				font-size: 13px;
+				margin-right: 10%;
+				background-color: black;
+				color: gray;
+				
+			}
+		/*导航文字*/
+			.nav_wenzi{
+				min-width: 450px;
+				margin-left: 5%;
+				margin-right: 5%;
+				font-weight: lighter;
+				background-color: black;
+			}
+			
+			a:hover{
+				color: ghostwhite;
+			}
+			
+			/*轮播图*/
+			.banner img{
+				padding-top: 100px;
+				padding-left: 10%;
+				padding-right: 10%;
+				width: 80%;
+			}
+			.banner{
+				width: 100%;
+				position: relative;
+			}
+			
+			.banner_bottom{
+				margin-left: 10%;
+				width: 80%;
+				opacity: .5;
+				background-color: black;
+				position: absolute;
+				bottom: 4px;
+			}
+		/*Infini Studio （映纷创意）*/
+			.title  p{
+				text-indent: 2em;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				font-weight: normal;
+				font-family: STKaiti;
+				color: rgb(102, 102, 102);
+			}
+			
+			.title{
+			width: 80%;
+			margin-left: 10%;
+			margin-right: 10%;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border-top: 1px #e8e8e8 solid;
+			border-bottom:1px #e8e8e8 solid;
+			}		
+			
+			/*合作伙伴logo*/
+			.logo {
+				width: 80%;
+				margin-left: 10%;
+				overflow: hidden;
+			
+			}		
+			.logo img{
+				width: 6.5%;
+			}	
+			
+			/*content内容大框*/
+			.content{
+				width: 80%;
+				margin-left: 11.5%;
+				min-width: 560px;
+				text-align: center;
+			}
+			
+			/*单个box*/
+			
+			.box img{
+				width: 100%;
+				height: 100%;
+				border-top-left-radius: 6px;
+				border-top-right-radius: 6px;
+			}
+			
+			.box{
+				position: relative;
+				width: 28%;
+				height: 15%;
+				display: inline-block;
+				margin-right: 5%;
+				margin-bottom: 5%;
+			}
+			
+			.box1{
+				background-color: rgba(0,0,0,.5);
+				width: 100%;
+				height:85%;
+				color: white;
+				text-align: center;
+				position: absolute;
+				top: 0;
+				opacity: 0;
+				overflow: hidden;
+				border-top-left-radius: 6px;
+				border-top-right-radius: 6px;
+				box-sizing: border-box;
+				padding: 15%;
+				-webkit-transition-duration: 2s;
+				-moz-transition-duration: 2s;
+				-ms-transition-duration: 2s;
+				-o-transition-duration: 2s;
+				transition-duration: 2s;
+			}
+			
+			.box:hover .box1{
+				opacity: 1;
+			}
+			.text_top{
+				background-color: white;
+				 text-align: center;
+				 width: 100%;
+				 border: 5px 5px 10px 10px black;
+				 margin-top: -5px;
+				 border-bottom-left-radius: 6px;
+				border-bottom-right-radius: 6px;
+			}
+			
+				@media only screen and (min-width: 480px){
+					
+				.box{
+						width: 25%;
+						
+						}
+						
+				
+				}
+					
+				@media only screen and (max-width: 480px){
+					
+				.box{
+						width: 30%;}
+				
+				}
+					
+			/*底部页尾*/		
+				.bottom-left{
+					background-color: gainsboro;
+					width: 50%;
+					height: 200px;
+					float: left;
+					text-align: right;
+					
+					box-sizing: border-box;
+					border-right: 1px solid gray;
+				}
+				
+				.bottom-right{
+					background-color: gainsboro;
+					width: 50%;
+					height: 200px;
+					float: left;
+					text-indent: 1em;
+				}
+				
+				.bottom-right p{
+					color: #666666;
+					font-size: 12px;
+				}
+				
+						
+		</style>
+	</head>
+	<body>
+		<!--导航-->
+		<div class="nav">
+			<img src="../04_动画&其它/img/title2.png" style="width: 110px ;height: 32px;padding-top: 10px; padding-bottom: 10px;background-color: black;"/>
+			<div class="nav_wenzi">
+				<a href="" >HOME</a>
+				<a href="">WORK</a>
+				<a href="">CONTACT</a>
+				<a href="">JOIN US</a>
+			</div>
+		</div>
+		
+		<!--轮播图-->
+		<div class="banner">
+			<img src="../04_动画&其它/img/banner1.jpg"/>
+			<div class="banner_bottom">
+				<h3 style="color: white;  text-align: center; margin: 5px;font-family: 微软雅黑;font-size: 16px;background-color: black;">清新绿色大实验室解密H5</h3>
+			</div>
+		</div>
+		
+		<!--Infini Studio （映纷创意）-->
+		<div class="title">
+			<p >Infini Studio （映纷创意）是一家以动画和设计为驱动的独立创意机构。我们运用多样化的创作形式，为品牌提供丰富多元的跨媒体整合创意营销。</p>
+			</div>
+			
+		<!--合作伙伴logo-->
+		<div class="logo">
+			<span><img src="http://www.infinistudio.cn/Public/home/images/1.jpg"/ ></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/2.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/14.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/3.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/4.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/5.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/6.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/7.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/12.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/13.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/8.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/9.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/10.jpg"/></span>
+			<span><img src="http://www.infinistudio.cn/Public/home/images/11.jpg"/></span>
+		</div>
+			<br /><br />
+		<!--content内容-->
+		<div class="content">
+			
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/ueditor/php/upload/image/20180906/1536204519460052.jpg"/>
+				<p class="text_top">OPPO R17系列</p>	
+				<div class="box1">
+					<h1>OPPO</h1>
+					<p >带上她,做一只耀眼的动物</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-08-07/5b69455ac457d.jpg"/>
+				<p class="text_top">贝壳找房</p>	
+				<div class="box1">
+					<h1>贝壳</h1>
+					<p >VR看房</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-07-27/5b5ac93f41859.jpg"/>
+				<p class="text_top">青桔单车</p>	
+				<div class="box1">
+					<h1>滴滴出行</h1>
+					<p >你是出行侠,还是出行杀?</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a47775e22.jpg"/>
+				<p class="text_top">数字敦煌</p>	
+				<div class="box1">
+					<h1>腾讯公益</h1>
+					<p >数字敦煌</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a53b71f19.jpg"/>
+				<p class="text_top">抖音品牌升级片</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a4c4e46f4.jpg"/>
+				<p class="text_top">2017我的家乡头条</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/ueditor/php/upload/image/20180906/1536204519460052.jpg"/>
+				<p class="text_top">OPPO R17系列</p>	
+				<div class="box1">
+					<h1>OPPO</h1>
+					<p >带上她,做一只耀眼的动物</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-08-07/5b69455ac457d.jpg"/>
+				<p class="text_top">贝壳找房</p>	
+				<div class="box1">
+					<h1>贝壳</h1>
+					<p >VR看房</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-07-27/5b5ac93f41859.jpg"/>
+				<p class="text_top">青桔单车</p>	
+				<div class="box1">
+					<h1>滴滴出行</h1>
+					<p >你是出行侠,还是出行杀?</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a47775e22.jpg"/>
+				<p class="text_top">数字敦煌</p>	
+				<div class="box1">
+					<h1>腾讯公益</h1>
+					<p >数字敦煌</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a53b71f19.jpg"/>
+				<p class="text_top">抖音品牌升级片</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a4c4e46f4.jpg"/>
+				<p class="text_top">2017我的家乡头条</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/ueditor/php/upload/image/20180906/1536204519460052.jpg"/>
+				<p class="text_top">OPPO R17系列</p>	
+				<div class="box1">
+					<h1>OPPO</h1>
+					<p >带上她,做一只耀眼的动物</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-08-07/5b69455ac457d.jpg"/>
+				<p class="text_top">贝壳找房</p>	
+				<div class="box1">
+					
+					<h1>贝壳</h1>
+					<p >VR看房</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-07-27/5b5ac93f41859.jpg"/>
+				<p class="text_top">青桔单车</p>	
+				<div class="box1">
+					<h1>滴滴出行</h1>
+					<p >你是出行侠,还是出行杀?</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a47775e22.jpg"/>
+				<p class="text_top">数字敦煌</p>	
+				<div class="box1">
+					<h1>腾讯公益</h1>
+					<p >数字敦煌</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a53b71f19.jpg"/>
+				<p class="text_top">抖音品牌升级片</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a4c4e46f4.jpg"/>
+				<p class="text_top">2017我的家乡头条</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/ueditor/php/upload/image/20180906/1536204519460052.jpg"/>
+				<p class="text_top">OPPO R17系列</p>	
+				<div class="box1">
+					<h1>OPPO</h1>
+					<p >带上她,做一只耀眼的动物</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-08-07/5b69455ac457d.jpg"/>
+				<p class="text_top">贝壳找房</p>	
+				<div class="box1">
+					<h1>贝壳</h1>
+					<p >VR看房</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-07-27/5b5ac93f41859.jpg"/>
+				<p class="text_top">青桔单车</p>	
+				<div class="box1">
+					<h1>滴滴出行</h1>
+					<p >你是出行侠,还是出行杀?</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a47775e22.jpg"/>
+				<p class="text_top">数字敦煌</p>	
+				<div class="box1">
+					<h1>腾讯公益</h1>
+					<p >数字敦煌</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a53b71f19.jpg"/>
+				<p class="text_top">抖音品牌升级片</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a4c4e46f4.jpg"/>
+				<p class="text_top">2017我的家乡头条</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/ueditor/php/upload/image/20180906/1536204519460052.jpg"/>
+				<p class="text_top">OPPO R17系列</p>	
+				<div class="box1">
+					<h1>OPPO</h1>
+					<p >带上她,做一只耀眼的动物</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-08-07/5b69455ac457d.jpg"/>
+				<p class="text_top">贝壳找房</p>	
+				<div class="box1">
+					<h1>贝壳</h1>
+					<p >VR看房</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-07-27/5b5ac93f41859.jpg"/>
+				<p class="text_top">青桔单车</p>	
+				<div class="box1">
+					<h1>滴滴出行</h1>
+					<p >你是出行侠,还是出行杀?</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a47775e22.jpg"/>
+				<p class="text_top">数字敦煌</p>	
+				<div class="box1">
+					<h1>腾讯公益</h1>
+					<p >数字敦煌</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a53b71f19.jpg"/>
+				<p class="text_top">抖音品牌升级片</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a4c4e46f4.jpg"/>
+				<p class="text_top">2017我的家乡头条</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/ueditor/php/upload/image/20180906/1536204519460052.jpg"/>
+				<p class="text_top">OPPO R17系列</p>	
+				<div class="box1">
+					<h1>OPPO</h1>
+					<p >带上她,做一只耀眼的动物</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-08-07/5b69455ac457d.jpg"/>
+				<p class="text_top">贝壳找房</p>	
+				<div class="box1">
+					<h1>贝壳</h1>
+					<p >VR看房</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-07-27/5b5ac93f41859.jpg"/>
+				<p class="text_top">青桔单车</p>	
+				<div class="box1">
+					<h1>滴滴出行</h1>
+					<p >你是出行侠,还是出行杀?</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a47775e22.jpg"/>
+				<p class="text_top">数字敦煌</p>	
+				<div class="box1">
+					<h1>腾讯公益</h1>
+					<p >数字敦煌</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a53b71f19.jpg"/>
+				<p class="text_top">抖音品牌升级片</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-06-15/5b23a4c4e46f4.jpg"/>
+				<p class="text_top">2017我的家乡头条</p>	
+				<div class="box1">
+					<h1>抖音</h1>
+					<p >抖音品牌升级片</p>
+				</div>
+			</div>
+			
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/ueditor/php/upload/image/20180906/1536204519460052.jpg"/>
+				<p class="text_top">OPPO R17系列</p>	
+				<div class="box1">
+					<h1>OPPO</h1>
+					<p >带上她,做一只耀眼的动物</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-08-07/5b69455ac457d.jpg"/>
+				<p class="text_top">贝壳找房</p>	
+				<div class="box1">
+					<h1>贝壳</h1>
+					<p >VR看房</p>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img  src="http://www.infinistudio.cn/Public//Upload/2018-07-27/5b5ac93f41859.jpg"/>
+				<p class="text_top">青桔单车</p>	
+				<div class="box1">
+					<h1>滴滴出行</h1>
+					<p >你是出行侠,还是出行杀?</p>
+				</div>
+			</div>
+		</div>	
+			
+		
+		<div class="bottom">
+			<div class="bottom-left">
+				<img style="width: 30px;height: 25px;" src="http://www.infinistudio.cn/Public/home/images/contact1.jpg"/>
+				<img style="width: 30px;height: 25px;" src="http://www.infinistudio.cn/Public/home/images/contact2.jpg"/>
+				<img style="width: 30px;height: 25px; margin-right: 10px;" src="http://www.infinistudio.cn/Public/home/images/contact3.jpg"/>
+			</div>
+			
+			
+			<div class="bottom-right">
+				<img style="width: 143px;height: 54px;" src="http://www.infinistudio.cn/Public/home/images/footer_logo.jpg"/>
+				<p>Infini Studio | 映纷创意</p>
+				<p>北京市朝阳区常营</p>
+				<p>TEL : 010-85394331</p>
+				<p>QQ : 7585917</p>
+				<p>Email : infinistudio@foxmail.com</p>
+				<p>weibo : @InfiniStudio</p>
+			</div>
+			
+			
+		</div>
+		
+		
+	</body>
+</html>

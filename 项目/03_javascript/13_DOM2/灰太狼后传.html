@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- saved from url=(0114)http://127.0.0.1:8020/03_javascript/13_DOM2/%E7%81%B0%E5%A4%AA%E7%8B%BC%E5%90%8E%E4%BC%A0.html?__hbt=1539419991932 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title></title>
+		<style type="text/css">
+			#all{
+				background-image:url(img/game_bg.jpg);
+				width: 320px;
+				height: 480px;
+			}
+			#wolfs{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div id="wolfs" style="left: 100px; top: 185px;"><img src="http://127.0.0.1:8020/03_javascript/13_DOM2/img/h1.png"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var arrPos =  [{
+				"l": "98px",
+				"t": "115px"
+			}, {
+				"l": "17px",
+				"t": "160px"
+			}, {
+				"l": "15px",
+				"t": "220px"
+			}, {
+				"l": "30px",
+				"t": "293px"
+			}, {
+				"l": "122px",
+				"t": "273px"
+			}, {
+				"l": "207px",
+				"t": "295px"
+			}, {
+				"l": "200px",
+				"t": "211px"
+			}, {
+				"l": "187px",
+				"t": "141px"
+			}, {
+				"l": "100px",
+				"t": "185px"
+			}]
+
+
+
+			//获取div（用来嵌套狼的图片）
+			var oWolf = document.getElementById("wolfs");
+			
+			//狼的图片数组
+			var wolfArr = ["img/h0.png", "img/h1.png", "img/h2.png", "img/h3.png", "img/h4.png", "img/h5.png", "img/h6.png", "img/h7.png", "img/h8.png", "img/h9.png"]
+			
+			
+			function wolfMove() {//小div随机移动函数
+			
+			//狼随机出现的位置
+				var wolfPos = getRandomNum(arrPos.length - 1, 0);
+				console.log(wolfPos)
+				oWolf.style.left = arrPos[wolfPos]["l"] ;
+				oWolf.style.top = arrPos[wolfPos]["t"] ;
+				
+				//创建存放狼的图片标签
+				var wolfImg = document.createElement("img");
+				//加到包裹它的div中
+				oWolf.appendChild(wolfImg);
+				//记录定时器走过的次数
+				var count = 0
+				//记录狼图片的下标
+				var index = 0
+				//点击狼后执行的次数
+				var da=0;
+			var movertimer;
+			var movertimer = setInterval(function() {
+					//狼从坑里钻出来的过程（5张图依次替换）
+					if(count<=5){
+						wolfImg.src =wolfArr[index];
+						index++;
+					}
+					//狼钻进洞的过程（5张图倒着依次替换）
+					else if(count>5&&count<=10){
+						index--;
+						wolfImg.scr=wolfArr[index];
+					}
+					//清除定时器，清除狼的图片
+					else{
+						clearInterval(movertimer);
+							wolfImg.remove();
+							wolfMove();//内调函数，循环执行
+					}
+					//点击图片清除定时器 换其他图片
+					wolfImg.onclick=function(){
+						daindex=6;
+						if(da<=4){
+						wolfImg.src =wolfArr[daindex];
+						daindex++;
+						da++;
+					}else{
+						clearInterval(movertimer);
+						wolfMove();
+						}
+						}
+					
+				count++;//每完成一次狼出洞的过程，count加1；
+				
+			}, 200)
+			
+			}
+			
+			wolfMove();//执行函数
+			
+		//随机数取狼图片数组下标	
+		function getRandomNum(max,min){
+		var num = Math.floor(Math.random() * (max - min + 1) + min);
+		return num;
+			}
+		
+		
+		</script>
+	</body>
+</html>

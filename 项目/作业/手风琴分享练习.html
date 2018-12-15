@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+			}
+			.box {
+				width: 1050px;
+				height: 300px;
+				margin: 100px auto;
+				overflow: hidden;
+			}
+			.accordion li {
+				float: left;
+				width: 100px;
+				height: 300px;
+				color: #000;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<ul class="accordion">
+				<li style="background: #f99;">1</li>
+				<li style="background: #9ff;">2</li>
+				<li style="background: #f9f;">3</li>
+				<li style="background: #9f9;">4</li>
+				<li style="background: blue;">5</li>
+				<li style="width:450px;background: yellow;">6</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			function accordion(){
+				var obox = document.querySelector(".box");
+				var accordion = obox.querySelector(".accordion");
+				var olist = accordion.getElementsByTagName("li");
+				var i = 0;
+				var timer = null;
+				for(var i = 0;i<olist.length;i++){
+					olist[i].index = i;
+					olist[i].onmouseover = function(){
+						var index = this.index;
+						if(timer){
+							clearInterval(timer);
+						}
+						timer = setInterval(function(){
+							var iwidth = obox.offsetWidth;
+							for(var i = 0;i<olist.length;i++){
+							if(index != olist[i].index){
+								var speed = (100-olist[i].offsetWidth)/5;
+								speed = speed>0 ? Math.ceil(speed):Math.floor(speed);
+								olist[i].style.width = olist[i].offsetWidth+speed +"px";
+								iwidth -= olist[i].offsetWidth;
+							}
+							olist[index].style.width = iwidth + "px";
+							}
+						},30)
+					}
+				}
+			}
+					accordion();
+		</script>
+	</body>
+
+</html>

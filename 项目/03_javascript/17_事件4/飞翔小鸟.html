@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.home{
+				background-image: url(img/bg.jpg);
+				width: 320px;
+				height: 480px;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+			/* 时间图片*/
+			.home_time img{
+				position: absolute;
+				left: 50%;
+				margin-left: -14px;
+				top: 8%;
+			}
+			@-webkit-keyframes move{
+				from{
+					margin-top: 0px;
+				}
+				33%{
+					margin-top: -10px;
+				}
+				66%{
+					margin-top: 0px;
+				}
+				to{
+					margin-top: 10px;
+				}
+			}
+			/* 标题图+鸟*/
+			.home_title{
+				position: relative;
+				top: 25%;
+				width: 100%;
+				height:77px ;
+				left: 12%;
+			}
+			.home_title img:nth-child(1){
+				position: absolute;
+				-webkit-animation: move 2s linear infinite alternate ;
+				-o-animation: move 2s linear infinite alternate ;
+				animation: move 2s linear infinite alternate ;
+			}
+			.home_title img:nth-child(2){
+				position: absolute;
+				top: 27%;
+				left:62%;
+				-webkit-animation: move 2s linear infinite alternate ;
+				-o-animation: move 2s linear infinite alternate ;
+				animation: move 2s linear infinite alternate ;
+			}
+			.home_btn{
+				position: absolute;
+				left: 50%;
+				margin-left: -42px;
+				top: 60%;
+			}
+			.home_bottom{
+				width:1400px;
+				position: absolute;
+				top: 87.5%;
+			}
+			
+			.home_bottom_img:nth-child(1){
+				float: left;
+				-webkit-animation:move_banner 10s linear infinite normal ;
+				-o-animation:move_banner 10s linear infinite normal ;
+				animation:move_banner 10s linear infinite normal ;
+			}
+			.home_bottom_img:nth-child(2){
+				float: left;
+				-webkit-animation:move_banner 10s linear infinite normal ;
+				-o-animation:move_banner 10s linear infinite normal ;
+				animation:move_banner 10s linear infinite normal ;
+			}
+			
+			@-webkit-keyframes move_banner {
+				from{
+					margin-left: 0;
+				}
+				to{
+					margin-left: -300px;
+				}
+			
+		
+		</style>
+	</head>
+	<body>
+		<!--首页-->
+		<div class="home">
+			<div class="home_time">
+				<img src="img/0.jpg"/>
+			</div>
+			<div class="home_title">
+				<img src="img/head.jpg"/>
+				<img src="img/bird1.png"/>
+			</div>
+			<div class="home_btn">
+				<img src="img/start.jpg"/>
+			</div>
+			<div class="home_bottom">
+				<div class="home_bottom_img">
+					<img src="img/banner.jpg"/>
+					<img src="img/banner.jpg"/>
+				</div>
+			</div>
+		</div>
+		
+		
+			
+		<script type="text/javascript">
+			var oHome = document.getElementsByClassName("home");
+			var oBtn = document.getElementsByClassName("home_btn");
+			//鸟最大运动范围
+			var maxNiao = oContent.clientHeight - oBird.offsetHeight 
+			
+			//点击开始
+			oBtn.onclick = function(){
+				oHome.style.display = "none";
+				oContent.style.display = "block";
+			}
+			
+    	</script>
+	</body>
+</html>

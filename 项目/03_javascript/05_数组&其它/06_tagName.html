@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_tagName</title>
+		<style type="text/css">
+			.all div{
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="theDiv" class="all">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="all">
+		<div></div>
+		<div></div>
+		<div></div>
+		</div>
+		
+		<script type="text/javascript">
+			//通过标签名获取标签
+			//获取页面的所有div标签，divs是数组
+			var divs = document.getElementsByTagName("div");
+			console.log(divs.length)//8
+			
+			//获取ID值为theDiv的div标签
+			var theDiv = document.getElementById("theDiv");
+			//获取theDiv里的div标签
+			var oTheDivs = theDiv.getElementsByTagName("div");
+			console.log(oTheDivs.length);//3
+			
+			//获取theDiv里的第二个div
+			oTheDivs[1].style.backgroundColor="black";
+			
+			//给oTheDivs中的div添加点击事件
+			for(var i=0;i<oTheDivs.length;i++){
+				oTheDivs[i].onclick=function(){
+					console.log("111");
+				}
+			}
+			
+			//通过class类名获取标签
+			var alls =document.getElementsByClassName("all");
+			console.log(alls.length);//2
+		</script>
+	</body>
+</html>

@@ -1,0 +1,112 @@
+     <html>
+ <head>
+  <title>键盘游戏完整版</title>
+ </head>
+ <script>
+  var speet=1; //移动的速度
+  function createDiv(){
+   var createbutton=document.createElement("p");
+   createbutton.style.width="800px";
+   createbutton.style.height="1000px";
+   createbutton.style.border="2px solid";
+   document.body.appendChild(createbutton);
+  }
+  function createSource(){
+  var createSource;   
+  var score=500; //升级的最低积分
+  var sco=0;  //积分
+  var i=1;  //等级
+   init();
+   function init(){
+       createSource=document.createElement("p");
+    createSource.style.width="100px";
+    createSource.style.height="20px";
+    createSource.style.border="1px solid blue";
+    createSource.innerHTML="积分:"+sco;
+    createSource.position="absolute";
+    document.body.appendChild(createSource);
+   }
+   this.leijia=function(){
+    sco+=10;
+    createSource.innerHTML="积分：";
+    createSource.innerHTML="积分："+sco;
+    //alert(zhengbai);
+    if(sco == score){
+     score+=500;
+     alert("恭喜升级:"+i++);
+     speet+=1;
+     alert("speett-----------------"+speet);
+    }
+   }
+  }
+  function CharA(charDiv){
+    var CharArray=new Array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","S","Y","Z");
+    var a;
+    init();
+   function init(){
+    a=document.createElement("p");
+    var charDiv=CharArray[parseInt(Math.random() * 26)];
+    a.innerHTML=charDiv;
+    a.style.width="50px";
+    a.style.position="absolute";
+    a.style.height="50px";
+    a.style.top="50px";
+    a.style.left=Math.random() * 100 + Math.random() * 500 + 50 + "px";
+    document.body.appendChild(a);
+   }
+   this.shoaa=function(){
+    init();
+     
+   }
+   this.move=function(){
+    a.style.top=parseInt(a.style.top)+speet+"px";
+    if(parseInt(a.style.top)>700){
+     alert("game over");
+     clearInterval(time);
+    }
+   }
+   this.charinner=function(){
+    return a.innerHTML;
+   }
+   this.hidden=function(){
+    a.style.display="none";
+    document.body.removeChild(a);
+   }
+  }
+  function Game(){
+   var chars=new Array();
+   var cs=new createSource();
+   createDiv();
+   function initData(){
+    for(var i=0;i<10;i++){
+    var charA=new CharA();
+    chars.push(charA);
+    }
+   }
+   initData();
+   this.start=function(){
+    time=setInterval(function (){
+    for(var i=0;i<chars.length;i++){
+      chars[i].move();
+    }
+    },100);
+   }
+   document.onkeydown=function(e){
+    for(var i=0;i<chars.length;i++){
+     //alert(chars[i].innerHTML);
+     if(String.fromCharCode(e.which)==chars[i].charinner()){
+      chars[i].hidden();
+      chars[i].shoaa();
+      cs.leijia();
+     }
+    }
+   } 
+  }
+  window.onload=function(){
+   var game=new Game();
+   game.start();
+  }
+ </script>
+ <body>
+ </body>
+</html>

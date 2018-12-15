@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 100px;
+				height: 100px;
+				background-color: wheat;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			
+			oAll.onmousedown = function(){
+				document.onmousemove = function(ev){
+					var ev = ev || window.event;	
+					oAll.style.left = ev.clientX - oAll.offsetWidth/2+"px";
+					oAll.style.top = ev.clientY - oAll.offsetHeight/2+"px";
+					console.log(oAll.offsetWidth)
+					console.log(ev.clientX)
+				}
+			}
+			//冒泡事件，子标签的父级也会响应
+			
+			//事件不在响应
+			oAll.onmouseup = function(){
+				document.onmousemove = null;
+			}
+			
+			
+		</script>
+	</body>
+</html>
